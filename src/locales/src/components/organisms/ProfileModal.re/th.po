@@ -41,9 +41,12 @@ msgstr "ผู้เริ่มต้นสมบูรณ์"
 msgid "Complete your player profile"
 msgstr "กรอกข้อมูลโปรไฟล์นักกีฬาของคุณ"
 
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "เติมข้อมูลโปรไฟล์ของคุณ"
+
 #: src/components/organisms/ProfileModal.re.mjs:329
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
+msgid "Complete your profile before sharing availability with players and hosts."
 msgstr "กรอกข้อมูลโปรไฟล์ให้ครบก่อนแชร์ตารางว่างกับผู้เล่นและเจ้าภาพ"
 
 #: src/components/organisms/ProfileModal.re.mjs:263
@@ -70,10 +73,12 @@ msgid "Email address"
 msgstr "ที่อยู่อีเมล"
 
 #: src/components/organisms/ProfileModal.re.mjs:304
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
 msgstr "ที่อยู่อีเมลนี้ไม่ว่าง กรุณาใช้อีเมลอื่นหรือเข้าสู่ระบบด้วยอีเมลที่คุณกำลังพยายามใช้ที่นี่"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "ไม่สามารถเปลี่ยนอีเมลได้"
 
 #: src/components/organisms/ProfileModal.re.mjs:115
 msgid "Email is required"
@@ -83,9 +88,12 @@ msgstr "ต้องกรอกอีเมล"
 msgid "Female"
 msgstr "หญิง"
 
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
+
 #: src/components/organisms/ProfileModal.re.mjs:380
-msgid ""
-"For event updates and notifications. We'll email you a link to confirm it."
+msgid "For event updates and notifications. We'll email you a link to confirm it."
 msgstr "สำหรับการอัปเดตกิจกรรมและการแจ้งเตือน เราจะส่งลิงก์ยืนยันไปทางอีเมล"
 
 #: src/components/organisms/ProfileModal.re.mjs:514
@@ -128,6 +136,10 @@ msgstr "NR"
 msgid "pkuru"
 msgstr "pkuru"
 
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "ไม่ต้องการระบุ"
+
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "โปร"
@@ -136,6 +148,10 @@ msgstr "โปร"
 #: src/components/molecules/RatingSourceChip.re.mjs:50
 msgid "provisional"
 msgstr "ชั่วคราว"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "บันทึกและเข้าร่วมกิจกรรม"
 
 #: src/components/organisms/ProfileModal.re.mjs:615
 msgid "Save profile"
@@ -146,9 +162,7 @@ msgid "Self-rated"
 msgstr "ประเมินตนเอง"
 
 #: src/components/organisms/ProfileModal.re.mjs:553
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 msgstr "แนะนำตัวเองเล็กน้อยเพื่อให้ผู้จัดหรือผู้เล่นคนอื่นรู้ว่าทำไมควรเชิญคุณ"
 
 #: src/components/molecules/DuprRatingBadge.re.mjs:69
@@ -159,30 +173,10 @@ msgstr "เดี่ยว"
 msgid "That doesn't look like an email address."
 msgstr "ดูเหมือนไม่ใช่ที่อยู่อีเมล"
 
-#: src/components/organisms/ProfileModal.re.mjs:326
-msgid "We need a few details before you can join this event"
-msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
-
-#: src/components/organisms/ProfileModal.re.mjs:335
-#~ msgid "Complete your profile"
-#~ msgstr "เติมข้อมูลโปรไฟล์ของคุณ"
-
-#: src/components/organisms/ProfileModal.re.mjs:303
-#~ msgid "Email cannot be changed"
-#~ msgstr "ไม่สามารถเปลี่ยนอีเมลได้"
-
-#: src/components/organisms/ProfileModal.re.mjs:363
-#~ msgid "For event updates and notifications"
-#~ msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
-
-#: src/components/organisms/ProfileModal.re.mjs:397
-#~ msgid "Prefer not to say"
-#~ msgstr "ไม่ต้องการระบุ"
-
-#: src/components/organisms/ProfileModal.re.mjs:429
-#~ msgid "Save & Join Event"
-#~ msgstr "บันทึกและเข้าร่วมกิจกรรม"
-
 #: src/components/organisms/ProfileModal.re.mjs:278
 #~ msgid "This is how others will see you"
 #~ msgstr "นี่คือสิ่งที่คนอื่นจะเห็นคุณ"
+
+#: src/components/organisms/ProfileModal.re.mjs:326
+msgid "We need a few details before you can join this event"
+msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"

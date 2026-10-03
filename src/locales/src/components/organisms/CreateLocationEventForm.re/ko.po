@@ -95,6 +95,18 @@ msgstr "{0}개 이벤트"
 msgid "{0} events"
 msgstr "{0}개 이벤트"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:536
+#~ msgid "{0} hours"
+#~ msgstr "{0}시간"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:536
+#~ msgid "{0} hours and {1} minutes"
+#~ msgstr "{0}시간 {1}분"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:538
+#~ msgid "{0} minutes"
+#~ msgstr "{0}분"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1019
 msgid "{0} without a venue"
 msgstr "장소가 없는 {0}"
@@ -143,6 +155,18 @@ msgstr "6시간 전"
 msgid "72 hours before"
 msgstr "72시간 전"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:827
+#~ msgid "A deposit authorization is collected when someone joins. No money is actually charged and the authorization is removed automatically after your event. You should collect any participation fees manually in person. You can also manually approve attendees by clicking their name in the RSVP list."
+#~ msgstr "참가자가 등록할 때 보증금 승인이 수집됩니다. 실제로 금액이 청구되지 않으며, 이벤트 종료 후 승인이 자동으로 취소됩니다. 참가비는 현장에서 직접 수령하시기 바랍니다. 또한 RSVP 목록에서 참가자 이름을 클릭하여 수동으로 승인할 수도 있습니다."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:762
+#~ msgid "A deposit authorization is made. This is not a charge and it automatically disappears from the person's account. You can manually approve attendees who do not authorize payment by clicking their name in the RSVP list."
+#~ msgstr "보증금 승인이 이루어집니다. 이는 실제 청구가 아니며 해당 사용자의 계정에서 자동으로 사라집니다. RSVP 목록에서 이름을 클릭하여 결제 승인을 하지 않은 참가자를 수동으로 승인할 수 있습니다."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:851
+#~ msgid "A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list."
+#~ msgstr "참가자가 등록할 때 환불 가능한 보증금이 청구됩니다. RSVP 목록에서 참가자 이름을 클릭하여 수동으로 승인할 수 있습니다."
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1159
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1181
 msgid "Active"
@@ -151,6 +175,10 @@ msgstr "활성"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:75
 msgid "activity is required"
 msgstr "종목이 필요합니다"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:817
+#~ msgid "Add any additional information about the event..."
+#~ msgstr "이벤트에 대한 추가 정보를 입력하세요..."
 
 #: src/components/molecules/TimeZoneField.re.mjs:70
 msgid "Alaska Time"
@@ -165,12 +193,8 @@ msgid "American Samoa Time"
 msgstr "아메리칸사모아 시간"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1210
-msgid ""
-"Anyone held as pending can be moved into the event from the RSVP list, which "
-"bypasses the payment requirement for them."
-msgstr ""
-"대기 상태인 참가자는 RSVP 목록에서 행사로 이동시킬 수 있으며, 이 경우 결제 요"
-"건이 면제됩니다."
+msgid "Anyone held as pending can be moved into the event from the RSVP list, which bypasses the payment requirement for them."
+msgstr "대기 상태인 참가자는 RSVP 목록에서 행사로 이동시킬 수 있으며, 이 경우 결제 요건이 면제됩니다."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1104
 msgid "Anything players should know before joining or arriving."
@@ -180,35 +204,37 @@ msgstr "참가 또는 도착 전에 알아야 할 사항."
 msgid "Arizona Time"
 msgstr "애리조나 시간"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:460
+#~ msgid "at"
+#~ msgstr "에"
+
 #: src/components/molecules/TimeZoneField.re.mjs:76
 msgid "Atlantic Time"
 msgstr "대서양 시간"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:798
+#~ msgid "Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event."
+#~ msgstr "참가자는 RSVP 시 카드 저장을 요청받지만, 승인이나 청구는 이루어지지 않으며 여기서 청구할 수 없습니다. 참가비는 행사 현장에서 받으세요."
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1166
-msgid ""
-"Attendees are asked to save a card when they RSVP, but nothing is authorized "
-"or charged, and you can't charge it from here. Collect the fee at the event. "
-"Club members are exempted from this."
-msgstr ""
-"참가자는 RSVP 시 카드를 저장하도록 요청받지만, 승인이나 결제는 이루어지지 않"
-"으며 여기서 결제할 수도 없습니다. 참가비는 이벤트 현장에서 받으세요. 클럽 회"
-"원은 면제됩니다."
+msgid "Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event. Club members are exempted from this."
+msgstr "참가자는 RSVP 시 카드를 저장하도록 요청받지만, 승인이나 결제는 이루어지지 않으며 여기서 결제할 수도 없습니다. 참가비는 이벤트 현장에서 받으세요. 클럽 회원은 면제됩니다."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:805
+#~ msgid "Attendees cannot cancel their RSVP after this deadline"
+#~ msgstr "이 마감 시간 이후에는 참석자가 RSVP를 취소할 수 없습니다"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1498
 msgid "Attendees cannot cancel their RSVP after this deadline."
 msgstr "이 기한 이후에는 참가자가 참가 신청을 취소할 수 없습니다."
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:821
+#~ msgid "Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account."
+#~ msgstr "참가자는 RSVP 시 카드를 저장하며, 사전에 청구되거나 보류되는 금액은 없습니다. RSVP 목록에서 원하는 때에 참가자 한 명 또는 전원에게 청구할 수 있고, 금액은 Stripe 계정으로 입금됩니다."
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1189
-msgid ""
-"Attendees save a card when they RSVP and nothing is charged or held up "
-"front. From the RSVP list you can charge one attendee or everyone whenever "
-"you choose, and the money goes to your Stripe account. Club members can be "
-"exempted or not, which you can toggle from the Club home page."
-msgstr ""
-"참가자는 RSVP 시 카드를 저장하며, 사전에 결제하거나 보류되는 금액은 없습니"
-"다. RSVP 목록에서 원하는 때에 참가자 한 명 또는 전원에게 결제를 청구할 수 있"
-"고, 금액은 내 Stripe 계정으로 입금됩니다. 클럽 회원 면제 여부는 클럽 홈 페이"
-"지에서 설정할 수 있습니다."
+msgid "Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account. Club members can be exempted or not, which you can toggle from the Club home page."
+msgstr "참가자는 RSVP 시 카드를 저장하며, 사전에 결제하거나 보류되는 금액은 없습니다. RSVP 목록에서 원하는 때에 참가자 한 명 또는 전원에게 결제를 청구할 수 있고, 금액은 내 Stripe 계정으로 입금됩니다. 클럽 회원 면제 여부는 클럽 홈 페이지에서 설정할 수 있습니다."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1774
 msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
@@ -217,6 +243,14 @@ msgstr "참가자는 RSVP 시 카드를 저장합니다. 자동으로 청구되�
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1456
 msgid "Cancel deadline"
 msgstr "취소 기한"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:762
+#~ msgid "Cancel deadline (optional)"
+#~ msgstr "취소 마감 시간 (선택사항)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1309
+#~ msgid "Casual play focused on fun and social interaction. Perfect for all skill levels."
+#~ msgstr "즐거움과 사교에 집중한 캐주얼 플레이. 모든 실력 수준에 적합합니다."
 
 #: src/components/molecules/TimeZoneField.re.mjs:96
 msgid "Central Australia Time"
@@ -260,6 +294,14 @@ msgstr "이벤트 시간 선택"
 msgid "Competitive"
 msgstr "경쟁"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:879
+#~ msgid "Connect a Stripe account"
+#~ msgstr "Stripe 계정 연결"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:790
+#~ msgid "Connect a Stripe account to activate"
+#~ msgstr "활성화하려면 Stripe 계정을 연결하세요"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1194
 msgid "Connect a Stripe account to enable this"
 msgstr "이 기능을 사용하려면 Stripe 계정을 연결하세요"
@@ -290,6 +332,10 @@ msgstr "{0} 만들기"
 msgid "Create event"
 msgstr "이벤트 만들기"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1453
+#~ msgid "Create Event"
+#~ msgstr "이벤트 만들기"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:832
 msgid "Created"
 msgstr "생성됨"
@@ -301,6 +347,10 @@ msgstr "이벤트 생성 중…"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1650
 msgid "Date"
 msgstr "날짜"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+#~ msgid "daytime"
+#~ msgstr "낮 시간"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1522
 msgid "Discard"
@@ -314,10 +364,21 @@ msgstr "완료"
 msgid "Draft filled in. Review the details before creating the event."
 msgstr "초안이 작성되었습니다. 이벤트를 만들기 전에 세부 정보를 확인하세요."
 
+#: src/components/molecules/ClockRangePicker.re.mjs:524
+#~ msgid "Drag around the clock · Arrow keys move 15 minutes"
+#~ msgstr "시계를 드래그하세요 · 방향키로 15분 단위 이동"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+#~ msgid "Drag end time"
+#~ msgstr "종료 시간 드래그"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+#~ msgid "Drag start time"
+#~ msgstr "시작 시간 드래그"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1705
 msgid "Drag the window to move it, or drag either edge to resize."
-msgstr ""
-"창을 드래그하여 이동하거나 양쪽 가장자리를 드래그하여 크기를 조절하세요."
+msgstr "창을 드래그하여 이동하거나 양쪽 가장자리를 드래그하여 크기를 조절하세요."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1037
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1294
@@ -328,6 +389,10 @@ msgstr "드릴 세션"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1277
 msgid "DUPR rated"
 msgstr "DUPR 레이팅"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:397
+#~ msgid "duration"
+#~ msgstr "소요 시간"
 
 #: src/components/molecules/TimeZoneField.re.mjs:102
 msgid "Eastern Australia Time"
@@ -345,9 +410,21 @@ msgstr "동부 시간"
 msgid "Edit"
 msgstr "편집"
 
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+#~ msgid "Editing end"
+#~ msgstr "종료 시간 편집 중"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+#~ msgid "Editing start"
+#~ msgstr "시작 시간 편집 중"
+
 #: src/components/molecules/EventTimeRangeInputs.re.mjs:128
 msgid "End"
 msgstr "종료"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:447
+#~ msgid "end time"
+#~ msgstr "종료 시간"
 
 #: src/components/molecules/EventTimeRangeInputs.re.mjs:129
 msgid "End time"
@@ -369,9 +446,25 @@ msgstr "이벤트 날짜가 필요합니다"
 msgid "Event details"
 msgstr "이벤트 상세"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1121
+#~ msgid "Event Details"
+#~ msgstr "이벤트 세부 정보"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:813
+#~ msgid "Event details (optional)"
+#~ msgstr "이벤트 세부 정보 (선택 사항)"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1095
 msgid "Event notes"
 msgstr "이벤트 메모"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:607
+#~ msgid "Event schedule"
+#~ msgstr "이벤트 일정"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:299
+#~ msgid "Event time range"
+#~ msgstr "이벤트 시간 범위"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1081
 msgid "Event title"
@@ -397,6 +490,10 @@ msgstr "이벤트는 최소 15분 이상이어야 합니다."
 msgid "Failed"
 msgstr "실패"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1414
+#~ msgid "Find Players"
+#~ msgstr "플레이어 찾기"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1349
 msgid "Find players for your event?"
 msgstr "이벤트를 위한 플레이어를 찾으시겠습니까?"
@@ -421,18 +518,21 @@ msgstr "형식 옵션"
 msgid "Friday night pickleball"
 msgstr "금요일 밤 피클볼"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:741
+#~ msgid "Friday Night Pickleball"
+#~ msgstr "금요일 밤 피클볼"
+
 #: src/components/molecules/TimeZoneField.re.mjs:116
 msgid "Hawaii Time"
 msgstr "하와이 시간"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1424
-msgid ""
-"Hold new joins  in the pending list and admit players either manually or "
-"automatically with the Smart RSVPs algorithm that maximizes skill level and "
-"session quality."
-msgstr ""
-"새로운 참가 신청을 대기 목록에 보류하고, 수동으로 또는 실력 수준과 세션 품질"
-"을 극대화하는 스마트 RSVP 알고리즘으로 자동 승인하세요."
+msgid "Hold new joins  in the pending list and admit players either manually or automatically with the Smart RSVPs algorithm that maximizes skill level and session quality."
+msgstr "새로운 참가 신청을 대기 목록에 보류하고, 수동으로 또는 실력 수준과 세션 품질을 극대화하는 스마트 RSVP 알고리즘으로 자동 승인하세요."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1100
+#~ msgid "Hold new joins and admit players automatically based on match quality."
+#~ msgstr "새 참가 신청을 보류하고 경기 수준에 따라 자동으로 승인합니다."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1420
 msgid "Hold RSVPs"
@@ -457,6 +557,10 @@ msgstr "한국 시간"
 #: src/components/molecules/TimeZoneField.re.mjs:118
 msgid "Line Islands Time"
 msgstr "라인 제도 시간"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1026
+#~ msgid "List your event publicly to help fill open spots"
+#~ msgstr "빈 자리를 채우기 위해 이벤트를 공개로 나열하세요"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1353
 msgid "List your event publicly to help fill open spots."
@@ -483,13 +587,33 @@ msgstr "현재 위치 검색을 사용할 수 없습니다"
 msgid "Max players"
 msgstr "최대 인원"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:749
+#~ msgid "Max RSVPs (optional)"
+#~ msgstr "최대 RSVP (선택 사항)"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1387
 msgid "Minimum rating"
 msgstr "최소 레이팅"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:990
+#~ msgid "Minimum rating (optional)"
+#~ msgstr "최소 레이팅 (선택 사항)"
+
 #: src/components/molecules/TimeZoneField.re.mjs:74
 msgid "Mountain Time"
 msgstr "산악 표준시"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+#~ msgid "Move start and end to daytime hours"
+#~ msgstr "시작·종료 시간을 주간으로 변경"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+#~ msgid "Move start and end to nighttime hours"
+#~ msgstr "시작·종료 시간을 야간으로 변경"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1060
+#~ msgid "New joins are held and admitted automatically based on match quality"
+#~ msgstr "새로운 참가 신청은 보류된 후 매치 적합도에 따라 자동으로 승인됩니다"
 
 #: src/components/molecules/TimeZoneField.re.mjs:112
 msgid "New Zealand Time"
@@ -498,6 +622,10 @@ msgstr "뉴질랜드 시간"
 #: src/components/molecules/TimeZoneField.re.mjs:84
 msgid "Newfoundland Time"
 msgstr "뉴펀들랜드 시간"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+#~ msgid "nighttime"
+#~ msgstr "야간"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1461
 msgid "No deadline"
@@ -510,6 +638,11 @@ msgstr "제한 없음"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1396
 msgid "No minimum"
 msgstr "최소값 없음"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:465
+#: src/components/organisms/CreateLocationEventForm.re.mjs:484
+#~ msgid "Not set"
+#~ msgstr "설정 안 됨"
 
 #: src/components/molecules/TimeZoneField.re.mjs:78
 msgid "Pacific Time"
@@ -531,6 +664,10 @@ msgstr "플레이어 가용성 히트맵"
 msgid "Players"
 msgstr "플레이어"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:834
+#~ msgid "Price"
+#~ msgstr "가격"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1042
 msgid "Private event"
 msgstr "비공개 이벤트"
@@ -542,6 +679,10 @@ msgstr "공개"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1041
 msgid "Public · Up to {maxRsvpsStr} players"
 msgstr "공개 · 최대 {maxRsvpsStr}명"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:505
+#~ msgid "Public event"
+#~ msgstr "공개 이벤트"
 
 #: src/components/molecules/TimeZoneField.re.mjs:98
 msgid "Queensland Time"
@@ -560,6 +701,10 @@ msgstr "레크리에이션"
 msgid "Remove"
 msgstr "제거"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1391
+#~ msgid "Require payment from attendees"
+#~ msgstr "참가자에게 결제 요구"
+
 #: src/components/molecules/TimeZoneField.re.mjs:110
 msgid "Samoa Time"
 msgstr "사모아 시간"
@@ -567,6 +712,10 @@ msgstr "사모아 시간"
 #: src/components/organisms/AutocompleteLocation.re.mjs:361
 msgid "Search for a venue or address"
 msgstr "장소 또는 주소 검색"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1309
+#~ msgid "Serious play with rankings and ratings. Games may affect your player rating."
+#~ msgstr "순위와 레이팅이 있는 진지한 경기. 게임이 플레이어 레이팅에 영향을 줄 수 있습니다."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1624
 msgid "Show less"
@@ -579,6 +728,10 @@ msgstr "싱가포르 시간"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1381
 msgid "Skill level"
 msgstr "실력 수준"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
+#~ msgid "Smart RSVP"
+#~ msgstr "스마트 RSVP"
 
 #: src/components/molecules/TimeZoneField.re.mjs:114
 msgid "Solomon Islands Time"
@@ -596,6 +749,14 @@ msgstr "시작"
 msgid "Start and end time"
 msgstr "시작 및 종료 시간"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:703
+#~ msgid "Start date and time"
+#~ msgstr "시작 날짜 및 시간"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:447
+#~ msgid "start time"
+#~ msgstr "시작 시간"
+
 #: src/components/molecules/EventTimeRangeInputs.re.mjs:123
 msgid "Start time"
 msgstr "시작 시간"
@@ -605,22 +766,28 @@ msgid "Tap to add your time"
 msgstr "탭하여 시간 추가"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1518
-msgid ""
-"The assistant proposed {0}. Each keeps its own venue, date and time; the "
-"rest of this form applies to all of them."
-msgstr ""
-"어시스턴트가 {0}을(를) 제안했습니다. 각 이벤트는 고유한 장소, 날짜, 시간을 유"
-"지하며, 이 양식의 나머지 설정은 모두에게 적용됩니다."
+msgid "The assistant proposed {0}. Each keeps its own venue, date and time; the rest of this form applies to all of them."
+msgstr "어시스턴트가 {0}을(를) 제안했습니다. 각 이벤트는 고유한 장소, 날짜, 시간을 유지하며, 이 양식의 나머지 설정은 모두에게 적용됩니다."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1684
 msgid "The date and times on this form are in this zone."
 msgstr "이 양식의 날짜와 시간은 해당 시간대를 기준으로 합니다."
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:785
+#~ msgid "The participation fee is charged automatically and transferred to your Stripe account."
+#~ msgstr "참가비는 자동으로 청구되어 회원님의 Stripe 계정으로 이체됩니다."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:850
+#~ msgid "The participation fee is charged immediately and transferred to your Stripe account."
+#~ msgstr "참가비는 즉시 청구되어 귀하의 Stripe 계정으로 이체됩니다."
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:863
-msgid ""
-"The times below are shown in this zone, and every event is created in it."
-msgstr ""
-"아래 시간은 이 시간대로 표시되며, 모든 이벤트가 이 시간대로 생성됩니다."
+msgid "The times below are shown in this zone, and every event is created in it."
+msgstr "아래 시간은 이 시간대로 표시되며, 모든 이벤트가 이 시간대로 생성됩니다."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1030
+#~ msgid "This event is private"
+#~ msgstr "비공개 이벤트입니다"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1369
 msgid "This event is public"
@@ -647,6 +814,10 @@ msgstr "영국 시간"
 msgid "Update event"
 msgstr "이벤트 업데이트"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1453
+#~ msgid "Update Event"
+#~ msgstr "이벤트 업데이트"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1029
 msgid "Venue, date, start and end time"
 msgstr "장소, 날짜, 시작 및 종료 시간"
@@ -663,256 +834,13 @@ msgstr "서호주 시간"
 msgid "With a Stripe account"
 msgstr "Stripe 계정이 있는 경우"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1155
-msgid "Without a Stripe account"
-msgstr "Stripe 계정이 없는 경우"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:536
-#~ msgid "{0} hours"
-#~ msgstr "{0}시간"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:536
-#~ msgid "{0} hours and {1} minutes"
-#~ msgstr "{0}시간 {1}분"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:538
-#~ msgid "{0} minutes"
-#~ msgstr "{0}분"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:827
-#~ msgid ""
-#~ "A deposit authorization is collected when someone joins. No money is "
-#~ "actually charged and the authorization is removed automatically after "
-#~ "your event. You should collect any participation fees manually in person. "
-#~ "You can also manually approve attendees by clicking their name in the "
-#~ "RSVP list."
-#~ msgstr ""
-#~ "참가자가 등록할 때 보증금 승인이 수집됩니다. 실제로 금액이 청구되지 않으"
-#~ "며, 이벤트 종료 후 승인이 자동으로 취소됩니다. 참가비는 현장에서 직접 수령"
-#~ "하시기 바랍니다. 또한 RSVP 목록에서 참가자 이름을 클릭하여 수동으로 승인"
-#~ "할 수도 있습니다."
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:762
-#~ msgid ""
-#~ "A deposit authorization is made. This is not a charge and it "
-#~ "automatically disappears from the person's account. You can manually "
-#~ "approve attendees who do not authorize payment by clicking their name in "
-#~ "the RSVP list."
-#~ msgstr ""
-#~ "보증금 승인이 이루어집니다. 이는 실제 청구가 아니며 해당 사용자의 계정에"
-#~ "서 자동으로 사라집니다. RSVP 목록에서 이름을 클릭하여 결제 승인을 하지 않"
-#~ "은 참가자를 수동으로 승인할 수 있습니다."
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:851
-#~ msgid ""
-#~ "A refundable deposit is collected when someone joins. You can manually "
-#~ "approve attendees by clicking their name in the RSVP list."
-#~ msgstr ""
-#~ "참가자가 등록할 때 환불 가능한 보증금이 청구됩니다. RSVP 목록에서 참가자 "
-#~ "이름을 클릭하여 수동으로 승인할 수 있습니다."
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:817
-#~ msgid "Add any additional information about the event..."
-#~ msgstr "이벤트에 대한 추가 정보를 입력하세요..."
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:460
-#~ msgid "at"
-#~ msgstr "에"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:798
-#~ msgid ""
-#~ "Attendees are asked to save a card when they RSVP, but nothing is "
-#~ "authorized or charged, and you can't charge it from here. Collect the fee "
-#~ "at the event."
-#~ msgstr ""
-#~ "참가자는 RSVP 시 카드 저장을 요청받지만, 승인이나 청구는 이루어지지 않으"
-#~ "며 여기서 청구할 수 없습니다. 참가비는 행사 현장에서 받으세요."
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:805
-#~ msgid "Attendees cannot cancel their RSVP after this deadline"
-#~ msgstr "이 마감 시간 이후에는 참석자가 RSVP를 취소할 수 없습니다"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:821
-#~ msgid ""
-#~ "Attendees save a card when they RSVP and nothing is charged or held up "
-#~ "front. From the RSVP list you can charge one attendee or everyone "
-#~ "whenever you choose, and the money goes to your Stripe account."
-#~ msgstr ""
-#~ "참가자는 RSVP 시 카드를 저장하며, 사전에 청구되거나 보류되는 금액은 없습니"
-#~ "다. RSVP 목록에서 원하는 때에 참가자 한 명 또는 전원에게 청구할 수 있고, "
-#~ "금액은 Stripe 계정으로 입금됩니다."
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:762
-#~ msgid "Cancel deadline (optional)"
-#~ msgstr "취소 마감 시간 (선택사항)"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1309
-#~ msgid ""
-#~ "Casual play focused on fun and social interaction. Perfect for all skill "
-#~ "levels."
-#~ msgstr "즐거움과 사교에 집중한 캐주얼 플레이. 모든 실력 수준에 적합합니다."
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:879
-#~ msgid "Connect a Stripe account"
-#~ msgstr "Stripe 계정 연결"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:790
-#~ msgid "Connect a Stripe account to activate"
-#~ msgstr "활성화하려면 Stripe 계정을 연결하세요"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1453
-#~ msgid "Create Event"
-#~ msgstr "이벤트 만들기"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:452
-#~ msgid "daytime"
-#~ msgstr "낮 시간"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:524
-#~ msgid "Drag around the clock · Arrow keys move 15 minutes"
-#~ msgstr "시계를 드래그하세요 · 방향키로 15분 단위 이동"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:130
-#~ msgid "Drag end time"
-#~ msgstr "종료 시간 드래그"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:130
-#~ msgid "Drag start time"
-#~ msgstr "시작 시간 드래그"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:397
-#~ msgid "duration"
-#~ msgstr "소요 시간"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:486
-#~ msgid "Editing end"
-#~ msgstr "종료 시간 편집 중"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:486
-#~ msgid "Editing start"
-#~ msgstr "시작 시간 편집 중"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:447
-#~ msgid "end time"
-#~ msgstr "종료 시간"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1121
-#~ msgid "Event Details"
-#~ msgstr "이벤트 세부 정보"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:813
-#~ msgid "Event details (optional)"
-#~ msgstr "이벤트 세부 정보 (선택 사항)"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:607
-#~ msgid "Event schedule"
-#~ msgstr "이벤트 일정"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:299
-#~ msgid "Event time range"
-#~ msgstr "이벤트 시간 범위"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1414
-#~ msgid "Find Players"
-#~ msgstr "플레이어 찾기"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:741
-#~ msgid "Friday Night Pickleball"
-#~ msgstr "금요일 밤 피클볼"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1100
-#~ msgid ""
-#~ "Hold new joins and admit players automatically based on match quality."
-#~ msgstr "새 참가 신청을 보류하고 경기 수준에 따라 자동으로 승인합니다."
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1026
-#~ msgid "List your event publicly to help fill open spots"
-#~ msgstr "빈 자리를 채우기 위해 이벤트를 공개로 나열하세요"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:749
-#~ msgid "Max RSVPs (optional)"
-#~ msgstr "최대 RSVP (선택 사항)"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:990
-#~ msgid "Minimum rating (optional)"
-#~ msgstr "최소 레이팅 (선택 사항)"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:503
-#~ msgid "Move start and end to daytime hours"
-#~ msgstr "시작·종료 시간을 주간으로 변경"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:503
-#~ msgid "Move start and end to nighttime hours"
-#~ msgstr "시작·종료 시간을 야간으로 변경"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1060
-#~ msgid "New joins are held and admitted automatically based on match quality"
-#~ msgstr "새로운 참가 신청은 보류된 후 매치 적합도에 따라 자동으로 승인됩니다"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:452
-#~ msgid "nighttime"
-#~ msgstr "야간"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:465
-#: src/components/organisms/CreateLocationEventForm.re.mjs:484
-#~ msgid "Not set"
-#~ msgstr "설정 안 됨"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:834
-#~ msgid "Price"
-#~ msgstr "가격"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:505
-#~ msgid "Public event"
-#~ msgstr "공개 이벤트"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1391
-#~ msgid "Require payment from attendees"
-#~ msgstr "참가자에게 결제 요구"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1309
-#~ msgid ""
-#~ "Serious play with rankings and ratings. Games may affect your player "
-#~ "rating."
-#~ msgstr ""
-#~ "순위와 레이팅이 있는 진지한 경기. 게임이 플레이어 레이팅에 영향을 줄 수 있"
-#~ "습니다."
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
-#~ msgid "Smart RSVP"
-#~ msgstr "스마트 RSVP"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:703
-#~ msgid "Start date and time"
-#~ msgstr "시작 날짜 및 시간"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:447
-#~ msgid "start time"
-#~ msgstr "시작 시간"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:785
-#~ msgid ""
-#~ "The participation fee is charged automatically and transferred to your "
-#~ "Stripe account."
-#~ msgstr "참가비는 자동으로 청구되어 회원님의 Stripe 계정으로 이체됩니다."
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:850
-#~ msgid ""
-#~ "The participation fee is charged immediately and transferred to your "
-#~ "Stripe account."
-#~ msgstr "참가비는 즉시 청구되어 귀하의 Stripe 계정으로 이체됩니다."
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1030
-#~ msgid "This event is private"
-#~ msgstr "비공개 이벤트입니다"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1453
-#~ msgid "Update Event"
-#~ msgstr "이벤트 업데이트"
-
 #: src/components/organisms/CreateLocationEventForm.re.mjs:773
 #~ msgid "With Stripe"
 #~ msgstr "Stripe 사용"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1155
+msgid "Without a Stripe account"
+msgstr "Stripe 계정이 없는 경우"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:751
 #~ msgid "Without Stripe"

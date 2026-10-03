@@ -13,124 +13,6 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/molecules/AIResponseCard.re.mjs:36
-msgid "Accept {0} events"
-msgstr "{0} 수락"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:610
-msgid "Action proposal"
-msgstr "액션 제안"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:281
-msgid "An error occurred. Please try again."
-msgstr "오류가 발생했습니다. 다시 시도하세요."
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:519
-msgid "Approve"
-msgstr "승인"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:706
-msgid "Approve or deny the pending action to continue."
-msgstr "계속하려면 대기 중인 액션을 승인하거나 거부하세요."
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:477
-msgid "Approved"
-msgstr "승인됨"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:435
-msgid ""
-"Ask the assistant to fill in event details. Your conversation will appear "
-"here."
-msgstr ""
-"어시스턴트에게 이벤트 세부 정보를 채워 달라고 요청하세요. 대화 내용이 여기에 "
-"표시됩니다."
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:471
-msgid "Awaiting approval"
-msgstr "승인 대기 중"
-
-#: src/components/molecules/AIResponseCard.re.mjs:103
-#: src/components/molecules/AIResponseCard.re.mjs:201
-msgid "Date:"
-msgstr "날짜:"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:483
-msgid "Denied"
-msgstr "거부됨"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:575
-msgid "Deny"
-msgstr "거부"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:696
-msgid "Describe the event"
-msgstr "이벤트 설명"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:706
-msgid "Describe your event and I’ll fill out the form…"
-msgstr "이벤트를 설명해 주시면 제가 양식을 채워 드릴게요…"
-
-#: src/components/molecules/AIResponseCard.re.mjs:153
-msgid "Description:"
-msgstr "설명:"
-
-#: src/components/molecules/AIResponseCard.re.mjs:81
-msgid "Event Details"
-msgstr "이벤트 세부 정보"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:491
-msgid "Executed"
-msgstr "실행됨"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:494
-msgid "Execution failed"
-msgstr "실행 실패"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
-msgid "Fill event form from description"
-msgstr "설명으로 이벤트 양식 채우기"
-
-#: src/components/molecules/AIResponseCard.re.mjs:54
-msgid "Fill form"
-msgstr "양식 채우기"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:777
-msgid "Hide AI chat history"
-msgstr "AI 대화 기록 숨기기"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:431
-msgid "Loading conversation history..."
-msgstr "대화 기록 불러오는 중..."
-
-#: src/components/molecules/AIResponseCard.re.mjs:138
-#: src/components/molecules/AIResponseCard.re.mjs:236
-msgid "Location:"
-msgstr "장소:"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:627
-msgid "Operation:"
-msgstr "작업:"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:777
-msgid "Show AI chat history"
-msgstr "AI 대화 기록 보기"
-
-#: src/components/molecules/AIResponseCard.re.mjs:181
-msgid "Suggested Events"
-msgstr "추천 이벤트"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:547
-msgid "The action completed with GraphQL errors."
-msgstr "GraphQL 오류와 함께 액션이 완료되었습니다."
-
-#: src/components/molecules/AIResponseCard.re.mjs:90
-msgid "Title:"
-msgstr "제목:"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:298
-msgid "Too many automated steps were requested. Please continue manually."
-msgstr "자동화된 단계가 너무 많이 요청되었습니다. 수동으로 계속 진행해 주세요."
-
 #: src/components/organisms/CreateEventsButton.re.mjs:367
 #~ msgid "{0} event(s) couldn't be created (they may already exist)."
 #~ msgstr "{0}개 이벤트를 생성할 수 없습니다 (이미 존재할 수 있습니다)."
@@ -143,10 +25,22 @@ msgstr "자동화된 단계가 너무 많이 요청되었습니다. 수동으로
 #~ msgid "⌘+Enter to send"
 #~ msgstr "⌘+Enter로 보내기"
 
+#: src/components/molecules/AIResponseCard.re.mjs:36
+msgid "Accept {0} events"
+msgstr "{0} 수락"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:610
+msgid "Action proposal"
+msgstr "액션 제안"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:399
 #: src/components/organisms/AIAssistantEmbed.re.mjs:439
 #~ msgid "AI Assistant"
 #~ msgstr "AI 어시스턴트"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:281
+msgid "An error occurred. Please try again."
+msgstr "오류가 발생했습니다. 다시 시도하세요."
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:776
 #~ msgid "Answer the questions or add details to refine the draft."
@@ -156,9 +50,29 @@ msgstr "자동화된 단계가 너무 많이 요청되었습니다. 수동으로
 #~ msgid "Answer the questions or provide more details..."
 #~ msgstr "질문에 답하거나 세부 정보를 제공하세요..."
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:519
+msgid "Approve"
+msgstr "승인"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:424
 #~ msgid "Approve or deny the pending action to continue"
 #~ msgstr "계속하려면 대기 중인 작업을 승인하거나 거부하세요"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:706
+msgid "Approve or deny the pending action to continue."
+msgstr "계속하려면 대기 중인 액션을 승인하거나 거부하세요."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:477
+msgid "Approved"
+msgstr "승인됨"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:435
+msgid "Ask the assistant to fill in event details. Your conversation will appear here."
+msgstr "어시스턴트에게 이벤트 세부 정보를 채워 달라고 요청하세요. 대화 내용이 여기에 표시됩니다."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:471
+msgid "Awaiting approval"
+msgstr "승인 대기 중"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:803
 #~ msgid "Continue"
@@ -202,6 +116,23 @@ msgstr "자동화된 단계가 너무 많이 요청되었습니다. 수동으로
 #~ msgid "Creating..."
 #~ msgstr "생성 중..."
 
+#: src/components/molecules/AIResponseCard.re.mjs:103
+#: src/components/molecules/AIResponseCard.re.mjs:201
+msgid "Date:"
+msgstr "날짜:"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:483
+msgid "Denied"
+msgstr "거부됨"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:575
+msgid "Deny"
+msgstr "거부"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:696
+msgid "Describe the event"
+msgstr "이벤트 설명"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:425
 #~ msgid "Describe the event to generate a draft"
 #~ msgstr "초안을 만들려면 이벤트를 설명하세요"
@@ -210,24 +141,45 @@ msgstr "자동화된 단계가 너무 많이 요청되었습니다. 수동으로
 #~ msgid "Describe your event"
 #~ msgstr "이벤트를 설명하세요"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:706
+msgid "Describe your event and I’ll fill out the form…"
+msgstr "이벤트를 설명해 주시면 제가 양식을 채워 드릴게요…"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:720
-#~ msgid ""
-#~ "Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 "
-#~ "more players around 3.5, ¥800 each."
-#~ msgstr ""
-#~ "이벤트를 설명해 주세요… 예: 내일 저녁 7시 센트럴 파크, 3.5 수준 3명 더 필"
-#~ "요, 1인당 ¥800."
+#~ msgid "Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 more players around 3.5, ¥800 each."
+#~ msgstr "이벤트를 설명해 주세요… 예: 내일 저녁 7시 센트럴 파크, 3.5 수준 3명 더 필요, 1인당 ¥800."
+
+#: src/components/molecules/AIResponseCard.re.mjs:153
+msgid "Description:"
+msgstr "설명:"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:751
-#~ msgid ""
-#~ "e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
-#~ "competitive play for 3.5+ players..."
-#~ msgstr ""
-#~ "예: 센트럴파크에서 매주 목요일 오후 6시 피클볼 모임, 3.5+ 플레이어 대상..."
+#~ msgid "e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, competitive play for 3.5+ players..."
+#~ msgstr "예: 센트럴파크에서 매주 목요일 오후 6시 피클볼 모임, 3.5+ 플레이어 대상..."
 
 #: src/components/organisms/CreateEventsButton.re.mjs:117
 #~ msgid "Error creating events. Please try again."
 #~ msgstr "이벤트 생성 오류. 다시 시도하세요."
+
+#: src/components/molecules/AIResponseCard.re.mjs:81
+msgid "Event Details"
+msgstr "이벤트 세부 정보"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:491
+msgid "Executed"
+msgstr "실행됨"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:494
+msgid "Execution failed"
+msgstr "실행 실패"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+msgid "Fill event form from description"
+msgstr "설명으로 이벤트 양식 채우기"
+
+#: src/components/molecules/AIResponseCard.re.mjs:54
+msgid "Fill form"
+msgstr "양식 채우기"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:803
 #~ msgid "Fill with AI"
@@ -245,6 +197,10 @@ msgstr "자동화된 단계가 너무 많이 요청되었습니다. 수동으로
 #~ msgid "Help me fill this out"
 #~ msgstr "작성 도와주기"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:777
+msgid "Hide AI chat history"
+msgstr "AI 대화 기록 숨기기"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:137
 #~ msgid "I couldn't process that request. Please try again."
 #~ msgstr "해당 요청을 처리할 수 없습니다. 다시 시도하세요."
@@ -257,9 +213,22 @@ msgstr "자동화된 단계가 너무 많이 요청되었습니다. 수동으로
 #~ msgid "Let AI help you fill out the details below"
 #~ msgstr "AI가 아래 세부 정보를 채우도록 도와드립니다"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:431
+msgid "Loading conversation history..."
+msgstr "대화 기록 불러오는 중..."
+
 #: src/components/organisms/AutocompleteLocation.re.mjs:175
 #~ msgid "Location search is unavailable right now"
 #~ msgstr "현재 위치 검색을 사용할 수 없습니다"
+
+#: src/components/molecules/AIResponseCard.re.mjs:138
+#: src/components/molecules/AIResponseCard.re.mjs:236
+msgid "Location:"
+msgstr "장소:"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:627
+msgid "Operation:"
+msgstr "작업:"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:774
 #~ msgid "Press ⌘+Enter to continue"
@@ -280,6 +249,26 @@ msgstr "자동화된 단계가 너무 많이 요청되었습니다. 수동으로
 #: src/components/organisms/AIAssistantEmbed.re.mjs:758
 #~ msgid "Send"
 #~ msgstr "전송"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:777
+msgid "Show AI chat history"
+msgstr "AI 대화 기록 보기"
+
+#: src/components/molecules/AIResponseCard.re.mjs:181
+msgid "Suggested Events"
+msgstr "추천 이벤트"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:547
+msgid "The action completed with GraphQL errors."
+msgstr "GraphQL 오류와 함께 액션이 완료되었습니다."
+
+#: src/components/molecules/AIResponseCard.re.mjs:90
+msgid "Title:"
+msgstr "제목:"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:298
+msgid "Too many automated steps were requested. Please continue manually."
+msgstr "자동화된 단계가 너무 많이 요청되었습니다. 수동으로 계속 진행해 주세요."
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:776
 #~ msgid "We’ll turn your description into a draft you can review and edit."

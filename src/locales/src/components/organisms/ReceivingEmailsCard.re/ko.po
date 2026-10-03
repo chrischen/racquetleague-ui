@@ -30,21 +30,12 @@ msgid "Awaiting confirmation"
 msgstr "확인 대기 중"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:557
-msgid ""
-"Bookings forwarded from it will no longer be added to your account. You can "
-"add it again later."
-msgstr ""
-"이 주소에서 전달된 예약은 더 이상 계정에 추가되지 않습니다. 나중에 다시 추가"
-"할 수 있습니다."
+msgid "Bookings forwarded from it will no longer be added to your account. You can add it again later."
+msgstr "이 주소에서 전달된 예약은 더 이상 계정에 추가되지 않습니다. 나중에 다시 추가할 수 있습니다."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:376
-msgid ""
-"Bookings you forward to chris@pkuru.com are added to your account when they "
-"come from one of these addresses. Add the other addresses you receive "
-"booking confirmations at."
-msgstr ""
-"이 주소들에서 chris@pkuru.com으로 전달한 예약은 계정에 추가됩니다. 예약 확인 "
-"메일을 받는 다른 주소를 추가하세요."
+msgid "Bookings you forward to chris@pkuru.com are added to your account when they come from one of these addresses. Add the other addresses you receive booking confirmations at."
+msgstr "이 주소들에서 chris@pkuru.com으로 전달한 예약은 계정에 추가됩니다. 예약 확인 메일을 받는 다른 주소를 추가하세요."
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:496
@@ -74,8 +65,7 @@ msgstr "새 계정 이메일"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:348
 msgid "Open it to make it your account email. Until then, nothing changes."
-msgstr ""
-"링크를 열면 계정 이메일로 설정됩니다. 그 전까지는 아무것도 바뀌지 않습니다."
+msgstr "링크를 열면 계정 이메일로 설정됩니다. 그 전까지는 아무것도 바뀌지 않습니다."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:339
 msgid "Open it while signed in to pkuru to finish adding the address."
@@ -124,9 +114,7 @@ msgstr "너무 많이 보냈습니다. 잠시 후 다시 시도해 주세요."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:160
 msgid "We couldn't send the email. Try \\\"Resend\\\" in a moment."
-msgstr ""
-"이메일을 보내지 못했습니다. 잠시 후 \\\\\\\"다시 보내기\\\\\\\"를 눌러 주세"
-"요."
+msgstr "이메일을 보내지 못했습니다. 잠시 후 \\\\\\\"다시 보내기\\\\\\\"를 눌러 주세요."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:338
 msgid "We sent a confirmation link to"
@@ -137,24 +125,17 @@ msgid "We sent a link to"
 msgstr "링크를 보냈습니다:"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:471
-msgid ""
-"We'll email a link to the new address. Your current address stays on as a "
-"receiving email."
+msgid "We'll email a link to the new address. Your current address stays on as a receiving email."
 msgstr "새 주소로 링크를 보내 드립니다. 현재 주소는 수신 이메일로 유지됩니다."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:162
 msgid "You can add up to 5 receiving emails. Remove one to add another."
-msgstr ""
-"수신 이메일은 최대 5개까지 추가할 수 있습니다. 추가하려면 하나를 삭제하세요."
+msgstr "수신 이메일은 최대 5개까지 추가할 수 있습니다. 추가하려면 하나를 삭제하세요."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:150
 msgid "You've already added that address."
 msgstr "이미 추가한 주소입니다."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:380
-msgid ""
-"Your account has no email yet. The first address you confirm here becomes "
-"your account email."
-msgstr ""
-"계정에 아직 이메일이 없습니다. 여기서 처음 확인한 주소가 계정 이메일이 됩니"
-"다."
+msgid "Your account has no email yet. The first address you confirm here becomes your account email."
+msgstr "계정에 아직 이메일이 없습니다. 여기서 처음 확인한 주소가 계정 이메일이 됩니다."

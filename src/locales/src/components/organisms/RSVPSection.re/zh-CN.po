@@ -22,11 +22,11 @@ msgstr "+{0} 人"
 msgid "Add Member"
 msgstr "添加成员"
 
-#: src/components/organisms/RsvpOptions.re.mjs:187
+#: src/components/organisms/RsvpOptions.re.mjs:188
 msgid "Approve RSVP"
 msgstr "批准报名"
 
-#: src/components/organisms/RsvpOptions.re.mjs:331
+#: src/components/organisms/RsvpOptions.re.mjs:338
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "您确定要将这个人从活动中移除吗？"
 
@@ -34,11 +34,11 @@ msgstr "您确定要将这个人从活动中移除吗？"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/components/organisms/RsvpOptions.re.mjs:219
+#: src/components/organisms/RsvpOptions.re.mjs:220
 msgid "Capture payment"
 msgstr "收取付款"
 
-#: src/components/organisms/RsvpOptions.re.mjs:240
+#: src/components/organisms/RsvpOptions.re.mjs:241
 msgid "Charge payment"
 msgstr "收取款项"
 
@@ -62,6 +62,10 @@ msgstr "正在评估待处理请求…"
 msgid "Going"
 msgstr "将参加"
 
+#: src/components/organisms/RSVPSection.re.mjs:424
+#~ msgid "Join"
+#~ msgstr "加入"
+
 #: src/components/atoms/EventSignupButton.re.mjs:65
 msgid "Join Event"
 msgstr "加入活动"
@@ -82,8 +86,8 @@ msgstr "加载中..."
 msgid "Login to Join"
 msgstr "登录加入"
 
-#: src/components/organisms/RsvpOptions.re.mjs:197
-#: src/components/organisms/RsvpOptions.re.mjs:346
+#: src/components/organisms/RsvpOptions.re.mjs:198
+#: src/components/organisms/RsvpOptions.re.mjs:353
 msgid "Move to Pending List"
 msgstr "移至待审核列表"
 
@@ -120,15 +124,15 @@ msgstr "预览智能报名"
 msgid "Previewing…"
 msgstr "预览中…"
 
-#: src/components/organisms/RsvpOptions.re.mjs:258
+#: src/components/organisms/RsvpOptions.re.mjs:259
 msgid "Refund payment"
 msgstr "退款"
 
-#: src/components/organisms/RsvpOptions.re.mjs:286
+#: src/components/organisms/RsvpOptions.re.mjs:287
 msgid "Remove from event"
 msgstr "从活动中移除"
 
-#: src/components/organisms/RsvpOptions.re.mjs:330
+#: src/components/organisms/RsvpOptions.re.mjs:337
 msgid "Remove this RSVP"
 msgstr "移除此 RSVP"
 
@@ -136,7 +140,7 @@ msgstr "移除此 RSVP"
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "最低评分要求：{0}（DUPR {1}）"
 
-#: src/components/organisms/RsvpOptions.re.mjs:227
+#: src/components/organisms/RsvpOptions.re.mjs:228
 msgid "Retry charge"
 msgstr "重试扣款"
 
@@ -150,6 +154,10 @@ msgstr "报名"
 msgid "RSVP Pending..."
 msgstr "报名待审..."
 
+#: src/components/organisms/RSVPSection.re.mjs:310
+#~ msgid "Run Smart RSVP (best-fit, test)"
+#~ msgstr "运行智能报名（最佳匹配，测试）"
+
 #: src/components/organisms/RSVPSection.re.mjs:277
 msgid "Run Smart RSVP now"
 msgstr "立即运行智能报名"
@@ -158,13 +166,20 @@ msgstr "立即运行智能报名"
 msgid "Save"
 msgstr "保存"
 
+#: src/components/organisms/GoingRsvps.re.mjs:123
+#~ msgid "See all"
+#~ msgstr "查看全部"
+
+#: src/components/organisms/RSVPSection.re.mjs:516
+#~ msgid "Show all"
+#~ msgstr "查看全部"
+
 #: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "Show less"
 msgstr "收起"
 
 #: src/components/organisms/RSVPSection.re.mjs:307
-msgid ""
-"Smart RSVP would admit {0} of {1} pending requests: they are marked above."
+msgid "Smart RSVP would admit {0} of {1} pending requests: they are marked above."
 msgstr "智能报名将从 {1} 个待处理请求中通过 {0} 个：已在上方标记。"
 
 #: src/components/organisms/RSVPSection.re.mjs:294
@@ -172,35 +187,27 @@ msgid "Smart Waitlist"
 msgstr "智能候补名单"
 
 #: src/components/organisms/RSVPSection.re.mjs:653
-msgid ""
-"This event admits players automatically. Your request will be reviewed and "
-"you will be notified once a spot is confirmed."
+msgid "This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed."
 msgstr "本活动将自动录取球员。您的申请将接受审核，确认名额后会通知您。"
 
 #: src/components/atoms/EventSignupButton.re.mjs:91
-msgid ""
-"This event is full, so leaving the event will give your spot to someone on "
-"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
-"want to leave this event?"
-msgstr ""
-"这个活动已满，所以退出活动将把您的位置给等待列表中的人。如果您再次加入，您将"
-"加入等待列表。您确定要退出这个活动吗？"
+msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
+msgstr "这个活动已满，所以退出活动将把您的位置给等待列表中的人。如果您再次加入，您将加入等待列表。您确定要退出这个活动吗？"
 
-#: src/components/organisms/RsvpOptions.re.mjs:347
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"此用户将从已参加/候补名单中移除。如果您将其重新加入，原有位置将丢失。确定要限"
-"制其报名吗？"
+#: src/components/organisms/RsvpOptions.re.mjs:354
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "此用户将从已参加/候补名单中移除。如果您将其重新加入，原有位置将丢失。确定要限制其报名吗？"
 
 #: src/components/organisms/RSVPSection.re.mjs:433
 #: src/components/organisms/RSVPSection.re.mjs:434
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "输入状态信息让大家看到...比如'我将于19:00到达'。"
 
-#: src/components/organisms/RsvpOptions.re.mjs:313
+#: src/components/organisms/RsvpOptions.re.mjs:321
+msgid "View message thread"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:314
 msgid "View Profile"
 msgstr "查看资料"
 
@@ -225,26 +232,5 @@ msgid "You're Waitlisted"
 msgstr "您在等待列表中"
 
 #: src/components/organisms/RSVPSection.re.mjs:667
-msgid ""
-"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
-"pending list until the rating limit is lowered. Please join another JPL "
-"rated event to boost your rating."
-msgstr ""
-"您的评分 {0} ~ {1}（DUPR {2} ~ {3}）过低。您将被放在待审核列表中，直到评分限"
-"制降低。请参加其他 JPL 评级活动来提高您的评分。"
-
-#: src/components/organisms/RSVPSection.re.mjs:424
-#~ msgid "Join"
-#~ msgstr "加入"
-
-#: src/components/organisms/RSVPSection.re.mjs:310
-#~ msgid "Run Smart RSVP (best-fit, test)"
-#~ msgstr "运行智能报名（最佳匹配，测试）"
-
-#: src/components/organisms/GoingRsvps.re.mjs:123
-#~ msgid "See all"
-#~ msgstr "查看全部"
-
-#: src/components/organisms/RSVPSection.re.mjs:516
-#~ msgid "Show all"
-#~ msgstr "查看全部"
+msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
+msgstr "您的评分 {0} ~ {1}（DUPR {2} ~ {3}）过低。您将被放在待审核列表中，直到评分限制降低。请参加其他 JPL 评级活动来提高您的评分。"

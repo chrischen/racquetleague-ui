@@ -29,6 +29,10 @@ msgstr "{0} クラブ"
 msgid "Active players"
 msgstr "アクティブプレイヤー"
 
+#: src/components/pages/ClubsListPage.re.mjs:487
+#~ msgid "All levels"
+#~ msgstr "全レベル"
+
 #: src/components/pages/ClubsListPage.re.mjs:333
 msgid "Badminton"
 msgstr "バドミントン"
@@ -59,12 +63,8 @@ msgid "Clubs"
 msgstr "クラブ"
 
 #: src/components/pages/ClubsListPage.re.mjs:379
-msgid ""
-"Find and join clubs, ranked by activity, level of play and how many players "
-"come back."
-msgstr ""
-"アクティビティ、プレイレベル、リピート率でランク付けされたクラブを検索して参"
-"加しましょう。"
+msgid "Find and join clubs, ranked by activity, level of play and how many players come back."
+msgstr "アクティビティ、プレイレベル、リピート率でランク付けされたクラブを検索して参加しましょう。"
 
 #: src/components/pages/ClubsListPage.re.mjs:492
 msgid "Load more clubs"
@@ -81,6 +81,10 @@ msgstr "中央値レベル"
 #: src/components/pages/ClubsListPage.re.mjs:152
 msgid "Member"
 msgstr "メンバー"
+
+#: src/components/pages/ClubsListPage.re.mjs:481
+#~ msgid "Minimum club level"
+#~ msgstr "最低クラブレベル"
 
 #: src/components/pages/ClubsListPage.re.mjs:183
 msgid "Next"
@@ -115,31 +119,22 @@ msgstr "継続率"
 msgid "Search clubs"
 msgstr "クラブを検索"
 
+#: src/components/pages/ClubsListPage.re.mjs:453
+#~ msgid "Sport"
+#~ msgstr "スポーツ"
+
 #: src/components/pages/ClubsListPage.re.mjs:284
 msgid "Total members"
 msgstr "総メンバー数"
 
 #: src/components/pages/ClubsListPage.re.mjs:450
 msgid "Try a different search, or pick another sport in the sidebar."
-msgstr ""
-"別の検索をお試しいただくか、サイドバーで別のスポーツを選択してください。"
-
-#: src/components/pages/ClubsListPage.re.mjs:309
-msgid "View club"
-msgstr "クラブを見る"
-
-#: src/components/pages/ClubsListPage.re.mjs:487
-#~ msgid "All levels"
-#~ msgstr "全レベル"
-
-#: src/components/pages/ClubsListPage.re.mjs:481
-#~ msgid "Minimum club level"
-#~ msgstr "最低クラブレベル"
-
-#: src/components/pages/ClubsListPage.re.mjs:453
-#~ msgid "Sport"
-#~ msgstr "スポーツ"
+msgstr "別の検索をお試しいただくか、サイドバーで別のスポーツを選択してください。"
 
 #: src/components/pages/ClubsListPage.re.mjs:560
 #~ msgid "Try a different sport or a lower level, or clear your filters."
 #~ msgstr "別のスポーツや低いレベルを試すか、フィルターをクリアしてください。"
+
+#: src/components/pages/ClubsListPage.re.mjs:309
+msgid "View club"
+msgstr "クラブを見る"

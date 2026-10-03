@@ -22,11 +22,11 @@ msgstr "+{0} คน"
 msgid "Add Member"
 msgstr "เพิ่มสมาชิก"
 
-#: src/components/organisms/RsvpOptions.re.mjs:187
+#: src/components/organisms/RsvpOptions.re.mjs:188
 msgid "Approve RSVP"
 msgstr "อนุมัติ RSVP"
 
-#: src/components/organisms/RsvpOptions.re.mjs:331
+#: src/components/organisms/RsvpOptions.re.mjs:338
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบบุคคลนี้ออกจากกิจกรรม?"
 
@@ -34,11 +34,11 @@ msgstr "คุณแน่ใจหรือไม่ว่าต้องกา
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: src/components/organisms/RsvpOptions.re.mjs:219
+#: src/components/organisms/RsvpOptions.re.mjs:220
 msgid "Capture payment"
 msgstr "รับชำระเงิน"
 
-#: src/components/organisms/RsvpOptions.re.mjs:240
+#: src/components/organisms/RsvpOptions.re.mjs:241
 msgid "Charge payment"
 msgstr "เรียกเก็บเงิน"
 
@@ -62,6 +62,10 @@ msgstr "กำลังประเมินคำขอที่รอดำเ
 msgid "Going"
 msgstr "จะไป"
 
+#: src/components/organisms/RSVPSection.re.mjs:424
+#~ msgid "Join"
+#~ msgstr "เข้าร่วม"
+
 #: src/components/atoms/EventSignupButton.re.mjs:65
 msgid "Join Event"
 msgstr "เข้าร่วมกิจกรรม"
@@ -82,8 +86,8 @@ msgstr "กำลังโหลด..."
 msgid "Login to Join"
 msgstr "เข้าสู่ระบบเพื่อเข้าร่วม"
 
-#: src/components/organisms/RsvpOptions.re.mjs:197
-#: src/components/organisms/RsvpOptions.re.mjs:346
+#: src/components/organisms/RsvpOptions.re.mjs:198
+#: src/components/organisms/RsvpOptions.re.mjs:353
 msgid "Move to Pending List"
 msgstr "ย้ายไปรายชื่อรอ"
 
@@ -120,15 +124,15 @@ msgstr "ดูตัวอย่าง Smart RSVP"
 msgid "Previewing…"
 msgstr "กำลังแสดงตัวอย่าง…"
 
-#: src/components/organisms/RsvpOptions.re.mjs:258
+#: src/components/organisms/RsvpOptions.re.mjs:259
 msgid "Refund payment"
 msgstr "คืนเงิน"
 
-#: src/components/organisms/RsvpOptions.re.mjs:286
+#: src/components/organisms/RsvpOptions.re.mjs:287
 msgid "Remove from event"
 msgstr "ลบจากกิจกรรม"
 
-#: src/components/organisms/RsvpOptions.re.mjs:330
+#: src/components/organisms/RsvpOptions.re.mjs:337
 msgid "Remove this RSVP"
 msgstr "ลบการยืนยันนี้"
 
@@ -136,7 +140,7 @@ msgstr "ลบการยืนยันนี้"
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "เรตติ้งที่ต้องการ: {0} (DUPR {1})"
 
-#: src/components/organisms/RsvpOptions.re.mjs:227
+#: src/components/organisms/RsvpOptions.re.mjs:228
 msgid "Retry charge"
 msgstr "ลองเรียกเก็บเงินอีกครั้ง"
 
@@ -150,6 +154,10 @@ msgstr "ยืนยันการเข้าร่วม"
 msgid "RSVP Pending..."
 msgstr "กำลังรอการอนุมัติ..."
 
+#: src/components/organisms/RSVPSection.re.mjs:310
+#~ msgid "Run Smart RSVP (best-fit, test)"
+#~ msgstr "เรียกใช้ Smart RSVP (จับคู่ดีที่สุด, ทดสอบ)"
+
 #: src/components/organisms/RSVPSection.re.mjs:277
 msgid "Run Smart RSVP now"
 msgstr "เรียกใช้ Smart RSVP ตอนนี้"
@@ -158,13 +166,20 @@ msgstr "เรียกใช้ Smart RSVP ตอนนี้"
 msgid "Save"
 msgstr "บันทึก"
 
+#: src/components/organisms/GoingRsvps.re.mjs:123
+#~ msgid "See all"
+#~ msgstr "ดูทั้งหมด"
+
+#: src/components/organisms/RSVPSection.re.mjs:516
+#~ msgid "Show all"
+#~ msgstr "แสดงทั้งหมด"
+
 #: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "Show less"
 msgstr "แสดงน้อยลง"
 
 #: src/components/organisms/RSVPSection.re.mjs:307
-msgid ""
-"Smart RSVP would admit {0} of {1} pending requests: they are marked above."
+msgid "Smart RSVP would admit {0} of {1} pending requests: they are marked above."
 msgstr "Smart RSVP จะรับ {0} จาก {1} คำขอที่รอดำเนินการ โดยทำเครื่องหมายไว้ด้านบน"
 
 #: src/components/organisms/RSVPSection.re.mjs:294
@@ -172,36 +187,27 @@ msgid "Smart Waitlist"
 msgstr "รายชื่อรอแบบสมาร์ท"
 
 #: src/components/organisms/RSVPSection.re.mjs:653
-msgid ""
-"This event admits players automatically. Your request will be reviewed and "
-"you will be notified once a spot is confirmed."
-msgstr ""
-"กิจกรรมนี้รับผู้เล่นโดยอัตโนมัติ คำขอของคุณจะได้รับการตรวจสอบ และคุณจะได้รับแจ้งเมื่อยืนยันที่นั่งแล้ว"
+msgid "This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed."
+msgstr "กิจกรรมนี้รับผู้เล่นโดยอัตโนมัติ คำขอของคุณจะได้รับการตรวจสอบ และคุณจะได้รับแจ้งเมื่อยืนยันที่นั่งแล้ว"
 
 #: src/components/atoms/EventSignupButton.re.mjs:91
-msgid ""
-"This event is full, so leaving the event will give your spot to someone on "
-"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
-"want to leave this event?"
-msgstr ""
-"กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน รายชื่อคอย หากคุณเข้าร่วมใหม่ "
-"คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
+msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
+msgstr "กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน รายชื่อคอย หากคุณเข้าร่วมใหม่ คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
 
-#: src/components/organisms/RsvpOptions.re.mjs:347
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป "
-"หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
+#: src/components/organisms/RsvpOptions.re.mjs:354
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
 
 #: src/components/organisms/RSVPSection.re.mjs:433
 #: src/components/organisms/RSVPSection.re.mjs:434
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "พิมพ์ข้อความสถานะสำหรับให้คนอื่นเห็น... เช่น 'ฉันจะมาถึงตอน 19:00 น.'"
 
-#: src/components/organisms/RsvpOptions.re.mjs:313
+#: src/components/organisms/RsvpOptions.re.mjs:321
+msgid "View message thread"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:314
 msgid "View Profile"
 msgstr "ดูโปรไฟล์"
 
@@ -226,27 +232,5 @@ msgid "You're Waitlisted"
 msgstr "คุณอยู่ในรายชื่อคอย"
 
 #: src/components/organisms/RSVPSection.re.mjs:667
-msgid ""
-"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
-"pending list until the rating limit is lowered. Please join another JPL "
-"rated event to boost your rating."
-msgstr ""
-"เรตติ้งของคุณ {0} ~ {1} (DUPR {2} ~ {3}) ต่ำเกินไป คุณจะถูกใส่ใน "
-"รายชื่อรอจนกว่าขีดจำกัดเรตติ้งจะลดลง กรุณาเข้าร่วมกิจกรรม JPL "
-"อื่นที่มีการให้คะแนนเพื่อเพิ่มเรตติ้งของคุณ"
-
-#: src/components/organisms/RSVPSection.re.mjs:424
-#~ msgid "Join"
-#~ msgstr "เข้าร่วม"
-
-#: src/components/organisms/RSVPSection.re.mjs:310
-#~ msgid "Run Smart RSVP (best-fit, test)"
-#~ msgstr "เรียกใช้ Smart RSVP (จับคู่ดีที่สุด, ทดสอบ)"
-
-#: src/components/organisms/GoingRsvps.re.mjs:123
-#~ msgid "See all"
-#~ msgstr "ดูทั้งหมด"
-
-#: src/components/organisms/RSVPSection.re.mjs:516
-#~ msgid "Show all"
-#~ msgstr "แสดงทั้งหมด"
+msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
+msgstr "เรตติ้งของคุณ {0} ~ {1} (DUPR {2} ~ {3}) ต่ำเกินไป คุณจะถูกใส่ใน รายชื่อรอจนกว่าขีดจำกัดเรตติ้งจะลดลง กรุณาเข้าร่วมกิจกรรม JPL อื่นที่มีการให้คะแนนเพื่อเพิ่มเรตติ้งของคุณ"

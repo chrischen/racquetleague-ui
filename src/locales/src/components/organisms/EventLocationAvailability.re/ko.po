@@ -74,6 +74,11 @@ msgstr "실외 {n}개"
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
+#: src/components/organisms/EventLocationAvailability.re.mjs:418
+#, fuzzy
+#~ msgid "Alternate location"
+#~ msgstr "이벤트 장소"
+
 #: src/components/organisms/EventLocationAvailability.re.mjs:436
 msgid "At {venue} now"
 msgstr "{venue}에서 진행 중"
@@ -111,6 +116,11 @@ msgstr "{venue}에는 이벤트 전체 시간을 지원하는 다른 당일 시�
 msgid "Not available"
 msgstr "사용 불가"
 
+#: src/components/organisms/EventLocationAvailability.re.mjs:409
+#, fuzzy
+#~ msgid "Other locations and times"
+#~ msgstr "이 시간대의 다른 장소"
+
 #: src/components/organisms/EventLocationAvailability.re.mjs:509
 msgid "Other locations at this time"
 msgstr "이 시간대의 다른 장소"
@@ -124,18 +134,12 @@ msgid "Reserve"
 msgstr "예약"
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:513
-msgid ""
-"This moves the event to another venue and reschedules everyone who already "
-"RSVP'd. Tap again to confirm."
-msgstr ""
-"이 작업은 이벤트를 다른 장소로 이동하고 이미 참석 확인한 모든 참가자의 일정"
-"을 변경합니다. 다시 탭하여 확인하세요."
+msgid "This moves the event to another venue and reschedules everyone who already RSVP'd. Tap again to confirm."
+msgstr "이 작업은 이벤트를 다른 장소로 이동하고 이미 참석 확인한 모든 참가자의 일정을 변경합니다. 다시 탭하여 확인하세요."
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:471
 msgid "This reschedules everyone who already RSVP'd. Tap again to confirm."
-msgstr ""
-"이 작업은 이미 참석 확인한 모든 참가자의 일정을 변경합니다. 다시 탭하여 확인"
-"하세요."
+msgstr "이 작업은 이미 참석 확인한 모든 참가자의 일정을 변경합니다. 다시 탭하여 확인하세요."
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:532
 msgid "Use location"
@@ -148,13 +152,3 @@ msgstr "옵션 사용"
 #: src/components/organisms/EventLocationAvailability.re.mjs:490
 msgid "Use time"
 msgstr "시간 사용"
-
-#: src/components/organisms/EventLocationAvailability.re.mjs:418
-#, fuzzy
-#~ msgid "Alternate location"
-#~ msgstr "이벤트 장소"
-
-#: src/components/organisms/EventLocationAvailability.re.mjs:409
-#, fuzzy
-#~ msgid "Other locations and times"
-#~ msgstr "이 시간대의 다른 장소"

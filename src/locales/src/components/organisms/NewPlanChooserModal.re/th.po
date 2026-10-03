@@ -54,16 +54,11 @@ msgid "Enter the event details yourself or ask the assistant to fill them in."
 msgstr "กรอกรายละเอียดกิจกรรมเอง หรือให้ผู้ช่วยกรอกให้"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:351
-msgid ""
-"Events are added privately to {myEvents}. Make an event public whenever you "
-"need to find players."
-msgstr ""
-"กิจกรรมจะถูกเพิ่มแบบส่วนตัวใน {myEvents} เปิดกิจกรรมเป็นสาธารณะได้ทุกเมื่อที่ต้องการหาผู้เล่น"
+msgid "Events are added privately to {myEvents}. Make an event public whenever you need to find players."
+msgstr "กิจกรรมจะถูกเพิ่มแบบส่วนตัวใน {myEvents} เปิดกิจกรรมเป็นสาธารณะได้ทุกเมื่อที่ต้องการหาผู้เล่น"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:183
-msgid ""
-"Forward your booking confirmation to {forwardingAddress} from your email "
-"{yourEmail}."
+msgid "Forward your booking confirmation to {forwardingAddress} from your email {yourEmail}."
 msgstr "ส่งต่ออีเมลยืนยันการจองไปที่ {forwardingAddress} จากอีเมลของคุณ {yourEmail}"
 
 #: src/components/molecules/AddToCalendar.re.mjs:27
@@ -79,9 +74,7 @@ msgid "New plan"
 msgstr "แผนใหม่"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:208
-msgid ""
-"Or use this email {bookingAddress} when booking. We’ll forward the "
-"confirmation to {yourEmail}."
+msgid "Or use this email {bookingAddress} when booking. We’ll forward the confirmation to {yourEmail}."
 msgstr "หรือใช้อีเมลนี้ {bookingAddress} ตอนจอง เราจะส่งต่ออีเมลยืนยันไปที่ {yourEmail}"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:262
@@ -89,14 +82,9 @@ msgid "Sync calendar"
 msgstr "ซิงค์ปฏิทิน"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:250
-msgid ""
-"Sync your Pkuru calendar so new events appear automatically in your calendar "
-"app."
+msgid "Sync your Pkuru calendar so new events appear automatically in your calendar app."
 msgstr "ซิงค์ปฏิทิน Pkuru เพื่อให้กิจกรรมใหม่แสดงในแอปปฏิทินของคุณโดยอัตโนมัติ"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:225
-msgid ""
-"You can include any additional event details like the level, max players, "
-"price, etc. in the email that you forward."
-msgstr ""
-"คุณสามารถใส่รายละเอียดกิจกรรมเพิ่มเติม เช่น ระดับ ผู้เล่นสูงสุด ราคา ฯลฯ ในอีเมลที่คุณส่งต่อได้"
+msgid "You can include any additional event details like the level, max players, price, etc. in the email that you forward."
+msgstr "คุณสามารถใส่รายละเอียดกิจกรรมเพิ่มเติม เช่น ระดับ ผู้เล่นสูงสุด ราคา ฯลฯ ในอีเมลที่คุณส่งต่อได้"

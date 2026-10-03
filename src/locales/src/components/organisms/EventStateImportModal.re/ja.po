@@ -34,12 +34,8 @@ msgid "Import History"
 msgstr "履歴をインポート"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:48
-msgid ""
-"Imported matches count as already synced, and keep their original ids so "
-"syncing again cannot duplicate them on the server."
-msgstr ""
-"インポートした試合は同期済みとして扱われ、元のIDを保持するため、再度同期して"
-"もサーバー上で重複しません。"
+msgid "Imported matches count as already synced, and keep their original ids so syncing again cannot duplicate them on the server."
+msgstr "インポートした試合は同期済みとして扱われ、元のIDを保持するため、再度同期してもサーバー上で重複しません。"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:43
 msgid "Matches to import"
@@ -50,12 +46,8 @@ msgid "Paste an exported history"
 msgstr "エクスポートした履歴を貼り付けてください"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:119
-msgid ""
-"Rounds are placed in the timeline by their timestamps, so importing can add "
-"rounds before the ones already here."
-msgstr ""
-"ラウンドはタイムスタンプ順にタイムラインへ配置されるため、インポートすると既"
-"存のラウンドより前に追加されることがあります。"
+msgid "Rounds are placed in the timeline by their timestamps, so importing can add rounds before the ones already here."
+msgstr "ラウンドはタイムスタンプ順にタイムラインへ配置されるため、インポートすると既存のラウンドより前に追加されることがあります。"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:42
 msgid "Rounds to import"

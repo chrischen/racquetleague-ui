@@ -17,6 +17,10 @@ msgstr ""
 msgid "(logout)"
 msgstr "(サインアウト)"
 
+#: src/components/pages/DefaultLayoutMap.re.mjs:97
+#~ msgid "All"
+#~ msgstr "すべて"
+
 #: src/components/pages/DefaultLayoutMap.re.mjs:99
 #: src/components/pages/DefaultLayoutMap.re.mjs:152
 msgid "Badminton"
@@ -41,6 +45,14 @@ msgstr "ゲームを見つける"
 msgid "login with Line"
 msgstr "Lineでログイン"
 
+#: src/components/organisms/NavViewer.re.mjs:65
+#~ msgid "My Clubs"
+#~ msgstr "私のサークル"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+#~ msgid "My Events"
+#~ msgstr "私のイベント"
+
 #: src/components/pages/DefaultLayoutMap.re.mjs:94
 #: src/components/pages/DefaultLayoutMap.re.mjs:147
 msgid "Pickleball"
@@ -55,18 +67,6 @@ msgstr "ピックル"
 #: src/components/pages/DefaultLayoutMap.re.mjs:308
 msgid "Rankings"
 msgstr "ランキング"
-
-#: src/components/pages/DefaultLayoutMap.re.mjs:97
-#~ msgid "All"
-#~ msgstr "すべて"
-
-#: src/components/organisms/NavViewer.re.mjs:65
-#~ msgid "My Clubs"
-#~ msgstr "私のサークル"
-
-#: src/components/organisms/NavViewer.re.mjs:65
-#~ msgid "My Events"
-#~ msgstr "私のイベント"
 
 #: src/components/organisms/NavViewer.re.mjs:77
 #~ msgid "Settings"

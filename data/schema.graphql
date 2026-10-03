@@ -1259,6 +1259,15 @@ type Mutation {
    the old. Error codes: NOT_FOUND, RATE_LIMITED, SEND_FAILED, NOT_LOGGED_IN.
   """
   resendAlternateEmailVerification(email: String!): AlternateEmailResult!
+
+  """
+  Sends a private message. Errors are codes the client translates:
+   NOT_LOGGED_IN, EMPTY_MESSAGE, MESSAGE_TOO_LONG, MESSAGE_NOT_FOUND (it never
+   existed, is not yours, or has expired), REPLIES_ONLY, NOT_YOUR_MESSAGE,
+   WRONG_RECIPIENT, CANNOT_MESSAGE_SELF, RECIPIENT_NOT_FOUND, NO_RECIPIENT,
+   SEND_FAILED.
+  """
+  sendDirectMessage(input: SendDirectMessageInput!): SendDirectMessageResult!
   setAvailabilityDay(input: SetAvailabilityDayInput!): SetAvailabilityDayResult!
   setAvailabilityDays(input: SetAvailabilityDaysInput!): SetAvailabilityDaysResult!
   setMembershipAdmin(input: SetMembershipAdminInput!): SetMembershipAdminResult!
@@ -1647,6 +1656,26 @@ type SavedCard {
   last4: String!
 }
 
+input SendDirectMessageInput {
+  body: String!
+
+  """Defaults to whoever wrote the message being answered."""
+  recipientId: ID
+
+  """
+  The message this one answers. Required for now: a private message can
+     only answer one you received.
+  """
+  replyToMessageId: ID
+}
+
+type SendDirectMessageResult implements HasErrors {
+  errors: [Error!]
+
+  """The sender's own copy, as it now appears in their inbox."""
+  message: Message
+}
+
 input SetAvailabilityDayInput {
   activityId: ID!
   intervals: [IntervalInput!]!
@@ -1922,6 +1951,15 @@ type Viewer {
 
   """Clubs the viewer is a member of, ranked by score (highest first)."""
   clubs(after: String, before: String, first: Int): ClubConnection!
+
+  """
+  The viewer's private messages from the last 30 days, both the ones they
+   received and their own copies of the ones they sent, newest first. With
+   `withUserId`, only the conversation with that person. Read rows by `topic`:
+   "<viewer>.inbox.direct" was received, "<viewer>.sent.direct" was sent; the
+   payload is the message (sender, recipient, body, event).
+  """
+  directMessages(withUserId: ID): EventMessageConnection
   events(_filters: EventFilters, after: String, afterDate: Datetime, before: String, first: Int!): EventConnection!
 
   """

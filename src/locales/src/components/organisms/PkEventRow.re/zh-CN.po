@@ -63,9 +63,12 @@ msgstr "完全初学者"
 msgid "Complete your player profile"
 msgstr "完善您的球员档案"
 
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "完善个人资料"
+
 #: src/components/organisms/ProfileModal.re.mjs:329
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
+msgid "Complete your profile before sharing availability with players and hosts."
 msgstr "在与球员和主办方分享空闲时间之前，请先完善您的个人资料。"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:41
@@ -96,12 +99,12 @@ msgid "Email address"
 msgstr "电子邮件地址"
 
 #: src/components/organisms/ProfileModal.re.mjs:304
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮"
-"件地址登录。"
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮件地址登录。"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "电子邮件不能更改"
 
 #: src/components/organisms/ProfileModal.re.mjs:115
 msgid "Email is required"
@@ -119,9 +122,12 @@ msgstr "外部活动"
 msgid "Female"
 msgstr "女性"
 
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "用于活动更新和通知"
+
 #: src/components/organisms/ProfileModal.re.mjs:380
-msgid ""
-"For event updates and notifications. We'll email you a link to confirm it."
+msgid "For event updates and notifications. We'll email you a link to confirm it."
 msgstr "用于活动更新和通知。我们会发送确认链接给您。"
 
 #: src/components/organisms/ProfileModal.re.mjs:514
@@ -210,6 +216,10 @@ msgstr "玩家"
 msgid "players"
 msgstr "球员"
 
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "不愿透露"
+
 #: src/components/atoms/EventTag.re.mjs:95
 #: src/components/atoms/EventTag.re.mjs:97
 msgid "Private"
@@ -238,13 +248,16 @@ msgid "Recreational"
 msgstr "休闲"
 
 #: src/components/atoms/EventTag.re.mjs:52
-msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休闲比赛，不会提交至竞技评分系统和 DUPR。"
 
 #: src/components/atoms/EventTag.re.mjs:46
 msgid "Results will be submitted to competitive ratings."
 msgstr "比赛结果将提交至竞技评分系统。"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "保存并参加活动"
 
 #: src/components/organisms/ProfileModal.re.mjs:615
 msgid "Save profile"
@@ -255,9 +268,7 @@ msgid "Self-rated"
 msgstr "自评"
 
 #: src/components/organisms/ProfileModal.re.mjs:553
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 msgstr "分享一些关于您自己的信息，让组织者或其他球员了解为何应该邀请您。"
 
 #: src/components/molecules/DuprRatingBadge.re.mjs:69
@@ -273,16 +284,16 @@ msgid "That doesn't look like an email address."
 msgstr "这看起来不像邮箱地址。"
 
 #: src/components/organisms/PkEventRow.re.mjs:1009
-msgid ""
-"There are players on the waitlist. If you leave, your spot will be given to "
-"the next person. Are you sure?"
+msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
 msgstr "候补名单中有球员。如果您退出，您的位置将会给下一位。确定吗？"
 
 #: src/components/atoms/EventTag.re.mjs:54
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
+msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr "这个活动是私人活动。请勿在没有组织者许可的情况下分享这个活动。"
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+#~ msgid "This is how others will see you"
+#~ msgstr "这是其他人会看到的名字"
 
 #: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
@@ -299,27 +310,3 @@ msgstr "已在候补名单"
 #: src/components/organisms/ProfileModal.re.mjs:326
 msgid "We need a few details before you can join this event"
 msgstr "在您参加此活动之前，我们需要一些信息"
-
-#: src/components/organisms/ProfileModal.re.mjs:335
-#~ msgid "Complete your profile"
-#~ msgstr "完善个人资料"
-
-#: src/components/organisms/ProfileModal.re.mjs:303
-#~ msgid "Email cannot be changed"
-#~ msgstr "电子邮件不能更改"
-
-#: src/components/organisms/ProfileModal.re.mjs:363
-#~ msgid "For event updates and notifications"
-#~ msgstr "用于活动更新和通知"
-
-#: src/components/organisms/ProfileModal.re.mjs:397
-#~ msgid "Prefer not to say"
-#~ msgstr "不愿透露"
-
-#: src/components/organisms/ProfileModal.re.mjs:429
-#~ msgid "Save & Join Event"
-#~ msgstr "保存并参加活动"
-
-#: src/components/organisms/ProfileModal.re.mjs:278
-#~ msgid "This is how others will see you"
-#~ msgstr "这是其他人会看到的名字"

@@ -41,9 +41,12 @@ msgstr "완전 초급"
 msgid "Complete your player profile"
 msgstr "플레이어 프로필을 완성하세요"
 
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "프로필 완성하기"
+
 #: src/components/organisms/ProfileModal.re.mjs:329
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
+msgid "Complete your profile before sharing availability with players and hosts."
 msgstr "플레이어 및 호스트와 일정을 공유하기 전에 프로필을 완성해주세요."
 
 #: src/components/organisms/ProfileModal.re.mjs:263
@@ -70,12 +73,12 @@ msgid "Email address"
 msgstr "이메일 주소"
 
 #: src/components/organisms/ProfileModal.re.mjs:304
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"이메일 주소를 사용할 수 없습니다. 다른 이메일을 사용하거나 해당 이메일로 로그"
-"인하세요."
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "이메일 주소를 사용할 수 없습니다. 다른 이메일을 사용하거나 해당 이메일로 로그인하세요."
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "이메일은 변경할 수 없습니다"
 
 #: src/components/organisms/ProfileModal.re.mjs:115
 msgid "Email is required"
@@ -85,9 +88,12 @@ msgstr "이메일이 필요합니다"
 msgid "Female"
 msgstr "여성"
 
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "이벤트 업데이트 및 알림용"
+
 #: src/components/organisms/ProfileModal.re.mjs:380
-msgid ""
-"For event updates and notifications. We'll email you a link to confirm it."
+msgid "For event updates and notifications. We'll email you a link to confirm it."
 msgstr "이벤트 업데이트 및 알림용입니다. 확인 링크를 이메일로 보내 드립니다."
 
 #: src/components/organisms/ProfileModal.re.mjs:514
@@ -130,6 +136,10 @@ msgstr "NR"
 msgid "pkuru"
 msgstr "pkuru"
 
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "밝히지 않음"
+
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "프로"
@@ -138,6 +148,10 @@ msgstr "프로"
 #: src/components/molecules/RatingSourceChip.re.mjs:50
 msgid "provisional"
 msgstr "잠정"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "저장 & 이벤트 참가"
 
 #: src/components/organisms/ProfileModal.re.mjs:615
 msgid "Save profile"
@@ -148,12 +162,8 @@ msgid "Self-rated"
 msgstr "자가 평가"
 
 #: src/components/organisms/ProfileModal.re.mjs:553
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
-msgstr ""
-"주최자나 다른 플레이어들이 초대 이유를 알 수 있도록 자신에 대해 간략히 소개해"
-"주세요."
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
+msgstr "주최자나 다른 플레이어들이 초대 이유를 알 수 있도록 자신에 대해 간략히 소개해주세요."
 
 #: src/components/molecules/DuprRatingBadge.re.mjs:69
 msgid "singles"
@@ -163,30 +173,10 @@ msgstr "단식"
 msgid "That doesn't look like an email address."
 msgstr "이메일 주소 형식이 아닌 것 같습니다."
 
-#: src/components/organisms/ProfileModal.re.mjs:326
-msgid "We need a few details before you can join this event"
-msgstr "이 이벤트에 참가하기 전에 몇 가지 정보가 필요합니다"
-
-#: src/components/organisms/ProfileModal.re.mjs:335
-#~ msgid "Complete your profile"
-#~ msgstr "프로필 완성하기"
-
-#: src/components/organisms/ProfileModal.re.mjs:303
-#~ msgid "Email cannot be changed"
-#~ msgstr "이메일은 변경할 수 없습니다"
-
-#: src/components/organisms/ProfileModal.re.mjs:363
-#~ msgid "For event updates and notifications"
-#~ msgstr "이벤트 업데이트 및 알림용"
-
-#: src/components/organisms/ProfileModal.re.mjs:397
-#~ msgid "Prefer not to say"
-#~ msgstr "밝히지 않음"
-
-#: src/components/organisms/ProfileModal.re.mjs:429
-#~ msgid "Save & Join Event"
-#~ msgstr "저장 & 이벤트 참가"
-
 #: src/components/organisms/ProfileModal.re.mjs:278
 #~ msgid "This is how others will see you"
 #~ msgstr "다른 사람들에게 이렇게 보입니다"
+
+#: src/components/organisms/ProfileModal.re.mjs:326
+msgid "We need a few details before you can join this event"
+msgstr "이 이벤트에 참가하기 전에 몇 가지 정보가 필요합니다"

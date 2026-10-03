@@ -41,9 +41,12 @@ msgstr "完全初學者"
 msgid "Complete your player profile"
 msgstr "完善您的球員個人資料"
 
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "完善個人資料"
+
 #: src/components/organisms/ProfileModal.re.mjs:329
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
+msgid "Complete your profile before sharing availability with players and hosts."
 msgstr "在與球員和主辦方分享時間之前，請先完善您的個人資料。"
 
 #: src/components/organisms/ProfileModal.re.mjs:263
@@ -70,12 +73,12 @@ msgid "Email address"
 msgstr "電子郵件地址"
 
 #: src/components/organisms/ProfileModal.re.mjs:304
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵"
-"件地址登入。"
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵件地址登入。"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "電子郵件不能更改"
 
 #: src/components/organisms/ProfileModal.re.mjs:115
 msgid "Email is required"
@@ -85,9 +88,12 @@ msgstr "請輸入電子郵件"
 msgid "Female"
 msgstr "女性"
 
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "用於活動更新和通知"
+
 #: src/components/organisms/ProfileModal.re.mjs:380
-msgid ""
-"For event updates and notifications. We'll email you a link to confirm it."
+msgid "For event updates and notifications. We'll email you a link to confirm it."
 msgstr "用於活動更新和通知。我們會寄送確認連結給您。"
 
 #: src/components/organisms/ProfileModal.re.mjs:514
@@ -130,6 +136,10 @@ msgstr "NR"
 msgid "pkuru"
 msgstr "pkuru"
 
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "不願透露"
+
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "專業"
@@ -138,6 +148,10 @@ msgstr "專業"
 #: src/components/molecules/RatingSourceChip.re.mjs:50
 msgid "provisional"
 msgstr "暫定"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "儲存並參加活動"
 
 #: src/components/organisms/ProfileModal.re.mjs:615
 msgid "Save profile"
@@ -148,9 +162,7 @@ msgid "Self-rated"
 msgstr "自評"
 
 #: src/components/organisms/ProfileModal.re.mjs:553
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 msgstr "分享一些關於您自己的資訊，讓主辦人或其他球員了解為何應該邀請您。"
 
 #: src/components/molecules/DuprRatingBadge.re.mjs:69
@@ -161,30 +173,10 @@ msgstr "單打"
 msgid "That doesn't look like an email address."
 msgstr "這看起來不像電子郵件地址。"
 
-#: src/components/organisms/ProfileModal.re.mjs:326
-msgid "We need a few details before you can join this event"
-msgstr "在您參加此活動之前，我們需要一些資訊"
-
-#: src/components/organisms/ProfileModal.re.mjs:335
-#~ msgid "Complete your profile"
-#~ msgstr "完善個人資料"
-
-#: src/components/organisms/ProfileModal.re.mjs:303
-#~ msgid "Email cannot be changed"
-#~ msgstr "電子郵件不能更改"
-
-#: src/components/organisms/ProfileModal.re.mjs:363
-#~ msgid "For event updates and notifications"
-#~ msgstr "用於活動更新和通知"
-
-#: src/components/organisms/ProfileModal.re.mjs:397
-#~ msgid "Prefer not to say"
-#~ msgstr "不願透露"
-
-#: src/components/organisms/ProfileModal.re.mjs:429
-#~ msgid "Save & Join Event"
-#~ msgstr "儲存並參加活動"
-
 #: src/components/organisms/ProfileModal.re.mjs:278
 #~ msgid "This is how others will see you"
 #~ msgstr "這是其他人會看到的名字"
+
+#: src/components/organisms/ProfileModal.re.mjs:326
+msgid "We need a few details before you can join this event"
+msgstr "在您參加此活動之前，我們需要一些資訊"

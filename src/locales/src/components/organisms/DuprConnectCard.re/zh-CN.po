@@ -70,24 +70,20 @@ msgid "DUPR login"
 msgstr "DUPR 登录"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:168
-msgid ""
-"DUPR needs you to finish setting up your account before it can be linked. "
-"Follow the steps in the DUPR panel, then sign in again."
-msgstr ""
-"在关联之前，DUPR 需要您先完成账户设置。请按照 DUPR 面板中的步骤操作，然后重新"
-"登录。"
+msgid "DUPR needs you to finish setting up your account before it can be linked. Follow the steps in the DUPR panel, then sign in again."
+msgstr "在关联之前，DUPR 需要您先完成账户设置。请按照 DUPR 面板中的步骤操作，然后重新登录。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:187
+#~ msgid "DUPR sent something we couldn't read. Please try again."
+#~ msgstr "DUPR 返回的数据无法识别，请重试。"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:320
 msgid "Last synced"
 msgstr "上次同步"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:357
-msgid ""
-"Link your DUPR account to use your verified DUPR rating here. While it's "
-"linked, it replaces your self-rating."
-msgstr ""
-"关联你的 DUPR 账号，即可在此使用已验证的 DUPR 评级。关联期间将替代你的自评"
-"分。"
+msgid "Link your DUPR account to use your verified DUPR rating here. While it's linked, it replaces your self-rating."
+msgstr "关联你的 DUPR 账号，即可在此使用已验证的 DUPR 评级。关联期间将替代你的自评分。"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:289
 msgid "Linked"
@@ -124,11 +120,8 @@ msgid "provisional"
 msgstr "临时"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:404
-msgid ""
-"Sign in to DUPR to link your account. We store your DUPR ID and ratings — "
-"never your DUPR password."
-msgstr ""
-"登录 DUPR 以关联账号。我们仅保存你的 DUPR ID 和评级，绝不保存 DUPR 密码。"
+msgid "Sign in to DUPR to link your account. We store your DUPR ID and ratings — never your DUPR password."
+msgstr "登录 DUPR 以关联账号。我们仅保存你的 DUPR ID 和评级，绝不保存 DUPR 密码。"
 
 #: src/components/molecules/DuprRatingBadge.re.mjs:69
 msgid "singles"
@@ -143,17 +136,9 @@ msgid "That DUPR sign-in has expired. Please try again."
 msgstr "该 DUPR 登录已过期，请重试。"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:170
-msgid ""
-"You declined to share your DUPR data, so nothing was linked. Sign in again "
-"and choose Authorize to link."
+msgid "You declined to share your DUPR data, so nothing was linked. Sign in again and choose Authorize to link."
 msgstr "您拒绝共享 DUPR 数据，因此未进行任何关联。请重新登录并选择"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:528
-msgid ""
-"Your DUPR rating will stop being used here and your self-rating picker comes "
-"back."
+msgid "Your DUPR rating will stop being used here and your self-rating picker comes back."
 msgstr "此处将不再使用你的 DUPR 评级，自评分选择器将恢复显示。"
-
-#: src/components/organisms/DuprConnectCard.re.mjs:187
-#~ msgid "DUPR sent something we couldn't read. Please try again."
-#~ msgstr "DUPR 返回的数据无法识别，请重试。"

@@ -119,6 +119,8 @@ let synthesizeTitle = (activityType: string, ~details: option<string>): string =
   | "rsvp_deleted" => ts`Left Event`
   | "rsvp_removed" => ts`Removed from Event`
   | "user_joined_club" => ts`Joined Club`
+  | "direct" => ts`New message`
+  | "direct_invite" => ts`Invitation`
   | "event_status" =>
     switch details {
     | Some("canceled") => ts`Event Canceled`
@@ -180,6 +182,17 @@ module Icon = {
         "text-violet-600 dark:text-violet-400",
         <Lucide.Users className=iconSize />,
       )
+    // A private message; an invite's note keeps the invite's envelope.
+    | "direct" => (
+        "bg-violet-100 dark:bg-violet-900/30",
+        "text-violet-600 dark:text-violet-400",
+        <Lucide.MessageCircle className=iconSize />,
+      )
+    | "direct_invite" => (
+        "bg-violet-100 dark:bg-violet-900/30",
+        "text-violet-600 dark:text-violet-400",
+        <Lucide.Mail className=iconSize />,
+      )
     | "event_status" =>
       switch details {
       | Some("canceled") => (
@@ -220,7 +233,21 @@ let make = (
   ~onNavigate: string => unit=?,
 ) => {
   let notification = payload->Option.flatMap(s => decodeNotification(topic, s))
-  let (activityType, actor, detailsOpt, contextName, url) = switch notification {
+  // A private message the viewer received; it opens the conversation with
+  // its sender. (The inbox never lists the viewer's own sent copies.)
+  let direct = DirectMessage.decode(~id="", ~topic, ~payload, ~createdAt)
+  let (activityType, actor, detailsOpt, contextName, url) = switch (direct, notification) {
+  | (Some(m), _) =>
+    let (withUserId, withUserName) = DirectMessage.counterpart(m)
+    (
+      DirectMessage.isInvite(m) ? "direct_invite" : "direct",
+      Some(withUserName),
+      Some(m.body),
+      m.eventName,
+      Some(DirectMessage.threadPath(withUserId)),
+    )
+  | (None, notification) =>
+  switch notification {
   | Some(EventUpdated(n)) => (
       n.activityType,
       Some(n.actorUserName),
@@ -236,6 +263,7 @@ let make = (
       Some("/clubs/" ++ n.clubSlug ++ "/members"),
     )
   | None => (activityTypeFromTopic(topic), None, None, None, None)
+  }
   }
   let title = synthesizeTitle(activityType, ~details=detailsOpt)
   let timeStr = relativeTimeStr(createdAt)

@@ -61,6 +61,10 @@ msgstr "{0} 小時"
 msgid "{0} hours"
 msgstr "{0} 小時"
 
+#: src/components/organisms/EventHeader.re.mjs:56
+#~ msgid "{0} hours and {1} minutes"
+#~ msgstr "{0} 小時 {1} 分鐘"
+
 #: src/components/organisms/EventHeader.re.mjs:58
 msgid "{0} minute"
 msgstr "{0} 分鐘"
@@ -106,11 +110,11 @@ msgstr "進階球員"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/RsvpOptions.re.mjs:187
+#: src/components/organisms/RsvpOptions.re.mjs:188
 msgid "Approve RSVP"
 msgstr "批准報名"
 
-#: src/components/organisms/RsvpOptions.re.mjs:331
+#: src/components/organisms/RsvpOptions.re.mjs:338
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "您確定要將此人從活動中移除嗎？"
 
@@ -142,11 +146,11 @@ msgstr "已取消"
 msgid "Cannot access variable \\\"title\\\""
 msgstr "無法存取變數 \\\"title\\\""
 
-#: src/components/organisms/RsvpOptions.re.mjs:219
+#: src/components/organisms/RsvpOptions.re.mjs:220
 msgid "Capture payment"
 msgstr "收取款項"
 
-#: src/components/organisms/RsvpOptions.re.mjs:240
+#: src/components/organisms/RsvpOptions.re.mjs:241
 msgid "Charge payment"
 msgstr "收取款項"
 
@@ -170,9 +174,12 @@ msgstr "完全初學者"
 msgid "Complete your player profile"
 msgstr "完善您的球員個人資料"
 
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "完善個人資料"
+
 #: src/components/organisms/ProfileModal.re.mjs:329
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
+msgid "Complete your profile before sharing availability with players and hosts."
 msgstr "在與球員和主辦方分享時間之前，請先完善您的個人資料。"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:41
@@ -237,12 +244,12 @@ msgid "Email address"
 msgstr "電子郵件地址"
 
 #: src/components/organisms/ProfileModal.re.mjs:304
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵"
-"件地址登入。"
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵件地址登入。"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "電子郵件不能更改"
 
 #: src/components/organisms/ProfileModal.re.mjs:115
 msgid "Email is required"
@@ -276,9 +283,12 @@ msgstr "活動標籤：{tag}"
 msgid "Female"
 msgstr "女性"
 
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "用於活動更新和通知"
+
 #: src/components/organisms/ProfileModal.re.mjs:380
-msgid ""
-"For event updates and notifications. We'll email you a link to confirm it."
+msgid "For event updates and notifications. We'll email you a link to confirm it."
 msgstr "用於活動更新和通知。我們會寄送確認連結給您。"
 
 #: src/components/organisms/ProfileModal.re.mjs:514
@@ -369,12 +379,20 @@ msgstr "中下等級及以上"
 msgid "Male"
 msgstr "男性"
 
+#: src/components/pages/EventPage.re.mjs:213
+#~ msgid "Manage Event"
+#~ msgstr "管理活動"
+
+#: src/components/pages/EventPage.re.mjs:217
+#~ msgid "Manage Event (Beta)"
+#~ msgstr "管理活動（測試版）"
+
 #: src/components/atoms/EventTag.re.mjs:50
 msgid "Matches will be submitted to DUPR."
 msgstr "比賽將提交至 DUPR。"
 
-#: src/components/organisms/RsvpOptions.re.mjs:197
-#: src/components/organisms/RsvpOptions.re.mjs:346
+#: src/components/organisms/RsvpOptions.re.mjs:198
+#: src/components/organisms/RsvpOptions.re.mjs:353
 msgid "Move to Pending List"
 msgstr "移至待審核名單"
 
@@ -427,6 +445,10 @@ msgstr "正在加入候補名單…"
 msgid "Player"
 msgstr "球員"
 
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "不願透露"
+
 #: src/components/organisms/RSVPSection.re.mjs:285
 msgid "Preview Smart RSVP"
 msgstr "預覽智慧報名"
@@ -472,19 +494,18 @@ msgid "Recreational"
 msgstr "休閒"
 
 #: src/components/atoms/EventTag.re.mjs:52
-msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休閒比賽，不會提交至競技評分或 DUPR。"
 
-#: src/components/organisms/RsvpOptions.re.mjs:258
+#: src/components/organisms/RsvpOptions.re.mjs:259
 msgid "Refund payment"
 msgstr "退款"
 
-#: src/components/organisms/RsvpOptions.re.mjs:286
+#: src/components/organisms/RsvpOptions.re.mjs:287
 msgid "Remove from event"
 msgstr "從活動中移除"
 
-#: src/components/organisms/RsvpOptions.re.mjs:330
+#: src/components/organisms/RsvpOptions.re.mjs:337
 msgid "Remove this RSVP"
 msgstr "移除此 RSVP"
 
@@ -500,7 +521,7 @@ msgstr "所需評分：{0} (DUPR {1})"
 msgid "Results will be submitted to competitive ratings."
 msgstr "結果將提交至競技評分。"
 
-#: src/components/organisms/RsvpOptions.re.mjs:227
+#: src/components/organisms/RsvpOptions.re.mjs:228
 msgid "Retry charge"
 msgstr "重試扣款"
 
@@ -522,6 +543,10 @@ msgstr "RSVP"
 msgid "RSVP Pending..."
 msgstr "RSVP 待審核..."
 
+#: src/components/organisms/RSVPSection.re.mjs:310
+#~ msgid "Run Smart RSVP (best-fit, test)"
+#~ msgstr "執行智慧 RSVP（最佳配對，測試）"
+
 #: src/components/organisms/RSVPSection.re.mjs:277
 msgid "Run Smart RSVP now"
 msgstr "立即執行智慧 RSVP"
@@ -531,6 +556,10 @@ msgstr "立即執行智慧 RSVP"
 msgid "Save"
 msgstr "儲存"
 
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "儲存並參加活動"
+
 #: src/components/organisms/ProfileModal.re.mjs:615
 msgid "Save profile"
 msgstr "儲存個人資料"
@@ -538,6 +567,15 @@ msgstr "儲存個人資料"
 #: src/components/organisms/ScoreModal.re.mjs:278
 msgid "Save Score"
 msgstr "保存比分"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr "比分"
+
+#: src/components/organisms/GoingRsvps.re.mjs:123
+#~ msgid "See all"
+#~ msgstr "查看全部"
 
 #: src/components/molecules/RatingSourceChip.re.mjs:37
 msgid "Self-rated"
@@ -548,9 +586,7 @@ msgid "Send"
 msgstr "傳送"
 
 #: src/components/organisms/ProfileModal.re.mjs:553
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 msgstr "分享一些關於您自己的資訊，讓主辦人或其他球員了解為何應該邀請您。"
 
 #: src/components/organisms/GoingRsvps.re.mjs:122
@@ -566,8 +602,7 @@ msgid "Skills practice and drills focused on technique improvement"
 msgstr "技能練習和訓練，專注於技術改進"
 
 #: src/components/organisms/RSVPSection.re.mjs:307
-msgid ""
-"Smart RSVP would admit {0} of {1} pending requests: they are marked above."
+msgid "Smart RSVP would admit {0} of {1} pending requests: they are marked above."
 msgstr "智慧報名將從 {1} 筆待處理申請中錄取 {0} 筆：已於上方標示。"
 
 #: src/components/organisms/RSVPSection.re.mjs:294
@@ -600,46 +635,33 @@ msgstr "這看起來不像電子郵件地址。"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:68
 #: src/components/organisms/MatchCard.re.mjs:445
-msgid ""
-"The match will be removed from this round. You can restore the originally "
-"scheduled matches using the round reset icon."
+msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
 msgstr "該比賽將從此輪次中移除。您可以使用輪次重置圖示恢復原定比賽。"
 
 #: src/components/organisms/RSVPSection.re.mjs:653
-msgid ""
-"This event admits players automatically. Your request will be reviewed and "
-"you will be notified once a spot is confirmed."
+msgid "This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed."
 msgstr "本活動將自動錄取球友。您的申請將經過審核，確認名額後會通知您。"
 
 #: src/components/atoms/EventSignupButton.re.mjs:91
-msgid ""
-"This event is full, so leaving the event will give your spot to someone on "
-"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
-"want to leave this event?"
-msgstr ""
-"此活動已滿，所以退出活動將把您的名額給等待列表上的人。如果您重新加入，您將加"
-"入等待列表。您確定要退出此活動嗎？"
+msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
+msgstr "此活動已滿，所以退出活動將把您的名額給等待列表上的人。如果您重新加入，您將加入等待列表。您確定要退出此活動嗎？"
 
 #: src/components/pages/EventPage.re.mjs:266
 #: src/components/pages/EventPage.re.mjs:295
-msgid ""
-"This event is private and cannot be joined on Pkuru.com. Do not show up to "
-"the event without permission."
+msgid "This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission."
 msgstr "此活動為私人活動，無法透過 Pkuru.com 加入。未經許可請勿前往活動現場。"
 
 #: src/components/atoms/EventTag.re.mjs:54
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
+msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr "此活動為私人活動。未經主辦單位許可，請勿分享此活動。"
 
-#: src/components/organisms/RsvpOptions.re.mjs:347
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要"
-"限制其報名嗎？"
+#: src/components/organisms/ProfileModal.re.mjs:278
+#~ msgid "This is how others will see you"
+#~ msgstr "這是其他人會看到的名字"
+
+#: src/components/organisms/RsvpOptions.re.mjs:354
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要限制其報名嗎？"
 
 #: src/components/organisms/EventHeader.re.mjs:221
 msgid "Time TBD"
@@ -648,8 +670,7 @@ msgstr "時間待定"
 #: src/components/organisms/RSVPSection.re.mjs:433
 #: src/components/organisms/RSVPSection.re.mjs:434
 #: src/components/organisms/EventMessages.re.mjs:125
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "輸入一個狀態訊息讓大家看到...例如「我將19:00到達」。"
 
 #: src/components/pages/EventPage.re.mjs:180
@@ -672,7 +693,11 @@ msgstr "中上等級及以上"
 msgid "View Full Draws"
 msgstr "查看完整抽籤"
 
-#: src/components/organisms/RsvpOptions.re.mjs:313
+#: src/components/organisms/RsvpOptions.re.mjs:321
+msgid "View message thread"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:314
 msgid "View Profile"
 msgstr "查看個人資料"
 
@@ -723,59 +748,5 @@ msgid "You're Waitlisted"
 msgstr "您在等待列表"
 
 #: src/components/organisms/RSVPSection.re.mjs:667
-msgid ""
-"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
-"pending list until the rating limit is lowered. Please join another JPL "
-"rated event to boost your rating."
-msgstr ""
-"您的評分 {0} ~ {1} (DUPR {2} ~ {3}) 太低。您將被放在待審核名單中，直到評分限"
-"制降低。請加入另一個 JPL 評級活動以提高您的評分。"
-
-#: src/components/organisms/EventHeader.re.mjs:56
-#~ msgid "{0} hours and {1} minutes"
-#~ msgstr "{0} 小時 {1} 分鐘"
-
-#: src/components/organisms/ProfileModal.re.mjs:335
-#~ msgid "Complete your profile"
-#~ msgstr "完善個人資料"
-
-#: src/components/organisms/ProfileModal.re.mjs:303
-#~ msgid "Email cannot be changed"
-#~ msgstr "電子郵件不能更改"
-
-#: src/components/organisms/ProfileModal.re.mjs:363
-#~ msgid "For event updates and notifications"
-#~ msgstr "用於活動更新和通知"
-
-#: src/components/pages/EventPage.re.mjs:213
-#~ msgid "Manage Event"
-#~ msgstr "管理活動"
-
-#: src/components/pages/EventPage.re.mjs:217
-#~ msgid "Manage Event (Beta)"
-#~ msgstr "管理活動（測試版）"
-
-#: src/components/organisms/ProfileModal.re.mjs:397
-#~ msgid "Prefer not to say"
-#~ msgstr "不願透露"
-
-#: src/components/organisms/RSVPSection.re.mjs:310
-#~ msgid "Run Smart RSVP (best-fit, test)"
-#~ msgstr "執行智慧 RSVP（最佳配對，測試）"
-
-#: src/components/organisms/ProfileModal.re.mjs:429
-#~ msgid "Save & Join Event"
-#~ msgstr "儲存並參加活動"
-
-#: src/components/organisms/MatchCardEdit.re.mjs:184
-#: src/components/organisms/MatchCardEdit.re.mjs:221
-#~ msgid "Score"
-#~ msgstr "比分"
-
-#: src/components/organisms/GoingRsvps.re.mjs:123
-#~ msgid "See all"
-#~ msgstr "查看全部"
-
-#: src/components/organisms/ProfileModal.re.mjs:278
-#~ msgid "This is how others will see you"
-#~ msgstr "這是其他人會看到的名字"
+msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
+msgstr "您的評分 {0} ~ {1} (DUPR {2} ~ {3}) 太低。您將被放在待審核名單中，直到評分限制降低。請加入另一個 JPL 評級活動以提高您的評分。"

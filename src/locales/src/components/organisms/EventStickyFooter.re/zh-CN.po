@@ -17,9 +17,17 @@ msgstr ""
 msgid "{position} in queue"
 msgstr "队列第 {position} 位"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+#~ msgid "A small hold will be placed on your card and fully refunded after the event."
+#~ msgstr "您的银行卡将被临时预授权扣款，活动结束后全额退还。"
+
 #: src/components/molecules/LevelPicker.re.mjs:42
 msgid "Advanced"
 msgstr "高级"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:162
+#~ msgid "Authorize deposit"
+#~ msgstr "授权押金"
 
 #: src/components/molecules/LevelPicker.re.mjs:27
 msgid "Beginner"
@@ -51,8 +59,7 @@ msgid "Cancellation deadline passed."
 msgstr "取消截止日期已过。"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:445
-msgid ""
-"Cancellation deadline passed. Contact the organizer on this page to cancel."
+msgid "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr "取消截止日期已过。请在此页面联系组织者取消。"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:317
@@ -60,11 +67,8 @@ msgid "Cancelling..."
 msgstr "取消中..."
 
 #: src/components/organisms/EventStickyFooter.re.mjs:265
-msgid ""
-"Card on file: {cardLabel}. Nothing is charged now — the organizer charges "
-"the fee after the event."
-msgstr ""
-"已保存的银行卡：{cardLabel}。现在不会扣款——活动结束后由组织者收取费用。"
+msgid "Card on file: {cardLabel}. Nothing is charged now — the organizer charges the fee after the event."
+msgstr "已保存的银行卡：{cardLabel}。现在不会扣款——活动结束后由组织者收取费用。"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:306
 msgid "Card required to confirm your spot"
@@ -91,9 +95,12 @@ msgstr "完全初学者"
 msgid "Complete your player profile"
 msgstr "完善您的球员档案"
 
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "完善个人资料"
+
 #: src/components/organisms/ProfileModal.re.mjs:329
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
+msgid "Complete your profile before sharing availability with players and hosts."
 msgstr "在与球员和主办方分享空闲时间之前，请先完善您的个人资料。"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:41
@@ -106,6 +113,10 @@ msgstr "确认"
 #: src/components/organisms/ProfileModal.re.mjs:319
 msgid "Could not save your profile. Please try again."
 msgstr "无法保存您的个人资料，请重试。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:180
+#~ msgid "Deposit required to confirm your spot"
+#~ msgstr "需支付定金以确认您的名额"
 
 #: src/components/organisms/ProfileModal.re.mjs:500
 msgid "Display name"
@@ -124,12 +135,12 @@ msgid "Email address"
 msgstr "电子邮件地址"
 
 #: src/components/organisms/ProfileModal.re.mjs:304
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮"
-"件地址登录。"
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮件地址登录。"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "电子邮件不能更改"
 
 #: src/components/organisms/ProfileModal.re.mjs:115
 msgid "Email is required"
@@ -143,9 +154,12 @@ msgstr "外部活动"
 msgid "Female"
 msgstr "女性"
 
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "用于活动更新和通知"
+
 #: src/components/organisms/ProfileModal.re.mjs:380
-msgid ""
-"For event updates and notifications. We'll email you a link to confirm it."
+msgid "For event updates and notifications. We'll email you a link to confirm it."
 msgstr "用于活动更新和通知。我们会发送确认链接给您。"
 
 #: src/components/organisms/ProfileModal.re.mjs:514
@@ -163,6 +177,10 @@ msgstr "中级"
 #: src/components/molecules/LevelPicker.re.mjs:37
 msgid "Intermediate+"
 msgstr "中级+"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+#~ msgid "Join on {externalSource}"
+#~ msgstr "在 {externalSource} 上加入"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:206
 msgid "Join on {externalSource2}"
@@ -226,9 +244,18 @@ msgstr "无评级"
 msgid "On waitlist"
 msgstr "候补中"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+#~ msgid "Open {externalSource}"
+#~ msgstr "打开 {externalSource}"
+
 #: src/components/organisms/EventStickyFooter.re.mjs:214
 msgid "Open {externalSource2}"
 msgstr "打开 {externalSource2}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:432
+#: src/components/organisms/EventStickyFooter.re.mjs:194
+#~ msgid "Pay {0}"
+#~ msgstr "支付 {0}"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:294
 msgid "Pay {priceStr}"
@@ -246,6 +273,14 @@ msgstr "待审批"
 msgid "pkuru"
 msgstr "pkuru"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:182
+#~ msgid "Please save your card again"
+#~ msgstr "请重新保存您的银行卡"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "不愿透露"
+
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "专业"
@@ -254,6 +289,18 @@ msgstr "专业"
 #: src/components/molecules/RatingSourceChip.re.mjs:50
 msgid "provisional"
 msgstr "临时"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:182
+#~ msgid "Release spot"
+#~ msgstr "释放位置"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:182
+#~ msgid "Releasing..."
+#~ msgstr "释放中..."
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "保存并参加活动"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:288
 msgid "Save card"
@@ -268,24 +315,36 @@ msgid "Self-rated"
 msgstr "自评"
 
 #: src/components/organisms/ProfileModal.re.mjs:553
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 msgstr "分享一些关于您自己的信息，让组织者或其他球员了解为何应该邀请您。"
 
 #: src/components/molecules/DuprRatingBadge.re.mjs:69
 msgid "singles"
 msgstr "单打"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:173
+#~ msgid "Spot held — pay to confirm"
+#~ msgstr "位置已保留 — 付款确认"
+
 #: src/components/organisms/ProfileModal.re.mjs:308
 msgid "That doesn't look like an email address."
 msgstr "这看起来不像邮箱地址。"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:193
+#~ msgid "The organizer now takes card payments directly. Your card was saved before that, so please save it again — your spot is kept."
+#~ msgstr "组织者现在可直接收取卡付款。您的银行卡是在此之前保存的，请重新保存一次——您的名额仍然保留。"
+
 #: src/components/organisms/EventStickyFooter.re.mjs:645
-msgid ""
-"There are players on the waitlist. If you leave, your spot will be given to "
-"the next person. Are you sure?"
+msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
 msgstr "候补名单中有球员。如果您退出，您的位置将会给下一位。确定吗？"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:189
+#~ msgid "This is a deposit hold only — payment is due to the organizer at the event. The hold will be released after the event."
+#~ msgstr "此为仅限定金预授权——款项须在活动现场支付给组织者。预授权将在活动结束后解除。"
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+#~ msgid "This is how others will see you"
+#~ msgstr "这是其他人会看到的名字"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:327
 msgid "Use a different card"
@@ -308,94 +367,9 @@ msgid "You're in"
 msgstr "已报名"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:267
-msgid ""
-"Your card is saved now, not charged — the organizer charges the fee after "
-"the event."
+msgid "Your card is saved now, not charged — the organizer charges the fee after the event."
 msgstr "您的银行卡现在仅被保存，不会扣款——组织者将在活动结束后收取费用。"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:402
 msgid "Your RSVP is awaiting admin approval"
 msgstr "您的报名正在等待管理员审批"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:195
-#~ msgid ""
-#~ "A small hold will be placed on your card and fully refunded after the "
-#~ "event."
-#~ msgstr "您的银行卡将被临时预授权扣款，活动结束后全额退还。"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:162
-#~ msgid "Authorize deposit"
-#~ msgstr "授权押金"
-
-#: src/components/organisms/ProfileModal.re.mjs:335
-#~ msgid "Complete your profile"
-#~ msgstr "完善个人资料"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:180
-#~ msgid "Deposit required to confirm your spot"
-#~ msgstr "需支付定金以确认您的名额"
-
-#: src/components/organisms/ProfileModal.re.mjs:303
-#~ msgid "Email cannot be changed"
-#~ msgstr "电子邮件不能更改"
-
-#: src/components/organisms/ProfileModal.re.mjs:363
-#~ msgid "For event updates and notifications"
-#~ msgstr "用于活动更新和通知"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:195
-#~ msgid "Join on {externalSource}"
-#~ msgstr "在 {externalSource} 上加入"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:203
-#~ msgid "Open {externalSource}"
-#~ msgstr "打开 {externalSource}"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:432
-#: src/components/organisms/EventStickyFooter.re.mjs:194
-#~ msgid "Pay {0}"
-#~ msgstr "支付 {0}"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:182
-#~ msgid "Please save your card again"
-#~ msgstr "请重新保存您的银行卡"
-
-#: src/components/organisms/ProfileModal.re.mjs:397
-#~ msgid "Prefer not to say"
-#~ msgstr "不愿透露"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:182
-#~ msgid "Release spot"
-#~ msgstr "释放位置"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:182
-#~ msgid "Releasing..."
-#~ msgstr "释放中..."
-
-#: src/components/organisms/ProfileModal.re.mjs:429
-#~ msgid "Save & Join Event"
-#~ msgstr "保存并参加活动"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:173
-#~ msgid "Spot held — pay to confirm"
-#~ msgstr "位置已保留 — 付款确认"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:193
-#~ msgid ""
-#~ "The organizer now takes card payments directly. Your card was saved "
-#~ "before that, so please save it again — your spot is kept."
-#~ msgstr ""
-#~ "组织者现在可直接收取卡付款。您的银行卡是在此之前保存的，请重新保存一次——您"
-#~ "的名额仍然保留。"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:189
-#~ msgid ""
-#~ "This is a deposit hold only — payment is due to the organizer at the "
-#~ "event. The hold will be released after the event."
-#~ msgstr ""
-#~ "此为仅限定金预授权——款项须在活动现场支付给组织者。预授权将在活动结束后解"
-#~ "除。"
-
-#: src/components/organisms/ProfileModal.re.mjs:278
-#~ msgid "This is how others will see you"
-#~ msgstr "这是其他人会看到的名字"

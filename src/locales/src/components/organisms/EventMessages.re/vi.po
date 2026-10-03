@@ -42,8 +42,7 @@ msgid "Status message"
 msgstr "Tin nhắn trạng thái"
 
 #: src/components/organisms/EventMessages.re.mjs:125
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "Nhập tin nhắn trạng thái... ví dụ: 'Tôi sẽ đến lúc 19:00.'"
 
 #: src/components/organisms/EventMessages.re.mjs:282

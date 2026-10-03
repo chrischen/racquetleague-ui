@@ -31,9 +31,5 @@ msgid "Export History"
 msgstr "Xuất lịch sử"
 
 #: src/components/organisms/EventStateExportModal.re.mjs:86
-msgid ""
-"Scored matches and rating adjustments only. Paste this into Import History "
-"on another device."
-msgstr ""
-"Chỉ gồm các trận đã ghi điểm và điều chỉnh xếp hạng. Dán nội dung này vào "
-"Nhập lịch sử trên thiết bị khác."
+msgid "Scored matches and rating adjustments only. Paste this into Import History on another device."
+msgstr "Chỉ gồm các trận đã ghi điểm và điều chỉnh xếp hạng. Dán nội dung này vào Nhập lịch sử trên thiết bị khác."

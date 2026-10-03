@@ -31,9 +31,5 @@ msgid "Export History"
 msgstr "기록 내보내기"
 
 #: src/components/organisms/EventStateExportModal.re.mjs:86
-msgid ""
-"Scored matches and rating adjustments only. Paste this into Import History "
-"on another device."
-msgstr ""
-"점수가 기록된 경기와 레이팅 조정만 포함됩니다. 다른 기기의 기록 가져오기에 붙"
-"여넣으세요."
+msgid "Scored matches and rating adjustments only. Paste this into Import History on another device."
+msgstr "점수가 기록된 경기와 레이팅 조정만 포함됩니다. 다른 기기의 기록 가져오기에 붙여넣으세요."

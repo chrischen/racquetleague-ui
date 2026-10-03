@@ -13,30 +13,6 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/ClubEventsPage.re.mjs:137
-msgid "Club not found"
-msgstr "클럽을 찾을 수 없습니다"
-
-#: src/components/pages/ClubEventsPage.re.mjs:92
-msgid "Copied!"
-msgstr "복사됨!"
-
-#: src/components/pages/ClubEventsPage.re.mjs:117
-msgid "Create event"
-msgstr "이벤트 만들기"
-
-#: src/components/pages/ClubEventsPage.re.mjs:130
-msgid "Loading events..."
-msgstr "이벤트 로딩 중..."
-
-#: src/components/shared/LocationClub.re.mjs:27
-msgid "Open Play"
-msgstr "오픈 플레이"
-
-#: src/components/pages/ClubEventsPage.re.mjs:92
-msgid "Share link"
-msgstr "링크 공유"
-
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 #~ msgid "{0} court"
 #~ msgstr "{0}코트"
@@ -93,6 +69,10 @@ msgstr "링크 공유"
 #~ msgid "Close profile form"
 #~ msgstr "프로필 양식 닫기"
 
+#: src/components/pages/ClubEventsPage.re.mjs:137
+msgid "Club not found"
+msgstr "클럽을 찾을 수 없습니다"
+
 #: src/components/molecules/LevelPicker.re.mjs:22
 #~ msgid "Complete Beginner"
 #~ msgstr "완전 초급"
@@ -102,13 +82,16 @@ msgstr "링크 공유"
 #~ msgstr "플레이어 프로필을 완성하세요"
 
 #: src/components/organisms/ProfileModal.re.mjs:306
-#~ msgid ""
-#~ "Complete your profile before sharing availability with players and hosts."
+#~ msgid "Complete your profile before sharing availability with players and hosts."
 #~ msgstr "플레이어 및 호스트와 일정을 공유하기 전에 프로필을 완성해주세요."
 
 #: src/components/organisms/NewPlanModal.re.mjs:404
 #~ msgid "Continue"
 #~ msgstr "계속"
+
+#: src/components/pages/ClubEventsPage.re.mjs:92
+msgid "Copied!"
+msgstr "복사됨!"
 
 #: src/components/organisms/ProfileModal.re.mjs:257
 #: src/components/organisms/ProfileModal.re.mjs:266
@@ -118,12 +101,12 @@ msgstr "링크 공유"
 #~ msgstr "프로필을 저장하지 못했습니다. 다시 시도해주세요."
 
 #: src/components/organisms/NewPlanModal.re.mjs:399
-#~ msgid ""
-#~ "Create a hosted event at this time. Others can join, you pick venue and "
-#~ "rules."
-#~ msgstr ""
-#~ "이 시간에 주최 이벤트를 만드세요. 다른 사람들이 참가할 수 있고, 장소와 규"
-#~ "칙은 직접 정합니다."
+#~ msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
+#~ msgstr "이 시간에 주최 이벤트를 만드세요. 다른 사람들이 참가할 수 있고, 장소와 규칙은 직접 정합니다."
+
+#: src/components/pages/ClubEventsPage.re.mjs:117
+msgid "Create event"
+msgstr "이벤트 만들기"
 
 #: src/components/organisms/ProfileModal.re.mjs:477
 #~ msgid "Display name"
@@ -138,12 +121,8 @@ msgstr "링크 공유"
 #~ msgstr "이메일 주소"
 
 #: src/components/organisms/ProfileModal.re.mjs:281
-#~ msgid ""
-#~ "Email address is unavailable. Please use a different email or login with "
-#~ "the email you are trying to use here."
-#~ msgstr ""
-#~ "이메일 주소를 사용할 수 없습니다. 다른 이메일을 사용하거나 해당 이메일로 "
-#~ "로그인하세요."
+#~ msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+#~ msgstr "이메일 주소를 사용할 수 없습니다. 다른 이메일을 사용하거나 해당 이메일로 로그인하세요."
 
 #: src/components/organisms/ProfileModal.re.mjs:112
 #~ msgid "Email is required"
@@ -162,10 +141,8 @@ msgstr "링크 공유"
 #~ msgstr "이벤트 업데이트 및 알림용"
 
 #: src/components/organisms/ProfileModal.re.mjs:
-#~ msgid ""
-#~ "For event updates and notifications. We'll email you a link to confirm it."
-#~ msgstr ""
-#~ "이벤트 업데이트 및 알림용입니다. 확인 링크를 이메일로 보내 드립니다."
+#~ msgid "For event updates and notifications. We'll email you a link to confirm it."
+#~ msgstr "이벤트 업데이트 및 알림용입니다. 확인 링크를 이메일로 보내 드립니다."
 
 #: src/components/organisms/ProfileModal.re.mjs:491
 #~ msgid "Gender"
@@ -199,6 +176,10 @@ msgstr "링크 공유"
 #~ msgid "Level"
 #~ msgstr "레벨"
 
+#: src/components/pages/ClubEventsPage.re.mjs:130
+msgid "Loading events..."
+msgstr "이벤트 로딩 중..."
+
 #: src/components/molecules/TimeWindowPicker.re.mjs:491
 #~ msgid "Long opening"
 #~ msgstr "긴 공개 시간"
@@ -231,6 +212,10 @@ msgstr "링크 공유"
 #~ msgid "open"
 #~ msgstr "열림"
 
+#: src/components/shared/LocationClub.re.mjs:27
+msgid "Open Play"
+msgstr "오픈 플레이"
+
 #: src/components/molecules/TimeWindowPicker.re.mjs:388
 #~ msgid "Player availability heatmap"
 #~ msgstr "플레이어 가용성 히트맵"
@@ -256,12 +241,12 @@ msgstr "링크 공유"
 #~ msgstr "이벤트를 주최하려면 시간 창을 정확히 하나 선택하세요"
 
 #: src/components/organisms/ProfileModal.re.mjs:530
-#~ msgid ""
-#~ "Share a little about yourself so organizers or other players can see why "
-#~ "they should invite you."
-#~ msgstr ""
-#~ "주최자나 다른 플레이어들이 초대 이유를 알 수 있도록 자신에 대해 간략히 소"
-#~ "개해주세요."
+#~ msgid "Share a little about yourself so organizers or other players can see why they should invite you."
+#~ msgstr "주최자나 다른 플레이어들이 초대 이유를 알 수 있도록 자신에 대해 간략히 소개해주세요."
+
+#: src/components/pages/ClubEventsPage.re.mjs:92
+msgid "Share link"
+msgstr "링크 공유"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:411
 #~ msgid "Tap anywhere to add a time window"
@@ -272,11 +257,8 @@ msgstr "링크 공유"
 #~ msgstr "탭하여 시간 추가"
 
 #: src/components/organisms/NewPlanModal.re.mjs:361
-#~ msgid ""
-#~ "Tell others you're down to play. Players with overlapping times can "
-#~ "invite you."
-#~ msgstr ""
-#~ "플레이 의사를 알리세요. 시간이 겹치는 플레이어가 초대할 수 있습니다."
+#~ msgid "Tell others you're down to play. Players with overlapping times can invite you."
+#~ msgstr "플레이 의사를 알리세요. 시간이 겹치는 플레이어가 초대할 수 있습니다."
 
 #: src/components/organisms/ProfileModal.re.mjs:
 #~ msgid "That doesn't look like an email address."

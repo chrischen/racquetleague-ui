@@ -8998,6 +8998,199 @@ msgstr "您当前登录的是其他账户。请先退出登录，再重新打开
 msgid "Your account now uses the new address. Your previous address is kept as a receiving email, which you can remove in your profile settings."
 msgstr "您的账户现在使用新地址。之前的地址会保留为收件邮箱，您可以在个人资料设置中移除。"
 
+#: src/components/organisms/InviteMessageComposer.re.mjs:80
+msgid "{0} characters left"
+msgstr "还可输入 {0} 个字符"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:79
+msgid "{0} more characters needed"
+msgstr "还需 {0} 个字符"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:78
+msgid "A message is required"
+msgstr "请填写留言"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:129
+msgid "Add a personal note — they'll see this in their invite."
+msgstr "添加一条个人留言——对方会在邀请中看到。"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:220
+msgid "Availability not shared for this day"
+msgstr "当天未共享空闲时间"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:228
+msgid "Available at other hours that day"
+msgstr "当天其他时段有空"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:115
+msgid "Cancel invite"
+msgstr "取消邀请"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:39
+msgid "Come play with us!"
+msgstr "一起来打球吧！"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:78
+msgid "Same as your last invite. Write this one for them."
+msgstr "和你上次的邀请一样。为对方单独写一条吧。"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:174
+msgid "Sending…"
+msgstr "发送中…"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:38
+msgid "Thought you'd be a good fit for this one."
+msgstr "觉得你很适合这场。"
+
+#: src/components/organisms/RsvpOptions.re.mjs:321
+msgid "View message thread"
+msgstr "查看消息对话"
+
+#: src/components/organisms/PkEventRsvp.re.mjs:202
+msgid "View message thread with {name}"
+msgstr "查看与 {name} 的消息对话"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:37
+msgid "We're short a player — can you make it?"
+msgstr "我们还差一人——你能来吗？"
+
+#: src/components/organisms/Kiosk.re.mjs:2104
+msgid "AUTO CLIPS"
+msgstr "自动剪辑"
+
+#: src/components/organisms/Kiosk.re.mjs:2090
+msgid "AUTO-CLIP OFF"
+msgstr "自动剪辑已关闭"
+
+#: src/components/organisms/Kiosk.re.mjs:2090
+msgid "AUTO-CLIP ON"
+msgstr "自动剪辑已开启"
+
+#: src/components/organisms/Kiosk.re.mjs:1632
+msgid "Connect reader"
+msgstr "连接读卡器"
+
+#: src/components/organisms/Kiosk.re.mjs:502
+msgid "Download debug JSON"
+msgstr "下载调试 JSON"
+
+#: src/components/organisms/Kiosk.re.mjs:1542
+msgid "FELICA CARD · TEST"
+msgstr "FELICA 卡 · 测试"
+
+#: src/components/organisms/Kiosk.re.mjs:1896
+msgid "FELICA READER (TEST)"
+msgstr "FELICA 读卡器（测试）"
+
+#: src/components/organisms/Kiosk.re.mjs:498
+msgid "HEAT DEBUG"
+msgstr "激烈度调试"
+
+#: src/components/organisms/Kiosk.re.mjs:3777
+msgid "Heated rally auto-clipped"
+msgstr "精彩回合已自动剪辑"
+
+#: src/components/organisms/Kiosk.re.mjs:1900
+msgid "Sony RC-S300 over USB. Tapping a transit IC card (Suica, PASMO, ICOCA, …) or a phone with one set as its Express Transit card pops up the card ID."
+msgstr "通过 USB 连接索尼 RC-S300。刷交通 IC 卡（Suica、PASMO、ICOCA 等）或已设置为快捷交通卡的手机，即可显示卡片 ID。"
+
+#: src/components/organisms/Kiosk.re.mjs:2009
+msgid "STARTING…"
+msgstr "启动中…"
+
+#: src/components/organisms/Kiosk.re.mjs:1665
+msgid "This browser has no WebUSB — use Chrome or Edge on this computer."
+msgstr "此浏览器不支持 WebUSB——请在本机使用 Chrome 或 Edge。"
+
+#: src/components/organisms/Kiosk.re.mjs:1646
+#: src/components/organisms/Kiosk.re.mjs:1655
+msgid "Turn off"
+msgstr "关闭"
+
+#: src/components/organisms/Kiosk.re.mjs:1642
+msgid "waiting for a card"
+msgstr "等待刷卡"
+
+#: src/components/organisms/MessageThread.re.mjs:768
+msgid "Invitation thread"
+msgstr "邀请对话"
+
+#: src/components/organisms/MessageThread.re.mjs:646
+msgid "Invited you"
+msgstr "邀请了你"
+
+#: src/components/organisms/MessageThread.re.mjs:663
+msgid "Message"
+msgstr "消息"
+
+#: src/components/organisms/MessageThread.re.mjs:768
+msgid "Message thread"
+msgstr "消息对话"
+
+#: src/components/organisms/MessageThread.re.mjs:725
+msgid "Messages with {name}"
+msgstr "与 {name} 的消息"
+
+#: src/components/organisms/MessageThread.re.mjs:756
+msgid "No recent messages with this person."
+msgstr "最近没有与此人的消息。"
+
+#: src/components/organisms/MessageThread.re.mjs:188
+msgid "Reply to {name}"
+msgstr "回复 {name}"
+
+#: src/components/organisms/MessageThread.re.mjs:220
+msgid "Sending"
+msgstr "发送中"
+
+#: src/components/organisms/MessageThread.re.mjs:53
+msgid "Sign in to reply."
+msgstr "请登录后回复。"
+
+#: src/components/organisms/MessageThread.re.mjs:49
+msgid "That message is no longer available, so it can't be answered."
+msgstr "该消息已不可用，无法回复。"
+
+#: src/components/organisms/MessageThread.re.mjs:51
+msgid "That message is too long."
+msgstr "消息太长了。"
+
+#: src/components/organisms/MessageThread.re.mjs:433
+msgid "View"
+msgstr "查看"
+
+#: src/components/organisms/MessageThread.re.mjs:575
+msgid "View event"
+msgstr "查看活动"
+
+#: src/components/organisms/MessageThread.re.mjs:47
+msgid "Write a message first."
+msgstr "请先输入消息。"
+
+#: src/components/organisms/MessageThread.re.mjs:196
+msgid "Write a reply"
+msgstr "写回复"
+
+#: src/components/organisms/MessageThread.re.mjs:733
+msgid "You can reply once {firstName} writes back."
+msgstr "{firstName} 回复后，你就可以回复了。"
+
+#: src/components/organisms/MessageThread.re.mjs:654
+msgid "You invited them"
+msgstr "你邀请了对方"
+
+#: src/components/organisms/MessageThread.re.mjs:55
+msgid "Your reply couldn't be sent. Please try again."
+msgstr "回复发送失败，请重试。"
+
+#: src/components/molecules/NotificationRow.re.mjs:131
+msgid "Invitation"
+msgstr "邀请"
+
+#: src/components/molecules/NotificationRow.re.mjs:129
+msgid "New message"
+msgstr "新消息"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

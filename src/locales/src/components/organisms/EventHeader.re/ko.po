@@ -21,6 +21,10 @@ msgstr "{0}시간"
 msgid "{0} hours"
 msgstr "{0}시간"
 
+#: src/components/organisms/EventHeader.re.mjs:56
+#~ msgid "{0} hours and {1} minutes"
+#~ msgstr "{0}시간 {1}분"
+
 #: src/components/organisms/EventHeader.re.mjs:58
 msgid "{0} minute"
 msgstr "{0}분"
@@ -100,8 +104,7 @@ msgid "Recreational"
 msgstr "레크리에이션"
 
 #: src/components/atoms/EventTag.re.mjs:52
-msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "경쟁 레이팅이나 DUPR에 제출되지 않는 레크리에이션 플레이입니다."
 
 #: src/components/atoms/EventTag.re.mjs:46
@@ -117,9 +120,7 @@ msgid "sync calendar"
 msgstr "캘린더 동기화"
 
 #: src/components/atoms/EventTag.re.mjs:54
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
+msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr "이 이벤트는 비공개입니다. 주최자의 허가 없이 공유하지 마세요."
 
 #: src/components/organisms/EventHeader.re.mjs:221
@@ -137,7 +138,3 @@ msgstr "알 수 없는 장소"
 #: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
 msgstr "중상급 이상"
-
-#: src/components/organisms/EventHeader.re.mjs:56
-#~ msgid "{0} hours and {1} minutes"
-#~ msgstr "{0}시간 {1}분"

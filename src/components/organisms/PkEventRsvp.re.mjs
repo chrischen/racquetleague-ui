@@ -3,6 +3,8 @@
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as RsvpOptions from "./RsvpOptions.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as LangProvider from "../shared/LangProvider.re.mjs";
+import * as LucideReact from "lucide-react";
 import * as CombinedRating from "../../lib/CombinedRating.re.mjs";
 import * as PaymentIndicator from "../atoms/PaymentIndicator.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -40,6 +42,7 @@ var Fragment = {
 function PkEventRsvp(props) {
   var __connectionKey = props.connectionKey;
   var __showRating = props.showRating;
+  var threadPath = props.threadPath;
   var __isInvited = props.isInvited;
   var __isPending = props.isPending;
   var waitlistPosition = props.waitlistPosition;
@@ -142,7 +145,71 @@ function PkEventRsvp(props) {
                                 className: "text-[9px] font-bold leading-none text-blue-400"
                               })
                       ) : null;
-                    return JsxRuntime.jsxs(RsvpOptions.make, {
+                    var chipContent = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                          children: [
+                            JsxRuntime.jsx(AvatarWithProgress.make, {
+                                  src: Core__Option.getOr(user.picture, ""),
+                                  alt: Core__Option.getOr(user.lineUsername, ""),
+                                  progress: progress,
+                                  size: 22,
+                                  strokeWidth: 1.5
+                                }),
+                            JsxRuntime.jsx("span", {
+                                  children: Core__Option.getOr(user.lineUsername, "?"),
+                                  className: "text-[11px] leading-none " + (
+                                    isInvited ? "text-violet-900 dark:text-violet-200" : "text-gray-900 dark:text-gray-100"
+                                  )
+                                }),
+                            isInvited ? JsxRuntime.jsx("span", {
+                                    children: t`sent`,
+                                    className: "font-mono text-[9px] leading-none text-violet-500 dark:text-violet-400"
+                                  }) : null,
+                            tmp$1,
+                            showRating ? JsxRuntime.jsx("span", {
+                                    children: skillStr,
+                                    className: "font-mono text-[11px] text-gray-400 dark:text-gray-500 leading-none"
+                                  }) : null,
+                            paymentIndicator,
+                            isHost ? JsxRuntime.jsx("span", {
+                                    children: "★",
+                                    className: "text-[11px] font-mono text-gray-400 dark:text-gray-500 leading-none"
+                                  }) : null
+                          ]
+                        });
+                    var name = Core__Option.getOr(user.lineUsername, "?");
+                    if (isInvited && threadPath !== undefined) {
+                      return JsxRuntime.jsxs("span", {
+                                  children: [
+                                    JsxRuntime.jsx(RsvpOptions.make, {
+                                          rsvp: rsvp.fragmentRefs,
+                                          eventId: eventId,
+                                          eventActivitySlug: Core__Option.getOr(activitySlug, "badminton"),
+                                          isAdmin: isAdmin,
+                                          chargesEnabled: chargesEnabled,
+                                          connectionKey: connectionKey,
+                                          triggerClassName: "relative inline-flex h-full items-center gap-1.5 rounded-l-full py-0.5 pl-0.5 pr-1.5 cursor-pointer transition-colors hover:bg-violet-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 dark:hover:bg-violet-900/30",
+                                          threadPath: threadPath,
+                                          children: chipContent
+                                        }),
+                                    JsxRuntime.jsxs(LangProvider.Router.Link.make, {
+                                          to: threadPath,
+                                          children: [
+                                            JsxRuntime.jsx(LucideReact.MessageCircle, {
+                                                  size: 12,
+                                                  "aria-hidden": "true"
+                                                }),
+                                            JsxRuntime.jsx("span", {
+                                                  children: t`View message thread with ${name}`,
+                                                  className: "sr-only"
+                                                })
+                                          ],
+                                          className: "inline-flex w-7 items-center justify-center rounded-r-full border-l border-violet-200 text-violet-500 transition-colors hover:bg-violet-100 hover:text-violet-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 dark:border-violet-800/60 dark:text-violet-400 dark:hover:bg-violet-900/30 dark:hover:text-violet-200"
+                                        })
+                                  ],
+                                  className: "relative inline-flex items-stretch rounded-full border border-violet-200 bg-violet-50 dark:border-violet-800/60 dark:bg-violet-950/20"
+                                });
+                    }
+                    return JsxRuntime.jsx(RsvpOptions.make, {
                                 rsvp: rsvp.fragmentRefs,
                                 eventId: eventId,
                                 eventActivitySlug: Core__Option.getOr(activitySlug, "badminton"),
@@ -154,35 +221,8 @@ function PkEventRsvp(props) {
                                       isPending ? "border border-dashed border-gray-300 dark:border-[#3a3b40] opacity-50 hover:opacity-70 hover:bg-gray-50 dark:hover:bg-[#26272b]" : "border border-gray-200 dark:border-[#3a3b40] hover:bg-gray-50 dark:hover:bg-[#26272b]"
                                     )
                                 ),
-                                children: [
-                                  JsxRuntime.jsx(AvatarWithProgress.make, {
-                                        src: Core__Option.getOr(user.picture, ""),
-                                        alt: Core__Option.getOr(user.lineUsername, ""),
-                                        progress: progress,
-                                        size: 22,
-                                        strokeWidth: 1.5
-                                      }),
-                                  JsxRuntime.jsx("span", {
-                                        children: Core__Option.getOr(user.lineUsername, "?"),
-                                        className: "text-[11px] leading-none " + (
-                                          isInvited ? "text-violet-900 dark:text-violet-200" : "text-gray-900 dark:text-gray-100"
-                                        )
-                                      }),
-                                  isInvited ? JsxRuntime.jsx("span", {
-                                          children: t`sent`,
-                                          className: "font-mono text-[9px] leading-none text-violet-500 dark:text-violet-400"
-                                        }) : null,
-                                  tmp$1,
-                                  showRating ? JsxRuntime.jsx("span", {
-                                          children: skillStr,
-                                          className: "font-mono text-[11px] text-gray-400 dark:text-gray-500 leading-none"
-                                        }) : null,
-                                  paymentIndicator,
-                                  isHost ? JsxRuntime.jsx("span", {
-                                          children: "★",
-                                          className: "text-[11px] font-mono text-gray-400 dark:text-gray-500 leading-none"
-                                        }) : null
-                                ]
+                                threadPath: threadPath,
+                                children: chipContent
                               });
                   })), null);
 }

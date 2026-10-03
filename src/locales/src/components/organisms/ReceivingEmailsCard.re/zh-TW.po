@@ -30,19 +30,12 @@ msgid "Awaiting confirmation"
 msgstr "等待確認"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:557
-msgid ""
-"Bookings forwarded from it will no longer be added to your account. You can "
-"add it again later."
+msgid "Bookings forwarded from it will no longer be added to your account. You can add it again later."
 msgstr "從此地址轉寄的預訂將不再加入您的帳戶。您可以稍後再新增。"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:376
-msgid ""
-"Bookings you forward to chris@pkuru.com are added to your account when they "
-"come from one of these addresses. Add the other addresses you receive "
-"booking confirmations at."
-msgstr ""
-"當您從這些地址轉寄預訂到 chris@pkuru.com 時，預訂會加入您的帳戶。請新增您接收"
-"預訂確認郵件的其他地址。"
+msgid "Bookings you forward to chris@pkuru.com are added to your account when they come from one of these addresses. Add the other addresses you receive booking confirmations at."
+msgstr "當您從這些地址轉寄預訂到 chris@pkuru.com 時，預訂會加入您的帳戶。請新增您接收預訂確認郵件的其他地址。"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:496
@@ -132,9 +125,7 @@ msgid "We sent a link to"
 msgstr "我們已將連結傳送至"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:471
-msgid ""
-"We'll email a link to the new address. Your current address stays on as a "
-"receiving email."
+msgid "We'll email a link to the new address. Your current address stays on as a receiving email."
 msgstr "我們會寄送連結到新地址。您目前的地址會保留為收件信箱。"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:162
@@ -146,7 +137,5 @@ msgid "You've already added that address."
 msgstr "您已新增過此地址。"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:380
-msgid ""
-"Your account has no email yet. The first address you confirm here becomes "
-"your account email."
+msgid "Your account has no email yet. The first address you confirm here becomes your account email."
 msgstr "您的帳戶尚未設定電子郵件。您在此確認的第一個地址將成為帳戶電子郵件。"

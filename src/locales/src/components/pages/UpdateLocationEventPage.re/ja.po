@@ -13,24 +13,6 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:234
-#: src/components/organisms/AutocompleteLocation.re.mjs:246
-msgid "Could not load that place"
-msgstr "その場所を読み込めませんでした"
-
-#: src/components/organisms/AutocompleteLocation.re.mjs:125
-#: src/components/organisms/AutocompleteLocation.re.mjs:133
-msgid "Could not save that location"
-msgstr "その場所を保存できませんでした"
-
-#: src/components/organisms/AutocompleteLocation.re.mjs:182
-msgid "Location search is unavailable right now"
-msgstr "現在、場所の検索は利用できません"
-
-#: src/components/organisms/AutocompleteLocation.re.mjs:361
-msgid "Search for a venue or address"
-msgstr "会場または住所を検索"
-
 #. js-lingui-explicit-id
 #: src/components/organisms/CreateLocationEventForm.re.mjs:436
 #~ msgid "Badminton"
@@ -90,12 +72,8 @@ msgstr "会場または住所を検索"
 #~ msgstr "すべてのレベルのバドミントン"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:380
-#~ msgid ""
-#~ "any details from the location will already be included. Mention any "
-#~ "additional event-specific instructions, rules, or details."
-#~ msgstr ""
-#~ "ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、"
-#~ "詳細」があれば記載してください。"
+#~ msgid "any details from the location will already be included. Mention any additional event-specific instructions, rules, or details."
+#~ msgstr "ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、詳細」があれば記載してください。"
 
 #: src/components/molecules/forms/Form.re.mjs:294
 #~ msgid "cancel"
@@ -112,6 +90,16 @@ msgstr "会場または住所を検索"
 #: src/components/organisms/CreateClubForm.re.mjs:156
 #~ msgid "club"
 #~ msgstr "サークル"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:234
+#: src/components/organisms/AutocompleteLocation.re.mjs:246
+msgid "Could not load that place"
+msgstr "その場所を読み込めませんでした"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:125
+#: src/components/organisms/AutocompleteLocation.re.mjs:133
+msgid "Could not save that location"
+msgstr "その場所を保存できませんでした"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:325
 #~ msgid "date and start time"
@@ -157,6 +145,10 @@ msgstr "会場または住所を検索"
 #~ msgid "location details"
 #~ msgstr "場所の詳細"
 
+#: src/components/organisms/AutocompleteLocation.re.mjs:182
+msgid "Location search is unavailable right now"
+msgstr "現在、場所の検索は利用できません"
+
 #: src/components/organisms/CreateClubForm.re.mjs:194
 #~ msgid "main activity"
 #~ msgstr "主なアクティビティ"
@@ -181,17 +173,17 @@ msgstr "会場または住所を検索"
 #~ msgid "save"
 #~ msgstr "保存"
 
+#: src/components/organisms/AutocompleteLocation.re.mjs:361
+msgid "Search for a venue or address"
+msgstr "会場または住所を検索"
+
 #: src/components/organisms/SelectClubStateful.re.mjs:83
 #~ msgid "select club"
 #~ msgstr "サークルを選択"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:411
-#~ msgid ""
-#~ "show your event publicly on our home page. Otherwise, only people with a "
-#~ "link to your event will be able to find it."
-#~ msgstr ""
-#~ "ホームページでイベントを一般公開します。それ以外の場合、イベントへのリンク"
-#~ "を持っている人だけがイベントを見つけることができます。"
+#~ msgid "show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it."
+#~ msgstr "ホームページでイベントを一般公開します。それ以外の場合、イベントへのリンクを持っている人だけがイベントを見つけることができます。"
 
 #: src/components/organisms/CreateClubForm.re.mjs:177
 #~ msgid "slug"

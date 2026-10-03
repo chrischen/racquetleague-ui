@@ -30,29 +30,36 @@ msgid "Add time windows above"
 msgstr "Thêm khung giờ ở trên"
 
 #: src/components/organisms/AvailabilityGrid.re.mjs:229
-msgid ""
-"Add time windows to each day. Drag to move them, grab the edges to resize."
-msgstr ""
-"Thêm khung giờ cho mỗi ngày. Kéo để di chuyển, kéo cạnh để thay đổi kích "
-"thước."
+msgid "Add time windows to each day. Drag to move them, grab the edges to resize."
+msgstr "Thêm khung giờ cho mỗi ngày. Kéo để di chuyển, kéo cạnh để thay đổi kích thước."
 
 #: src/components/organisms/AvailabilityGrid.re.mjs:305
 msgid "Clear"
 msgstr "Xóa"
 
 #: src/components/organisms/AvailabilityGrid.re.mjs:380
-msgid ""
-"Drag a window to move it · drag the edges to resize · tap + to add another"
-msgstr ""
-"Kéo cửa sổ để di chuyển · kéo cạnh để thay đổi kích thước · nhấn + để thêm"
+msgid "Drag a window to move it · drag the edges to resize · tap + to add another"
+msgstr "Kéo cửa sổ để di chuyển · kéo cạnh để thay đổi kích thước · nhấn + để thêm"
 
 #: src/components/organisms/AvailabilityGrid.re.mjs:446
 msgid "Let hosts schedule events when most of you are free"
 msgstr "Để chủ tổ chức lên lịch sự kiện khi phần lớn mọi người rảnh"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#~ msgid "Long opening"
+#~ msgstr "Khung giờ dài"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "Khớp giờ của tôi"
+
 #: src/components/organisms/AvailabilityGrid.re.mjs:260
 msgid "One-off"
 msgstr "Một lần"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "mở"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
@@ -78,6 +85,10 @@ msgstr "Lịch"
 msgid "Share with your club"
 msgstr "Chia sẻ với câu lạc bộ của bạn"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "Nhấn bất kỳ đâu để thêm khung giờ"
+
 #: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "Nhấn để thêm thời gian của bạn"
@@ -101,19 +112,3 @@ msgstr "Bạn có thể chơi lúc nào?"
 #: src/components/organisms/AvailabilityGrid.re.mjs:388
 msgid "Your availability"
 msgstr "Lịch rảnh của bạn"
-
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
-#~ msgid "Long opening"
-#~ msgstr "Khung giờ dài"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-#~ msgid "Match my time"
-#~ msgstr "Khớp giờ của tôi"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-#~ msgid "open"
-#~ msgstr "mở"
-
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-#~ msgid "Tap anywhere to add a time window"
-#~ msgstr "Nhấn bất kỳ đâu để thêm khung giờ"

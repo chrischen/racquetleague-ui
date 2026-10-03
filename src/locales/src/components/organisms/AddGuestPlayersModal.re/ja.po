@@ -26,6 +26,10 @@ msgstr "ゲスト{0}名を追加"
 msgid "Add {0} Guests"
 msgstr "ゲスト{0}名を追加"
 
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:135
+#~ msgid "Add {0}Guest{1}"
+#~ msgstr "{0}ゲスト{1}を追加"
+
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:47
 msgid "Add Guest Players"
 msgstr "ゲストプレイヤーを追加"
@@ -66,14 +70,10 @@ msgstr "ジョン・スミス"
 msgid "Preview ({0} guest)"
 msgstr "プレビュー（ゲスト{0}名）"
 
-#: src/components/organisms/AddGuestPlayersModal.re.mjs:99
-msgid "Preview ({0} guests)"
-msgstr "プレビュー（ゲスト{0}名）"
-
-#: src/components/organisms/AddGuestPlayersModal.re.mjs:135
-#~ msgid "Add {0}Guest{1}"
-#~ msgstr "{0}ゲスト{1}を追加"
-
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:97
 #~ msgid "Preview ({0} guest{1})"
 #~ msgstr "プレビュー（{0}名のゲスト{1}）"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:99
+msgid "Preview ({0} guests)"
+msgstr "プレビュー（ゲスト{0}名）"

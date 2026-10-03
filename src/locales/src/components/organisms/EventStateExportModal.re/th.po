@@ -31,7 +31,5 @@ msgid "Export History"
 msgstr "ส่งออกประวัติ"
 
 #: src/components/organisms/EventStateExportModal.re.mjs:86
-msgid ""
-"Scored matches and rating adjustments only. Paste this into Import History "
-"on another device."
+msgid "Scored matches and rating adjustments only. Paste this into Import History on another device."
 msgstr "เฉพาะแมตช์ที่บันทึกคะแนนแล้วและการปรับเรตติ้ง วางข้อมูลนี้ในเมนูนำเข้าประวัติบนอุปกรณ์อื่น"

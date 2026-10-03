@@ -6,6 +6,7 @@ import * as DateFns from "date-fns";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as LucideReact from "lucide-react";
+import * as DirectMessage from "../../lib/DirectMessage.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as DifferenceInMinutes from "date-fns/differenceInMinutes";
 
@@ -124,6 +125,10 @@ function synthesizeTitle(activityType, details) {
   switch (activityType) {
     case "comment_added" :
         return t`New Comment`;
+    case "direct" :
+        return t`New message`;
+    case "direct_invite" :
+        return t`Invitation`;
     case "event_status" :
         if (details !== undefined) {
           if (details === "canceled") {
@@ -167,6 +172,15 @@ function NotificationRow$Icon(props) {
         match = [
           "bg-sky-100 dark:bg-sky-900/30",
           "text-sky-600 dark:text-sky-400",
+          JsxRuntime.jsx(LucideReact.MessageCircle, {
+                className: iconSize
+              })
+        ];
+        break;
+    case "direct" :
+        match = [
+          "bg-violet-100 dark:bg-violet-900/30",
+          "text-violet-600 dark:text-violet-400",
           JsxRuntime.jsx(LucideReact.MessageCircle, {
                 className: iconSize
               })
@@ -231,6 +245,7 @@ function NotificationRow$Icon(props) {
               })
         ];
         break;
+    case "direct_invite" :
     case "rsvp_invited" :
         match = [
           "bg-violet-100 dark:bg-violet-900/30",
@@ -290,13 +305,25 @@ function NotificationRow(props) {
   var onNavigate = props.onNavigate;
   var onDismiss = props.onDismiss;
   var __compact = props.compact;
+  var createdAt = props.createdAt;
+  var payload = props.payload;
   var topic = props.topic;
   var compact = __compact !== undefined ? __compact : false;
-  var notification = Core__Option.flatMap(props.payload, (function (s) {
+  var notification = Core__Option.flatMap(payload, (function (s) {
           return decodeNotification(topic, s);
         }));
+  var direct = DirectMessage.decode("", topic, payload, createdAt);
   var match;
-  if (notification !== undefined) {
+  if (direct !== undefined) {
+    var match$1 = DirectMessage.counterpart(direct);
+    match = [
+      DirectMessage.isInvite(direct) ? "direct_invite" : "direct",
+      match$1[1],
+      direct.body,
+      direct.eventName,
+      DirectMessage.threadPath(match$1[0])
+    ];
+  } else if (notification !== undefined) {
     if (notification.TAG === "EventUpdated") {
       var n = notification._0;
       match = [
@@ -331,7 +358,7 @@ function NotificationRow(props) {
   var detailsOpt = match[2];
   var activityType = match[0];
   var title = synthesizeTitle(activityType, detailsOpt);
-  var timeStr = relativeTimeStr(props.createdAt);
+  var timeStr = relativeTimeStr(createdAt);
   var detailsStr = Core__Option.getOr(detailsOpt, "");
   var subInfo = JsxRuntime.jsxs(JsxRuntime.Fragment, {
         children: [

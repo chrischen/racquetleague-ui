@@ -34,11 +34,8 @@ msgid "Import History"
 msgstr "导入历史记录"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:48
-msgid ""
-"Imported matches count as already synced, and keep their original ids so "
-"syncing again cannot duplicate them on the server."
-msgstr ""
-"导入的比赛视为已同步，并保留原有 ID，因此再次同步不会在服务器上产生重复。"
+msgid "Imported matches count as already synced, and keep their original ids so syncing again cannot duplicate them on the server."
+msgstr "导入的比赛视为已同步，并保留原有 ID，因此再次同步不会在服务器上产生重复。"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:43
 msgid "Matches to import"
@@ -49,9 +46,7 @@ msgid "Paste an exported history"
 msgstr "粘贴导出的历史记录"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:119
-msgid ""
-"Rounds are placed in the timeline by their timestamps, so importing can add "
-"rounds before the ones already here."
+msgid "Rounds are placed in the timeline by their timestamps, so importing can add rounds before the ones already here."
 msgstr "轮次按时间戳排入时间线，因此导入可能会在现有轮次之前添加轮次。"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:42

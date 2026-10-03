@@ -30,22 +30,12 @@ msgid "Awaiting confirmation"
 msgstr "Đang chờ xác nhận"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:557
-msgid ""
-"Bookings forwarded from it will no longer be added to your account. You can "
-"add it again later."
-msgstr ""
-"Các đặt chỗ được chuyển tiếp từ địa chỉ này sẽ không còn được thêm vào tài "
-"khoản của bạn. Bạn có thể thêm lại sau."
+msgid "Bookings forwarded from it will no longer be added to your account. You can add it again later."
+msgstr "Các đặt chỗ được chuyển tiếp từ địa chỉ này sẽ không còn được thêm vào tài khoản của bạn. Bạn có thể thêm lại sau."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:376
-msgid ""
-"Bookings you forward to chris@pkuru.com are added to your account when they "
-"come from one of these addresses. Add the other addresses you receive "
-"booking confirmations at."
-msgstr ""
-"Các đặt chỗ bạn chuyển tiếp đến chris@pkuru.com sẽ được thêm vào tài khoản "
-"khi chúng được gửi từ một trong các địa chỉ này. Hãy thêm các địa chỉ khác "
-"mà bạn nhận email xác nhận đặt chỗ."
+msgid "Bookings you forward to chris@pkuru.com are added to your account when they come from one of these addresses. Add the other addresses you receive booking confirmations at."
+msgstr "Các đặt chỗ bạn chuyển tiếp đến chris@pkuru.com sẽ được thêm vào tài khoản khi chúng được gửi từ một trong các địa chỉ này. Hãy thêm các địa chỉ khác mà bạn nhận email xác nhận đặt chỗ."
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:496
@@ -75,13 +65,11 @@ msgstr "Email tài khoản mới"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:348
 msgid "Open it to make it your account email. Until then, nothing changes."
-msgstr ""
-"Mở liên kết để đặt làm email tài khoản. Trước đó, không có gì thay đổi."
+msgstr "Mở liên kết để đặt làm email tài khoản. Trước đó, không có gì thay đổi."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:339
 msgid "Open it while signed in to pkuru to finish adding the address."
-msgstr ""
-"Hãy mở liên kết khi đang đăng nhập pkuru để hoàn tất việc thêm địa chỉ."
+msgstr "Hãy mở liên kết khi đang đăng nhập pkuru để hoàn tất việc thêm địa chỉ."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:368
 msgid "Receiving emails"
@@ -137,26 +125,17 @@ msgid "We sent a link to"
 msgstr "Chúng tôi đã gửi liên kết đến"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:471
-msgid ""
-"We'll email a link to the new address. Your current address stays on as a "
-"receiving email."
-msgstr ""
-"Chúng tôi sẽ gửi liên kết đến địa chỉ mới. Địa chỉ hiện tại vẫn được giữ làm "
-"email nhận."
+msgid "We'll email a link to the new address. Your current address stays on as a receiving email."
+msgstr "Chúng tôi sẽ gửi liên kết đến địa chỉ mới. Địa chỉ hiện tại vẫn được giữ làm email nhận."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:162
 msgid "You can add up to 5 receiving emails. Remove one to add another."
-msgstr ""
-"Bạn có thể thêm tối đa 5 email nhận. Hãy xóa một email để thêm email khác."
+msgstr "Bạn có thể thêm tối đa 5 email nhận. Hãy xóa một email để thêm email khác."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:150
 msgid "You've already added that address."
 msgstr "Bạn đã thêm địa chỉ này rồi."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:380
-msgid ""
-"Your account has no email yet. The first address you confirm here becomes "
-"your account email."
-msgstr ""
-"Tài khoản của bạn chưa có email. Địa chỉ đầu tiên bạn xác nhận ở đây sẽ trở "
-"thành email tài khoản."
+msgid "Your account has no email yet. The first address you confirm here becomes your account email."
+msgstr "Tài khoản của bạn chưa có email. Địa chỉ đầu tiên bạn xác nhận ở đây sẽ trở thành email tài khoản."

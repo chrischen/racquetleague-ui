@@ -13,54 +13,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/SelectClubStateful.re.mjs:108
-msgid "add new club"
-msgstr "添加新俱乐部"
-
-#: src/components/organisms/CreateClubForm.re.mjs:205
-msgid "Brief description of the club..."
-msgstr "俱乐部的简要描述..."
-
-#: src/components/organisms/CreateClubForm.re.mjs:314
-msgid "Cancel"
-msgstr "取消"
-
-#: src/components/organisms/SelectClubStateful.re.mjs:82
-msgid "choose the club where this event will be held."
-msgstr "选择举办此活动的俱乐部。"
-
-#: src/components/organisms/CreateClubForm.re.mjs:156
-msgid "Club Name"
-msgstr "俱乐部名称"
-
-#: src/components/organisms/CreateClubForm.re.mjs:256
-msgid "Club URL"
-msgstr "俱乐部URL"
-
-#: src/components/organisms/CreateClubForm.re.mjs:269
-msgid "club-name"
-msgstr "俱乐部名称"
-
-#: src/components/organisms/CreateClubForm.re.mjs:300
-msgid "Create Club"
-msgstr "创建俱乐部"
-
-#: src/components/organisms/CreateClubForm.re.mjs:225
-msgid "Default club activity"
-msgstr "默认俱乐部活动"
-
-#: src/components/organisms/CreateClubForm.re.mjs:198
-msgid "Description"
-msgstr "描述"
-
-#: src/components/organisms/CreateClubForm.re.mjs:164
-msgid "e.g., City Ballers Club"
-msgstr "例如：城市球手俱乐部"
-
-#: src/components/organisms/SelectClubStateful.re.mjs:81
-msgid "select club"
-msgstr "选择俱乐部"
-
 #. js-lingui-explicit-id
 #: src/components/organisms/CreateClubForm.re.mjs:334
 #~ msgid "Badminton"
@@ -95,13 +47,57 @@ msgstr "选择俱乐部"
 #~ msgid "about"
 #~ msgstr "关于"
 
+#: src/components/organisms/SelectClubStateful.re.mjs:108
+msgid "add new club"
+msgstr "添加新俱乐部"
+
+#: src/components/organisms/CreateClubForm.re.mjs:205
+msgid "Brief description of the club..."
+msgstr "俱乐部的简要描述..."
+
 #: src/components/molecules/forms/Form.re.mjs:304
 #~ msgid "cancel"
 #~ msgstr "取消"
 
+#: src/components/organisms/CreateClubForm.re.mjs:314
+msgid "Cancel"
+msgstr "取消"
+
+#: src/components/organisms/SelectClubStateful.re.mjs:82
+msgid "choose the club where this event will be held."
+msgstr "选择举办此活动的俱乐部。"
+
 #: src/components/organisms/CreateClubForm.re.mjs:156
 #~ msgid "club"
 #~ msgstr "俱乐部"
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+msgid "Club Name"
+msgstr "俱乐部名称"
+
+#: src/components/organisms/CreateClubForm.re.mjs:256
+msgid "Club URL"
+msgstr "俱乐部URL"
+
+#: src/components/organisms/CreateClubForm.re.mjs:269
+msgid "club-name"
+msgstr "俱乐部名称"
+
+#: src/components/organisms/CreateClubForm.re.mjs:300
+msgid "Create Club"
+msgstr "创建俱乐部"
+
+#: src/components/organisms/CreateClubForm.re.mjs:225
+msgid "Default club activity"
+msgstr "默认俱乐部活动"
+
+#: src/components/organisms/CreateClubForm.re.mjs:198
+msgid "Description"
+msgstr "描述"
+
+#: src/components/organisms/CreateClubForm.re.mjs:164
+msgid "e.g., City Ballers Club"
+msgstr "例如：城市球手俱乐部"
 
 #: src/components/organisms/CreateClubForm.re.mjs:194
 #~ msgid "main activity"
@@ -122,6 +118,10 @@ msgstr "选择俱乐部"
 #: src/components/molecules/forms/Form.re.mjs:311
 #~ msgid "save"
 #~ msgstr "保存"
+
+#: src/components/organisms/SelectClubStateful.re.mjs:81
+msgid "select club"
+msgstr "选择俱乐部"
 
 #: src/components/organisms/CreateClubForm.re.mjs:177
 #~ msgid "slug"

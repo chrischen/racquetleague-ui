@@ -46,37 +46,25 @@ msgid "Save your card"
 msgstr "保存您的银行卡"
 
 #: src/components/organisms/StripePaymentEmbed.re.mjs:112
-msgid ""
-"The card form could not be loaded. Check your connection or turn off any "
-"content blocker, then try again."
+msgid "The card form could not be loaded. Check your connection or turn off any content blocker, then try again."
 msgstr "无法加载银行卡表单。请检查网络连接或关闭内容拦截程序后重试。"
 
 #: src/components/organisms/StripePaymentEmbed.re.mjs:117
 msgid "The card form could not be loaded. Close this and try again."
 msgstr "无法加载银行卡表单。请关闭后重试。"
 
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+#~ msgid "Your card is saved now, not charged. The organizer will charge {amountLabel} after the event."
+#~ msgstr "您的银行卡现在仅被保存，不会扣款。组织者将在活动结束后收取 {amountLabel}。"
+
 #: src/components/organisms/StripePaymentEmbed.re.mjs:200
-msgid ""
-"Your card is saved now, not charged. The organizer will charge {amountLabel} "
-"later."
+msgid "Your card is saved now, not charged. The organizer will charge {amountLabel} later."
 msgstr "您的银行卡现已保存，暂未扣款。主办方稍后将收取 {amountLabel}。"
 
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+#~ msgid "Your card is saved now, not charged. The organizer will charge the participation fee after the event."
+#~ msgstr "您的银行卡现在仅被保存，不会扣款。组织者将在活动结束后收取参与费用。"
+
 #: src/components/organisms/StripePaymentEmbed.re.mjs:200
-msgid ""
-"Your card is saved now, not charged. The organizer will charge the "
-"participation fee later."
+msgid "Your card is saved now, not charged. The organizer will charge the participation fee later."
 msgstr "您的银行卡现已保存，暂未扣款。主办方稍后将收取参与费用。"
-
-#: src/components/organisms/StripePaymentEmbed.re.mjs:151
-#~ msgid ""
-#~ "Your card is saved now, not charged. The organizer will charge "
-#~ "{amountLabel} after the event."
-#~ msgstr ""
-#~ "您的银行卡现在仅被保存，不会扣款。组织者将在活动结束后收取 {amountLabel}。"
-
-#: src/components/organisms/StripePaymentEmbed.re.mjs:151
-#~ msgid ""
-#~ "Your card is saved now, not charged. The organizer will charge the "
-#~ "participation fee after the event."
-#~ msgstr ""
-#~ "您的银行卡现在仅被保存，不会扣款。组织者将在活动结束后收取参与费用。"

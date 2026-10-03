@@ -42,25 +42,12 @@ msgid "Advanced"
 msgstr "Nâng cao"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:376
-msgid ""
-"Attendees of your paid events save a card when they RSVP; nothing is charged "
-"up front. From an event's RSVP list you can charge one attendee or everyone, "
-"and the money goes to this account."
-msgstr ""
-"Người tham gia các sự kiện có phí của bạn sẽ lưu thẻ khi RSVP; không có "
-"khoản nào bị trừ trước. Từ danh sách RSVP của sự kiện, bạn có thể thu tiền "
-"một người hoặc tất cả, và tiền sẽ vào tài khoản này."
+msgid "Attendees of your paid events save a card when they RSVP; nothing is charged up front. From an event's RSVP list you can charge one attendee or everyone, and the money goes to this account."
+msgstr "Người tham gia các sự kiện có phí của bạn sẽ lưu thẻ khi RSVP; không có khoản nào bị trừ trước. Từ danh sách RSVP của sự kiện, bạn có thể thu tiền một người hoặc tất cả, và tiền sẽ vào tài khoản này."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:370
-msgid ""
-"Attendees of your paid events still save a card when they RSVP, but it can't "
-"be charged, so you collect the fee at the event. Connect a Stripe account to "
-"charge saved cards from the RSVP list and receive the money here."
-msgstr ""
-"Người tham gia các sự kiện có phí của bạn vẫn lưu thẻ khi RSVP, nhưng thẻ "
-"không thể bị trừ tiền, nên bạn phải thu phí tại sự kiện. Hãy kết nối tài "
-"khoản Stripe để thu tiền từ thẻ đã lưu trong danh sách RSVP và nhận tiền tại "
-"đây."
+msgid "Attendees of your paid events still save a card when they RSVP, but it can't be charged, so you collect the fee at the event. Connect a Stripe account to charge saved cards from the RSVP list and receive the money here."
+msgstr "Người tham gia các sự kiện có phí của bạn vẫn lưu thẻ khi RSVP, nhưng thẻ không thể bị trừ tiền, nên bạn phải thu phí tại sự kiện. Hãy kết nối tài khoản Stripe để thu tiền từ thẻ đã lưu trong danh sách RSVP và nhận tiền tại đây."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:430
 msgid "Australia"
@@ -74,31 +61,29 @@ msgstr "Đang chờ xác nhận"
 msgid "Beginner"
 msgstr "Người mới bắt đầu"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:289
+#~ msgid "biography"
+#~ msgstr "tiểu sử"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:568
 msgid "Biography"
 msgstr "Tiểu sử"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:557
-msgid ""
-"Bookings forwarded from it will no longer be added to your account. You can "
-"add it again later."
-msgstr ""
-"Các đặt chỗ được chuyển tiếp từ địa chỉ này sẽ không còn được thêm vào tài "
-"khoản của bạn. Bạn có thể thêm lại sau."
+msgid "Bookings forwarded from it will no longer be added to your account. You can add it again later."
+msgstr "Các đặt chỗ được chuyển tiếp từ địa chỉ này sẽ không còn được thêm vào tài khoản của bạn. Bạn có thể thêm lại sau."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:376
-msgid ""
-"Bookings you forward to chris@pkuru.com are added to your account when they "
-"come from one of these addresses. Add the other addresses you receive "
-"booking confirmations at."
-msgstr ""
-"Các đặt chỗ bạn chuyển tiếp đến chris@pkuru.com sẽ được thêm vào tài khoản "
-"khi chúng được gửi từ một trong các địa chỉ này. Hãy thêm các địa chỉ khác "
-"mà bạn nhận email xác nhận đặt chỗ."
+msgid "Bookings you forward to chris@pkuru.com are added to your account when they come from one of these addresses. Add the other addresses you receive booking confirmations at."
+msgstr "Các đặt chỗ bạn chuyển tiếp đến chris@pkuru.com sẽ được thêm vào tài khoản khi chúng được gửi từ một trong các địa chỉ này. Hãy thêm các địa chỉ khác mà bạn nhận email xác nhận đặt chỗ."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:434
 msgid "Canada"
 msgstr "Canada"
+
+#: src/components/molecules/forms/Form.re.mjs:304
+#~ msgid "cancel"
+#~ msgstr "hủy"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/DuprConnectCard.re.mjs:440
@@ -122,6 +107,10 @@ msgstr "Xác nhận"
 msgid "Confirmed"
 msgstr "Đã xác nhận"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:347
+#~ msgid "Connect a Stripe account to receive payments from events you organize."
+#~ msgstr "Kết nối tài khoản Stripe để nhận thanh toán từ các sự kiện bạn tổ chức."
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:399
 msgid "Connect Stripe account"
 msgstr "Kết nối tài khoản Stripe"
@@ -143,6 +132,10 @@ msgstr "Quốc gia"
 #: src/components/organisms/DuprConnectCard.re.mjs:507
 msgid "Create one at mydupr.com or in the DUPR app"
 msgstr "Tạo tài khoản tại mydupr.com hoặc trong ứng dụng DUPR"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:214
+#~ msgid "details about yourself"
+#~ msgstr "thông tin về bản thân"
 
 #: src/components/shared/PushNotifications.re.mjs:402
 msgid "Disable notifications"
@@ -194,12 +187,12 @@ msgid "DUPR login"
 msgstr "Đăng nhập DUPR"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:168
-msgid ""
-"DUPR needs you to finish setting up your account before it can be linked. "
-"Follow the steps in the DUPR panel, then sign in again."
-msgstr ""
-"DUPR yêu cầu bạn hoàn tất thiết lập tài khoản trước khi có thể liên kết. Hãy "
-"làm theo các bước trong bảng DUPR, sau đó đăng nhập lại."
+msgid "DUPR needs you to finish setting up your account before it can be linked. Follow the steps in the DUPR panel, then sign in again."
+msgstr "DUPR yêu cầu bạn hoàn tất thiết lập tài khoản trước khi có thể liên kết. Hãy làm theo các bước trong bảng DUPR, sau đó đăng nhập lại."
+
+#: src/components/organisms/DuprConnectCard.re.mjs:187
+#~ msgid "DUPR sent something we couldn't read. Please try again."
+#~ msgstr "DUPR gửi dữ liệu không đọc được. Vui lòng thử lại."
 
 #: src/components/shared/PushNotifications.re.mjs:414
 msgid "Enable notifications"
@@ -213,9 +206,17 @@ msgstr "DUPR ước tính"
 msgid "Female"
 msgstr "Nữ"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:222
+#~ msgid "full name"
+#~ msgstr "tên đầy đủ"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:516
 msgid "Full name"
 msgstr "Họ và tên"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:246
+#~ msgid "gender"
+#~ msgstr "giới tính"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:531
 msgid "Gender"
@@ -254,12 +255,8 @@ msgid "Level"
 msgstr "Trình độ"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:357
-msgid ""
-"Link your DUPR account to use your verified DUPR rating here. While it's "
-"linked, it replaces your self-rating."
-msgstr ""
-"Liên kết tài khoản DUPR để dùng điểm DUPR đã xác minh tại đây. Khi đã liên "
-"kết, điểm này sẽ thay cho điểm tự đánh giá của bạn."
+msgid "Link your DUPR account to use your verified DUPR rating here. While it's linked, it replaces your self-rating."
+msgstr "Liên kết tài khoản DUPR để dùng điểm DUPR đã xác minh tại đây. Khi đã liên kết, điểm này sẽ thay cho điểm tự đánh giá của bạn."
 
 #: src/components/organisms/DuprConnectCard.re.mjs:289
 msgid "Linked"
@@ -317,12 +314,8 @@ msgid "Notifications"
 msgstr "Thông báo"
 
 #: src/components/shared/PushNotifications.re.mjs:431
-msgid ""
-"Notifications are blocked. To enable them, go to your device or browser "
-"settings and allow notifications for this site."
-msgstr ""
-"Thông báo đã bị chặn. Để bật, hãy vào cài đặt thiết bị hoặc trình duyệt và "
-"cho phép thông báo cho trang này."
+msgid "Notifications are blocked. To enable them, go to your device or browser settings and allow notifications for this site."
+msgstr "Thông báo đã bị chặn. Để bật, hãy vào cài đặt thiết bị hoặc trình duyệt và cho phép thông báo cho trang này."
 
 #: src/components/molecules/DuprRatingBadge.re.mjs:26
 msgid "NR"
@@ -330,13 +323,11 @@ msgstr "NR"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:348
 msgid "Open it to make it your account email. Until then, nothing changes."
-msgstr ""
-"Mở liên kết để đặt làm email tài khoản. Trước đó, không có gì thay đổi."
+msgstr "Mở liên kết để đặt làm email tài khoản. Trước đó, không có gì thay đổi."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:339
 msgid "Open it while signed in to pkuru to finish adding the address."
-msgstr ""
-"Hãy mở liên kết khi đang đăng nhập pkuru để hoàn tất việc thêm địa chỉ."
+msgstr "Hãy mở liên kết khi đang đăng nhập pkuru để hoàn tất việc thêm địa chỉ."
 
 #: src/components/shared/InstallPwa.re.mjs:298
 msgid "Open the app from your Home Screen and enable notifications"
@@ -350,9 +341,17 @@ msgstr "Đang chờ"
 msgid "pkuru"
 msgstr "pkuru"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:507
+#~ msgid "Prefer not to say"
+#~ msgstr "Không muốn tiết lộ"
+
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "Chuyên nghiệp"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:213
+#~ msgid "profile"
+#~ msgstr "hồ sơ"
 
 #: src/components/molecules/DuprRatingBadge.re.mjs:37
 #: src/components/molecules/RatingSourceChip.re.mjs:50
@@ -360,12 +359,8 @@ msgid "provisional"
 msgstr "tạm thời"
 
 #: src/components/shared/PushNotifications.re.mjs:302
-msgid ""
-"Push notifications are blocked. Check your browser or device notification "
-"settings for this site, then try again."
-msgstr ""
-"Thông báo đẩy đã bị chặn. Kiểm tra cài đặt thông báo trên trình duyệt hoặc "
-"thiết bị cho trang này, rồi thử lại."
+msgid "Push notifications are blocked. Check your browser or device notification settings for this site, then try again."
+msgstr "Thông báo đẩy đã bị chặn. Kiểm tra cài đặt thông báo trên trình duyệt hoặc thiết bị cho trang này, rồi thử lại."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:664
 msgid "Receive push notifications for event reminders and updates."
@@ -391,6 +386,10 @@ msgstr "Gửi lại"
 msgid "Resume onboarding"
 msgstr "Tiếp tục đăng ký"
 
+#: src/components/molecules/forms/Form.re.mjs:311
+#~ msgid "save"
+#~ msgstr "lưu"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:642
 msgid "Save profile"
 msgstr "Lưu hồ sơ"
@@ -412,20 +411,12 @@ msgid "Send link"
 msgstr "Gửi liên kết"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
-msgid ""
-"shows a badge next to your name in RSVP lists to tell people you are looking "
-"for a partner"
-msgstr ""
-"hiển thị huy hiệu bên cạnh tên bạn trong danh sách RSVP để cho mọi người "
-"biết bạn đang tìm đối tác"
+msgid "shows a badge next to your name in RSVP lists to tell people you are looking for a partner"
+msgstr "hiển thị huy hiệu bên cạnh tên bạn trong danh sách RSVP để cho mọi người biết bạn đang tìm đối tác"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:404
-msgid ""
-"Sign in to DUPR to link your account. We store your DUPR ID and ratings — "
-"never your DUPR password."
-msgstr ""
-"Đăng nhập DUPR để liên kết tài khoản. Chúng tôi chỉ lưu DUPR ID và điểm của "
-"bạn — không bao giờ lưu mật khẩu DUPR."
+msgid "Sign in to DUPR to link your account. We store your DUPR ID and ratings — never your DUPR password."
+msgstr "Đăng nhập DUPR để liên kết tài khoản. Chúng tôi chỉ lưu DUPR ID và điểm của bạn — không bao giờ lưu mật khẩu DUPR."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:442
 msgid "Singapore"
@@ -438,6 +429,11 @@ msgstr "đơn"
 #: src/components/organisms/SettingsProfileForm.re.mjs:523
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "Một số sự kiện yêu cầu tên hợp pháp của bạn như trên thẻ căn cước."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:270
+#, fuzzy
+#~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
+#~ msgstr "Một số sự kiện yêu cầu tên hợp pháp của bạn như trên thẻ căn cước."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:164
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:171
@@ -501,14 +497,8 @@ msgid "United States"
 msgstr "Mỹ"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:373
-msgid ""
-"Until onboarding is complete, your paid events run on the platform account: "
-"attendees save a card when they RSVP, but you can't charge it. Collect the "
-"fee at the event."
-msgstr ""
-"Cho đến khi hoàn tất thiết lập, các sự kiện có phí của bạn sẽ chạy trên tài "
-"khoản nền tảng: người tham gia lưu thẻ khi RSVP, nhưng bạn không thể thu "
-"tiền. Hãy thu phí tại sự kiện."
+msgid "Until onboarding is complete, your paid events run on the platform account: attendees save a card when they RSVP, but you can't charge it. Collect the fee at the event."
+msgstr "Cho đến khi hoàn tất thiết lập, các sự kiện có phí của bạn sẽ chạy trên tài khoản nền tảng: người tham gia lưu thẻ khi RSVP, nhưng bạn không thể thu tiền. Hãy thu phí tại sự kiện."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:160
 msgid "We couldn't send the email. Try \\\"Resend\\\" in a moment."
@@ -523,122 +513,49 @@ msgid "We sent a link to"
 msgstr "Chúng tôi đã gửi liên kết đến"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:471
-msgid ""
-"We'll email a link to the new address. Your current address stays on as a "
-"receiving email."
-msgstr ""
-"Chúng tôi sẽ gửi liên kết đến địa chỉ mới. Địa chỉ hiện tại vẫn được giữ làm "
-"email nhận."
+msgid "We'll email a link to the new address. Your current address stays on as a receiving email."
+msgstr "Chúng tôi sẽ gửi liên kết đến địa chỉ mới. Địa chỉ hiện tại vẫn được giữ làm email nhận."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:162
 msgid "You can add up to 5 receiving emails. Remove one to add another."
-msgstr ""
-"Bạn có thể thêm tối đa 5 email nhận. Hãy xóa một email để thêm email khác."
+msgstr "Bạn có thể thêm tối đa 5 email nhận. Hãy xóa một email để thêm email khác."
 
 #: src/components/organisms/DuprConnectCard.re.mjs:170
-msgid ""
-"You declined to share your DUPR data, so nothing was linked. Sign in again "
-"and choose Authorize to link."
-msgstr ""
-"Bạn đã từ chối chia sẻ dữ liệu DUPR nên không có gì được liên kết. Hãy đăng "
-"nhập lại và chọn Ủy quyền để liên kết."
+msgid "You declined to share your DUPR data, so nothing was linked. Sign in again and choose Authorize to link."
+msgstr "Bạn đã từ chối chia sẻ dữ liệu DUPR nên không có gì được liên kết. Hãy đăng nhập lại và chọn Ủy quyền để liên kết."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:150
 msgid "You've already added that address."
 msgstr "Bạn đã thêm địa chỉ này rồi."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:380
-msgid ""
-"Your account has no email yet. The first address you confirm here becomes "
-"your account email."
-msgstr ""
-"Tài khoản của bạn chưa có email. Địa chỉ đầu tiên bạn xác nhận ở đây sẽ trở "
-"thành email tài khoản."
+msgid "Your account has no email yet. The first address you confirm here becomes your account email."
+msgstr "Tài khoản của bạn chưa có email. Địa chỉ đầu tiên bạn xác nhận ở đây sẽ trở thành email tài khoản."
 
 #: src/components/organisms/DuprConnectCard.re.mjs:528
-msgid ""
-"Your DUPR rating will stop being used here and your self-rating picker comes "
-"back."
-msgstr ""
-"Điểm DUPR của bạn sẽ không còn được dùng tại đây và mục tự đánh giá sẽ trở "
-"lại."
+msgid "Your DUPR rating will stop being used here and your self-rating picker comes back."
+msgstr "Điểm DUPR của bạn sẽ không còn được dùng tại đây và mục tự đánh giá sẽ trở lại."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:605
-msgid ""
-"Your rating comes from DUPR. Disconnect DUPR below to set your own level "
-"again."
-msgstr ""
-"Trình độ của bạn được lấy từ DUPR. Hãy ngắt kết nối DUPR bên dưới để tự đặt "
-"trình độ của bạn lại."
+msgid "Your rating comes from DUPR. Disconnect DUPR below to set your own level again."
+msgstr "Trình độ của bạn được lấy từ DUPR. Hãy ngắt kết nối DUPR bên dưới để tự đặt trình độ của bạn lại."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:620
 msgid "Your self-reported skill level"
 msgstr "Trình độ kỹ năng tự đánh giá của bạn"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:353
+#~ msgid "Your Stripe account is connected and ready to accept payments."
+#~ msgstr "Tài khoản Stripe của bạn đã được kết nối và sẵn sàng nhận thanh toán."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:350
+#~ msgid "Your Stripe account is connected but onboarding is not yet complete."
+#~ msgstr "Tài khoản Stripe của bạn đã được kết nối nhưng chưa hoàn tất đăng ký."
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:360
 msgid "Your Stripe account is connected, but onboarding isn't complete yet."
-msgstr ""
-"Tài khoản Stripe của bạn đã được kết nối, nhưng chưa hoàn tất thiết lập."
+msgstr "Tài khoản Stripe của bạn đã được kết nối, nhưng chưa hoàn tất thiết lập."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:363
 msgid "Your Stripe account is connected."
 msgstr "Tài khoản Stripe của bạn đã được kết nối."
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:289
-#~ msgid "biography"
-#~ msgstr "tiểu sử"
-
-#: src/components/molecules/forms/Form.re.mjs:304
-#~ msgid "cancel"
-#~ msgstr "hủy"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:347
-#~ msgid ""
-#~ "Connect a Stripe account to receive payments from events you organize."
-#~ msgstr ""
-#~ "Kết nối tài khoản Stripe để nhận thanh toán từ các sự kiện bạn tổ chức."
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:214
-#~ msgid "details about yourself"
-#~ msgstr "thông tin về bản thân"
-
-#: src/components/organisms/DuprConnectCard.re.mjs:187
-#~ msgid "DUPR sent something we couldn't read. Please try again."
-#~ msgstr "DUPR gửi dữ liệu không đọc được. Vui lòng thử lại."
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:222
-#~ msgid "full name"
-#~ msgstr "tên đầy đủ"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:246
-#~ msgid "gender"
-#~ msgstr "giới tính"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:507
-#~ msgid "Prefer not to say"
-#~ msgstr "Không muốn tiết lộ"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:213
-#~ msgid "profile"
-#~ msgstr "hồ sơ"
-
-#: src/components/molecules/forms/Form.re.mjs:311
-#~ msgid "save"
-#~ msgstr "lưu"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:270
-#, fuzzy
-#~ msgid ""
-#~ "Some events require your legal name as shown on an ID "
-#~ "card.omeventsequoegashownour passporta"
-#~ msgstr "Một số sự kiện yêu cầu tên hợp pháp của bạn như trên thẻ căn cước."
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:353
-#~ msgid "Your Stripe account is connected and ready to accept payments."
-#~ msgstr ""
-#~ "Tài khoản Stripe của bạn đã được kết nối và sẵn sàng nhận thanh toán."
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:350
-#~ msgid "Your Stripe account is connected but onboarding is not yet complete."
-#~ msgstr ""
-#~ "Tài khoản Stripe của bạn đã được kết nối nhưng chưa hoàn tất đăng ký."

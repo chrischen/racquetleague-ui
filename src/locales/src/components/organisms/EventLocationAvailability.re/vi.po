@@ -74,6 +74,11 @@ msgstr "{n} ngoài trời"
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
+#: src/components/organisms/EventLocationAvailability.re.mjs:418
+#, fuzzy
+#~ msgid "Alternate location"
+#~ msgstr "địa điểm sự kiện"
+
 #: src/components/organisms/EventLocationAvailability.re.mjs:436
 msgid "At {venue} now"
 msgstr "Hiện tại tại {venue}"
@@ -101,18 +106,20 @@ msgstr "Không có sân nào tại {venue} đáp ứng toàn bộ khung thời g
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:546
 msgid "No other nearby venue has a court free for the event's hours."
-msgstr ""
-"Không có địa điểm lân cận nào khác có sân trống trong giờ diễn ra sự kiện."
+msgstr "Không có địa điểm lân cận nào khác có sân trống trong giờ diễn ra sự kiện."
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:503
 msgid "No other same-day time at {venue} supports the full event duration."
-msgstr ""
-"Không có khung giờ nào khác trong ngày tại {venue} phù hợp với toàn bộ thời "
-"lượng sự kiện."
+msgstr "Không có khung giờ nào khác trong ngày tại {venue} phù hợp với toàn bộ thời lượng sự kiện."
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:319
 msgid "Not available"
 msgstr "Không khả dụng"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:409
+#, fuzzy
+#~ msgid "Other locations and times"
+#~ msgstr "Địa điểm khác vào thời gian này"
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:509
 msgid "Other locations at this time"
@@ -127,17 +134,12 @@ msgid "Reserve"
 msgstr "Đặt sân"
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:513
-msgid ""
-"This moves the event to another venue and reschedules everyone who already "
-"RSVP'd. Tap again to confirm."
-msgstr ""
-"Thao tác này sẽ chuyển sự kiện sang địa điểm khác và đổi lịch cho tất cả "
-"người đã RSVP. Nhấn lại để xác nhận."
+msgid "This moves the event to another venue and reschedules everyone who already RSVP'd. Tap again to confirm."
+msgstr "Thao tác này sẽ chuyển sự kiện sang địa điểm khác và đổi lịch cho tất cả người đã RSVP. Nhấn lại để xác nhận."
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:471
 msgid "This reschedules everyone who already RSVP'd. Tap again to confirm."
-msgstr ""
-"Thao tác này sẽ đổi lịch cho tất cả người đã RSVP. Nhấn lại để xác nhận."
+msgstr "Thao tác này sẽ đổi lịch cho tất cả người đã RSVP. Nhấn lại để xác nhận."
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:532
 msgid "Use location"
@@ -150,13 +152,3 @@ msgstr "Dùng tùy chọn này"
 #: src/components/organisms/EventLocationAvailability.re.mjs:490
 msgid "Use time"
 msgstr "Dùng thời gian này"
-
-#: src/components/organisms/EventLocationAvailability.re.mjs:418
-#, fuzzy
-#~ msgid "Alternate location"
-#~ msgstr "địa điểm sự kiện"
-
-#: src/components/organisms/EventLocationAvailability.re.mjs:409
-#, fuzzy
-#~ msgid "Other locations and times"
-#~ msgstr "Địa điểm khác vào thời gian này"

@@ -41,6 +41,10 @@ msgstr "Thiết bị đã được phê duyệt! Bạn có thể quay lại ứn
 msgid "Redirecting to sign in…"
 msgstr "Đang chuyển hướng đến trang đăng nhập…"
 
+#: src/components/pages/DevicePage.re.mjs:226
+#~ msgid "Sign in"
+#~ msgstr "Đăng nhập"
+
 #: src/components/pages/DevicePage.re.mjs:152
 msgid "Sign-in request denied."
 msgstr "Yêu cầu đăng nhập đã bị từ chối."
@@ -49,13 +53,6 @@ msgstr "Yêu cầu đăng nhập đã bị từ chối."
 msgid "Working…"
 msgstr "Đang xử lý…"
 
-#: src/components/pages/DevicePage.re.mjs:226
-#~ msgid "Sign in"
-#~ msgstr "Đăng nhập"
-
 #: src/components/pages/DevicePage.re.mjs:222
-#~ msgid ""
-#~ "You need to sign in here first so we can link this device to your account."
-#~ msgstr ""
-#~ "Bạn cần đăng nhập tại đây trước để chúng tôi có thể liên kết thiết bị này "
-#~ "với tài khoản của bạn."
+#~ msgid "You need to sign in here first so we can link this device to your account."
+#~ msgstr "Bạn cần đăng nhập tại đây trước để chúng tôi có thể liên kết thiết bị này với tài khoản của bạn."

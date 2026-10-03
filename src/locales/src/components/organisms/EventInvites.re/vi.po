@@ -13,39 +13,67 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:370
+#: src/components/organisms/InviteMessageComposer.re.mjs:80
+msgid "{0} characters left"
+msgstr ""
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:79
+msgid "{0} more characters needed"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+#~ msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
+#~ msgstr "Lịch trống phù hợp với {eventTitle}. Mời họ ngay để giữ chỗ trong cuộc trò chuyện sự kiện."
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:78
+msgid "A message is required"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:400
 msgid "About"
 msgstr "Giới thiệu"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:129
+msgid "Add a personal note — they'll see this in their invite."
+msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:42
 msgid "Advanced"
 msgstr "Nâng cao"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:148
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:149
 msgid "APPROVE"
 msgstr "DUYỆT"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:596
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:645
 msgid "Approve {0}"
 msgstr "Duyệt {0}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:238
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:268
 msgid "Approve for {eventTitle}"
 msgstr "Duyệt cho {eventTitle}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:543
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:592
 msgid "Approved players have moved into the confirmed list."
 msgstr "Người chơi đã được duyệt đã chuyển vào danh sách xác nhận."
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:206
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:220
+msgid "Availability not shared for this day"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:228
+msgid "Available at other hours that day"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:212
 msgid "Available for the full event"
 msgstr "Rảnh suốt sự kiện"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:571
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:620
 msgid "Back to event"
 msgstr "Quay lại sự kiện"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:353
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:383
 msgid "Based on recorded play"
 msgstr "Dựa trên lượt chơi đã ghi nhận"
 
@@ -53,32 +81,48 @@ msgstr "Dựa trên lượt chơi đã ghi nhận"
 msgid "Beginner"
 msgstr "Người mới bắt đầu"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:516
+#: src/components/organisms/InviteMessageComposer.re.mjs:162
+msgid "Cancel"
+msgstr ""
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:115
+msgid "Cancel invite"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
 msgid "Close request review"
 msgstr "Đóng xem xét yêu cầu"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:516
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
 msgid "Close swipe invitations"
 msgstr "Đóng lời mời vuốt"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:39
+msgid "Come play with us!"
+msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
 msgstr "Hoàn toàn mới bắt đầu"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:343
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:373
 msgid "Computed rating"
 msgstr "Xếp hạng được tính toán"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "Trình độ tự khai"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:612
 msgid "Everyone reviewed"
 msgstr "Đã xem tất cả"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:135
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:136
 msgid "Female"
 msgstr "Nữ"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:136
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:137
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:138
 msgid "Gender not provided"
 msgstr "Chưa cung cấp giới tính"
 
@@ -90,63 +134,72 @@ msgstr "Trung cấp"
 msgid "Intermediate+"
 msgstr "Trung cấp+"
 
-#: src/components/organisms/EventInvites.re.mjs:318
+#: src/components/organisms/EventInvites.re.mjs:547
 msgid "invite"
 msgstr "mời"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:148
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:149
 msgid "INVITE"
 msgstr "MỜI"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:596
+#: src/components/organisms/InviteMessageComposer.re.mjs:99
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:645
 msgid "Invite {0}"
 msgstr "Mời {0}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:518
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:565
 msgid "Invite players"
 msgstr "Mời người chơi"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:238
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
+#~ msgid "Invite to {0}"
+#~ msgstr "Mời vào {0}"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:268
 msgid "Invite to {eventTitle}"
 msgstr "Mời vào {eventTitle}"
 
-#: src/components/organisms/EventInvites.re.mjs:402
+#: src/components/organisms/EventInvites.re.mjs:636
 msgid "Invited and potential players"
 msgstr "Người chơi đã mời và tiềm năng"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:543
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:592
 msgid "Invited players have moved into the event's invited list."
 msgstr "Người chơi được mời đã được chuyển vào danh sách mời của sự kiện."
 
-#: src/components/organisms/EventInvites.re.mjs:268
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+#~ msgid "Invited players have moved into the event’s invited list."
+#~ msgstr "Người chơi được mời đã chuyển vào danh sách mời của sự kiện."
+
+#: src/components/organisms/EventInvites.re.mjs:486
 msgid "Invites · {0}"
 msgstr "Lời mời · {0}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:150
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:151
 msgid "KEEP"
 msgstr "GIỮ"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:584
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:633
 msgid "Keep {0} pending"
 msgstr "Giữ {0} đang chờ"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:135
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:136
 msgid "Male"
 msgstr "Nam"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:230
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:260
 msgid "No message left with the request"
 msgstr "Không có tin nhắn kèm theo yêu cầu"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:196
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:197
 msgid "Not provided"
 msgstr "Chưa cung cấp"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:358
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:388
 msgid "Not yet rated"
 msgstr "Chưa được xếp hạng"
 
-#: src/components/organisms/EventInvites.re.mjs:322
+#: src/components/organisms/EventInvites.re.mjs:551
 msgid "Open invite actions for {0}"
 msgstr "Mở tùy chọn mời cho {0}"
 
@@ -162,74 +215,79 @@ msgstr "Chuyên nghiệp"
 msgid "provisional"
 msgstr "tạm thời"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:363
 msgid "Rating"
 msgstr "Xếp hạng"
 
-#: src/components/organisms/EventInvites.re.mjs:285
+#: src/components/organisms/EventInvites.re.mjs:503
 msgid "Review {0} potential players with swipe cards"
 msgstr "Xem {0} người chơi tiềm năng bằng thẻ vuốt"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:518
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:565
 msgid "Review requests"
 msgstr "Xem xét yêu cầu"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:78
+msgid "Same as your last invite. Write this one for them."
+msgstr ""
 
 #: src/components/molecules/RatingSourceChip.re.mjs:37
 msgid "Self-rated"
 msgstr "Tự đánh giá"
 
-#: src/components/organisms/EventInvites.re.mjs:371
-msgid "Send invite"
-msgstr "Gửi lời mời"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:150
-msgid "SKIP"
-msgstr "BỎ QUA"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:584
-msgid "Skip {0}"
-msgstr "Bỏ qua {0}"
-
-#: src/components/organisms/EventInvites.re.mjs:283
-msgid "Swipe invites"
-msgstr "Vuốt để mời"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:598
-msgid "Swipe left to keep pending · right to approve"
-msgstr "Vuốt trái để giữ chờ · phải để duyệt"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:598
-msgid "Swipe left to skip · right to invite"
-msgstr "Vuốt trái để bỏ qua · phải để mời"
-
-#: src/components/organisms/EventInvites.re.mjs:354
-msgid "View Profile"
-msgstr "Xem hồ sơ"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:223
-msgid "Waiting for approval to join"
-msgstr "Đang chờ duyệt để tham gia"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
-#~ msgid ""
-#~ "A good availability match for {eventTitle}. Invite them now to reserve a "
-#~ "place in the event conversation."
-#~ msgstr ""
-#~ "Lịch trống phù hợp với {eventTitle}. Mời họ ngay để giữ chỗ trong cuộc "
-#~ "trò chuyện sự kiện."
-
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-#~ msgid "Declared rating"
-#~ msgstr "Trình độ tự khai"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
-#~ msgid "Invite to {0}"
-#~ msgstr "Mời vào {0}"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
-#~ msgid "Invited players have moved into the event’s invited list."
-#~ msgstr "Người chơi được mời đã chuyển vào danh sách mời của sự kiện."
-
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:297
 #~ msgid "Self-rating"
 #~ msgstr "Tự xếp hạng"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:174
+#: src/components/organisms/EventInvites.re.mjs:600
+msgid "Send invite"
+msgstr "Gửi lời mời"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:174
+msgid "Sending…"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:151
+msgid "SKIP"
+msgstr "BỎ QUA"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:633
+msgid "Skip {0}"
+msgstr "Bỏ qua {0}"
+
+#: src/components/organisms/EventInvites.re.mjs:501
+msgid "Swipe invites"
+msgstr "Vuốt để mời"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:647
+msgid "Swipe left to keep pending · right to approve"
+msgstr "Vuốt trái để giữ chờ · phải để duyệt"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:647
+msgid "Swipe left to skip · right to invite"
+msgstr "Vuốt trái để bỏ qua · phải để mời"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:38
+msgid "Thought you'd be a good fit for this one."
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:
+#~ msgid "View message thread"
+#~ msgstr "Xem cuộc trò chuyện"
+
+#: src/components/organisms/PkEventRsvp.re.mjs:
+#~ msgid "View message thread with {name}"
+#~ msgstr "Xem cuộc trò chuyện với {name}"
+
+#: src/components/organisms/EventInvites.re.mjs:583
+msgid "View Profile"
+msgstr "Xem hồ sơ"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:253
+msgid "Waiting for approval to join"
+msgstr "Đang chờ duyệt để tham gia"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:37
+msgid "We're short a player — can you make it?"
+msgstr ""

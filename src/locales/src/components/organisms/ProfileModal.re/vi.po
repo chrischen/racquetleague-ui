@@ -41,12 +41,13 @@ msgstr "Hoàn toàn mới bắt đầu"
 msgid "Complete your player profile"
 msgstr "Hoàn thiện hồ sơ cầu thủ của bạn"
 
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "Hoàn thiện hồ sơ của bạn"
+
 #: src/components/organisms/ProfileModal.re.mjs:329
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
-msgstr ""
-"Hoàn thiện hồ sơ của bạn trước khi chia sẻ lịch rảnh với người chơi và người "
-"tổ chức."
+msgid "Complete your profile before sharing availability with players and hosts."
+msgstr "Hoàn thiện hồ sơ của bạn trước khi chia sẻ lịch rảnh với người chơi và người tổ chức."
 
 #: src/components/organisms/ProfileModal.re.mjs:263
 #: src/components/organisms/ProfileModal.re.mjs:272
@@ -72,12 +73,12 @@ msgid "Email address"
 msgstr "Địa chỉ email"
 
 #: src/components/organisms/ProfileModal.re.mjs:304
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"Địa chỉ email không khả dụng. Vui lòng sử dụng email khác hoặc đăng nhập "
-"bằng email bạn đang cố dùng ở đây."
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "Địa chỉ email không khả dụng. Vui lòng sử dụng email khác hoặc đăng nhập bằng email bạn đang cố dùng ở đây."
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "Không thể thay đổi email"
 
 #: src/components/organisms/ProfileModal.re.mjs:115
 msgid "Email is required"
@@ -87,12 +88,13 @@ msgstr "Cần có email"
 msgid "Female"
 msgstr "Nữ"
 
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "Để nhận cập nhật và thông báo về sự kiện"
+
 #: src/components/organisms/ProfileModal.re.mjs:380
-msgid ""
-"For event updates and notifications. We'll email you a link to confirm it."
-msgstr ""
-"Dùng cho cập nhật sự kiện và thông báo. Chúng tôi sẽ gửi email liên kết để "
-"xác nhận."
+msgid "For event updates and notifications. We'll email you a link to confirm it."
+msgstr "Dùng cho cập nhật sự kiện và thông báo. Chúng tôi sẽ gửi email liên kết để xác nhận."
 
 #: src/components/organisms/ProfileModal.re.mjs:514
 msgid "Gender"
@@ -134,6 +136,10 @@ msgstr "NR"
 msgid "pkuru"
 msgstr "pkuru"
 
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "Không muốn tiết lộ"
+
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "Chuyên nghiệp"
@@ -142,6 +148,10 @@ msgstr "Chuyên nghiệp"
 #: src/components/molecules/RatingSourceChip.re.mjs:50
 msgid "provisional"
 msgstr "tạm thời"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "Lưu & Tham gia sự kiện"
 
 #: src/components/organisms/ProfileModal.re.mjs:615
 msgid "Save profile"
@@ -152,12 +162,8 @@ msgid "Self-rated"
 msgstr "Tự đánh giá"
 
 #: src/components/organisms/ProfileModal.re.mjs:553
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
-msgstr ""
-"Chia sẻ một chút về bản thân để ban tổ chức hoặc người chơi khác biết lý do "
-"họ nên mời bạn."
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
+msgstr "Chia sẻ một chút về bản thân để ban tổ chức hoặc người chơi khác biết lý do họ nên mời bạn."
 
 #: src/components/molecules/DuprRatingBadge.re.mjs:69
 msgid "singles"
@@ -167,31 +173,10 @@ msgstr "đơn"
 msgid "That doesn't look like an email address."
 msgstr "Đây có vẻ không phải là địa chỉ email."
 
-#: src/components/organisms/ProfileModal.re.mjs:326
-msgid "We need a few details before you can join this event"
-msgstr ""
-"Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
-
-#: src/components/organisms/ProfileModal.re.mjs:335
-#~ msgid "Complete your profile"
-#~ msgstr "Hoàn thiện hồ sơ của bạn"
-
-#: src/components/organisms/ProfileModal.re.mjs:303
-#~ msgid "Email cannot be changed"
-#~ msgstr "Không thể thay đổi email"
-
-#: src/components/organisms/ProfileModal.re.mjs:363
-#~ msgid "For event updates and notifications"
-#~ msgstr "Để nhận cập nhật và thông báo về sự kiện"
-
-#: src/components/organisms/ProfileModal.re.mjs:397
-#~ msgid "Prefer not to say"
-#~ msgstr "Không muốn tiết lộ"
-
-#: src/components/organisms/ProfileModal.re.mjs:429
-#~ msgid "Save & Join Event"
-#~ msgstr "Lưu & Tham gia sự kiện"
-
 #: src/components/organisms/ProfileModal.re.mjs:278
 #~ msgid "This is how others will see you"
 #~ msgstr "Đây là cách người khác sẽ thấy bạn"
+
+#: src/components/organisms/ProfileModal.re.mjs:326
+msgid "We need a few details before you can join this event"
+msgstr "Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"

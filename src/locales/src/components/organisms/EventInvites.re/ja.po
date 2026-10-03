@@ -13,39 +13,67 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:370
+#: src/components/organisms/InviteMessageComposer.re.mjs:80
+msgid "{0} characters left"
+msgstr ""
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:79
+msgid "{0} more characters needed"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+#~ msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
+#~ msgstr "{eventTitle}の参加可能時間が合うプレイヤーです。今すぐ招待してイベントの会話に参加させましょう。"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:78
+msgid "A message is required"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:400
 msgid "About"
 msgstr "について"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:129
+msgid "Add a personal note — they'll see this in their invite."
+msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:42
 msgid "Advanced"
 msgstr "詳細設定"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:148
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:149
 msgid "APPROVE"
 msgstr "承認"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:596
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:645
 msgid "Approve {0}"
 msgstr "{0}を承認"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:238
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:268
 msgid "Approve for {eventTitle}"
 msgstr "{eventTitle}への参加を承認"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:543
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:592
 msgid "Approved players have moved into the confirmed list."
 msgstr "承認済みのプレイヤーが確定リストに移動しました。"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:206
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:220
+msgid "Availability not shared for this day"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:228
+msgid "Available at other hours that day"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:212
 msgid "Available for the full event"
 msgstr "イベント全体に参加可能"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:571
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:620
 msgid "Back to event"
 msgstr "イベントに戻る"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:353
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:383
 msgid "Based on recorded play"
 msgstr "記録されたプレイに基づく"
 
@@ -53,32 +81,48 @@ msgstr "記録されたプレイに基づく"
 msgid "Beginner"
 msgstr "初心者"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:516
+#: src/components/organisms/InviteMessageComposer.re.mjs:162
+msgid "Cancel"
+msgstr ""
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:115
+msgid "Cancel invite"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
 msgid "Close request review"
 msgstr "リクエスト審査を閉じる"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:516
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
 msgid "Close swipe invitations"
 msgstr "スワイプ招待を閉じる"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:39
+msgid "Come play with us!"
+msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
 msgstr "完全な初心者"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:343
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:373
 msgid "Computed rating"
 msgstr "算出されたレーティング"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "申告レーティング"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:612
 msgid "Everyone reviewed"
 msgstr "全員確認済み"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:135
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:136
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:136
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:137
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:138
 msgid "Gender not provided"
 msgstr "性別未提供"
 
@@ -90,63 +134,72 @@ msgstr "中級者"
 msgid "Intermediate+"
 msgstr "中級者+"
 
-#: src/components/organisms/EventInvites.re.mjs:318
+#: src/components/organisms/EventInvites.re.mjs:547
 msgid "invite"
 msgstr "招待する"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:148
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:149
 msgid "INVITE"
 msgstr "招待する"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:596
+#: src/components/organisms/InviteMessageComposer.re.mjs:99
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:645
 msgid "Invite {0}"
 msgstr "{0}を招待"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:518
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:565
 msgid "Invite players"
 msgstr "プレイヤーを招待"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:238
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
+#~ msgid "Invite to {0}"
+#~ msgstr "{0}に招待"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:268
 msgid "Invite to {eventTitle}"
 msgstr "{eventTitle}に招待"
 
-#: src/components/organisms/EventInvites.re.mjs:402
+#: src/components/organisms/EventInvites.re.mjs:636
 msgid "Invited and potential players"
 msgstr "招待済みおよび候補プレイヤー"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:543
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:592
 msgid "Invited players have moved into the event's invited list."
 msgstr "招待されたプレイヤーがイベントの招待リストに移動しました。"
 
-#: src/components/organisms/EventInvites.re.mjs:268
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+#~ msgid "Invited players have moved into the event’s invited list."
+#~ msgstr "招待したプレイヤーがイベントの招待リストに移動しました。"
+
+#: src/components/organisms/EventInvites.re.mjs:486
 msgid "Invites · {0}"
 msgstr "招待 · {0}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:150
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:151
 msgid "KEEP"
 msgstr "保留"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:584
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:633
 msgid "Keep {0} pending"
 msgstr "{0}を保留のままにする"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:135
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:136
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:230
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:260
 msgid "No message left with the request"
 msgstr "リクエストにメッセージはありません"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:196
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:197
 msgid "Not provided"
 msgstr "未提供"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:358
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:388
 msgid "Not yet rated"
 msgstr "未評価"
 
-#: src/components/organisms/EventInvites.re.mjs:322
+#: src/components/organisms/EventInvites.re.mjs:551
 msgid "Open invite actions for {0}"
 msgstr "{0}の招待アクションを開く"
 
@@ -162,74 +215,79 @@ msgstr "プロ"
 msgid "provisional"
 msgstr "暫定"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:363
 msgid "Rating"
 msgstr "評価"
 
-#: src/components/organisms/EventInvites.re.mjs:285
+#: src/components/organisms/EventInvites.re.mjs:503
 msgid "Review {0} potential players with swipe cards"
 msgstr "スワイプカードで{0}人の候補プレイヤーを確認"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:518
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:565
 msgid "Review requests"
 msgstr "リクエストを審査"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:78
+msgid "Same as your last invite. Write this one for them."
+msgstr ""
 
 #: src/components/molecules/RatingSourceChip.re.mjs:37
 msgid "Self-rated"
 msgstr "自己評価"
 
-#: src/components/organisms/EventInvites.re.mjs:371
-msgid "Send invite"
-msgstr "招待を送る"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:150
-msgid "SKIP"
-msgstr "スキップ"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:584
-msgid "Skip {0}"
-msgstr "{0}をスキップ"
-
-#: src/components/organisms/EventInvites.re.mjs:283
-msgid "Swipe invites"
-msgstr "スワイプ招待"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:598
-msgid "Swipe left to keep pending · right to approve"
-msgstr "左スワイプで保留 · 右スワイプで承認"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:598
-msgid "Swipe left to skip · right to invite"
-msgstr "左にスワイプでスキップ・右にスワイプで招待"
-
-#: src/components/organisms/EventInvites.re.mjs:354
-msgid "View Profile"
-msgstr "プロフィールを表示"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:223
-msgid "Waiting for approval to join"
-msgstr "参加承認待ち"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
-#~ msgid ""
-#~ "A good availability match for {eventTitle}. Invite them now to reserve a "
-#~ "place in the event conversation."
-#~ msgstr ""
-#~ "{eventTitle}の参加可能時間が合うプレイヤーです。今すぐ招待してイベントの会"
-#~ "話に参加させましょう。"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-#~ msgid "Declared rating"
-#~ msgstr "申告レーティング"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
-#~ msgid "Invite to {0}"
-#~ msgstr "{0}に招待"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
-#~ msgid "Invited players have moved into the event’s invited list."
-#~ msgstr "招待したプレイヤーがイベントの招待リストに移動しました。"
-
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:297
 #~ msgid "Self-rating"
 #~ msgstr "自己評価"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:174
+#: src/components/organisms/EventInvites.re.mjs:600
+msgid "Send invite"
+msgstr "招待を送る"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:174
+msgid "Sending…"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:151
+msgid "SKIP"
+msgstr "スキップ"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:633
+msgid "Skip {0}"
+msgstr "{0}をスキップ"
+
+#: src/components/organisms/EventInvites.re.mjs:501
+msgid "Swipe invites"
+msgstr "スワイプ招待"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:647
+msgid "Swipe left to keep pending · right to approve"
+msgstr "左スワイプで保留 · 右スワイプで承認"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:647
+msgid "Swipe left to skip · right to invite"
+msgstr "左にスワイプでスキップ・右にスワイプで招待"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:38
+msgid "Thought you'd be a good fit for this one."
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:
+#~ msgid "View message thread"
+#~ msgstr "メッセージのスレッドを見る"
+
+#: src/components/organisms/PkEventRsvp.re.mjs:
+#~ msgid "View message thread with {name}"
+#~ msgstr "{name}さんとのメッセージのスレッドを見る"
+
+#: src/components/organisms/EventInvites.re.mjs:583
+msgid "View Profile"
+msgstr "プロフィールを表示"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:253
+msgid "Waiting for approval to join"
+msgstr "参加承認待ち"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:37
+msgid "We're short a player — can you make it?"
+msgstr ""

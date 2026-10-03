@@ -8552,6 +8552,199 @@ msgstr "Bạn đang đăng nhập vào một tài khoản khác. Hãy đăng xu�
 msgid "Your account now uses the new address. Your previous address is kept as a receiving email, which you can remove in your profile settings."
 msgstr "Tài khoản của bạn giờ dùng địa chỉ mới. Địa chỉ trước đó được giữ làm email nhận, bạn có thể xóa trong cài đặt hồ sơ."
 
+#: src/components/organisms/InviteMessageComposer.re.mjs:80
+msgid "{0} characters left"
+msgstr "Còn {0} ký tự"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:79
+msgid "{0} more characters needed"
+msgstr "Cần thêm {0} ký tự"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:78
+msgid "A message is required"
+msgstr "Bắt buộc phải có lời nhắn"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:129
+msgid "Add a personal note — they'll see this in their invite."
+msgstr "Thêm lời nhắn riêng — họ sẽ thấy nó trong lời mời."
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:220
+msgid "Availability not shared for this day"
+msgstr "Chưa chia sẻ lịch rảnh cho ngày này"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:228
+msgid "Available at other hours that day"
+msgstr "Rảnh vào khung giờ khác trong ngày đó"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:115
+msgid "Cancel invite"
+msgstr "Hủy lời mời"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:39
+msgid "Come play with us!"
+msgstr "Đến chơi với bọn mình nhé!"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:78
+msgid "Same as your last invite. Write this one for them."
+msgstr "Giống lời mời trước của bạn. Hãy viết riêng cho họ."
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:174
+msgid "Sending…"
+msgstr "Đang gửi…"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:38
+msgid "Thought you'd be a good fit for this one."
+msgstr "Thấy bạn rất hợp với trận này."
+
+#: src/components/organisms/RsvpOptions.re.mjs:321
+msgid "View message thread"
+msgstr "Xem cuộc trò chuyện"
+
+#: src/components/organisms/PkEventRsvp.re.mjs:202
+msgid "View message thread with {name}"
+msgstr "Xem cuộc trò chuyện với {name}"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:37
+msgid "We're short a player — can you make it?"
+msgstr "Bọn mình thiếu một người — bạn tham gia được không?"
+
+#: src/components/organisms/Kiosk.re.mjs:2104
+msgid "AUTO CLIPS"
+msgstr "CLIP TỰ ĐỘNG"
+
+#: src/components/organisms/Kiosk.re.mjs:2090
+msgid "AUTO-CLIP OFF"
+msgstr "TẮT CLIP TỰ ĐỘNG"
+
+#: src/components/organisms/Kiosk.re.mjs:2090
+msgid "AUTO-CLIP ON"
+msgstr "BẬT CLIP TỰ ĐỘNG"
+
+#: src/components/organisms/Kiosk.re.mjs:1632
+msgid "Connect reader"
+msgstr "Kết nối đầu đọc"
+
+#: src/components/organisms/Kiosk.re.mjs:502
+msgid "Download debug JSON"
+msgstr "Tải JSON gỡ lỗi"
+
+#: src/components/organisms/Kiosk.re.mjs:1542
+msgid "FELICA CARD · TEST"
+msgstr "THẺ FELICA · THỬ NGHIỆM"
+
+#: src/components/organisms/Kiosk.re.mjs:1896
+msgid "FELICA READER (TEST)"
+msgstr "ĐẦU ĐỌC FELICA (THỬ NGHIỆM)"
+
+#: src/components/organisms/Kiosk.re.mjs:498
+msgid "HEAT DEBUG"
+msgstr "GỠ LỖI HEAT"
+
+#: src/components/organisms/Kiosk.re.mjs:3777
+msgid "Heated rally auto-clipped"
+msgstr "Đã tự động cắt clip pha bóng gay cấn"
+
+#: src/components/organisms/Kiosk.re.mjs:1900
+msgid "Sony RC-S300 over USB. Tapping a transit IC card (Suica, PASMO, ICOCA, …) or a phone with one set as its Express Transit card pops up the card ID."
+msgstr "Sony RC-S300 qua USB. Chạm thẻ IC giao thông (Suica, PASMO, ICOCA, …) hoặc điện thoại đã đặt thẻ Express Transit sẽ hiện ID thẻ."
+
+#: src/components/organisms/Kiosk.re.mjs:2009
+msgid "STARTING…"
+msgstr "ĐANG KHỞI ĐỘNG…"
+
+#: src/components/organisms/Kiosk.re.mjs:1665
+msgid "This browser has no WebUSB — use Chrome or Edge on this computer."
+msgstr "Trình duyệt này không hỗ trợ WebUSB — hãy dùng Chrome hoặc Edge trên máy tính này."
+
+#: src/components/organisms/Kiosk.re.mjs:1646
+#: src/components/organisms/Kiosk.re.mjs:1655
+msgid "Turn off"
+msgstr "Tắt"
+
+#: src/components/organisms/Kiosk.re.mjs:1642
+msgid "waiting for a card"
+msgstr "đang chờ thẻ"
+
+#: src/components/organisms/MessageThread.re.mjs:768
+msgid "Invitation thread"
+msgstr "Cuộc trò chuyện mời"
+
+#: src/components/organisms/MessageThread.re.mjs:646
+msgid "Invited you"
+msgstr "Đã mời bạn"
+
+#: src/components/organisms/MessageThread.re.mjs:663
+msgid "Message"
+msgstr "Tin nhắn"
+
+#: src/components/organisms/MessageThread.re.mjs:768
+msgid "Message thread"
+msgstr "Cuộc trò chuyện"
+
+#: src/components/organisms/MessageThread.re.mjs:725
+msgid "Messages with {name}"
+msgstr "Tin nhắn với {name}"
+
+#: src/components/organisms/MessageThread.re.mjs:756
+msgid "No recent messages with this person."
+msgstr "Không có tin nhắn gần đây với người này."
+
+#: src/components/organisms/MessageThread.re.mjs:188
+msgid "Reply to {name}"
+msgstr "Trả lời {name}"
+
+#: src/components/organisms/MessageThread.re.mjs:220
+msgid "Sending"
+msgstr "Đang gửi"
+
+#: src/components/organisms/MessageThread.re.mjs:53
+msgid "Sign in to reply."
+msgstr "Đăng nhập để trả lời."
+
+#: src/components/organisms/MessageThread.re.mjs:49
+msgid "That message is no longer available, so it can't be answered."
+msgstr "Tin nhắn này không còn khả dụng nên không thể trả lời."
+
+#: src/components/organisms/MessageThread.re.mjs:51
+msgid "That message is too long."
+msgstr "Tin nhắn quá dài."
+
+#: src/components/organisms/MessageThread.re.mjs:433
+msgid "View"
+msgstr "Xem"
+
+#: src/components/organisms/MessageThread.re.mjs:575
+msgid "View event"
+msgstr "Xem sự kiện"
+
+#: src/components/organisms/MessageThread.re.mjs:47
+msgid "Write a message first."
+msgstr "Vui lòng nhập tin nhắn trước."
+
+#: src/components/organisms/MessageThread.re.mjs:196
+msgid "Write a reply"
+msgstr "Viết trả lời"
+
+#: src/components/organisms/MessageThread.re.mjs:733
+msgid "You can reply once {firstName} writes back."
+msgstr "Bạn có thể trả lời khi {firstName} nhắn lại."
+
+#: src/components/organisms/MessageThread.re.mjs:654
+msgid "You invited them"
+msgstr "Bạn đã mời họ"
+
+#: src/components/organisms/MessageThread.re.mjs:55
+msgid "Your reply couldn't be sent. Please try again."
+msgstr "Không thể gửi trả lời. Vui lòng thử lại."
+
+#: src/components/molecules/NotificationRow.re.mjs:131
+msgid "Invitation"
+msgstr "Lời mời"
+
+#: src/components/molecules/NotificationRow.re.mjs:129
+msgid "New message"
+msgstr "Tin nhắn mới"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

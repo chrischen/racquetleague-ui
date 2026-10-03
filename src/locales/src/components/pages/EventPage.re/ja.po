@@ -61,6 +61,10 @@ msgstr "{0}時間"
 msgid "{0} hours"
 msgstr "{0}時間"
 
+#: src/components/organisms/EventHeader.re.mjs:56
+#~ msgid "{0} hours and {1} minutes"
+#~ msgstr "{0}時間{1}分"
+
 #: src/components/organisms/EventHeader.re.mjs:58
 msgid "{0} minute"
 msgstr "{0}分"
@@ -106,11 +110,11 @@ msgstr "上級プレイヤー"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/RsvpOptions.re.mjs:187
+#: src/components/organisms/RsvpOptions.re.mjs:188
 msgid "Approve RSVP"
 msgstr "参加申込を承認"
 
-#: src/components/organisms/RsvpOptions.re.mjs:331
+#: src/components/organisms/RsvpOptions.re.mjs:338
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "この人をイベントから削除してもよろしいですか？"
 
@@ -142,11 +146,11 @@ msgstr "キャンセル"
 msgid "Cannot access variable \\\"title\\\""
 msgstr "変数 \\\"title\\\" にアクセスできません"
 
-#: src/components/organisms/RsvpOptions.re.mjs:219
+#: src/components/organisms/RsvpOptions.re.mjs:220
 msgid "Capture payment"
 msgstr "支払いを確定"
 
-#: src/components/organisms/RsvpOptions.re.mjs:240
+#: src/components/organisms/RsvpOptions.re.mjs:241
 msgid "Charge payment"
 msgstr "支払いを請求"
 
@@ -170,12 +174,13 @@ msgstr "完全な初心者"
 msgid "Complete your player profile"
 msgstr "プレイヤープロフィールを完成させる"
 
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "プロフィールを完成させる"
+
 #: src/components/organisms/ProfileModal.re.mjs:329
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
-msgstr ""
-"プレイヤーやホストと空き時間を共有する前に、プロフィールを完成させてくださ"
-"い。"
+msgid "Complete your profile before sharing availability with players and hosts."
+msgstr "プレイヤーやホストと空き時間を共有する前に、プロフィールを完成させてください。"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:41
 msgid "Confirm"
@@ -239,12 +244,12 @@ msgid "Email address"
 msgstr "メールアドレス"
 
 #: src/components/organisms/ProfileModal.re.mjs:304
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使"
-"用しようとしているメールアドレスでログインしてください。"
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使用しようとしているメールアドレスでログインしてください。"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "メールアドレスは変更できません"
 
 #: src/components/organisms/ProfileModal.re.mjs:115
 msgid "Email is required"
@@ -278,9 +283,12 @@ msgstr "イベントタグ: {tag}"
 msgid "Female"
 msgstr "女性"
 
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "イベントの更新と通知用"
+
 #: src/components/organisms/ProfileModal.re.mjs:380
-msgid ""
-"For event updates and notifications. We'll email you a link to confirm it."
+msgid "For event updates and notifications. We'll email you a link to confirm it."
 msgstr "イベントの更新と通知用です。確認用のリンクをメールでお送りします。"
 
 #: src/components/organisms/ProfileModal.re.mjs:514
@@ -310,6 +318,10 @@ msgstr "中級者"
 #: src/components/molecules/LevelPicker.re.mjs:37
 msgid "Intermediate+"
 msgstr "中級者+"
+
+#: src/components/organisms/RSVPSection.re.mjs:424
+#~ msgid "Join"
+#~ msgstr "参加"
 
 #: src/components/atoms/EventSignupButton.re.mjs:65
 msgid "Join Event"
@@ -371,18 +383,34 @@ msgstr "初中級以上"
 msgid "Male"
 msgstr "男性"
 
+#: src/components/pages/EventPage.re.mjs:213
+#~ msgid "Manage Event"
+#~ msgstr "イベント管理"
+
+#: src/components/pages/EventPage.re.mjs:217
+#~ msgid "Manage Event (Beta)"
+#~ msgstr "イベントを管理（ベータ）"
+
 #: src/components/atoms/EventTag.re.mjs:50
 msgid "Matches will be submitted to DUPR."
 msgstr "試合結果はDUPRに提出されます。"
 
-#: src/components/organisms/RsvpOptions.re.mjs:197
-#: src/components/organisms/RsvpOptions.re.mjs:346
+#: src/components/organisms/RsvpOptions.re.mjs:198
+#: src/components/organisms/RsvpOptions.re.mjs:353
 msgid "Move to Pending List"
 msgstr "保留リストに移動"
 
 #: src/components/organisms/EventMessages.re.mjs:178
 msgid "No activity yet"
 msgstr "まだアクティビティがありません"
+
+#: src/components/pages/EventPage.re.mjs:121
+#~ msgid "No event details provided."
+#~ msgstr "イベントの詳細が提供されていません。"
+
+#: src/components/pages/EventPage.re.mjs:124
+#~ msgid "No location details provided."
+#~ msgstr "場所の詳細が提供されていません。"
 
 #: src/components/organisms/AutocompleteUser.re.mjs:208
 msgid "No players found"
@@ -429,6 +457,10 @@ msgstr "キャンセル待ちに登録中…"
 msgid "Player"
 msgstr "プレイヤー"
 
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "回答しない"
+
 #: src/components/organisms/RSVPSection.re.mjs:285
 msgid "Preview Smart RSVP"
 msgstr "スマートRSVPをプレビュー"
@@ -474,19 +506,18 @@ msgid "Recreational"
 msgstr "レクリエーション"
 
 #: src/components/atoms/EventTag.re.mjs:52
-msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "競技レーティングやDUPRに提出されないレクリエーショナルプレイ。"
 
-#: src/components/organisms/RsvpOptions.re.mjs:258
+#: src/components/organisms/RsvpOptions.re.mjs:259
 msgid "Refund payment"
 msgstr "返金処理"
 
-#: src/components/organisms/RsvpOptions.re.mjs:286
+#: src/components/organisms/RsvpOptions.re.mjs:287
 msgid "Remove from event"
 msgstr "イベントから削除"
 
-#: src/components/organisms/RsvpOptions.re.mjs:330
+#: src/components/organisms/RsvpOptions.re.mjs:337
 msgid "Remove this RSVP"
 msgstr "このRSVPを削除"
 
@@ -502,7 +533,7 @@ msgstr "必要レーティング: {0} (DUPR {1})"
 msgid "Results will be submitted to competitive ratings."
 msgstr "結果は競技レーティングに提出されます。"
 
-#: src/components/organisms/RsvpOptions.re.mjs:227
+#: src/components/organisms/RsvpOptions.re.mjs:228
 msgid "Retry charge"
 msgstr "請求を再試行"
 
@@ -524,6 +555,10 @@ msgstr "参加申込"
 msgid "RSVP Pending..."
 msgstr "参加申込 保留中..."
 
+#: src/components/organisms/RSVPSection.re.mjs:310
+#~ msgid "Run Smart RSVP (best-fit, test)"
+#~ msgstr "スマートRSVPを実行（最適マッチ、テスト）"
+
 #: src/components/organisms/RSVPSection.re.mjs:277
 msgid "Run Smart RSVP now"
 msgstr "今すぐスマートRSVPを実行"
@@ -533,6 +568,10 @@ msgstr "今すぐスマートRSVPを実行"
 msgid "Save"
 msgstr "保存"
 
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "保存して参加する"
+
 #: src/components/organisms/ProfileModal.re.mjs:615
 msgid "Save profile"
 msgstr "プロフィールを保存"
@@ -540,6 +579,15 @@ msgstr "プロフィールを保存"
 #: src/components/organisms/ScoreModal.re.mjs:278
 msgid "Save Score"
 msgstr "スコアを保存"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr "スコア"
+
+#: src/components/organisms/GoingRsvps.re.mjs:123
+#~ msgid "See all"
+#~ msgstr "すべて見る"
 
 #: src/components/molecules/RatingSourceChip.re.mjs:37
 msgid "Self-rated"
@@ -550,12 +598,12 @@ msgid "Send"
 msgstr "送信"
 
 #: src/components/organisms/ProfileModal.re.mjs:553
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
-msgstr ""
-"主催者や他のプレイヤーがあなたを招待すべき理由がわかるよう、自己紹介を書いて"
-"ください。"
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
+msgstr "主催者や他のプレイヤーがあなたを招待すべき理由がわかるよう、自己紹介を書いてください。"
+
+#: src/components/organisms/RSVPSection.re.mjs:516
+#~ msgid "Show all"
+#~ msgstr "全て表示"
 
 #: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "Show less"
@@ -570,11 +618,8 @@ msgid "Skills practice and drills focused on technique improvement"
 msgstr "技術向上に焦点を当てたスキル練習とドリル"
 
 #: src/components/organisms/RSVPSection.re.mjs:307
-msgid ""
-"Smart RSVP would admit {0} of {1} pending requests: they are marked above."
-msgstr ""
-"スマートRSVPは保留中のリクエスト{1}件のうち{0}件を承認します（上にマーク表"
-"示）。"
+msgid "Smart RSVP would admit {0} of {1} pending requests: they are marked above."
+msgstr "スマートRSVPは保留中のリクエスト{1}件のうち{0}件を承認します（上にマーク表示）。"
 
 #: src/components/organisms/RSVPSection.re.mjs:294
 msgid "Smart Waitlist"
@@ -583,6 +628,10 @@ msgstr "スマートキャンセル待ち"
 #: src/components/organisms/EventMessages.re.mjs:118
 msgid "Status message"
 msgstr "ステータスメッセージ"
+
+#: src/components/pages/EventPage.re.mjs:168
+#~ msgid "submit matches"
+#~ msgstr "試合を提出"
 
 #: src/components/molecules/AddToCalendar.re.mjs:99
 msgid "sync calendar"
@@ -606,53 +655,33 @@ msgstr "メールアドレスの形式ではないようです。"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:68
 #: src/components/organisms/MatchCard.re.mjs:445
-msgid ""
-"The match will be removed from this round. You can restore the originally "
-"scheduled matches using the round reset icon."
-msgstr ""
-"この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、"
-"元々予定されていた試合を復元できます。"
+msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
+msgstr "この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、元々予定されていた試合を復元できます。"
 
 #: src/components/organisms/RSVPSection.re.mjs:653
-msgid ""
-"This event admits players automatically. Your request will be reviewed and "
-"you will be notified once a spot is confirmed."
-msgstr ""
-"このイベントは自動で参加者を承認します。リクエストは審査され、参加枠が確定し"
-"たら通知されます。"
+msgid "This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed."
+msgstr "このイベントは自動で参加者を承認します。リクエストは審査され、参加枠が確定したら通知されます。"
 
 #: src/components/atoms/EventSignupButton.re.mjs:91
-msgid ""
-"This event is full, so leaving the event will give your spot to someone on "
-"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
-"want to leave this event?"
-msgstr ""
-"このイベントは満員です。イベントを離れると、あなたのスポットはウェイトリスト"
-"の誰かに譲られます。再参加する場合、ウェイトリストに参加することになります。"
-"本当にこのイベントを離れますか？"
+msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
+msgstr "このイベントは満員です。イベントを離れると、あなたのスポットはウェイトリストの誰かに譲られます。再参加する場合、ウェイトリストに参加することになります。本当にこのイベントを離れますか？"
 
 #: src/components/pages/EventPage.re.mjs:266
 #: src/components/pages/EventPage.re.mjs:295
-msgid ""
-"This event is private and cannot be joined on Pkuru.com. Do not show up to "
-"the event without permission."
-msgstr ""
-"このイベントはプライベートイベントのため、Pkuru.comから参加することはできませ"
-"ん。許可なくイベントに参加しないでください。"
+msgid "This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission."
+msgstr "このイベントはプライベートイベントのため、Pkuru.comから参加することはできません。許可なくイベントに参加しないでください。"
 
 #: src/components/atoms/EventTag.re.mjs:54
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
+msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr "このイベントは非公開です。主催者の許可なく共有しないでください。"
 
-#: src/components/organisms/RsvpOptions.re.mjs:347
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
-"失われます。本当にこのユーザーの参加申込を制限しますか？"
+#: src/components/organisms/ProfileModal.re.mjs:278
+#~ msgid "This is how others will see you"
+#~ msgstr "他の人に表示される名前です"
+
+#: src/components/organisms/RsvpOptions.re.mjs:354
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は失われます。本当にこのユーザーの参加申込を制限しますか？"
 
 #: src/components/organisms/EventHeader.re.mjs:221
 msgid "Time TBD"
@@ -661,11 +690,8 @@ msgstr "時間未定"
 #: src/components/organisms/RSVPSection.re.mjs:433
 #: src/components/organisms/RSVPSection.re.mjs:434
 #: src/components/organisms/EventMessages.re.mjs:125
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
-msgstr ""
-"「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してく"
-"ださい。"
+msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgstr "「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してください。"
 
 #: src/components/pages/EventPage.re.mjs:180
 msgid "uncancel event"
@@ -687,7 +713,11 @@ msgstr "中上級以上"
 msgid "View Full Draws"
 msgstr "組み合わせを見る"
 
-#: src/components/organisms/RsvpOptions.re.mjs:313
+#: src/components/organisms/RsvpOptions.re.mjs:321
+msgid "View message thread"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:314
 msgid "View Profile"
 msgstr "プロフィールを表示"
 
@@ -738,80 +768,5 @@ msgid "You're Waitlisted"
 msgstr "キャンセル待ち中です"
 
 #: src/components/organisms/RSVPSection.re.mjs:667
-msgid ""
-"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
-"pending list until the rating limit is lowered. Please join another JPL "
-"rated event to boost your rating."
-msgstr ""
-"あなたのレーティング{0} ~ {1} (DUPR {2} ~ {3})は低すぎます。レーティングの上"
-"限が下がるまで保留リストに登録されます。レーティングを上げるために別のJPL評価"
-"イベントに参加してください。"
-
-#: src/components/organisms/EventHeader.re.mjs:56
-#~ msgid "{0} hours and {1} minutes"
-#~ msgstr "{0}時間{1}分"
-
-#: src/components/organisms/ProfileModal.re.mjs:335
-#~ msgid "Complete your profile"
-#~ msgstr "プロフィールを完成させる"
-
-#: src/components/organisms/ProfileModal.re.mjs:303
-#~ msgid "Email cannot be changed"
-#~ msgstr "メールアドレスは変更できません"
-
-#: src/components/organisms/ProfileModal.re.mjs:363
-#~ msgid "For event updates and notifications"
-#~ msgstr "イベントの更新と通知用"
-
-#: src/components/organisms/RSVPSection.re.mjs:424
-#~ msgid "Join"
-#~ msgstr "参加"
-
-#: src/components/pages/EventPage.re.mjs:213
-#~ msgid "Manage Event"
-#~ msgstr "イベント管理"
-
-#: src/components/pages/EventPage.re.mjs:217
-#~ msgid "Manage Event (Beta)"
-#~ msgstr "イベントを管理（ベータ）"
-
-#: src/components/pages/EventPage.re.mjs:121
-#~ msgid "No event details provided."
-#~ msgstr "イベントの詳細が提供されていません。"
-
-#: src/components/pages/EventPage.re.mjs:124
-#~ msgid "No location details provided."
-#~ msgstr "場所の詳細が提供されていません。"
-
-#: src/components/organisms/ProfileModal.re.mjs:397
-#~ msgid "Prefer not to say"
-#~ msgstr "回答しない"
-
-#: src/components/organisms/RSVPSection.re.mjs:310
-#~ msgid "Run Smart RSVP (best-fit, test)"
-#~ msgstr "スマートRSVPを実行（最適マッチ、テスト）"
-
-#: src/components/organisms/ProfileModal.re.mjs:429
-#~ msgid "Save & Join Event"
-#~ msgstr "保存して参加する"
-
-#: src/components/organisms/MatchCardEdit.re.mjs:184
-#: src/components/organisms/MatchCardEdit.re.mjs:221
-#~ msgid "Score"
-#~ msgstr "スコア"
-
-#: src/components/organisms/GoingRsvps.re.mjs:123
-#~ msgid "See all"
-#~ msgstr "すべて見る"
-
-#: src/components/organisms/RSVPSection.re.mjs:516
-#~ msgid "Show all"
-#~ msgstr "全て表示"
-
-#: src/components/pages/EventPage.re.mjs:168
-#~ msgid "submit matches"
-#~ msgstr "試合を提出"
-
-#: src/components/organisms/ProfileModal.re.mjs:278
-#~ msgid "This is how others will see you"
-#~ msgstr "他の人に表示される名前です"
+msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
+msgstr "あなたのレーティング{0} ~ {1} (DUPR {2} ~ {3})は低すぎます。レーティングの上限が下がるまで保留リストに登録されます。レーティングを上げるために別のJPL評価イベントに参加してください。"

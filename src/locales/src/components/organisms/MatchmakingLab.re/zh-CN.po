@@ -21,20 +21,20 @@ msgstr "· {0} · 每个级别，同级对战概率%"
 msgid "· {0} players · every strategy"
 msgstr "· {0} 名球员 · 每种策略"
 
+#: src/components/organisms/MatchmakingLab.re.mjs:1341
+#~ msgid "· % chance the game ends level, by true skill · higher is better"
+#~ msgstr "· % 的概率游戏以平局结束，基于真实技术实力 · 越高越好"
+
 #: src/components/organisms/MatchmakingLab.re.mjs:1337
 msgid "· % of games decided by 9+ · rolling 5"
 msgstr "· 以9分以上差距决出胜负的比赛比例 · 滚动5场"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1341
-msgid ""
-"· match evenness by true skill · 100% = a perfectly even game · higher is "
-"better"
+msgid "· match evenness by true skill · 100% = a perfectly even game · higher is better"
 msgstr "· 按真实水平衡量的对阵均衡度 · 100% = 完全势均力敌 · 越高越好"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1369
-msgid ""
-"· mean gap between predicted and true win chance · 0 = called every game "
-"right"
+msgid "· mean gap between predicted and true win chance · 0 = called every game right"
 msgstr "· 预测胜率与真实胜率的平均差距 · 0 = 每场比赛预测完全准确"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1336
@@ -78,36 +78,28 @@ msgid "{0}p · {1} courts · {2} rounds · {3} seeds"
 msgstr "{0}人 · {1}场地 · {2}轮 · {3}种子"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1659
-msgid ""
-"± is the standard error over {0} seeds. {1} strategies are tied for best on "
-"ladder error — their gaps are inside the error bars, so the ordering between "
-"them is not a result."
-msgstr ""
-"± 为 {0} 个种子的标准误差。{1} 种策略在阶梯误差上并列最优——它们之间的差距在误"
-"差范围内，因此彼此排序不具参考意义。"
+msgid "± is the standard error over {0} seeds. {1} strategies are tied for best on ladder error — their gaps are inside the error bars, so the ordering between them is not a result."
+msgstr "± 为 {0} 个种子的标准误差。{1} 种策略在阶梯误差上并列最优——它们之间的差距在误差范围内，因此彼此排序不具参考意义。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1659
-msgid ""
-"± is the standard error over {0} seeds. Bold marks a value nothing else is "
-"within error of."
-msgstr ""
-"± 为 {0} 个种子的标准误差。加粗表示该值与其他任何值的差距均超出误差范围。"
+msgid "± is the standard error over {0} seeds. Bold marks a value nothing else is within error of."
+msgstr "± 为 {0} 个种子的标准误差。加粗表示该值与其他任何值的差距均超出误差范围。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:2227
 msgid "1 · no error"
 msgstr "1 · 无误差"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1757
+#~ msgid "a bunched pack, most players hard to tell apart, nobody outside the group"
+#~ msgstr "密集集群，大多数选手难以区分，无人脱离群体"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1725
 msgid "a narrow, heavily bunched pack — hard to tell anyone apart"
 msgstr "差距极小、高度集中的群体——很难区分任何人"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:84
-msgid ""
-"A settled pool with unrated newcomers spread across the true ladder. Their "
-"ratings start mid-pool regardless of real skill."
-msgstr ""
-"一个稳定的分组池，未评级新手分散在真实天梯中。无论实际水平如何，他们的评级从"
-"分组池中间开始。"
+msgid "A settled pool with unrated newcomers spread across the true ladder. Their ratings start mid-pool regardless of real skill."
+msgstr "一个稳定的分组池，未评级新手分散在真实天梯中。无论实际水平如何，他们的评级从分组池中间开始。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1722
 msgid "a wide field plus a ringer and a beginner nobody can balance around"
@@ -134,13 +126,8 @@ msgid "band member"
 msgstr "分组成员"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:134
-msgid ""
-"Banding from round one, with no calibration phase. Trusts whatever ratings "
-"it is given — which is why it opens badly from a cold start. Reference "
-"profile, not a mode players can pick."
-msgstr ""
-"从第一轮开始分组，没有校准阶段。完全信任所给定的评级——这就是为什么从冷启动开"
-"始效果较差。这是参考配置，而非玩家可选择的模式。"
+msgid "Banding from round one, with no calibration phase. Trusts whatever ratings it is given — which is why it opens badly from a cold start. Reference profile, not a mode players can pick."
+msgstr "从第一轮开始分组，没有校准阶段。完全信任所给定的评级——这就是为什么从冷启动开始效果较差。这是参考配置，而非玩家可选择的模式。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1294
 msgid "BLOWOUT"
@@ -191,30 +178,19 @@ msgid "Does balanced matchmaking find the truth?"
 msgstr "均衡配对是否能找到真实水平？"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:78
-msgid ""
-"EVERY rating is the exact mirror of true skill, held confidently — the "
-"strongest player reads as the weakest. Balanced play is blind to this: "
-"matches look 50/50 under both truth and belief, so no evidence ever arrives. "
-"Only the variety modes escape it."
-msgstr ""
-"每个评级都与真实技术实力完全镜像，且置信度很高——最强的球员显示为最弱。均衡对"
-"战对此视而不见：在真实情况和信念下比赛都看起来是50/50，因此永远没有证据出现。"
-"只有多样性模式才能摆脱这一问题。"
+msgid "EVERY rating is the exact mirror of true skill, held confidently — the strongest player reads as the weakest. Balanced play is blind to this: matches look 50/50 under both truth and belief, so no evidence ever arrives. Only the variety modes escape it."
+msgstr "每个评级都与真实技术实力完全镜像，且置信度很高——最强的球员显示为最弱。均衡对战对此视而不见：在真实情况和信念下比赛都看起来是50/50，因此永远没有证据出现。只有多样性模式才能摆脱这一问题。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:2247
 msgid "every round is a real ILP solve · {0} rounds to build"
 msgstr "每轮均为真实ILP求解 · 需 {0} 轮构建"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:2247
-msgid ""
-"every round is a real ILP solve · {0} rounds to build — this will take a "
-"while"
+msgid "every round is a real ILP solve · {0} rounds to build — this will take a while"
 msgstr "每轮均为真实ILP求解 · 需 {0} 轮构建——这将需要一段时间"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:74
-msgid ""
-"Everyone at the default rating. Nothing is known yet — the case every new "
-"event starts from."
+msgid "Everyone at the default rating. Nothing is known yet — the case every new event starts from."
 msgstr "所有人处于默认评级。目前一无所知——这是每个新赛事的起始状态。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:2198
@@ -230,12 +206,8 @@ msgid "fixed squads of 4"
 msgstr "固定4人小队"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:82
-msgid ""
-"Global order is right, but each band of four is internally reversed. Banded "
-"play CAN see this error, so Competitive+ self-corrects."
-msgstr ""
-"全局顺序正确，但每个四人分组内部顺序相反。分组对战可以发现此误差，因此竞技+会"
-"自动修正。"
+msgid "Global order is right, but each band of four is internally reversed. Banded play CAN see this error, so Competitive+ self-corrects."
+msgstr "全局顺序正确，但每个四人分组内部顺序相反。分组对战可以发现此误差，因此竞技+会自动修正。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:92
 msgid "inverted insert"
@@ -274,24 +246,16 @@ msgid "Match quality by band"
 msgstr "按组别划分的比赛质量"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:142
-msgid ""
-"Matchmakes from hidden true skill instead of the ratings. Not a strategy "
-"anyone can run — it marks the best match quality this pool allows, so the "
-"distance from it is what imperfect ratings cost. Its ladder never improves: "
-"a game that is genuinely even is a coin flip, and coin flips teach nothing."
-msgstr ""
-"根据隐藏真实技能而非评分进行配对。这不是任何人都能执行的策略——它标记了本组允"
-"许的最佳对阵质量，因此与它的差距就是不完美评分的代价。它的天梯永远不会进步："
-"一场真正势均力敌的比赛是抛硬币，而抛硬币什么也学不到。"
+msgid "Matchmakes from hidden true skill instead of the ratings. Not a strategy anyone can run — it marks the best match quality this pool allows, so the distance from it is what imperfect ratings cost. Its ladder never improves: a game that is genuinely even is a coin flip, and coin flips teach nothing."
+msgstr "根据隐藏真实技能而非评分进行配对。这不是任何人都能执行的策略——它标记了本组允许的最佳对阵质量，因此与它的差距就是不完美评分的代价。它的天梯永远不会进步：一场真正势均力敌的比赛是抛硬币，而抛硬币什么也学不到。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:150
-msgid ""
-"Maximum rotation with light banding — novelty first, but still rating-aware, "
-"unlike the avoid-repeats baseline. Its unbalanced splits are what let it "
-"recover a broken ladder."
-msgstr ""
-"在轻度分组下实现最大轮换——新鲜感优先，但仍具备评级意识，优于单纯避免重复的基"
-"准策略。其不均衡的分组正是让它能修复失衡排名的关键。"
+msgid "Maximum rotation with light banding — novelty first, but still rating-aware, unlike the avoid-repeats baseline. Its unbalanced splits are what let it recover a broken ladder."
+msgstr "在轻度分组下实现最大轮换——新鲜感优先，但仍具备评级意识，优于单纯避免重复的基准策略。其不均衡的分组正是让它能修复失衡排名的关键。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:146
+#~ msgid "Maximum rotation. Its unbalanced splits are what let it recover a broken ladder."
+#~ msgstr "最大轮换。其不平衡的分组方式正是让它能修复破损天梯的原因。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1348
 msgid "mean"
@@ -306,13 +270,12 @@ msgid "No games yet — press play or step."
 msgstr "暂无比赛——请按播放或单步执行。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:146
-msgid ""
-"No preferences at all: no balancing, no rotation, pure jitter. A synthetic "
-"floor — real clubs avoid repeats, so the realistic baseline is Random, avoid "
-"repeats."
-msgstr ""
-"完全无偏好：不平衡、不轮换、纯随机扰动。这是一个合成下限——真实俱乐部会避免重"
-"复，因此现实基准是"
+msgid "No preferences at all: no balancing, no rotation, pure jitter. A synthetic floor — real clubs avoid repeats, so the realistic baseline is Random, avoid repeats."
+msgstr "完全无偏好：不平衡、不轮换、纯随机扰动。这是一个合成下限——真实俱乐部会避免重复，因此现实基准是"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:142
+#~ msgid "No preferences at all: no balancing, no rotation, pure jitter. The floor every real strategy should beat on match quality — and, surprisingly, the fastest early learner."
+#~ msgstr "完全无偏好：不平衡、不轮换、纯随机抖动。每个真实策略在对阵质量上都应超越的下限——而出人意料地，它也是最快的早期学习者。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:110
 msgid "Open play (JP style)"
@@ -335,13 +298,12 @@ msgid "pause"
 msgstr "暂停"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1689
-msgid ""
-"Pick a scenario and press Run. Each round is a real solve through the same "
-"optimiser the app uses, and every field is simulated across several seeds, "
-"so a run takes a little while."
-msgstr ""
-"选择一个方案并点击运行。每轮均通过应用所用的同一优化器进行真实求解，且每个字"
-"段将跨多个种子进行模拟，因此运行需要一些时间。"
+msgid "Pick a scenario and press Run. Each round is a real solve through the same optimiser the app uses, and every field is simulated across several seeds, so a run takes a little while."
+msgstr "选择一个方案并点击运行。每轮均通过应用所用的同一优化器进行真实求解，且每个字段将跨多个种子进行模拟，因此运行需要一些时间。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1170
+#~ msgid "Pick a scenario and press Run. Each round is a real solve through the same optimiser the app uses, so a run takes a few seconds."
+#~ msgstr "选择一个场景并按运行。每一轮都通过应用所使用的同一优化器进行真实求解，因此一次运行需要几秒钟。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1511
 msgid "places off"
@@ -355,16 +317,13 @@ msgstr "播放"
 msgid "players"
 msgstr "球员"
 
+#: src/components/organisms/MatchmakingLab.re.mjs:148
+#~ msgid "Players self-sort into a beginner group and an intermediate/advanced group and stay there, mixing only around the middle of the pool. Teams are drawn at random within a level and never evened out; a blowout gets run back and a close game keeps the same four on court."
+#~ msgstr "球员自行分入初级组和中高级组并保持不变，仅在组别中间区域有所混合。队伍在同级别内随机组成且不作平衡调整；大比分差的比赛会重打，而接近的比赛则保持原四人上场。"
+
 #: src/components/organisms/MatchmakingLab.re.mjs:152
-msgid ""
-"Players self-sort into a beginner group and an intermediate/advanced group "
-"and stay there, mixing only around the middle of the pool. Teams are drawn "
-"at random within a level and never evened out; about half of blowouts get "
-"run back — once — and a close game may keep the same four on court."
-msgstr ""
-"球员自动分为初学者组和中高级组并保持不变，仅在水平池中间区域进行混合。同组内"
-"随机组队，从不刻意均衡；约一半的悬殊场次会重赛一次，势均力敌的场次可能保持原"
-"四人不变继续上场。"
+msgid "Players self-sort into a beginner group and an intermediate/advanced group and stay there, mixing only around the middle of the pool. Teams are drawn at random within a level and never evened out; about half of blowouts get run back — once — and a close game may keep the same four on court."
+msgstr "球员自动分为初学者组和中高级组并保持不变，仅在水平池中间区域进行混合。同组内随机组队，从不刻意均衡；约一半的悬殊场次会重赛一次，势均力敌的场次可能保持原四人不变继续上场。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:2025
 msgid "precomputed · loads in a second instead of an hour"
@@ -382,14 +341,17 @@ msgstr "质量"
 msgid "Random (baseline)"
 msgstr "随机（基准）"
 
+#: src/components/organisms/MatchmakingLab.re.mjs:106
+#~ msgid "Random Balanced"
+#~ msgstr "随机均衡"
+
 #: src/components/organisms/MatchmakingLab.re.mjs:148
-msgid ""
-"Random composition with partner and opponent rotation, but still no team "
-"balancing — what open play actually does, and the realistic rating-free "
-"baseline. Novelty buys variety and faster convergence, not match quality."
-msgstr ""
-"随机组合搭档与对手轮换，但不进行队伍平衡——这正是开放式打球的实际做法，也是无"
-"评级的现实基准。新鲜感带来多样性和更快的收敛，而非更高的比赛质量。"
+msgid "Random composition with partner and opponent rotation, but still no team balancing — what open play actually does, and the realistic rating-free baseline. Novelty buys variety and faster convergence, not match quality."
+msgstr "随机组合搭档与对手轮换，但不进行队伍平衡——这正是开放式打球的实际做法，也是无评级的现实基准。新鲜感带来多样性和更快的收敛，而非更高的比赛质量。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:144
+#~ msgid "Random composition with partner and opponent rotation, but still no team balancing. Isolates what novelty alone buys over pure chance."
+#~ msgstr "随机组合搭配搭档与对手轮换，但仍不进行队伍平衡。单独衡量新鲜感相对于纯随机的收益。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:144
 msgid "Random composition, most even split available in every match."
@@ -399,33 +361,29 @@ msgstr "随机组合，每场比赛采用最均衡的分队方式。"
 msgid "Random, avoid repeats"
 msgstr "随机，避免重复"
 
+#: src/components/organisms/MatchmakingLab.re.mjs:118
+#~ msgid "Random, no repeats"
+#~ msgstr "随机，不重复"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1146
+#~ msgid "Ranked by the three columns combined, weighted equally. Rows below the dashed line matchmake from hidden true skill — they mark the ceiling and are excluded from the ranking and the highlights. places off = how far the average player sits from their true rank (lower better) · quality = chance a game ends level, by true skill (higher better) · blowouts = share of games decided by 9+ (lower better). Bold marks the best in each column."
+#~ msgstr "按三列综合排名，权重相等。虚线以下的行根据隐藏真实技能配对——它们标记上限，排除在排名和高亮之外。名次偏差 = 球员平均偏离真实排名的距离（越低越好）· 质量 = 按真实技能计算的比赛势均力敌概率（越高越好）· 大比分差 = 9分以上差距的比赛占比（越低越好）。粗体标记各列最优值。"
+
 #: src/components/organisms/MatchmakingLab.re.mjs:1661
-msgid ""
-"Ranked by the three columns combined, weighted equally. Rows below the "
-"dashed line matchmake from hidden true skill — they mark the ceiling and are "
-"excluded from the ranking. All three are rolling averages over the last {0} "
-"rounds, so they say how each strategy is doing now rather than how it did "
-"overall — drag the round slider to watch them move. places off = how far the "
-"average player sits from their true rank (lower better) · quality = how even "
-"the game is by true skill, 100% = perfectly even (higher better) · blowouts "
-"= share of games decided by 9+ (lower better)."
-msgstr ""
-"按三列指标综合排名，权重相同。虚线以下的行按隐藏的真实水平配对——它们代表上"
-"限，不计入排名。三项均为最近 {0} 轮的滚动平均值，因此反映的是各策略当前的表"
-"现，而非整体表现——拖动轮次滑块可观察其变化。名次偏差 = 平均每位球员距其真实排"
-"名的差距（越低越好）· 质量 = 按真实水平衡量的对阵均衡度，100% = 完全势均力敌"
-"（越高越好）· 悬殊局 = 分差 9 分及以上的比赛占比（越低越好）。"
+#~ msgid "Ranked by the three columns combined, weighted equally. Rows below the dashed line matchmake from hidden true skill — they mark the ceiling and are excluded from the ranking. All three are rolling averages over the last {0} rounds, so they say how each strategy is doing now rather than how it did overall — drag the round slider to watch them move. places off = how far the average player sits from their true rank (lower better) · quality = chance a game ends level, by true skill (higher better) · blowouts = share of games decided by 9+ (lower better)."
+#~ msgstr "按三列综合排名，权重相同。虚线以下的行基于隐藏真实技能进行匹配——代表上限，不计入排名。三列均为最近 {0} 轮的滚动平均值，反映各策略当前表现而非整体表现——拖动轮次滑块可观察变化。排名偏差 = 球员平均排名与真实排名的差距（越低越好）· 质量 = 按真实技能计算的场次同级结束概率（越高越好）· 悬殊 = 比分差9+场次占比（越低越好）。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1661
+msgid "Ranked by the three columns combined, weighted equally. Rows below the dashed line matchmake from hidden true skill — they mark the ceiling and are excluded from the ranking. All three are rolling averages over the last {0} rounds, so they say how each strategy is doing now rather than how it did overall — drag the round slider to watch them move. places off = how far the average player sits from their true rank (lower better) · quality = how even the game is by true skill, 100% = perfectly even (higher better) · blowouts = share of games decided by 9+ (lower better)."
+msgstr "按三列指标综合排名，权重相同。虚线以下的行按隐藏的真实水平配对——它们代表上限，不计入排名。三项均为最近 {0} 轮的滚动平均值，因此反映的是各策略当前的表现，而非整体表现——拖动轮次滑块可观察其变化。名次偏差 = 平均每位球员距其真实排名的差距（越低越好）· 质量 = 按真实水平衡量的对阵均衡度，100% = 完全势均力敌（越高越好）· 悬殊局 = 分差 9 分及以上的比赛占比（越低越好）。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1370
+#~ msgid "Ranked by the three columns combined, weighted equally. Rows below the dashed line matchmake from hidden true skill — they mark the ceiling and are excluded from the ranking. places off = how far the average player sits from their true rank (lower better) · quality = chance a game ends level, by true skill (higher better) · blowouts = share of games decided by 9+ (lower better)."
+#~ msgstr "按三列综合排名，权重相同。虚线以下的行基于隐藏真实技能进行匹配——代表上限，不计入排名。位次偏差 = 选手平均排名与真实排名的差距（越低越好）· 质量 = 按真实技能计算比赛势均力敌的概率（越高越好）· 悬殊局 = 分差 9 分及以上的比赛占比（越低越好）。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:140
-msgid ""
-"Ranked courts: winners move up and split, losers slide down, and the bottom "
-"court's losers rotate out for whoever has sat longest. Every arriving pair "
-"is split across the net, so nobody keeps a winning partner. No ratings "
-"anywhere — the court ladder is the format's only memory."
-msgstr ""
-"分级场地：胜者升场并交换搭档，败者降场，最底层场地的败者轮换下场，由等待最久"
-"的人替补。每对新到的球员都被分到网的两侧，因此没人能一直和赢球的搭档搭配。全"
-"程不使用任何评分——场地阶梯是这一模式唯一的\"记忆\"。"
+msgid "Ranked courts: winners move up and split, losers slide down, and the bottom court's losers rotate out for whoever has sat longest. Every arriving pair is split across the net, so nobody keeps a winning partner. No ratings anywhere — the court ladder is the format's only memory."
+msgstr "分级场地：胜者升场并交换搭档，败者降场，最底层场地的败者轮换下场，由等待最久的人替补。每对新到的球员都被分到网的两侧，因此没人能一直和赢球的搭档搭配。全程不使用任何评分——场地阶梯是这一模式唯一的\"记忆\"。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1205
 msgid "rating ·"
@@ -436,19 +394,12 @@ msgid "Rating forecast error"
 msgstr "评分预测误差"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:76
-msgid ""
-"Ratings already match the truth, held confidently. This is where match "
-"quality is the product."
+msgid "Ratings already match the truth, held confidently. This is where match quality is the product."
 msgstr "评分已与真相吻合且置信度高。这是对阵质量作为产出的阶段。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1936
-msgid ""
-"Red ticks are true skill; blue bars are what the rating system currently "
-"believes. Rows are ordered by true skill, strongest first — a correct system "
-"reads as a clean staircase."
-msgstr ""
-"红色刻度为真实技能，蓝色条形为评分系统当前的判断。行按真实技能排序，最强者居"
-"首——一个正确的系统呈现为整齐的阶梯状。"
+msgid "Red ticks are true skill; blue bars are what the rating system currently believes. Rows are ordered by true skill, strongest first — a correct system reads as a clean staircase."
+msgstr "红色刻度为真实技能，蓝色条形为评分系统当前的判断。行按真实技能排序，最强者居首——一个正确的系统呈现为整齐的阶梯状。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:2064
 msgid "reseed ({0})"
@@ -463,13 +414,8 @@ msgid "rho {0} · off by {1} places"
 msgstr "相关系数 {0} · 偏差 {1} 个名次"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:138
-msgid ""
-"Rotate through everyone, teams drawn as they come. Only when a foursome "
-"splits sharply into two strong and two weak does anyone even out the sides — "
-"and then which weak player goes with which strong is left to chance."
-msgstr ""
-"轮流让所有人上场，队伍随机组成。只有当四人组明显分化为两强两弱时，才会平衡双"
-"方阵容——而弱者分别与哪位强者搭档，则由随机决定。"
+msgid "Rotate through everyone, teams drawn as they come. Only when a foursome splits sharply into two strong and two weak does anyone even out the sides — and then which weak player goes with which strong is left to chance."
+msgstr "轮流让所有人上场，队伍随机组成。只有当四人组明显分化为两强两弱时，才会平衡双方阵容——而弱者分别与哪位强者搭档，则由随机决定。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1240
 msgid "Round {0} · {1}"
@@ -504,28 +450,28 @@ msgid "seeds"
 msgstr "种子数"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1703
-msgid ""
-"showing a saved run · {0} · {1} players · {2} courts · {3} rounds · {4} "
-"seeds. Ladder and round detail come from the first seed; the charts and "
-"standings average all of them."
-msgstr ""
-"正在查看已保存记录 · {0} · {1}名球员 · {2}个场地 · {3}轮 · {4}个种子。排名梯"
-"和轮次详情来自第一个种子；图表和积分榜为所有种子的平均值。"
+msgid "showing a saved run · {0} · {1} players · {2} courts · {3} rounds · {4} seeds. Ladder and round detail come from the first seed; the charts and standings average all of them."
+msgstr "正在查看已保存记录 · {0} · {1}名球员 · {2}个场地 · {3}轮 · {4}个种子。排名梯和轮次详情来自第一个种子；图表和积分榜为所有种子的平均值。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1658
-msgid ""
-"Single seed — no error bars, so treat any ordering here as provisional. "
-"Raise the seed count to tell real differences from noise."
-msgstr ""
-"单一种子——无误差范围，任何排序仅供参考。增加种子数量以区分真实差异与噪声。"
+msgid "Single seed — no error bars, so treat any ordering here as provisional. Raise the seed count to tell real differences from noise."
+msgstr "单一种子——无误差范围，任何排序仅供参考。增加种子数量以区分真实差异与噪声。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1315
 msgid "sitting out: {0}"
 msgstr "轮空：{0}"
 
+#: src/components/organisms/MatchmakingLab.re.mjs:1757
+#~ msgid "skill spread evenly across the range, plus a ringer and a beginner"
+#~ msgstr "技能均匀分布于整个范围，另加一名高手和一名新手"
+
 #: src/components/organisms/MatchmakingLab.re.mjs:1795
 msgid "speed"
 msgstr "速度"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1204
+#~ msgid "Standings at round {0}"
+#~ msgstr "第{0}轮积分榜"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1495
 msgid "Standings at round {0} · last {1} rounds"
@@ -540,13 +486,8 @@ msgid "step"
 msgstr "步骤"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:80
-msgid ""
-"The same confident inversion, but applied to only a third of the pool — the "
-"rest are correctly rated anchors. The error is now visible against those "
-"anchors, so it should correct far faster than a complete inversion."
-msgstr ""
-"同样的反转逻辑，但仅作用于池中三分之一的选手——其余为评分准确的锚定选手。误差"
-"在锚定选手的对比下将更为明显，因此修正速度应远快于完全反转的情况。"
+msgid "The same confident inversion, but applied to only a third of the pool — the rest are correctly rated anchors. The error is now visible against those anchors, so it should correct far faster than a complete inversion."
+msgstr "同样的反转逻辑，但仅作用于池中三分之一的选手——其余为评分准确的锚定选手。误差在锚定选手的对比下将更为明显，因此修正速度应远快于完全反转的情况。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1840
 msgid "tight"
@@ -586,127 +527,9 @@ msgid "varied"
 msgstr "多样"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:136
-msgid ""
-"What the app ships as Competitive+: calibrates with variety while the "
-"ratings are noise, then blends into banded play as they settle. Identical to "
-"the static profile once the ladder has any spread."
-msgstr ""
-"这是应用内置的竞技+模式：在评分噪声较大时通过多样化对阵进行校准，随着评分趋于"
-"稳定逐渐过渡到分段匹配。一旦排名出现明显差异，其效果与静态模式完全一致。"
+msgid "What the app ships as Competitive+: calibrates with variety while the ratings are noise, then blends into banded play as they settle. Identical to the static profile once the ladder has any spread."
+msgstr "这是应用内置的竞技+模式：在评分噪声较大时通过多样化对阵进行校准，随着评分趋于稳定逐渐过渡到分段匹配。一旦排名出现明显差异，其效果与静态模式完全一致。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:57
 msgid "Within-band inversion"
 msgstr "同段位内反转"
-
-#: src/components/organisms/MatchmakingLab.re.mjs:1341
-#~ msgid "· % chance the game ends level, by true skill · higher is better"
-#~ msgstr "· % 的概率游戏以平局结束，基于真实技术实力 · 越高越好"
-
-#: src/components/organisms/MatchmakingLab.re.mjs:1757
-#~ msgid ""
-#~ "a bunched pack, most players hard to tell apart, nobody outside the group"
-#~ msgstr "密集集群，大多数选手难以区分，无人脱离群体"
-
-#: src/components/organisms/MatchmakingLab.re.mjs:146
-#~ msgid ""
-#~ "Maximum rotation. Its unbalanced splits are what let it recover a broken "
-#~ "ladder."
-#~ msgstr "最大轮换。其不平衡的分组方式正是让它能修复破损天梯的原因。"
-
-#: src/components/organisms/MatchmakingLab.re.mjs:142
-#~ msgid ""
-#~ "No preferences at all: no balancing, no rotation, pure jitter. The floor "
-#~ "every real strategy should beat on match quality — and, surprisingly, the "
-#~ "fastest early learner."
-#~ msgstr ""
-#~ "完全无偏好：不平衡、不轮换、纯随机抖动。每个真实策略在对阵质量上都应超越的"
-#~ "下限——而出人意料地，它也是最快的早期学习者。"
-
-#: src/components/organisms/MatchmakingLab.re.mjs:1170
-#~ msgid ""
-#~ "Pick a scenario and press Run. Each round is a real solve through the "
-#~ "same optimiser the app uses, so a run takes a few seconds."
-#~ msgstr ""
-#~ "选择一个场景并按运行。每一轮都通过应用所使用的同一优化器进行真实求解，因此"
-#~ "一次运行需要几秒钟。"
-
-#: src/components/organisms/MatchmakingLab.re.mjs:148
-#~ msgid ""
-#~ "Players self-sort into a beginner group and an intermediate/advanced "
-#~ "group and stay there, mixing only around the middle of the pool. Teams "
-#~ "are drawn at random within a level and never evened out; a blowout gets "
-#~ "run back and a close game keeps the same four on court."
-#~ msgstr ""
-#~ "球员自行分入初级组和中高级组并保持不变，仅在组别中间区域有所混合。队伍在同"
-#~ "级别内随机组成且不作平衡调整；大比分差的比赛会重打，而接近的比赛则保持原四"
-#~ "人上场。"
-
-#: src/components/organisms/MatchmakingLab.re.mjs:106
-#~ msgid "Random Balanced"
-#~ msgstr "随机均衡"
-
-#: src/components/organisms/MatchmakingLab.re.mjs:144
-#~ msgid ""
-#~ "Random composition with partner and opponent rotation, but still no team "
-#~ "balancing. Isolates what novelty alone buys over pure chance."
-#~ msgstr ""
-#~ "随机组合搭配搭档与对手轮换，但仍不进行队伍平衡。单独衡量新鲜感相对于纯随机"
-#~ "的收益。"
-
-#: src/components/organisms/MatchmakingLab.re.mjs:118
-#~ msgid "Random, no repeats"
-#~ msgstr "随机，不重复"
-
-#: src/components/organisms/MatchmakingLab.re.mjs:1146
-#~ msgid ""
-#~ "Ranked by the three columns combined, weighted equally. Rows below the "
-#~ "dashed line matchmake from hidden true skill — they mark the ceiling and "
-#~ "are excluded from the ranking and the highlights. places off = how far "
-#~ "the average player sits from their true rank (lower better) · quality = "
-#~ "chance a game ends level, by true skill (higher better) · blowouts = "
-#~ "share of games decided by 9+ (lower better). Bold marks the best in each "
-#~ "column."
-#~ msgstr ""
-#~ "按三列综合排名，权重相等。虚线以下的行根据隐藏真实技能配对——它们标记上限，"
-#~ "排除在排名和高亮之外。名次偏差 = 球员平均偏离真实排名的距离（越低越好）· "
-#~ "质量 = 按真实技能计算的比赛势均力敌概率（越高越好）· 大比分差 = 9分以上差"
-#~ "距的比赛占比（越低越好）。粗体标记各列最优值。"
-
-#: src/components/organisms/MatchmakingLab.re.mjs:1661
-#~ msgid ""
-#~ "Ranked by the three columns combined, weighted equally. Rows below the "
-#~ "dashed line matchmake from hidden true skill — they mark the ceiling and "
-#~ "are excluded from the ranking. All three are rolling averages over the "
-#~ "last {0} rounds, so they say how each strategy is doing now rather than "
-#~ "how it did overall — drag the round slider to watch them move. places off "
-#~ "= how far the average player sits from their true rank (lower better) · "
-#~ "quality = chance a game ends level, by true skill (higher better) · "
-#~ "blowouts = share of games decided by 9+ (lower better)."
-#~ msgstr ""
-#~ "按三列综合排名，权重相同。虚线以下的行基于隐藏真实技能进行匹配——代表上限，"
-#~ "不计入排名。三列均为最近 {0} 轮的滚动平均值，反映各策略当前表现而非整体表"
-#~ "现——拖动轮次滑块可观察变化。排名偏差 = 球员平均排名与真实排名的差距（越低"
-#~ "越好）· 质量 = 按真实技能计算的场次同级结束概率（越高越好）· 悬殊 = 比分差"
-#~ "9+场次占比（越低越好）。"
-
-#: src/components/organisms/MatchmakingLab.re.mjs:1370
-#~ msgid ""
-#~ "Ranked by the three columns combined, weighted equally. Rows below the "
-#~ "dashed line matchmake from hidden true skill — they mark the ceiling and "
-#~ "are excluded from the ranking. places off = how far the average player "
-#~ "sits from their true rank (lower better) · quality = chance a game ends "
-#~ "level, by true skill (higher better) · blowouts = share of games decided "
-#~ "by 9+ (lower better)."
-#~ msgstr ""
-#~ "按三列综合排名，权重相同。虚线以下的行基于隐藏真实技能进行匹配——代表上限，"
-#~ "不计入排名。位次偏差 = 选手平均排名与真实排名的差距（越低越好）· 质量 = 按"
-#~ "真实技能计算比赛势均力敌的概率（越高越好）· 悬殊局 = 分差 9 分及以上的比赛"
-#~ "占比（越低越好）。"
-
-#: src/components/organisms/MatchmakingLab.re.mjs:1757
-#~ msgid "skill spread evenly across the range, plus a ringer and a beginner"
-#~ msgstr "技能均匀分布于整个范围，另加一名高手和一名新手"
-
-#: src/components/organisms/MatchmakingLab.re.mjs:1204
-#~ msgid "Standings at round {0}"
-#~ msgstr "第{0}轮积分榜"

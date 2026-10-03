@@ -21,6 +21,10 @@ msgstr "메시지 {messageCountStr}개 · 업데이트 {totalCountStr}개"
 msgid "Activity"
 msgstr "종목"
 
+#: src/components/organisms/PkEventMessages.re.mjs:467
+#~ msgid "Add a message..."
+#~ msgstr "메시지 추가..."
+
 #: src/components/organisms/PkEventMessages.re.mjs:328
 #: src/components/organisms/PkEventMessages.re.mjs:465
 msgid "Event chat"
@@ -67,6 +71,10 @@ msgstr "아직 메시지가 없습니다"
 msgid "Send message"
 msgstr "메시지 보내기"
 
+#: src/components/organisms/PkEventMessages.re.mjs:455
+#~ msgid "Show all {0} items"
+#~ msgstr "전체 {0}개 항목 보기"
+
 #: src/components/organisms/PkEventMessages.re.mjs:355
 msgid "Show less"
 msgstr "간략히 보기"
@@ -82,11 +90,3 @@ msgstr "관리자에 의해 이벤트에 추가되었습니다"
 #: src/components/organisms/PkEventMessages.re.mjs:199
 msgid "was invited to the event"
 msgstr "이벤트에 초대되었습니다"
-
-#: src/components/organisms/PkEventMessages.re.mjs:467
-#~ msgid "Add a message..."
-#~ msgstr "메시지 추가..."
-
-#: src/components/organisms/PkEventMessages.re.mjs:455
-#~ msgid "Show all {0} items"
-#~ msgstr "전체 {0}개 항목 보기"

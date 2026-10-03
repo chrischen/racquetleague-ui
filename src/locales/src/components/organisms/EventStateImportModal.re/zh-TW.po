@@ -34,12 +34,8 @@ msgid "Import History"
 msgstr "匯入紀錄"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:48
-msgid ""
-"Imported matches count as already synced, and keep their original ids so "
-"syncing again cannot duplicate them on the server."
-msgstr ""
-"匯入的比賽會視為已同步，並保留原始 ID，因此再次同步時不會在伺服器上產生重複資"
-"料。"
+msgid "Imported matches count as already synced, and keep their original ids so syncing again cannot duplicate them on the server."
+msgstr "匯入的比賽會視為已同步，並保留原始 ID，因此再次同步時不會在伺服器上產生重複資料。"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:43
 msgid "Matches to import"
@@ -50,11 +46,8 @@ msgid "Paste an exported history"
 msgstr "貼上已匯出的紀錄"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:119
-msgid ""
-"Rounds are placed in the timeline by their timestamps, so importing can add "
-"rounds before the ones already here."
-msgstr ""
-"各輪次會依時間戳記排入時間軸，因此匯入時可能會在現有輪次之前插入新的輪次。"
+msgid "Rounds are placed in the timeline by their timestamps, so importing can add rounds before the ones already here."
+msgstr "各輪次會依時間戳記排入時間軸，因此匯入時可能會在現有輪次之前插入新的輪次。"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:42
 msgid "Rounds to import"

@@ -13,11 +13,11 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RsvpOptions.re.mjs:187
+#: src/components/organisms/RsvpOptions.re.mjs:188
 msgid "Approve RSVP"
 msgstr "참가 승인"
 
-#: src/components/organisms/RsvpOptions.re.mjs:331
+#: src/components/organisms/RsvpOptions.re.mjs:338
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "이 사람을 이벤트에서 제거하시겠습니까?"
 
@@ -25,7 +25,7 @@ msgstr "이 사람을 이벤트에서 제거하시겠습니까?"
 msgid "Cancel"
 msgstr "취소"
 
-#: src/components/organisms/RsvpOptions.re.mjs:219
+#: src/components/organisms/RsvpOptions.re.mjs:220
 msgid "Capture payment"
 msgstr "결제 승인"
 
@@ -33,11 +33,15 @@ msgstr "결제 승인"
 msgid "Card on file"
 msgstr "등록된 카드"
 
+#: src/components/atoms/PaymentIndicator.re.mjs:93
+#~ msgid "Card on file (platform account)"
+#~ msgstr "등록된 카드 (플랫폼 계정)"
+
 #: src/components/atoms/PaymentIndicator.re.mjs:80
 msgid "Charge failed"
 msgstr "결제 실패"
 
-#: src/components/organisms/RsvpOptions.re.mjs:240
+#: src/components/organisms/RsvpOptions.re.mjs:241
 msgid "Charge payment"
 msgstr "결제 청구"
 
@@ -45,8 +49,8 @@ msgstr "결제 청구"
 msgid "Confirm"
 msgstr "확인"
 
-#: src/components/organisms/RsvpOptions.re.mjs:197
-#: src/components/organisms/RsvpOptions.re.mjs:346
+#: src/components/organisms/RsvpOptions.re.mjs:198
+#: src/components/organisms/RsvpOptions.re.mjs:353
 msgid "Move to Pending List"
 msgstr "대기 목록으로 이동"
 
@@ -54,46 +58,46 @@ msgstr "대기 목록으로 이동"
 msgid "Payment authorized"
 msgstr "결제 승인됨"
 
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+#~ msgid "Payment captured"
+#~ msgstr "결제 완료됨"
+
 #: src/components/atoms/PaymentIndicator.re.mjs:74
 msgid "Payment charged"
 msgstr "결제 완료"
 
-#: src/components/organisms/RsvpOptions.re.mjs:258
+#: src/components/organisms/RsvpOptions.re.mjs:259
 msgid "Refund payment"
 msgstr "결제 환불"
 
-#: src/components/organisms/RsvpOptions.re.mjs:286
+#: src/components/organisms/RsvpOptions.re.mjs:287
 msgid "Remove from event"
 msgstr "이벤트에서 제거"
 
-#: src/components/organisms/RsvpOptions.re.mjs:330
+#: src/components/organisms/RsvpOptions.re.mjs:337
 msgid "Remove this RSVP"
 msgstr "이 RSVP 제거"
 
-#: src/components/organisms/RsvpOptions.re.mjs:227
+#: src/components/organisms/RsvpOptions.re.mjs:228
 msgid "Retry charge"
 msgstr "결제 재시도"
 
-#: src/components/organisms/PkEventRsvp.re.mjs:172
+#: src/components/organisms/PkEventRsvp.re.mjs:164
 msgid "sent"
 msgstr "전송됨"
 
-#: src/components/organisms/RsvpOptions.re.mjs:347
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니"
-"다. RSVP를 제한하시겠습니까?"
+#: src/components/organisms/RsvpOptions.re.mjs:354
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니다. RSVP를 제한하시겠습니까?"
 
-#: src/components/organisms/RsvpOptions.re.mjs:313
+#: src/components/organisms/RsvpOptions.re.mjs:321
+msgid "View message thread"
+msgstr ""
+
+#: src/components/organisms/PkEventRsvp.re.mjs:202
+msgid "View message thread with {name}"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:314
 msgid "View Profile"
 msgstr "프로필 보기"
-
-#: src/components/atoms/PaymentIndicator.re.mjs:93
-#~ msgid "Card on file (platform account)"
-#~ msgstr "등록된 카드 (플랫폼 계정)"
-
-#: src/components/atoms/PaymentIndicator.re.mjs:73
-#~ msgid "Payment captured"
-#~ msgstr "결제 완료됨"

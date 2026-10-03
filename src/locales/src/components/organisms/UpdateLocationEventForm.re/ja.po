@@ -95,6 +95,18 @@ msgstr "{0}件のイベント"
 msgid "{0} events"
 msgstr "{0}件のイベント"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:536
+#~ msgid "{0} hours"
+#~ msgstr "{0}時間"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:536
+#~ msgid "{0} hours and {1} minutes"
+#~ msgstr "{0}時間{1}分"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:538
+#~ msgid "{0} minutes"
+#~ msgstr "{0}分"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1019
 msgid "{0} without a venue"
 msgstr "会場未設定: {0}"
@@ -147,6 +159,18 @@ msgstr "6時間前まで"
 msgid "72 hours before"
 msgstr "72時間前"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:827
+#~ msgid "A deposit authorization is collected when someone joins. No money is actually charged and the authorization is removed automatically after your event. You should collect any participation fees manually in person. You can also manually approve attendees by clicking their name in the RSVP list."
+#~ msgstr "参加者が登録する際に、デポジットの承認が収集されます。実際には料金は請求されず、イベント終了後に承認は自動的に解除されます。参加費は現地で手動にて徴収してください。また、RSVPリストで参加者の名前をクリックすることで、手動承認することもできます。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:762
+#~ msgid "A deposit authorization is made. This is not a charge and it automatically disappears from the person's account. You can manually approve attendees who do not authorize payment by clicking their name in the RSVP list."
+#~ msgstr "デポジットの仮承認が行われます。これは請求ではなく、自動的にアカウントから消えます。RSVPリストで名前をクリックすることで、支払いを承認しなかった参加者を手動で承認できます。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:851
+#~ msgid "A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list."
+#~ msgstr "参加時に返金可能なデポジットが徴収されます。RSVPリストで参加者の名前をクリックすることで、手動で承認できます。"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1159
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1181
 msgid "Active"
@@ -159,6 +183,10 @@ msgstr "アクティビティ"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:75
 msgid "activity is required"
 msgstr "アクティビティが必要です"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:817
+#~ msgid "Add any additional information about the event..."
+#~ msgstr "イベントに関する追加情報を入力してください..."
 
 #: src/components/molecules/TimeZoneField.re.mjs:70
 msgid "Alaska Time"
@@ -173,12 +201,8 @@ msgid "American Samoa Time"
 msgstr "米領サモア時間"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1210
-msgid ""
-"Anyone held as pending can be moved into the event from the RSVP list, which "
-"bypasses the payment requirement for them."
-msgstr ""
-"保留中の人は、RSVPリストからイベントに移動できます。その場合、支払い要件は適"
-"用されません。"
+msgid "Anyone held as pending can be moved into the event from the RSVP list, which bypasses the payment requirement for them."
+msgstr "保留中の人は、RSVPリストからイベントに移動できます。その場合、支払い要件は適用されません。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1104
 msgid "Anything players should know before joining or arriving."
@@ -188,35 +212,37 @@ msgstr "参加または来場前にプレーヤーが知っておくべきこと
 msgid "Arizona Time"
 msgstr "アリゾナ時間"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:460
+#~ msgid "at"
+#~ msgstr "時"
+
 #: src/components/molecules/TimeZoneField.re.mjs:76
 msgid "Atlantic Time"
 msgstr "大西洋時間"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:798
+#~ msgid "Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event."
+#~ msgstr "参加者はRSVP時にカードの保存を求められますが、オーソリも請求も行われず、ここから請求することもできません。参加費はイベント当日に集金してください。"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1166
-msgid ""
-"Attendees are asked to save a card when they RSVP, but nothing is authorized "
-"or charged, and you can't charge it from here. Collect the fee at the event. "
-"Club members are exempted from this."
-msgstr ""
-"参加者はRSVP時にカードの保存を求められますが、認証や請求は行われず、ここから"
-"請求することもできません。料金はイベント当日に集金してください。クラブメン"
-"バーはこの対象外です。"
+msgid "Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event. Club members are exempted from this."
+msgstr "参加者はRSVP時にカードの保存を求められますが、認証や請求は行われず、ここから請求することもできません。料金はイベント当日に集金してください。クラブメンバーはこの対象外です。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:805
+#~ msgid "Attendees cannot cancel their RSVP after this deadline"
+#~ msgstr "この期限後、参加者はRSVPをキャンセルできません"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1498
 msgid "Attendees cannot cancel their RSVP after this deadline."
 msgstr "この期限を過ぎると参加者は参加表明をキャンセルできません。"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:821
+#~ msgid "Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account."
+#~ msgstr "参加者はRSVP時にカードを保存しますが、事前の請求やオーソリは行われません。RSVPリストから、任意のタイミングで個別または全員に請求でき、売上はあなたのStripeアカウントに入金されます。"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1189
-msgid ""
-"Attendees save a card when they RSVP and nothing is charged or held up "
-"front. From the RSVP list you can charge one attendee or everyone whenever "
-"you choose, and the money goes to your Stripe account. Club members can be "
-"exempted or not, which you can toggle from the Club home page."
-msgstr ""
-"参加者はRSVP時にカードを保存し、事前の請求や与信枠の確保は行われません。RSVP"
-"リストから、好きなタイミングで特定の参加者または全員に請求でき、支払いはあな"
-"たのStripeアカウントに入金されます。クラブメンバーを対象外にするかどうかは、"
-"クラブのホームページで切り替えられます。"
+msgid "Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account. Club members can be exempted or not, which you can toggle from the Club home page."
+msgstr "参加者はRSVP時にカードを保存し、事前の請求や与信枠の確保は行われません。RSVPリストから、好きなタイミングで特定の参加者または全員に請求でき、支払いはあなたのStripeアカウントに入金されます。クラブメンバーを対象外にするかどうかは、クラブのホームページで切り替えられます。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1774
 msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
@@ -233,6 +259,14 @@ msgstr "キャンセル"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1456
 msgid "Cancel deadline"
 msgstr "キャンセル期限"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:762
+#~ msgid "Cancel deadline (optional)"
+#~ msgstr "キャンセル期限（任意）"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1309
+#~ msgid "Casual play focused on fun and social interaction. Perfect for all skill levels."
+#~ msgstr "楽しさと社交を重視したカジュアルなプレイ。すべてのスキルレベルに最適です。"
 
 #: src/components/molecules/TimeZoneField.re.mjs:96
 msgid "Central Australia Time"
@@ -296,6 +330,14 @@ msgstr "クラブ名"
 msgid "Competitive"
 msgstr "競争力"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:879
+#~ msgid "Connect a Stripe account"
+#~ msgstr "Stripeアカウントを連携する"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:790
+#~ msgid "Connect a Stripe account to activate"
+#~ msgstr "有効にするにはStripeアカウントを連携してください"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1194
 msgid "Connect a Stripe account to enable this"
 msgstr "これを有効にするにはStripeアカウントを接続してください"
@@ -330,6 +372,10 @@ msgstr "クラブを作成"
 msgid "Create event"
 msgstr "イベントを作成"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1453
+#~ msgid "Create Event"
+#~ msgstr "イベントを作成"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:832
 msgid "Created"
 msgstr "作成済み"
@@ -341,6 +387,10 @@ msgstr "イベントを作成中…"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1650
 msgid "Date"
 msgstr "日付"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+#~ msgid "daytime"
+#~ msgstr "日中"
 
 #: src/components/organisms/CreateClubForm.re.mjs:225
 msgid "Default club activity"
@@ -363,6 +413,18 @@ msgstr "完了"
 msgid "Draft filled in. Review the details before creating the event."
 msgstr "下書きを入力しました。イベントを作成する前に詳細を確認してください。"
 
+#: src/components/molecules/ClockRangePicker.re.mjs:524
+#~ msgid "Drag around the clock · Arrow keys move 15 minutes"
+#~ msgstr "時計の周りをドラッグ · 矢印キーで15分移動"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+#~ msgid "Drag end time"
+#~ msgstr "終了時刻をドラッグ"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+#~ msgid "Drag start time"
+#~ msgstr "開始時刻をドラッグ"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1705
 msgid "Drag the window to move it, or drag either edge to resize."
 msgstr "ウィンドウをドラッグして移動、端をドラッグしてサイズを変更できます。"
@@ -376,6 +438,10 @@ msgstr "練習セッション"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1277
 msgid "DUPR rated"
 msgstr "DUPRレーティング"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:397
+#~ msgid "duration"
+#~ msgstr "所要時間"
 
 #: src/components/organisms/CreateClubForm.re.mjs:164
 msgid "e.g., City Ballers Club"
@@ -397,9 +463,21 @@ msgstr "東部時間"
 msgid "Edit"
 msgstr "編集"
 
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+#~ msgid "Editing end"
+#~ msgstr "終了時刻を編集中"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+#~ msgid "Editing start"
+#~ msgstr "開始時刻を編集"
+
 #: src/components/molecules/EventTimeRangeInputs.re.mjs:128
 msgid "End"
 msgstr "終了"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:447
+#~ msgid "end time"
+#~ msgstr "終了時刻"
 
 #: src/components/molecules/EventTimeRangeInputs.re.mjs:129
 msgid "End time"
@@ -421,9 +499,25 @@ msgstr "イベント日付が必要です"
 msgid "Event details"
 msgstr "イベント詳細"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1121
+#~ msgid "Event Details"
+#~ msgstr "イベント詳細"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:813
+#~ msgid "Event details (optional)"
+#~ msgstr "イベント詳細（オプション）"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1095
 msgid "Event notes"
 msgstr "イベントのメモ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:607
+#~ msgid "Event schedule"
+#~ msgstr "イベントスケジュール"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:299
+#~ msgid "Event time range"
+#~ msgstr "イベントの時間帯"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1081
 msgid "Event title"
@@ -449,6 +543,10 @@ msgstr "イベントは15分以上に設定してください。"
 msgid "Failed"
 msgstr "失敗"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1414
+#~ msgid "Find Players"
+#~ msgstr "プレイヤーを探す"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1349
 msgid "Find players for your event?"
 msgstr "イベントのプレイヤーを募集しますか？"
@@ -473,18 +571,21 @@ msgstr "形式オプション"
 msgid "Friday night pickleball"
 msgstr "金曜夜のピックルボール"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:741
+#~ msgid "Friday Night Pickleball"
+#~ msgstr "金曜夜のピックルボール"
+
 #: src/components/molecules/TimeZoneField.re.mjs:116
 msgid "Hawaii Time"
 msgstr "ハワイ時間"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1424
-msgid ""
-"Hold new joins  in the pending list and admit players either manually or "
-"automatically with the Smart RSVPs algorithm that maximizes skill level and "
-"session quality."
-msgstr ""
-"新しい参加者を保留リストに入れ、手動または、スキルレベルとセッションの質を最"
-"大化するSmart RSVPsアルゴリズムで自動的に承認します。"
+msgid "Hold new joins  in the pending list and admit players either manually or automatically with the Smart RSVPs algorithm that maximizes skill level and session quality."
+msgstr "新しい参加者を保留リストに入れ、手動または、スキルレベルとセッションの質を最大化するSmart RSVPsアルゴリズムで自動的に承認します。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1100
+#~ msgid "Hold new joins and admit players automatically based on match quality."
+#~ msgstr "新規参加を保留し、マッチの質に応じて自動で承認します。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1420
 msgid "Hold RSVPs"
@@ -509,6 +610,10 @@ msgstr "韓国時間"
 #: src/components/molecules/TimeZoneField.re.mjs:118
 msgid "Line Islands Time"
 msgstr "ライン諸島時間"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1026
+#~ msgid "List your event publicly to help fill open spots"
+#~ msgstr "空き枠を埋めるためにイベントを公開する"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1353
 msgid "List your event publicly to help fill open spots."
@@ -535,13 +640,33 @@ msgstr "現在、場所の検索は利用できません"
 msgid "Max players"
 msgstr "最大人数"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:749
+#~ msgid "Max RSVPs (optional)"
+#~ msgstr "最大参加人数（オプション）"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1387
 msgid "Minimum rating"
 msgstr "最低レーティング"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:990
+#~ msgid "Minimum rating (optional)"
+#~ msgstr "最低レーティング（任意）"
+
 #: src/components/molecules/TimeZoneField.re.mjs:74
 msgid "Mountain Time"
 msgstr "山岳部時間"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+#~ msgid "Move start and end to daytime hours"
+#~ msgstr "開始・終了を日中の時間帯に変更"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+#~ msgid "Move start and end to nighttime hours"
+#~ msgstr "開始・終了を夜間の時間帯に変更"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1060
+#~ msgid "New joins are held and admitted automatically based on match quality"
+#~ msgstr "新しい参加は保留され、マッチの質に基づいて自動的に承認されます"
 
 #: src/components/molecules/TimeZoneField.re.mjs:112
 msgid "New Zealand Time"
@@ -550,6 +675,10 @@ msgstr "ニュージーランド時間"
 #: src/components/molecules/TimeZoneField.re.mjs:84
 msgid "Newfoundland Time"
 msgstr "ニューファンドランド時間"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+#~ msgid "nighttime"
+#~ msgstr "夜間"
 
 #: src/components/organisms/ClubActivitySelector.re.mjs:336
 msgid "No club"
@@ -571,6 +700,11 @@ msgstr "制限なし"
 msgid "No minimum"
 msgstr "制限なし"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:465
+#: src/components/organisms/CreateLocationEventForm.re.mjs:484
+#~ msgid "Not set"
+#~ msgstr "未設定"
+
 #: src/components/molecules/TimeZoneField.re.mjs:78
 msgid "Pacific Time"
 msgstr "太平洋時間"
@@ -591,6 +725,10 @@ msgstr "プレイヤーの空き時間ヒートマップ"
 msgid "Players"
 msgstr " プレイヤー"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:834
+#~ msgid "Price"
+#~ msgstr "料金"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1042
 msgid "Private event"
 msgstr "プライベートイベント"
@@ -602,6 +740,10 @@ msgstr "公開"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1041
 msgid "Public · Up to {maxRsvpsStr} players"
 msgstr "公開 · 最大{maxRsvpsStr}人"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:505
+#~ msgid "Public event"
+#~ msgstr "公開イベント"
 
 #: src/components/molecules/TimeZoneField.re.mjs:98
 msgid "Queensland Time"
@@ -620,6 +762,10 @@ msgstr "レクリエーション"
 msgid "Remove"
 msgstr "削除"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1391
+#~ msgid "Require payment from attendees"
+#~ msgstr "参加者に支払いを求める"
+
 #: src/components/molecules/TimeZoneField.re.mjs:110
 msgid "Samoa Time"
 msgstr "サモア時間"
@@ -627,6 +773,10 @@ msgstr "サモア時間"
 #: src/components/organisms/AutocompleteLocation.re.mjs:361
 msgid "Search for a venue or address"
 msgstr "会場または住所を検索"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1309
+#~ msgid "Serious play with rankings and ratings. Games may affect your player rating."
+#~ msgstr "ランキングとレーティングを伴う本格的なプレイ。試合結果がプレイヤーレーティングに影響する場合があります。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1624
 msgid "Show less"
@@ -640,14 +790,17 @@ msgstr "シンガポール時間"
 msgid "Skill level"
 msgstr "スキルレベル"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
+#~ msgid "Smart RSVP"
+#~ msgstr "スマートRSVP"
+
 #: src/components/molecules/TimeZoneField.re.mjs:114
 msgid "Solomon Islands Time"
 msgstr "ソロモン諸島時間"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:765
 msgid "Some events could not be created. Try again to create the rest."
-msgstr ""
-"一部のイベントを作成できませんでした。もう一度試して残りを作成してください。"
+msgstr "一部のイベントを作成できませんでした。もう一度試して残りを作成してください。"
 
 #: src/components/molecules/EventTimeRangeInputs.re.mjs:122
 msgid "Start"
@@ -656,6 +809,14 @@ msgstr "開始"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1693
 msgid "Start and end time"
 msgstr "開始・終了時刻"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:703
+#~ msgid "Start date and time"
+#~ msgstr "開始日時"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:447
+#~ msgid "start time"
+#~ msgstr "開始時刻"
 
 #: src/components/molecules/EventTimeRangeInputs.re.mjs:123
 msgid "Start time"
@@ -666,23 +827,28 @@ msgid "Tap to add your time"
 msgstr "タップして時間を追加"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1518
-msgid ""
-"The assistant proposed {0}. Each keeps its own venue, date and time; the "
-"rest of this form applies to all of them."
-msgstr ""
-"アシスタントが{0}を提案しました。各イベントは独自の会場・日付・時刻を保持し、"
-"このフォームの残りの設定はすべてに適用されます。"
+msgid "The assistant proposed {0}. Each keeps its own venue, date and time; the rest of this form applies to all of them."
+msgstr "アシスタントが{0}を提案しました。各イベントは独自の会場・日付・時刻を保持し、このフォームの残りの設定はすべてに適用されます。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1684
 msgid "The date and times on this form are in this zone."
 msgstr "このフォームの日時はこのタイムゾーンで表示されます。"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:785
+#~ msgid "The participation fee is charged automatically and transferred to your Stripe account."
+#~ msgstr "参加費は自動的に請求され、あなたのStripeアカウントに振り込まれます。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:850
+#~ msgid "The participation fee is charged immediately and transferred to your Stripe account."
+#~ msgstr "参加費は即時請求され、あなたのStripeアカウントに振り込まれます。"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:863
-msgid ""
-"The times below are shown in this zone, and every event is created in it."
-msgstr ""
-"以下の時刻はこのタイムゾーンで表示され、すべてのイベントもこのタイムゾーンで"
-"作成されます。"
+msgid "The times below are shown in this zone, and every event is created in it."
+msgstr "以下の時刻はこのタイムゾーンで表示され、すべてのイベントもこのタイムゾーンで作成されます。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1030
+#~ msgid "This event is private"
+#~ msgstr "このイベントは非公開です"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1369
 msgid "This event is public"
@@ -709,6 +875,10 @@ msgstr "英国時間"
 msgid "Update event"
 msgstr "イベントを更新"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1453
+#~ msgid "Update Event"
+#~ msgstr "イベントを更新"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1029
 msgid "Venue, date, start and end time"
 msgstr "会場、日付、開始・終了時刻"
@@ -725,258 +895,13 @@ msgstr "西オーストラリア時間"
 msgid "With a Stripe account"
 msgstr "Stripeアカウントあり"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1155
-msgid "Without a Stripe account"
-msgstr "Stripeアカウントなし"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:536
-#~ msgid "{0} hours"
-#~ msgstr "{0}時間"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:536
-#~ msgid "{0} hours and {1} minutes"
-#~ msgstr "{0}時間{1}分"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:538
-#~ msgid "{0} minutes"
-#~ msgstr "{0}分"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:827
-#~ msgid ""
-#~ "A deposit authorization is collected when someone joins. No money is "
-#~ "actually charged and the authorization is removed automatically after "
-#~ "your event. You should collect any participation fees manually in person. "
-#~ "You can also manually approve attendees by clicking their name in the "
-#~ "RSVP list."
-#~ msgstr ""
-#~ "参加者が登録する際に、デポジットの承認が収集されます。実際には料金は請求さ"
-#~ "れず、イベント終了後に承認は自動的に解除されます。参加費は現地で手動にて徴"
-#~ "収してください。また、RSVPリストで参加者の名前をクリックすることで、手動承"
-#~ "認することもできます。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:762
-#~ msgid ""
-#~ "A deposit authorization is made. This is not a charge and it "
-#~ "automatically disappears from the person's account. You can manually "
-#~ "approve attendees who do not authorize payment by clicking their name in "
-#~ "the RSVP list."
-#~ msgstr ""
-#~ "デポジットの仮承認が行われます。これは請求ではなく、自動的にアカウントから"
-#~ "消えます。RSVPリストで名前をクリックすることで、支払いを承認しなかった参加"
-#~ "者を手動で承認できます。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:851
-#~ msgid ""
-#~ "A refundable deposit is collected when someone joins. You can manually "
-#~ "approve attendees by clicking their name in the RSVP list."
-#~ msgstr ""
-#~ "参加時に返金可能なデポジットが徴収されます。RSVPリストで参加者の名前をク"
-#~ "リックすることで、手動で承認できます。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:817
-#~ msgid "Add any additional information about the event..."
-#~ msgstr "イベントに関する追加情報を入力してください..."
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:460
-#~ msgid "at"
-#~ msgstr "時"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:798
-#~ msgid ""
-#~ "Attendees are asked to save a card when they RSVP, but nothing is "
-#~ "authorized or charged, and you can't charge it from here. Collect the fee "
-#~ "at the event."
-#~ msgstr ""
-#~ "参加者はRSVP時にカードの保存を求められますが、オーソリも請求も行われず、こ"
-#~ "こから請求することもできません。参加費はイベント当日に集金してください。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:805
-#~ msgid "Attendees cannot cancel their RSVP after this deadline"
-#~ msgstr "この期限後、参加者はRSVPをキャンセルできません"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:821
-#~ msgid ""
-#~ "Attendees save a card when they RSVP and nothing is charged or held up "
-#~ "front. From the RSVP list you can charge one attendee or everyone "
-#~ "whenever you choose, and the money goes to your Stripe account."
-#~ msgstr ""
-#~ "参加者はRSVP時にカードを保存しますが、事前の請求やオーソリは行われません。"
-#~ "RSVPリストから、任意のタイミングで個別または全員に請求でき、売上はあなたの"
-#~ "Stripeアカウントに入金されます。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:762
-#~ msgid "Cancel deadline (optional)"
-#~ msgstr "キャンセル期限（任意）"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1309
-#~ msgid ""
-#~ "Casual play focused on fun and social interaction. Perfect for all skill "
-#~ "levels."
-#~ msgstr ""
-#~ "楽しさと社交を重視したカジュアルなプレイ。すべてのスキルレベルに最適です。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:879
-#~ msgid "Connect a Stripe account"
-#~ msgstr "Stripeアカウントを連携する"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:790
-#~ msgid "Connect a Stripe account to activate"
-#~ msgstr "有効にするにはStripeアカウントを連携してください"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1453
-#~ msgid "Create Event"
-#~ msgstr "イベントを作成"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:452
-#~ msgid "daytime"
-#~ msgstr "日中"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:524
-#~ msgid "Drag around the clock · Arrow keys move 15 minutes"
-#~ msgstr "時計の周りをドラッグ · 矢印キーで15分移動"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:130
-#~ msgid "Drag end time"
-#~ msgstr "終了時刻をドラッグ"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:130
-#~ msgid "Drag start time"
-#~ msgstr "開始時刻をドラッグ"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:397
-#~ msgid "duration"
-#~ msgstr "所要時間"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:486
-#~ msgid "Editing end"
-#~ msgstr "終了時刻を編集中"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:486
-#~ msgid "Editing start"
-#~ msgstr "開始時刻を編集"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:447
-#~ msgid "end time"
-#~ msgstr "終了時刻"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1121
-#~ msgid "Event Details"
-#~ msgstr "イベント詳細"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:813
-#~ msgid "Event details (optional)"
-#~ msgstr "イベント詳細（オプション）"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:607
-#~ msgid "Event schedule"
-#~ msgstr "イベントスケジュール"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:299
-#~ msgid "Event time range"
-#~ msgstr "イベントの時間帯"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1414
-#~ msgid "Find Players"
-#~ msgstr "プレイヤーを探す"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:741
-#~ msgid "Friday Night Pickleball"
-#~ msgstr "金曜夜のピックルボール"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1100
-#~ msgid ""
-#~ "Hold new joins and admit players automatically based on match quality."
-#~ msgstr "新規参加を保留し、マッチの質に応じて自動で承認します。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1026
-#~ msgid "List your event publicly to help fill open spots"
-#~ msgstr "空き枠を埋めるためにイベントを公開する"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:749
-#~ msgid "Max RSVPs (optional)"
-#~ msgstr "最大参加人数（オプション）"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:990
-#~ msgid "Minimum rating (optional)"
-#~ msgstr "最低レーティング（任意）"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:503
-#~ msgid "Move start and end to daytime hours"
-#~ msgstr "開始・終了を日中の時間帯に変更"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:503
-#~ msgid "Move start and end to nighttime hours"
-#~ msgstr "開始・終了を夜間の時間帯に変更"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1060
-#~ msgid "New joins are held and admitted automatically based on match quality"
-#~ msgstr "新しい参加は保留され、マッチの質に基づいて自動的に承認されます"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:452
-#~ msgid "nighttime"
-#~ msgstr "夜間"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:465
-#: src/components/organisms/CreateLocationEventForm.re.mjs:484
-#~ msgid "Not set"
-#~ msgstr "未設定"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:834
-#~ msgid "Price"
-#~ msgstr "料金"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:505
-#~ msgid "Public event"
-#~ msgstr "公開イベント"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1391
-#~ msgid "Require payment from attendees"
-#~ msgstr "参加者に支払いを求める"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1309
-#~ msgid ""
-#~ "Serious play with rankings and ratings. Games may affect your player "
-#~ "rating."
-#~ msgstr ""
-#~ "ランキングとレーティングを伴う本格的なプレイ。試合結果がプレイヤーレーティ"
-#~ "ングに影響する場合があります。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
-#~ msgid "Smart RSVP"
-#~ msgstr "スマートRSVP"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:703
-#~ msgid "Start date and time"
-#~ msgstr "開始日時"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:447
-#~ msgid "start time"
-#~ msgstr "開始時刻"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:785
-#~ msgid ""
-#~ "The participation fee is charged automatically and transferred to your "
-#~ "Stripe account."
-#~ msgstr ""
-#~ "参加費は自動的に請求され、あなたのStripeアカウントに振り込まれます。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:850
-#~ msgid ""
-#~ "The participation fee is charged immediately and transferred to your "
-#~ "Stripe account."
-#~ msgstr "参加費は即時請求され、あなたのStripeアカウントに振り込まれます。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1030
-#~ msgid "This event is private"
-#~ msgstr "このイベントは非公開です"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1453
-#~ msgid "Update Event"
-#~ msgstr "イベントを更新"
-
 #: src/components/organisms/CreateLocationEventForm.re.mjs:773
 #~ msgid "With Stripe"
 #~ msgstr "Stripeあり"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1155
+msgid "Without a Stripe account"
+msgstr "Stripeアカウントなし"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:751
 #~ msgid "Without Stripe"

@@ -70,6 +70,11 @@ msgstr "Cài đặt"
 msgid "Install Pkuru.com App"
 msgstr "Cài đặt ứng dụng Pkuru.com"
 
+#: src/components/shared/InstallPwa.re.mjs:395
+#: src/components/shared/InstallPwa.re.mjs:467
+#~ msgid "Install Racquet League"
+#~ msgstr "Cài đặt Racquet League"
+
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
@@ -116,8 +121,3 @@ msgstr "Xem thông báo"
 #: src/components/organisms/LeagueNav.re.mjs:145
 msgid "Your Profile"
 msgstr "Hồ sơ của bạn"
-
-#: src/components/shared/InstallPwa.re.mjs:395
-#: src/components/shared/InstallPwa.re.mjs:467
-#~ msgid "Install Racquet League"
-#~ msgstr "Cài đặt Racquet League"

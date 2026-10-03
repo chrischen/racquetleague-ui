@@ -90,11 +90,11 @@ msgstr "Người chơi nâng cao"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/RsvpOptions.re.mjs:187
+#: src/components/organisms/RsvpOptions.re.mjs:188
 msgid "Approve RSVP"
 msgstr "Duyệt tham dự"
 
-#: src/components/organisms/RsvpOptions.re.mjs:331
+#: src/components/organisms/RsvpOptions.re.mjs:338
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "Bạn có chắc muốn xóa người này khỏi sự kiện không?"
 
@@ -110,11 +110,11 @@ msgstr "hủy sự kiện"
 msgid "CANCELED"
 msgstr "ĐÃ HỦY"
 
-#: src/components/organisms/RsvpOptions.re.mjs:219
+#: src/components/organisms/RsvpOptions.re.mjs:220
 msgid "Capture payment"
 msgstr "Thu tiền thanh toán"
 
-#: src/components/organisms/RsvpOptions.re.mjs:240
+#: src/components/organisms/RsvpOptions.re.mjs:241
 msgid "Charge payment"
 msgstr "Thu tiền thanh toán"
 
@@ -230,8 +230,8 @@ msgstr "Kết quả trận đấu sẽ được gửi lên DUPR."
 msgid "media"
 msgstr "phương tiện"
 
-#: src/components/organisms/RsvpOptions.re.mjs:197
-#: src/components/organisms/RsvpOptions.re.mjs:346
+#: src/components/organisms/RsvpOptions.re.mjs:198
+#: src/components/organisms/RsvpOptions.re.mjs:353
 msgid "Move to Pending List"
 msgstr "Chuyển vào danh sách chờ duyệt"
 
@@ -303,19 +303,18 @@ msgid "Recreational"
 msgstr "Giải trí"
 
 #: src/components/atoms/EventTag.re.mjs:52
-msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "Chơi giải trí, không tính vào xếp hạng thi đấu hay DUPR."
 
-#: src/components/organisms/RsvpOptions.re.mjs:258
+#: src/components/organisms/RsvpOptions.re.mjs:259
 msgid "Refund payment"
 msgstr "Hoàn tiền"
 
-#: src/components/organisms/RsvpOptions.re.mjs:286
+#: src/components/organisms/RsvpOptions.re.mjs:287
 msgid "Remove from event"
 msgstr "Xóa khỏi sự kiện"
 
-#: src/components/organisms/RsvpOptions.re.mjs:330
+#: src/components/organisms/RsvpOptions.re.mjs:337
 msgid "Remove this RSVP"
 msgstr "Xóa RSVP này"
 
@@ -327,7 +326,7 @@ msgstr "Xếp hạng yêu cầu: {0} (DUPR {1})"
 msgid "Results will be submitted to competitive ratings."
 msgstr "Kết quả sẽ được tính vào xếp hạng thi đấu."
 
-#: src/components/organisms/RsvpOptions.re.mjs:227
+#: src/components/organisms/RsvpOptions.re.mjs:228
 msgid "Retry charge"
 msgstr "Thử thu tiền lại"
 
@@ -341,6 +340,10 @@ msgstr "RSVP"
 msgid "RSVP Pending..."
 msgstr "Đang xử lý RSVP..."
 
+#: src/components/organisms/RSVPSection.re.mjs:310
+#~ msgid "Run Smart RSVP (best-fit, test)"
+#~ msgstr "Chạy Smart RSVP (phù hợp nhất, thử nghiệm)"
+
 #: src/components/organisms/RSVPSection.re.mjs:277
 msgid "Run Smart RSVP now"
 msgstr "Chạy Smart RSVP ngay"
@@ -349,6 +352,10 @@ msgstr "Chạy Smart RSVP ngay"
 #: src/components/pages/Event.re.mjs:179
 msgid "Save"
 msgstr "Lưu"
+
+#: src/components/organisms/GoingRsvps.re.mjs:123
+#~ msgid "See all"
+#~ msgstr "Xem tất cả"
 
 #: src/components/organisms/EventMessages.re.mjs:132
 msgid "Send"
@@ -359,9 +366,7 @@ msgid "Show less"
 msgstr "Thu gọn"
 
 #: src/components/pages/Event.re.mjs:312
-msgid ""
-"showing up without permission may result in a ban for failing to follow "
-"rules."
+msgid "showing up without permission may result in a ban for failing to follow rules."
 msgstr "xuất hiện mà không có phép có thể dẫn đến lệnh cấm vì vi phạm quy tắc."
 
 #: src/components/atoms/EventTag.re.mjs:48
@@ -369,11 +374,8 @@ msgid "Skills practice and drills focused on technique improvement"
 msgstr "Luyện tập kỹ năng và bài tập kỹ thuật để cải thiện trình độ"
 
 #: src/components/organisms/RSVPSection.re.mjs:307
-msgid ""
-"Smart RSVP would admit {0} of {1} pending requests: they are marked above."
-msgstr ""
-"Smart RSVP sẽ chấp nhận {0} trong {1} yêu cầu đang chờ: các yêu cầu đó được "
-"đánh dấu bên trên."
+msgid "Smart RSVP would admit {0} of {1} pending requests: they are marked above."
+msgstr "Smart RSVP sẽ chấp nhận {0} trong {1} yêu cầu đang chờ: các yêu cầu đó được đánh dấu bên trên."
 
 #: src/components/organisms/RSVPSection.re.mjs:294
 msgid "Smart Waitlist"
@@ -397,53 +399,30 @@ msgid "sync calendar"
 msgstr "đồng bộ lịch"
 
 #: src/components/organisms/RSVPSection.re.mjs:653
-msgid ""
-"This event admits players automatically. Your request will be reviewed and "
-"you will be notified once a spot is confirmed."
-msgstr ""
-"Sự kiện này tự động duyệt người chơi. Yêu cầu của bạn sẽ được xem xét và bạn "
-"sẽ nhận được thông báo khi có chỗ được xác nhận."
+msgid "This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed."
+msgstr "Sự kiện này tự động duyệt người chơi. Yêu cầu của bạn sẽ được xem xét và bạn sẽ nhận được thông báo khi có chỗ được xác nhận."
 
 #: src/components/atoms/EventSignupButton.re.mjs:91
-msgid ""
-"This event is full, so leaving the event will give your spot to someone on "
-"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
-"want to leave this event?"
-msgstr ""
-"Sự kiện đã đầy, nếu bạn rời đi, chỗ của bạn sẽ được nhường cho người trong "
-"danh sách chờ. Nếu tham gia lại, bạn sẽ vào danh sách chờ. Bạn có chắc muốn "
-"rời sự kiện không?"
+msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
+msgstr "Sự kiện đã đầy, nếu bạn rời đi, chỗ của bạn sẽ được nhường cho người trong danh sách chờ. Nếu tham gia lại, bạn sẽ vào danh sách chờ. Bạn có chắc muốn rời sự kiện không?"
 
 #: src/components/atoms/EventTag.re.mjs:54
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
-msgstr ""
-"Sự kiện này là riêng tư. Vui lòng không chia sẻ mà không có sự cho phép của "
-"ban tổ chức."
+msgid "This event is private. Please do not share this event without permission from the organizer."
+msgstr "Sự kiện này là riêng tư. Vui lòng không chia sẻ mà không có sự cho phép của ban tổ chức."
 
 #: src/components/pages/Event.re.mjs:309
-msgid ""
-"this is a private event that requires membership with the club. To join this "
-"club, please join a Japan Pickleball League event first to get a referral."
-msgstr ""
-"đây là sự kiện riêng tư yêu cầu thành viên câu lạc bộ. Để gia nhập, hãy tham "
-"gia sự kiện Japan Pickleball League trước để được giới thiệu."
+msgid "this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first to get a referral."
+msgstr "đây là sự kiện riêng tư yêu cầu thành viên câu lạc bộ. Để gia nhập, hãy tham gia sự kiện Japan Pickleball League trước để được giới thiệu."
 
-#: src/components/organisms/RsvpOptions.re.mjs:347
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất "
-"nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
+#: src/components/organisms/RsvpOptions.re.mjs:354
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
 
 #: src/components/organisms/RSVPSection.re.mjs:433
 #: src/components/organisms/RSVPSection.re.mjs:434
 #: src/components/organisms/EventMessages.re.mjs:125
 #: src/components/pages/Event.re.mjs:172
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "Nhập tin nhắn trạng thái... ví dụ: 'Tôi sẽ đến lúc 19:00.'"
 
 #: src/components/pages/Event.re.mjs:272
@@ -462,7 +441,11 @@ msgstr "Trung cấp cao trở lên"
 msgid "view events"
 msgstr "xem sự kiện"
 
-#: src/components/organisms/RsvpOptions.re.mjs:313
+#: src/components/organisms/RsvpOptions.re.mjs:321
+msgid "View message thread"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:314
 msgid "View Profile"
 msgstr "Xem hồ sơ"
 
@@ -503,19 +486,5 @@ msgid "You're Waitlisted"
 msgstr "Bạn đang trong danh sách chờ"
 
 #: src/components/organisms/RSVPSection.re.mjs:667
-msgid ""
-"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
-"pending list until the rating limit is lowered. Please join another JPL "
-"rated event to boost your rating."
-msgstr ""
-"Xếp hạng của bạn {0} ~ {1} (DUPR {2} ~ {3}) quá thấp. Bạn sẽ được đặt vào "
-"danh sách chờ cho đến khi giới hạn xếp hạng được hạ xuống. Hãy tham gia thêm "
-"sự kiện JPL có xếp hạng để nâng cao điểm."
-
-#: src/components/organisms/RSVPSection.re.mjs:310
-#~ msgid "Run Smart RSVP (best-fit, test)"
-#~ msgstr "Chạy Smart RSVP (phù hợp nhất, thử nghiệm)"
-
-#: src/components/organisms/GoingRsvps.re.mjs:123
-#~ msgid "See all"
-#~ msgstr "Xem tất cả"
+msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
+msgstr "Xếp hạng của bạn {0} ~ {1} (DUPR {2} ~ {3}) quá thấp. Bạn sẽ được đặt vào danh sách chờ cho đến khi giới hạn xếp hạng được hạ xuống. Hãy tham gia thêm sự kiện JPL có xếp hạng để nâng cao điểm."

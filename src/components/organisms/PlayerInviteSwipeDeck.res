@@ -133,6 +133,14 @@ type profile = {
   note: option<string>,
 }
 
+// Whether the player's stored availability covers the event. Recommended
+// players are ranked in whatever their availability, so an invite card has to
+// say which rather than claiming the whole window for everyone.
+type inviteAvailability =
+  | AvailabilityCovers
+  | AvailabilityUnknown
+  | AvailabilityConflicts
+
 type playerSource =
   | FromFragment(RescriptRelay.fragmentRefs<[#PlayerInviteSwipeDeck_user]>)
   | FromProfile(profile)
@@ -144,6 +152,9 @@ type player = {
   id: string,
   name: string,
   source: playerSource,
+  // Invite mode only; None reads as "covers the event", which is what an
+  // availability-sourced candidate is by construction.
+  availability: option<inviteAvailability>,
 }
 
 type direction = Left | Right
@@ -169,6 +180,7 @@ module ProfileCard = {
   let make = (
     ~profile: profile,
     ~mode: mode,
+    ~availability: option<inviteAvailability>,
     ~eventTitle: string,
     ~eventVenue: option<string>,
     ~eventTimeLabel: option<string>,
@@ -377,15 +389,37 @@ module ProfileCard = {
         // when they asked to join.
         {switch mode {
         | Invite =>
-          <div
-            className="mt-4 w-full rounded-xl border border-violet-100 bg-violet-50/70 p-3 dark:border-violet-900/50 dark:bg-violet-950/20">
-            <p className="text-xs font-semibold text-violet-900 dark:text-violet-200">
-              {(ts`Available for the full event`)->React.string}
+          // Tone follows the availability: a recommendation can be worth
+          // inviting while their stored availability says nothing, or clashes.
+          let (boxClass, headingClass, detailClass, heading) = switch availability->Option.getOr(
+            AvailabilityCovers,
+          ) {
+          | AvailabilityCovers => (
+              "border-violet-100 bg-violet-50/70 dark:border-violet-900/50 dark:bg-violet-950/20",
+              "text-violet-900 dark:text-violet-200",
+              "text-violet-700 dark:text-violet-400",
+              ts`Available for the full event`,
+            )
+          | AvailabilityUnknown => (
+              "border-gray-200 bg-gray-50 dark:border-[#3a3b40] dark:bg-[#222326]",
+              "text-gray-700 dark:text-gray-200",
+              "text-gray-500 dark:text-gray-400",
+              ts`Availability not shared for this day`,
+            )
+          | AvailabilityConflicts => (
+              "border-amber-100 bg-amber-50/70 dark:border-amber-900/50 dark:bg-amber-950/20",
+              "text-amber-900 dark:text-amber-200",
+              "text-amber-700 dark:text-amber-400",
+              ts`Available at other hours that day`,
+            )
+          }
+          <div className={"mt-4 w-full rounded-xl border p-3 " ++ boxClass}>
+            <p className={"text-xs font-semibold " ++ headingClass}>
+              {heading->React.string}
             </p>
             {switch (eventTimeLabel, eventVenue) {
             | (Some(time), Some(venue)) =>
-              <p
-                className="mt-1 font-mono text-[10px] leading-relaxed text-violet-700 dark:text-violet-400">
+              <p className={"mt-1 font-mono text-[10px] leading-relaxed " ++ detailClass}>
                 {(time ++ " · " ++ venue)->React.string}
               </p>
             | _ => React.null
@@ -430,6 +464,7 @@ module FragmentCard = {
     ~userRef: RescriptRelay.fragmentRefs<[#PlayerInviteSwipeDeck_user]>,
     ~fallbackName: string,
     ~mode: mode,
+    ~availability: option<inviteAvailability>,
     ~eventTitle: string,
     ~eventVenue: option<string>,
     ~eventTimeLabel: option<string>,
@@ -451,7 +486,9 @@ module FragmentCard = {
       computedSigma: user.eventRating->Option.flatMap(r => r.sigma),
       note: None,
     }
-    <ProfileCard profile mode eventTitle eventVenue eventTimeLabel exitDirection onSwipe />
+    <ProfileCard
+      profile mode availability eventTitle eventVenue eventTimeLabel exitDirection onSwipe
+    />
   }
 }
 
@@ -464,8 +501,12 @@ let make = (
   ~eventVenue: option<string>=?,
   ~eventTimeLabel: option<string>=?,
   ~mode: mode=Invite,
-  ~onAccept: string => unit,
+  // (id, message). Invite mode always supplies a message — the composer runs
+  // before the card is spent — approve mode never does.
+  ~onAccept: (string, option<string>) => unit,
   ~onClose: unit => unit,
+  // The note sent with the previous invite; the composer will not take it again.
+  ~previousMessage: option<string>=?,
 ) => {
   let ts = Lingui.UtilString.t
   // Snapshot the queue at open so store updates from committed verdicts don't
@@ -473,6 +514,9 @@ let make = (
   let (reviewQueue, _) = React.useState(() => players)
   let (currentIndex, setCurrentIndex) = React.useState(() => 0)
   let (exitDirection, setExitDirection) = React.useState(() => Right)
+  // Invite mode holds the card while the organizer writes their note; the
+  // card is only spent once they send, so cancelling returns them to it.
+  let (composeFor, setComposeFor) = React.useState(() => None)
   let closeButtonRef = React.useRef(Js.Nullable.null)
   let currentPlayer = reviewQueue[currentIndex]
 
@@ -490,31 +534,39 @@ let make = (
     )
   })
 
-  // Close on Escape
+  // Close on Escape — but not while the composer is up, which owns Escape for
+  // itself; otherwise one keypress would cancel the note and the whole deck.
   let onCloseRef = React.useRef(onClose)
   onCloseRef.current = onClose
+  let composingRef = React.useRef(false)
+  composingRef.current = composeFor->Option.isSome
   React.useEffect0(() => {
     let onKey = (e: keyboardEv) =>
-      if e->keyEvKey === "Escape" {
+      if e->keyEvKey === "Escape" && !composingRef.current {
         onCloseRef.current()
       }
     addKeyListener("keydown", onKey)
     Some(() => removeKeyListener("keydown", onKey))
   })
 
+  let advance = (direction: direction) => {
+    setExitDirection(_ => direction)
+    setCurrentIndex(index => index + 1)
+  }
+
   let handleSwipe = (direction: direction) =>
-    switch currentPlayer {
-    | None => ()
-    | Some(player) => {
-        setExitDirection(_ => direction)
-        switch direction {
-        | Right => onAccept(player.id)
-        // Left is deliberately inert: skipping an invite, or leaving a request
-        // pending, is the same "change nothing" verdict.
-        | Left => ()
-        }
-        setCurrentIndex(index => index + 1)
+    switch (currentPlayer, direction, mode) {
+    | (None, _, _) => ()
+    // An invite needs a message, so a right swipe opens the composer instead
+    // of committing. The card stays put until it is sent.
+    | (Some(player), Right, Invite) => setComposeFor(_ => Some(player))
+    | (Some(player), Right, Approve) => {
+        onAccept(player.id, None)
+        advance(Right)
       }
+    // Left is deliberately inert: skipping an invite, or leaving a request
+    // pending, is the same "change nothing" verdict.
+    | (Some(_), Left, _) => advance(Left)
     }
 
   let total = reviewQueue->Array.length->Int.toString
@@ -572,23 +624,25 @@ let make = (
           <div className="relative aspect-[3/4] min-h-[380px] max-h-[520px] w-full">
             <AnimatePresenceCustom custom={exitDirection->directionToString} mode="wait">
               {switch currentPlayer {
-              | Some({id, name, source: FromFragment(userRef)}) =>
+              | Some({id, name, source: FromFragment(userRef), availability}) =>
                 <FragmentCard
                   key=id
                   userRef
                   fallbackName=name
                   mode
+                  availability
                   eventTitle
                   eventVenue
                   eventTimeLabel
                   exitDirection
                   onSwipe=handleSwipe
                 />
-              | Some({id, source: FromProfile(profile)}) =>
+              | Some({id, source: FromProfile(profile), availability}) =>
                 <ProfileCard
                   key=id
                   profile
                   mode
+                  availability
                   eventTitle
                   eventVenue
                   eventTimeLabel
@@ -667,6 +721,21 @@ let make = (
           }}
         </div>
       </main>
+      {switch composeFor {
+      | Some(player) =>
+        <InviteMessageComposer
+          playerName=player.name
+          eventTitle
+          ?previousMessage
+          onSubmit={message => {
+            onAccept(player.id, Some(message))
+            setComposeFor(_ => None)
+            advance(Right)
+          }}
+          onCancel={() => setComposeFor(_ => None)}
+        />
+      | None => React.null
+      }}
     </FramerMotion.DivCss>,
     documentBody,
   )

@@ -21,6 +21,10 @@ msgstr "{messageCountStr} ข้อความ · {totalCountStr} อัปเ�
 msgid "Activity"
 msgstr "กิจกรรม"
 
+#: src/components/organisms/PkEventMessages.re.mjs:467
+#~ msgid "Add a message..."
+#~ msgstr "เพิ่มข้อความ..."
+
 #: src/components/organisms/PkEventMessages.re.mjs:328
 #: src/components/organisms/PkEventMessages.re.mjs:465
 msgid "Event chat"
@@ -67,6 +71,10 @@ msgstr "ยังไม่มีข้อความ"
 msgid "Send message"
 msgstr "ส่งข้อความ"
 
+#: src/components/organisms/PkEventMessages.re.mjs:455
+#~ msgid "Show all {0} items"
+#~ msgstr "แสดงทั้งหมด {0} รายการ"
+
 #: src/components/organisms/PkEventMessages.re.mjs:355
 msgid "Show less"
 msgstr "แสดงน้อยลง"
@@ -82,11 +90,3 @@ msgstr "ถูกเพิ่มเข้ากิจกรรมโดยผู
 #: src/components/organisms/PkEventMessages.re.mjs:199
 msgid "was invited to the event"
 msgstr "ได้รับเชิญเข้าร่วมกิจกรรม"
-
-#: src/components/organisms/PkEventMessages.re.mjs:467
-#~ msgid "Add a message..."
-#~ msgstr "เพิ่มข้อความ..."
-
-#: src/components/organisms/PkEventMessages.re.mjs:455
-#~ msgid "Show all {0} items"
-#~ msgstr "แสดงทั้งหมด {0} รายการ"

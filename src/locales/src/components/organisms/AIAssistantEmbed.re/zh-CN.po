@@ -13,122 +13,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/molecules/AIResponseCard.re.mjs:36
-msgid "Accept {0} events"
-msgstr "接受 {0}"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:610
-msgid "Action proposal"
-msgstr "操作提案"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:281
-msgid "An error occurred. Please try again."
-msgstr "发生错误，请重试。"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:519
-msgid "Approve"
-msgstr "批准"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:706
-msgid "Approve or deny the pending action to continue."
-msgstr "请批准或拒绝待处理的操作以继续。"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:477
-msgid "Approved"
-msgstr "已批准"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:435
-msgid ""
-"Ask the assistant to fill in event details. Your conversation will appear "
-"here."
-msgstr "让助手帮你填写活动详情，对话内容将显示在此处。"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:471
-msgid "Awaiting approval"
-msgstr "待审批"
-
-#: src/components/molecules/AIResponseCard.re.mjs:103
-#: src/components/molecules/AIResponseCard.re.mjs:201
-msgid "Date:"
-msgstr "日期："
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:483
-msgid "Denied"
-msgstr "已拒绝"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:575
-msgid "Deny"
-msgstr "拒绝"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:696
-msgid "Describe the event"
-msgstr "描述活动"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:706
-msgid "Describe your event and I’ll fill out the form…"
-msgstr "描述你的活动，我来帮你填写表单…"
-
-#: src/components/molecules/AIResponseCard.re.mjs:153
-msgid "Description:"
-msgstr "描述："
-
-#: src/components/molecules/AIResponseCard.re.mjs:81
-msgid "Event Details"
-msgstr "活动详情"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:491
-msgid "Executed"
-msgstr "已执行"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:494
-msgid "Execution failed"
-msgstr "执行失败"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
-msgid "Fill event form from description"
-msgstr "根据描述填写活动表单"
-
-#: src/components/molecules/AIResponseCard.re.mjs:54
-msgid "Fill form"
-msgstr "填写表单"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:777
-msgid "Hide AI chat history"
-msgstr "隐藏 AI 聊天记录"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:431
-msgid "Loading conversation history..."
-msgstr "正在加载对话历史..."
-
-#: src/components/molecules/AIResponseCard.re.mjs:138
-#: src/components/molecules/AIResponseCard.re.mjs:236
-msgid "Location:"
-msgstr "地点："
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:627
-msgid "Operation:"
-msgstr "操作："
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:777
-msgid "Show AI chat history"
-msgstr "显示 AI 聊天记录"
-
-#: src/components/molecules/AIResponseCard.re.mjs:181
-msgid "Suggested Events"
-msgstr "建议的活动"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:547
-msgid "The action completed with GraphQL errors."
-msgstr "该操作已完成，但存在 GraphQL 错误。"
-
-#: src/components/molecules/AIResponseCard.re.mjs:90
-msgid "Title:"
-msgstr "标题："
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:298
-msgid "Too many automated steps were requested. Please continue manually."
-msgstr "自动步骤请求过多，请手动继续。"
-
 #: src/components/organisms/CreateEventsButton.re.mjs:367
 #~ msgid "{0} event(s) couldn't be created (they may already exist)."
 #~ msgstr "{0} 个赛事无法创建（可能已存在）。"
@@ -141,10 +25,22 @@ msgstr "自动步骤请求过多，请手动继续。"
 #~ msgid "⌘+Enter to send"
 #~ msgstr "⌘+Enter 发送"
 
+#: src/components/molecules/AIResponseCard.re.mjs:36
+msgid "Accept {0} events"
+msgstr "接受 {0}"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:610
+msgid "Action proposal"
+msgstr "操作提案"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:399
 #: src/components/organisms/AIAssistantEmbed.re.mjs:439
 #~ msgid "AI Assistant"
 #~ msgstr "AI助手"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:281
+msgid "An error occurred. Please try again."
+msgstr "发生错误，请重试。"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:776
 #~ msgid "Answer the questions or add details to refine the draft."
@@ -154,9 +50,29 @@ msgstr "自动步骤请求过多，请手动继续。"
 #~ msgid "Answer the questions or provide more details..."
 #~ msgstr "回答问题或提供更多详细信息..."
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:519
+msgid "Approve"
+msgstr "批准"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:424
 #~ msgid "Approve or deny the pending action to continue"
 #~ msgstr "批准或拒绝待处理操作以继续"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:706
+msgid "Approve or deny the pending action to continue."
+msgstr "请批准或拒绝待处理的操作以继续。"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:477
+msgid "Approved"
+msgstr "已批准"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:435
+msgid "Ask the assistant to fill in event details. Your conversation will appear here."
+msgstr "让助手帮你填写活动详情，对话内容将显示在此处。"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:471
+msgid "Awaiting approval"
+msgstr "待审批"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:803
 #~ msgid "Continue"
@@ -200,6 +116,23 @@ msgstr "自动步骤请求过多，请手动继续。"
 #~ msgid "Creating..."
 #~ msgstr "创建中……"
 
+#: src/components/molecules/AIResponseCard.re.mjs:103
+#: src/components/molecules/AIResponseCard.re.mjs:201
+msgid "Date:"
+msgstr "日期："
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:483
+msgid "Denied"
+msgstr "已拒绝"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:575
+msgid "Deny"
+msgstr "拒绝"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:696
+msgid "Describe the event"
+msgstr "描述活动"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:425
 #~ msgid "Describe the event to generate a draft"
 #~ msgstr "描述活动以生成草稿"
@@ -208,24 +141,45 @@ msgstr "自动步骤请求过多，请手动继续。"
 #~ msgid "Describe your event"
 #~ msgstr "描述您的活动"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:706
+msgid "Describe your event and I’ll fill out the form…"
+msgstr "描述你的活动，我来帮你填写表单…"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:720
-#~ msgid ""
-#~ "Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 "
-#~ "more players around 3.5, ¥800 each."
-#~ msgstr ""
-#~ "描述你的活动……例如：明天晚上7点在中央公园，还需要3名3.5水平左右的球友，每"
-#~ "人¥800。"
+#~ msgid "Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 more players around 3.5, ¥800 each."
+#~ msgstr "描述你的活动……例如：明天晚上7点在中央公园，还需要3名3.5水平左右的球友，每人¥800。"
+
+#: src/components/molecules/AIResponseCard.re.mjs:153
+msgid "Description:"
+msgstr "描述："
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:751
-#~ msgid ""
-#~ "e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
-#~ "competitive play for 3.5+ players..."
-#~ msgstr ""
-#~ "例如：每周四下午6点在中央公园举行的匹克球聚会，适合3.5+级别的竞技球员..."
+#~ msgid "e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, competitive play for 3.5+ players..."
+#~ msgstr "例如：每周四下午6点在中央公园举行的匹克球聚会，适合3.5+级别的竞技球员..."
 
 #: src/components/organisms/CreateEventsButton.re.mjs:117
 #~ msgid "Error creating events. Please try again."
 #~ msgstr "创建活动时出错。请重试。"
+
+#: src/components/molecules/AIResponseCard.re.mjs:81
+msgid "Event Details"
+msgstr "活动详情"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:491
+msgid "Executed"
+msgstr "已执行"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:494
+msgid "Execution failed"
+msgstr "执行失败"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+msgid "Fill event form from description"
+msgstr "根据描述填写活动表单"
+
+#: src/components/molecules/AIResponseCard.re.mjs:54
+msgid "Fill form"
+msgstr "填写表单"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:803
 #~ msgid "Fill with AI"
@@ -243,6 +197,10 @@ msgstr "自动步骤请求过多，请手动继续。"
 #~ msgid "Help me fill this out"
 #~ msgstr "帮我填写"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:777
+msgid "Hide AI chat history"
+msgstr "隐藏 AI 聊天记录"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:137
 #~ msgid "I couldn't process that request. Please try again."
 #~ msgstr "无法处理该请求，请重试。"
@@ -255,9 +213,22 @@ msgstr "自动步骤请求过多，请手动继续。"
 #~ msgid "Let AI help you fill out the details below"
 #~ msgstr "让 AI 帮助您填写以下详细信息"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:431
+msgid "Loading conversation history..."
+msgstr "正在加载对话历史..."
+
 #: src/components/organisms/AutocompleteLocation.re.mjs:175
 #~ msgid "Location search is unavailable right now"
 #~ msgstr "位置搜索暂时不可用"
+
+#: src/components/molecules/AIResponseCard.re.mjs:138
+#: src/components/molecules/AIResponseCard.re.mjs:236
+msgid "Location:"
+msgstr "地点："
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:627
+msgid "Operation:"
+msgstr "操作："
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:774
 #~ msgid "Press ⌘+Enter to continue"
@@ -278,6 +249,26 @@ msgstr "自动步骤请求过多，请手动继续。"
 #: src/components/organisms/AIAssistantEmbed.re.mjs:758
 #~ msgid "Send"
 #~ msgstr "发送"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:777
+msgid "Show AI chat history"
+msgstr "显示 AI 聊天记录"
+
+#: src/components/molecules/AIResponseCard.re.mjs:181
+msgid "Suggested Events"
+msgstr "建议的活动"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:547
+msgid "The action completed with GraphQL errors."
+msgstr "该操作已完成，但存在 GraphQL 错误。"
+
+#: src/components/molecules/AIResponseCard.re.mjs:90
+msgid "Title:"
+msgstr "标题："
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:298
+msgid "Too many automated steps were requested. Please continue manually."
+msgstr "自动步骤请求过多，请手动继续。"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:776
 #~ msgid "We’ll turn your description into a draft you can review and edit."

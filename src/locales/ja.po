@@ -9244,6 +9244,199 @@ msgstr "別のアカウントでログインしています。ログアウトし
 msgid "Your account now uses the new address. Your previous address is kept as a receiving email, which you can remove in your profile settings."
 msgstr "アカウントは新しいメールアドレスを使うようになりました。以前のアドレスは受信用メールアドレスとして残り、プロフィール設定から削除できます。"
 
+#: src/components/organisms/InviteMessageComposer.re.mjs:80
+msgid "{0} characters left"
+msgstr "残り{0}文字"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:79
+msgid "{0} more characters needed"
+msgstr "あと{0}文字必要です"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:78
+msgid "A message is required"
+msgstr "メッセージを入力してください"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:129
+msgid "Add a personal note — they'll see this in their invite."
+msgstr "ひとことメッセージを追加 — 招待に表示されます。"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:220
+msgid "Availability not shared for this day"
+msgstr "この日の空き状況は共有されていません"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:228
+msgid "Available at other hours that day"
+msgstr "その日の別の時間帯なら参加可能"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:115
+msgid "Cancel invite"
+msgstr "招待をキャンセル"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:39
+msgid "Come play with us!"
+msgstr "一緒にプレーしよう！"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:78
+msgid "Same as your last invite. Write this one for them."
+msgstr "前回の招待と同じ内容です。今回は相手に合わせて書きましょう。"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:174
+msgid "Sending…"
+msgstr "送信中…"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:38
+msgid "Thought you'd be a good fit for this one."
+msgstr "あなたにぴったりだと思って誘いました。"
+
+#: src/components/organisms/RsvpOptions.re.mjs:321
+msgid "View message thread"
+msgstr "メッセージのスレッドを見る"
+
+#: src/components/organisms/PkEventRsvp.re.mjs:202
+msgid "View message thread with {name}"
+msgstr "{name}さんとのメッセージのスレッドを見る"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:37
+msgid "We're short a player — can you make it?"
+msgstr "人数が足りません — 参加できますか？"
+
+#: src/components/organisms/Kiosk.re.mjs:2104
+msgid "AUTO CLIPS"
+msgstr "自動クリップ"
+
+#: src/components/organisms/Kiosk.re.mjs:2090
+msgid "AUTO-CLIP OFF"
+msgstr "自動クリップ オフ"
+
+#: src/components/organisms/Kiosk.re.mjs:2090
+msgid "AUTO-CLIP ON"
+msgstr "自動クリップ オン"
+
+#: src/components/organisms/Kiosk.re.mjs:1632
+msgid "Connect reader"
+msgstr "リーダーを接続"
+
+#: src/components/organisms/Kiosk.re.mjs:502
+msgid "Download debug JSON"
+msgstr "デバッグJSONをダウンロード"
+
+#: src/components/organisms/Kiosk.re.mjs:1542
+msgid "FELICA CARD · TEST"
+msgstr "FeliCaカード · テスト"
+
+#: src/components/organisms/Kiosk.re.mjs:1896
+msgid "FELICA READER (TEST)"
+msgstr "FeliCaリーダー（テスト）"
+
+#: src/components/organisms/Kiosk.re.mjs:498
+msgid "HEAT DEBUG"
+msgstr "ヒートデバッグ"
+
+#: src/components/organisms/Kiosk.re.mjs:3777
+msgid "Heated rally auto-clipped"
+msgstr "白熱したラリーを自動クリップしました"
+
+#: src/components/organisms/Kiosk.re.mjs:1900
+msgid "Sony RC-S300 over USB. Tapping a transit IC card (Suica, PASMO, ICOCA, …) or a phone with one set as its Express Transit card pops up the card ID."
+msgstr "USB接続のSony RC-S300。交通系ICカード（Suica、PASMO、ICOCAなど）や、エクスプレスカードに設定したスマートフォンをかざすと、カードIDが表示されます。"
+
+#: src/components/organisms/Kiosk.re.mjs:2009
+msgid "STARTING…"
+msgstr "開始中…"
+
+#: src/components/organisms/Kiosk.re.mjs:1665
+msgid "This browser has no WebUSB — use Chrome or Edge on this computer."
+msgstr "このブラウザはWebUSBに対応していません — このパソコンでChromeまたはEdgeをご利用ください。"
+
+#: src/components/organisms/Kiosk.re.mjs:1646
+#: src/components/organisms/Kiosk.re.mjs:1655
+msgid "Turn off"
+msgstr "オフにする"
+
+#: src/components/organisms/Kiosk.re.mjs:1642
+msgid "waiting for a card"
+msgstr "カードを待機中"
+
+#: src/components/organisms/MessageThread.re.mjs:768
+msgid "Invitation thread"
+msgstr "招待のスレッド"
+
+#: src/components/organisms/MessageThread.re.mjs:646
+msgid "Invited you"
+msgstr "あなたを招待しました"
+
+#: src/components/organisms/MessageThread.re.mjs:663
+msgid "Message"
+msgstr "メッセージ"
+
+#: src/components/organisms/MessageThread.re.mjs:768
+msgid "Message thread"
+msgstr "メッセージのスレッド"
+
+#: src/components/organisms/MessageThread.re.mjs:725
+msgid "Messages with {name}"
+msgstr "{name}さんとのメッセージ"
+
+#: src/components/organisms/MessageThread.re.mjs:756
+msgid "No recent messages with this person."
+msgstr "この方との最近のメッセージはありません。"
+
+#: src/components/organisms/MessageThread.re.mjs:188
+msgid "Reply to {name}"
+msgstr "{name}さんに返信"
+
+#: src/components/organisms/MessageThread.re.mjs:220
+msgid "Sending"
+msgstr "送信中"
+
+#: src/components/organisms/MessageThread.re.mjs:53
+msgid "Sign in to reply."
+msgstr "返信するにはログインしてください。"
+
+#: src/components/organisms/MessageThread.re.mjs:49
+msgid "That message is no longer available, so it can't be answered."
+msgstr "このメッセージは利用できなくなったため、返信できません。"
+
+#: src/components/organisms/MessageThread.re.mjs:51
+msgid "That message is too long."
+msgstr "メッセージが長すぎます。"
+
+#: src/components/organisms/MessageThread.re.mjs:433
+msgid "View"
+msgstr "見る"
+
+#: src/components/organisms/MessageThread.re.mjs:575
+msgid "View event"
+msgstr "イベントを見る"
+
+#: src/components/organisms/MessageThread.re.mjs:47
+msgid "Write a message first."
+msgstr "まずメッセージを入力してください。"
+
+#: src/components/organisms/MessageThread.re.mjs:196
+msgid "Write a reply"
+msgstr "返信を書く"
+
+#: src/components/organisms/MessageThread.re.mjs:733
+msgid "You can reply once {firstName} writes back."
+msgstr "{firstName}さんから返信があると、返信できるようになります。"
+
+#: src/components/organisms/MessageThread.re.mjs:654
+msgid "You invited them"
+msgstr "あなたが招待しました"
+
+#: src/components/organisms/MessageThread.re.mjs:55
+msgid "Your reply couldn't be sent. Please try again."
+msgstr "返信を送信できませんでした。もう一度お試しください。"
+
+#: src/components/molecules/NotificationRow.re.mjs:131
+msgid "Invitation"
+msgstr "招待"
+
+#: src/components/molecules/NotificationRow.re.mjs:129
+msgid "New message"
+msgstr "新着メッセージ"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

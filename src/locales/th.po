@@ -9002,6 +9002,199 @@ msgstr "คุณลงชื่อเข้าใช้บัญชีอื่
 msgid "Your account now uses the new address. Your previous address is kept as a receiving email, which you can remove in your profile settings."
 msgstr "บัญชีของคุณใช้ที่อยู่ใหม่แล้ว ที่อยู่เดิมจะถูกเก็บไว้เป็นอีเมลรับการจอง ซึ่งคุณสามารถลบได้ในการตั้งค่าโปรไฟล์"
 
+#: src/components/organisms/InviteMessageComposer.re.mjs:80
+msgid "{0} characters left"
+msgstr "เหลืออีก {0} อักขระ"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:79
+msgid "{0} more characters needed"
+msgstr "ต้องพิมพ์อีก {0} อักขระ"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:78
+msgid "A message is required"
+msgstr "ต้องระบุข้อความ"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:129
+msgid "Add a personal note — they'll see this in their invite."
+msgstr "เพิ่มข้อความส่วนตัว — พวกเขาจะเห็นในคำเชิญ"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:220
+msgid "Availability not shared for this day"
+msgstr "ไม่ได้แชร์เวลาว่างสำหรับวันนี้"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:228
+msgid "Available at other hours that day"
+msgstr "ว่างในช่วงเวลาอื่นของวันนั้น"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:115
+msgid "Cancel invite"
+msgstr "ยกเลิกคำเชิญ"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:39
+msgid "Come play with us!"
+msgstr "มาเล่นกับเราสิ!"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:78
+msgid "Same as your last invite. Write this one for them."
+msgstr "เหมือนคำเชิญครั้งล่าสุดของคุณ ลองเขียนใหม่ให้พวกเขาสิ"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:174
+msgid "Sending…"
+msgstr "กำลังส่ง…"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:38
+msgid "Thought you'd be a good fit for this one."
+msgstr "คิดว่าคุณน่าจะเหมาะกับเกมนี้"
+
+#: src/components/organisms/RsvpOptions.re.mjs:321
+msgid "View message thread"
+msgstr "ดูเธรดข้อความ"
+
+#: src/components/organisms/PkEventRsvp.re.mjs:202
+msgid "View message thread with {name}"
+msgstr "ดูเธรดข้อความกับ {name}"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:37
+msgid "We're short a player — can you make it?"
+msgstr "เราขาดผู้เล่นอยู่คนหนึ่ง — มาร่วมได้ไหม?"
+
+#: src/components/organisms/Kiosk.re.mjs:2104
+msgid "AUTO CLIPS"
+msgstr "คลิปอัตโนมัติ"
+
+#: src/components/organisms/Kiosk.re.mjs:2090
+msgid "AUTO-CLIP OFF"
+msgstr "ปิดคลิปอัตโนมัติ"
+
+#: src/components/organisms/Kiosk.re.mjs:2090
+msgid "AUTO-CLIP ON"
+msgstr "เปิดคลิปอัตโนมัติ"
+
+#: src/components/organisms/Kiosk.re.mjs:1632
+msgid "Connect reader"
+msgstr "เชื่อมต่อเครื่องอ่าน"
+
+#: src/components/organisms/Kiosk.re.mjs:502
+msgid "Download debug JSON"
+msgstr "ดาวน์โหลด JSON สำหรับดีบัก"
+
+#: src/components/organisms/Kiosk.re.mjs:1542
+msgid "FELICA CARD · TEST"
+msgstr "บัตร FELICA · ทดสอบ"
+
+#: src/components/organisms/Kiosk.re.mjs:1896
+msgid "FELICA READER (TEST)"
+msgstr "เครื่องอ่าน FELICA (ทดสอบ)"
+
+#: src/components/organisms/Kiosk.re.mjs:498
+msgid "HEAT DEBUG"
+msgstr "ดีบักความเข้มข้น"
+
+#: src/components/organisms/Kiosk.re.mjs:3777
+msgid "Heated rally auto-clipped"
+msgstr "ตัดคลิปแรลลีเดือดอัตโนมัติแล้ว"
+
+#: src/components/organisms/Kiosk.re.mjs:1900
+msgid "Sony RC-S300 over USB. Tapping a transit IC card (Suica, PASMO, ICOCA, …) or a phone with one set as its Express Transit card pops up the card ID."
+msgstr "Sony RC-S300 ผ่าน USB แตะบัตร IC สำหรับระบบขนส่ง (Suica, PASMO, ICOCA, …) หรือโทรศัพท์ที่ตั้งเป็นบัตร Express Transit แล้ว ระบบจะแสดงรหัสบัตรขึ้นมา"
+
+#: src/components/organisms/Kiosk.re.mjs:2009
+msgid "STARTING…"
+msgstr "กำลังเริ่ม…"
+
+#: src/components/organisms/Kiosk.re.mjs:1665
+msgid "This browser has no WebUSB — use Chrome or Edge on this computer."
+msgstr "เบราว์เซอร์นี้ไม่รองรับ WebUSB — ใช้ Chrome หรือ Edge บนคอมพิวเตอร์เครื่องนี้"
+
+#: src/components/organisms/Kiosk.re.mjs:1646
+#: src/components/organisms/Kiosk.re.mjs:1655
+msgid "Turn off"
+msgstr "ปิด"
+
+#: src/components/organisms/Kiosk.re.mjs:1642
+msgid "waiting for a card"
+msgstr "กำลังรอบัตร"
+
+#: src/components/organisms/MessageThread.re.mjs:768
+msgid "Invitation thread"
+msgstr "เธรดคำเชิญ"
+
+#: src/components/organisms/MessageThread.re.mjs:646
+msgid "Invited you"
+msgstr "เชิญคุณ"
+
+#: src/components/organisms/MessageThread.re.mjs:663
+msgid "Message"
+msgstr "ข้อความ"
+
+#: src/components/organisms/MessageThread.re.mjs:768
+msgid "Message thread"
+msgstr "เธรดข้อความ"
+
+#: src/components/organisms/MessageThread.re.mjs:725
+msgid "Messages with {name}"
+msgstr "ข้อความกับ {name}"
+
+#: src/components/organisms/MessageThread.re.mjs:756
+msgid "No recent messages with this person."
+msgstr "ไม่มีข้อความล่าสุดกับบุคคลนี้"
+
+#: src/components/organisms/MessageThread.re.mjs:188
+msgid "Reply to {name}"
+msgstr "ตอบกลับ {name}"
+
+#: src/components/organisms/MessageThread.re.mjs:220
+msgid "Sending"
+msgstr "กำลังส่ง"
+
+#: src/components/organisms/MessageThread.re.mjs:53
+msgid "Sign in to reply."
+msgstr "เข้าสู่ระบบเพื่อตอบกลับ"
+
+#: src/components/organisms/MessageThread.re.mjs:49
+msgid "That message is no longer available, so it can't be answered."
+msgstr "ข้อความนี้ไม่พร้อมใช้งานแล้ว จึงไม่สามารถตอบกลับได้"
+
+#: src/components/organisms/MessageThread.re.mjs:51
+msgid "That message is too long."
+msgstr "ข้อความยาวเกินไป"
+
+#: src/components/organisms/MessageThread.re.mjs:433
+msgid "View"
+msgstr "ดู"
+
+#: src/components/organisms/MessageThread.re.mjs:575
+msgid "View event"
+msgstr "ดูกิจกรรม"
+
+#: src/components/organisms/MessageThread.re.mjs:47
+msgid "Write a message first."
+msgstr "กรุณาพิมพ์ข้อความก่อน"
+
+#: src/components/organisms/MessageThread.re.mjs:196
+msgid "Write a reply"
+msgstr "เขียนคำตอบ"
+
+#: src/components/organisms/MessageThread.re.mjs:733
+msgid "You can reply once {firstName} writes back."
+msgstr "คุณจะตอบกลับได้เมื่อ {firstName} ตอบกลับมา"
+
+#: src/components/organisms/MessageThread.re.mjs:654
+msgid "You invited them"
+msgstr "คุณเชิญเขา"
+
+#: src/components/organisms/MessageThread.re.mjs:55
+msgid "Your reply couldn't be sent. Please try again."
+msgstr "ส่งคำตอบไม่สำเร็จ กรุณาลองอีกครั้ง"
+
+#: src/components/molecules/NotificationRow.re.mjs:131
+msgid "Invitation"
+msgstr "คำเชิญ"
+
+#: src/components/molecules/NotificationRow.re.mjs:129
+msgid "New message"
+msgstr "ข้อความใหม่"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

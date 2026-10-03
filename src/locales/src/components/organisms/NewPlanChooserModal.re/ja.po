@@ -54,20 +54,12 @@ msgid "Enter the event details yourself or ask the assistant to fill them in."
 msgstr "イベントの詳細を自分で入力するか、アシスタントに入力を依頼します。"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:351
-msgid ""
-"Events are added privately to {myEvents}. Make an event public whenever you "
-"need to find players."
-msgstr ""
-"イベントは{myEvents}に非公開で追加されます。プレイヤーを募集したいときは、い"
-"つでもイベントを公開できます。"
+msgid "Events are added privately to {myEvents}. Make an event public whenever you need to find players."
+msgstr "イベントは{myEvents}に非公開で追加されます。プレイヤーを募集したいときは、いつでもイベントを公開できます。"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:183
-msgid ""
-"Forward your booking confirmation to {forwardingAddress} from your email "
-"{yourEmail}."
-msgstr ""
-"予約確認メールを、お使いのメールアドレス {yourEmail} から "
-"{forwardingAddress} に転送してください。"
+msgid "Forward your booking confirmation to {forwardingAddress} from your email {yourEmail}."
+msgstr "予約確認メールを、お使いのメールアドレス {yourEmail} から {forwardingAddress} に転送してください。"
 
 #: src/components/molecules/AddToCalendar.re.mjs:27
 msgid "Google Calendar"
@@ -82,29 +74,17 @@ msgid "New plan"
 msgstr "新しいプラン"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:208
-msgid ""
-"Or use this email {bookingAddress} when booking. We’ll forward the "
-"confirmation to {yourEmail}."
-msgstr ""
-"または、予約時にこのメールアドレス {bookingAddress} を使ってください。確認"
-"メールは {yourEmail} に転送されます。"
+msgid "Or use this email {bookingAddress} when booking. We’ll forward the confirmation to {yourEmail}."
+msgstr "または、予約時にこのメールアドレス {bookingAddress} を使ってください。確認メールは {yourEmail} に転送されます。"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:262
 msgid "Sync calendar"
 msgstr "カレンダーを同期"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:250
-msgid ""
-"Sync your Pkuru calendar so new events appear automatically in your calendar "
-"app."
-msgstr ""
-"Pkuru カレンダーを同期すると、新しいイベントがカレンダーアプリに自動で表示さ"
-"れます。"
+msgid "Sync your Pkuru calendar so new events appear automatically in your calendar app."
+msgstr "Pkuru カレンダーを同期すると、新しいイベントがカレンダーアプリに自動で表示されます。"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:225
-msgid ""
-"You can include any additional event details like the level, max players, "
-"price, etc. in the email that you forward."
-msgstr ""
-"転送するメールには、レベル、最大人数、料金など、イベントの追加情報を書き添え"
-"ることができます。"
+msgid "You can include any additional event details like the level, max players, price, etc. in the email that you forward."
+msgstr "転送するメールには、レベル、最大人数、料金など、イベントの追加情報を書き添えることができます。"

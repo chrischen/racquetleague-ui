@@ -31,7 +31,5 @@ msgid "Export History"
 msgstr "匯出紀錄"
 
 #: src/components/organisms/EventStateExportModal.re.mjs:86
-msgid ""
-"Scored matches and rating adjustments only. Paste this into Import History "
-"on another device."
+msgid "Scored matches and rating adjustments only. Paste this into Import History on another device."
 msgstr "僅包含已計分的比賽與評分調整。請將此內容貼到另一部裝置的「匯入紀錄」。"

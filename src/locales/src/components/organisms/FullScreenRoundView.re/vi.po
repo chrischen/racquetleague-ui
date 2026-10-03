@@ -25,6 +25,10 @@ msgstr "Đóng Toàn Màn Hình"
 msgid "COURT {0}"
 msgstr "SÂN {0}"
 
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+#~ msgid "Not Playing This Round"
+#~ msgstr "Không Chơi Vòng Này"
+
 #: src/components/organisms/FullScreenRoundView.re.mjs:33
 msgid "Round {0}"
 msgstr "Vòng {0}"
@@ -36,7 +40,3 @@ msgstr "ĐANG GIAO BÓNG"
 #: src/components/organisms/FullScreenRoundView.re.mjs:129
 msgid "VS"
 msgstr "VS"
-
-#: src/components/organisms/FullScreenRoundView.re.mjs:151
-#~ msgid "Not Playing This Round"
-#~ msgstr "Không Chơi Vòng Này"

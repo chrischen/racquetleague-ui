@@ -62,7 +62,10 @@ module InboxList = {
 
     let dismiss = (id: string) => setDismissed(prev => Array.concat(prev, [id]))
 
-    if visibleEdges->Array.length == 0 {
+    // A private message is a row like any notification; it opens its thread.
+    let nodes = visibleEdges->Array.filterMap(edge => edge->Option.flatMap(e => e.node))
+
+    if nodes->Array.length == 0 {
       <div
         className="border border-dashed border-gray-200 dark:border-[#3a3b40] rounded-lg py-16 flex flex-col items-center justify-center text-center">
         <div
@@ -79,19 +82,15 @@ module InboxList = {
     } else {
       <div
         className="border border-gray-200 dark:border-[#2a2b30] rounded-lg overflow-hidden divide-y divide-gray-100 dark:divide-[#2a2b30] bg-white dark:bg-[#1e1f23]">
-        {visibleEdges
-        ->Array.filterMap(edge =>
-          edge
-          ->Option.flatMap(e => e.node)
-          ->Option.map(n =>
-            <NotificationRow
-              key=n.id
-              topic=n.topic
-              payload=n.payload
-              createdAt=n.createdAt
-              onDismiss={() => dismiss(n.id)}
-            />
-          )
+        {nodes
+        ->Array.map(n =>
+          <NotificationRow
+            key=n.id
+            topic=n.topic
+            payload=n.payload
+            createdAt=n.createdAt
+            onDismiss={() => dismiss(n.id)}
+          />
         )
         ->React.array}
       </div>

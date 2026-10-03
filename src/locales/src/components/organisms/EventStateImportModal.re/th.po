@@ -34,11 +34,8 @@ msgid "Import History"
 msgstr "นำเข้าประวัติ"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:48
-msgid ""
-"Imported matches count as already synced, and keep their original ids so "
-"syncing again cannot duplicate them on the server."
-msgstr ""
-"แมตช์ที่นำเข้าจะถือว่าซิงค์แล้ว และคงรหัสเดิมไว้ ดังนั้นการซิงค์อีกครั้งจะไม่ทำให้ข้อมูลซ้ำบนเซิร์ฟเวอร์"
+msgid "Imported matches count as already synced, and keep their original ids so syncing again cannot duplicate them on the server."
+msgstr "แมตช์ที่นำเข้าจะถือว่าซิงค์แล้ว และคงรหัสเดิมไว้ ดังนั้นการซิงค์อีกครั้งจะไม่ทำให้ข้อมูลซ้ำบนเซิร์ฟเวอร์"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:43
 msgid "Matches to import"
@@ -49,9 +46,7 @@ msgid "Paste an exported history"
 msgstr "วางประวัติที่ส่งออกไว้"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:119
-msgid ""
-"Rounds are placed in the timeline by their timestamps, so importing can add "
-"rounds before the ones already here."
+msgid "Rounds are placed in the timeline by their timestamps, so importing can add rounds before the ones already here."
 msgstr "รอบจะถูกจัดวางในไทม์ไลน์ตามเวลาที่บันทึก การนำเข้าจึงอาจเพิ่มรอบก่อนหน้ารอบที่มีอยู่แล้ว"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:42

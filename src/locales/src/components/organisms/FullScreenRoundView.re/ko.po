@@ -25,6 +25,10 @@ msgstr "전체 화면 닫기"
 msgid "COURT {0}"
 msgstr "코트 {0}"
 
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+#~ msgid "Not Playing This Round"
+#~ msgstr "이번 라운드 불참"
+
 #: src/components/organisms/FullScreenRoundView.re.mjs:33
 msgid "Round {0}"
 msgstr "라운드 {0}"
@@ -36,7 +40,3 @@ msgstr "서브 중"
 #: src/components/organisms/FullScreenRoundView.re.mjs:129
 msgid "VS"
 msgstr "VS"
-
-#: src/components/organisms/FullScreenRoundView.re.mjs:151
-#~ msgid "Not Playing This Round"
-#~ msgstr "이번 라운드 불참"

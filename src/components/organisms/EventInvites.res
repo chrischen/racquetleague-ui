@@ -11,8 +11,8 @@ open Lingui.Util
 // the event.
 
 module InviteMutation = %relay(`
-  mutation EventInvitesMutation($connections: [ID!]!, $eventId: ID!, $userId: ID!) {
-    inviteToEvent(eventId: $eventId, userId: $userId) {
+  mutation EventInvitesMutation($connections: [ID!]!, $eventId: ID!, $userId: ID!, $message: String!) {
+    inviteToEvent(eventId: $eventId, userId: $userId, message: $message) {
       edge @appendEdge(connections: $connections) {
         node {
           id
@@ -65,11 +65,45 @@ module CandidatesQuery = %relay(`
   }
 `)
 
+// Organizer-only, and already filtered server-side of anyone holding an RSVP,
+// the viewer, club bans, out-of-range ratings, clashing events and players
+// sitting on three unanswered invites. Returned best-first, so the order is
+// taken as given rather than re-sorted here.
+module RecommendationsQuery = %relay(`
+  query EventInvitesRecommendationsQuery($eventId: ID!, $first: Int) {
+    inviteRecommendations(eventId: $eventId, first: $first) {
+      recommendations {
+        availability
+        fit
+        strong
+        rating {
+          dupr
+          established
+        }
+        user {
+          id
+          lineUsername
+          picture
+          ...PlayerInviteSwipeDeck_user @arguments(eventId: $eventId)
+        }
+      }
+    }
+  }
+`)
+
 type candidate = {
   id: string,
   name: string,
   picture: option<string>,
   user: RescriptRelay.fragmentRefs<[#PlayerInviteSwipeDeck_user]>,
+  // Set only for server-ranked recommendations. Availability-sourced
+  // candidates are, by construction, available for the whole event.
+  recommended: bool,
+  availability: PlayerInviteSwipeDeck.inviteAvailability,
+  // The rating the player would be seeded at, on the DUPR scale.
+  dupr: option<float>,
+  // Below the server's confidence bar for its source: show it as an estimate.
+  duprProvisional: bool,
 }
 
 // Data-only child: the lazy availability query has to live in a component that
@@ -104,9 +138,94 @@ module CandidatesLoader = {
             name: u.lineUsername->Option.getOr("?"),
             picture: u.picture,
             user: u.fragmentRefs,
+            recommended: false,
+            availability: PlayerInviteSwipeDeck.AvailabilityCovers,
+            dupr: None,
+            duprProvisional: false,
           })
         )
       onLoaded(candidates)
+      None
+    }, [data])
+    React.null
+  }
+}
+
+// The people the viewer has a private conversation with about this event:
+// the invitees they sent a note to, and anyone who wrote to them about it.
+// An invited chip links into that conversation only when one exists (a chat
+// segment and a menu item, see PkEventRsvp), so a host who didn't send a
+// given invite isn't sent to an empty thread.
+module ThreadsLoader = {
+  module Query = %relay(`
+    query EventInvitesThreadsQuery {
+      viewer {
+        directMessages {
+          edges {
+            node {
+              id
+              topic
+              payload
+              createdAt
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  @react.component
+  let make = (~eventId: string, ~onLoaded: Belt.Set.String.t => unit) => {
+    // Refresh on each visit: the conversations change outside this page.
+    let data = Query.use(~variables=(), ~fetchPolicy=RescriptRelay.StoreAndNetwork)
+    React.useEffect1(() => {
+      data.viewer
+      ->Option.flatMap(v => v.directMessages)
+      ->Option.flatMap(c => c.edges)
+      ->Option.getOr([])
+      ->Array.filterMap(edge => edge->Option.flatMap(e => e.node))
+      ->Array.filterMap(n =>
+        DirectMessage.decode(~id=n.id, ~topic=n.topic, ~payload=n.payload, ~createdAt=n.createdAt)
+      )
+      ->Array.filter(m => m.eventId == Some(eventId))
+      ->Array.map(m => fst(DirectMessage.counterpart(m)))
+      ->Belt.Set.String.fromArray
+      ->onLoaded
+      None
+    }, [data])
+    React.null
+  }
+}
+
+// Same shape from the ranked source. Kept in its own component (and its own
+// Suspense boundary) so a slow ranking pass doesn't hold up the availability
+// candidates, or vice versa.
+module RecommendationsLoader = {
+  @react.component
+  let make = (~eventId: string, ~first: int, ~onLoaded: array<candidate> => unit) => {
+    let data = RecommendationsQuery.use(
+      ~variables={eventId, first},
+      ~fetchPolicy=RescriptRelay.StoreOrNetwork,
+    )
+    React.useEffect1(() => {
+      let recommended =
+        data.inviteRecommendations.recommendations
+        ->Option.getOr([])
+        ->Array.map((r): candidate => {
+          id: r.user.id,
+          name: r.user.lineUsername->Option.getOr("?"),
+          picture: r.user.picture,
+          user: r.user.fragmentRefs,
+          recommended: true,
+          availability: switch r.availability {
+          | Available => PlayerInviteSwipeDeck.AvailabilityCovers
+          | Unavailable => PlayerInviteSwipeDeck.AvailabilityConflicts
+          | _ => PlayerInviteSwipeDeck.AvailabilityUnknown
+          },
+          dupr: Some(r.rating.dupr),
+          duprProvisional: !r.rating.established,
+        })
+      onLoaded(recommended)
       None
     }, [data])
     React.null
@@ -127,7 +246,9 @@ let make = (
   ~timezone: string,
   ~participantUserIds: array<string>,
   ~invitedCount: int,
-  ~invitedChips: React.element,
+  // The sent invites as chips, given who the viewer has a conversation with
+  // about this event (PkEventRsvp's threadPath links a chip to it).
+  ~invitedChips: Belt.Set.String.t => React.element,
 ) => {
   let ts = Lingui.UtilString.t
   let intl = ReactIntl.useIntl()
@@ -135,11 +256,23 @@ let make = (
   let (commitInvite, _inviteInFlight) = InviteMutation.use()
 
   let (candidates, setCandidates) = React.useState(() => [])
+  let (recommendations, setRecommendations) = React.useState(() => [])
   // Users invited from this session, inline or via the deck. Guards double
   // sends until the appended edge lands in the connection (at which point
   // participantUserIds takes over).
   let (sentIds, setSentIds) = React.useState(() => Belt.Set.String.empty)
+  // People with a conversation with the viewer about this event. An invite
+  // sent from this page counts at once (its note is that conversation),
+  // before the next load would show it.
+  let (loadedThreadIds, setLoadedThreadIds) = React.useState(() => Belt.Set.String.empty)
+  let threadUserIds = Belt.Set.String.union(loadedThreadIds, sentIds)
+  // The note sent with the latest invite. The next invite may not reuse it, so
+  // each person gets a note written for them (InviteNote). Page state only:
+  // it is a nudge, not something the server checks.
+  let (lastMessage, setLastMessage) = React.useState((): option<string> => None)
   let (activeMenuId, setActiveMenuId) = React.useState(() => None)
+  // The chip the organizer is writing a note for: (userId, displayName).
+  let (composeFor, setComposeFor) = React.useState(() => None)
   let (swipeOpen, setSwipeOpen) = React.useState(() => false)
   let (mounted, setMounted) = React.useState(() => false)
   React.useEffect0(() => {
@@ -182,30 +315,58 @@ let make = (
   | _ => None
   }
 
-  let visibleCandidates =
-    candidates->Array.filter(c =>
-      !(participantUserIds->Array.includes(c.id)) && !(sentIds->Belt.Set.String.has(c.id))
+  // Ranked recommendations lead (the server returns them best-first), then any
+  // available player it didn't already surface. The server excludes anyone
+  // holding an RSVP, but its result is cached, so invites sent this session
+  // still have to be filtered out here.
+  let visibleCandidates = {
+    let seen = Belt.MutableSet.String.make()
+    Belt.Array.concat(recommendations, candidates)->Array.filter(c =>
+      if (
+        participantUserIds->Array.includes(c.id) ||
+        sentIds->Belt.Set.String.has(c.id) ||
+        seen->Belt.MutableSet.String.has(c.id)
+      ) {
+        false
+      } else {
+        seen->Belt.MutableSet.String.add(c.id)
+        true
+      }
     )
+  }
 
-  let handleInvite = (userId: string) => {
+  // Every invite carries the organizer's note: the server rejects a blank one.
+  // It reaches the invitee as a private message they can reply to, and the
+  // invite email quotes it.
+  let handleInvite = (userId: string, message: string) => {
     let alreadyInvited =
       participantUserIds->Array.includes(userId) || sentIds->Belt.Set.String.has(userId)
-    if !alreadyInvited {
+    let note = message->String.trim
+    if !alreadyInvited && note != "" {
       setSentIds(s => s->Belt.Set.String.add(userId))
+      // The next composer refuses this note; a failed send gives it back.
+      let previous = lastMessage
+      setLastMessage(_ => Some(note))
+      let restoreLastMessage = () =>
+        setLastMessage(current => current == Some(note) ? previous : current)
       let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
         eventId->RescriptRelay.makeDataId,
         "PkRSVPSection_event_rsvps",
         None,
       )
       commitInvite(
-        ~variables={connections: [connectionId], eventId, userId},
+        ~variables={connections: [connectionId], eventId, userId, message: note},
         ~onCompleted=(response, _) =>
           switch response.inviteToEvent.errors {
           | Some(errors) if errors->Array.length > 0 =>
             setSentIds(s => s->Belt.Set.String.remove(userId))
+            restoreLastMessage()
           | _ => ()
           },
-        ~onError=_ => setSentIds(s => s->Belt.Set.String.remove(userId)),
+        ~onError=_ => {
+          setSentIds(s => s->Belt.Set.String.remove(userId))
+          restoreLastMessage()
+        },
       )->RescriptRelay.Disposable.ignore
     }
   }
@@ -230,6 +391,18 @@ let make = (
           </React.Suspense>
         | _ => React.null
         }
+      : React.null}
+    {mounted && invitedCount > 0
+      ? <React.Suspense fallback=React.null>
+          <ThreadsLoader eventId onLoaded={ids => setLoadedThreadIds(_ => ids)} />
+        </React.Suspense>
+      : React.null}
+    {canInvite && mounted
+      ? <React.Suspense fallback=React.null>
+          <RecommendationsLoader
+            eventId first=12 onLoaded={r => setRecommendations(_ => r)}
+          />
+        </React.Suspense>
       : React.null}
     {totalCount == 0
       ? React.null
@@ -259,7 +432,7 @@ let make = (
           <ul
             className="flex flex-wrap gap-1.5 list-none p-0 m-0"
             ariaLabel={ts`Invited and potential players`}>
-            invitedChips
+            {invitedChips(threadUserIds)}
             {visibleCandidates
             ->Array.map(c => {
               let menuOpen = activeMenuId == Some(c.id)
@@ -279,13 +452,29 @@ let make = (
                   <AvatarWithProgress
                     src={c.picture->Option.getOr("")} alt=c.name progress=0 size=22 strokeWidth=1.5
                   />
+                  {c.recommended
+                    ? <Lucide.Sparkles
+                        size=10
+                        className="text-violet-500 dark:text-violet-400 flex-shrink-0"
+                        \"aria-hidden"="true"
+                      />
+                    : React.null}
                   <span className="text-[11px] leading-none text-violet-900 dark:text-violet-200">
                     {c.name->React.string}
                   </span>
-                  <span
-                    className="font-mono text-[9px] leading-none text-violet-500 dark:text-violet-400">
-                    {(ts`invite`)->React.string}
-                  </span>
+                  {switch c.dupr {
+                  | Some(dupr) =>
+                    <span
+                      className="font-mono text-[9px] leading-none text-violet-500 dark:text-violet-400">
+                      {((c.duprProvisional ? "~" : "") ++
+                      dupr->Js.Float.toFixedWithPrecision(~digits=2))->React.string}
+                    </span>
+                  | None =>
+                    <span
+                      className="font-mono text-[9px] leading-none text-violet-500 dark:text-violet-400">
+                      {(ts`invite`)->React.string}
+                    </span>
+                  }}
                 </button>
                 {menuOpen
                   ? <>
@@ -315,7 +504,7 @@ let make = (
                           role="menuitem"
                           onClick={_ => {
                             setActiveMenuId(_ => None)
-                            handleInvite(c.id)
+                            setComposeFor(_ => Some((c.id, c.name)))
                           }}
                           className="flex w-full items-center gap-2 px-3 py-2 text-left text-xs font-medium text-violet-700 dark:text-violet-300 transition-colors hover:bg-violet-50 dark:hover:bg-violet-950/30 focus:bg-violet-50 dark:focus:bg-violet-950/30 focus:outline-none">
                           <Lucide.Send className="w-3 h-3" />
@@ -335,15 +524,32 @@ let make = (
                 PlayerInviteSwipeDeck.id: c.id,
                 name: c.name,
                 source: FromFragment(c.user),
+                availability: Some(c.availability),
               })}
               eventTitle
               eventVenue=venueName
               eventTimeLabel=timeLabel
               mode=PlayerInviteSwipeDeck.Invite
-              onAccept=handleInvite
+              onAccept={(userId, message) =>
+                handleInvite(userId, message->Option.getOr(""))}
               onClose={() => setSwipeOpen(_ => false)}
+              previousMessage=?lastMessage
             />
           | _ => React.null
+          }}
+          {switch composeFor {
+          | Some((userId, name)) =>
+            <InviteMessageComposer
+              playerName=name
+              eventTitle
+              previousMessage=?lastMessage
+              onSubmit={message => {
+                handleInvite(userId, message)
+                setComposeFor(_ => None)
+              }}
+              onCancel={() => setComposeFor(_ => None)}
+            />
+          | None => React.null
           }}
         </section>}
   </>

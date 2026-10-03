@@ -13,6 +13,10 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/organisms/MatchList.re.mjs:274
+#~ msgid "...load higher rated players"
+#~ msgstr "... より高い評価のプレイヤーを読み込む"
+
 #: src/components/organisms/MatchHistoryList.re.mjs:738
 msgid "...load previous matches"
 msgstr "前の試合を読み込む"
@@ -44,6 +48,10 @@ msgstr "最高のダブルスパートナー"
 #: src/components/pages/LeaguePlayerPage.re.mjs:897
 msgid "Current Rating"
 msgstr "現在のレーティング"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:83
+#~ msgid "Currently the league is in testing mode. To participate, please join the Pickleball events here:"
+#~ msgstr "現在、リーグはテストモードです。参加するには、こちらのピクルボールイベントに参加してください:"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:935
 msgid "Days at #1"
@@ -78,6 +86,10 @@ msgstr "推定DUPR"
 msgid "Even"
 msgstr "互角"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:131
+#~ msgid "Female"
+#~ msgstr "女性"
+
 #: src/components/pages/LeaguePlayerPage.re.mjs:1190
 msgid "Gym"
 msgstr "体育館"
@@ -86,9 +98,25 @@ msgstr "体育館"
 msgid "Hard Court"
 msgstr "ハードコート"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:1115
+#~ msgid "Indoor Court (Indoor Ball)"
+#~ msgstr "インドアコート（インドアボール）"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1100
+#~ msgid "Indoor Court (Outdoor Ball)"
+#~ msgstr "インドアコート（アウトドアボール）"
+
 #: src/components/organisms/MatchHistoryList.re.mjs:755
 msgid "Load more matches..."
 msgstr "もっと試合を読み込む..."
+
+#: src/components/organisms/MatchList.re.mjs:290
+#~ msgid "Load more players..."
+#~ msgstr "もっとプレイヤーを読み込む..."
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:194
+#~ msgid "Loading rankings..."
+#~ msgstr "ランキングを読み込んでいます..."
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:1285
 msgid "Loading..."
@@ -97,6 +125,15 @@ msgstr "読み込み中..."
 #: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "LOSS"
 msgstr "負け"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:133
+#~ msgid "Male"
+#~ msgstr "男性"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:177
+#: src/components/pages/LeaguePlayerPage.re.mjs:185
+#~ msgid "Match History"
+#~ msgstr "対戦履歴"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:1025
 msgid "Men's Doubles"
@@ -129,6 +166,15 @@ msgstr "ハードコートで好成績"
 msgid "Performs better with stronger partners"
 msgstr "強いパートナーと組むと成績が上がる"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:78
+#~ msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
+#~ msgstr "異なるパートナーとダブルスゲームをプレイし、個別の評価を受け取ります。賞品は毎月トッププレイヤーに授与されます。"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:103
+#: src/components/pages/LeaguePlayerPage.re.mjs:160
+#~ msgid "Player Profile Page"
+#~ msgstr "プレイヤープロフィールページ"
+
 #: src/components/pages/LeaguePlayerPage.re.mjs:515
 #: src/components/pages/LeaguePlayerPage.re.mjs:589
 #: src/components/pages/LeaguePlayerPage.re.mjs:663
@@ -139,6 +185,11 @@ msgstr "予測"
 #: src/components/molecules/DuprRatingBadge.re.mjs:37
 msgid "provisional"
 msgstr "暫定"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:212
+#: src/components/pages/LeaguePlayerPage.re.mjs:220
+#~ msgid "Rating"
+#~ msgstr "評価"
 
 #: src/components/organisms/RatingGraphWrapper.re.mjs:176
 msgid "Rating History"
@@ -151,6 +202,14 @@ msgstr "評価："
 #: src/components/pages/LeaguePlayerPage.re.mjs:1276
 msgid "Recent Matches"
 msgstr "最近の試合"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:73
+#~ msgid "Recreational Doubles"
+#~ msgstr "レクリエーショナルダブルス"
+
+#: src/components/organisms/MatchList.re.mjs:292
+#~ msgid "Score:"
+#~ msgstr "スコア:"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:849
 msgid "Showing stats from {selectedClubName} only"
@@ -165,12 +224,8 @@ msgid "Strong Against"
 msgstr "得意な相手"
 
 #: src/components/organisms/RatingGraphWrapper.re.mjs:180
-msgid ""
-"The shaded area represents rating uncertainty. Narrower bands indicate "
-"higher confidence."
-msgstr ""
-"網掛け部分はレーティングの不確実性を示しています。帯が狭いほど信頼性が高くな"
-"ります。"
+msgid "The shaded area represents rating uncertainty. Narrower bands indicate higher confidence."
+msgstr "網掛け部分はレーティングの不確実性を示しています。帯が狭いほど信頼性が高くなります。"
 
 #: src/components/organisms/MatchHistoryList.re.mjs:671
 msgid "Upset"
@@ -195,70 +250,3 @@ msgstr "女子レーティング"
 #: src/components/pages/LeaguePlayerPage.re.mjs:556
 msgid "Worst Doubles Partners"
 msgstr "最悪のダブルスパートナー"
-
-#: src/components/organisms/MatchList.re.mjs:274
-#~ msgid "...load higher rated players"
-#~ msgstr "... より高い評価のプレイヤーを読み込む"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:83
-#~ msgid ""
-#~ "Currently the league is in testing mode. To participate, please join the "
-#~ "Pickleball events here:"
-#~ msgstr ""
-#~ "現在、リーグはテストモードです。参加するには、こちらのピクルボールイベント"
-#~ "に参加してください:"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:131
-#~ msgid "Female"
-#~ msgstr "女性"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:1115
-#~ msgid "Indoor Court (Indoor Ball)"
-#~ msgstr "インドアコート（インドアボール）"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:1100
-#~ msgid "Indoor Court (Outdoor Ball)"
-#~ msgstr "インドアコート（アウトドアボール）"
-
-#: src/components/organisms/MatchList.re.mjs:290
-#~ msgid "Load more players..."
-#~ msgstr "もっとプレイヤーを読み込む..."
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:194
-#~ msgid "Loading rankings..."
-#~ msgstr "ランキングを読み込んでいます..."
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:133
-#~ msgid "Male"
-#~ msgstr "男性"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:177
-#: src/components/pages/LeaguePlayerPage.re.mjs:185
-#~ msgid "Match History"
-#~ msgstr "対戦履歴"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:78
-#~ msgid ""
-#~ "Play doubles games with different partners and receive an individual "
-#~ "rating. Prizes are awarded monthly to top players."
-#~ msgstr ""
-#~ "異なるパートナーとダブルスゲームをプレイし、個別の評価を受け取ります。賞品"
-#~ "は毎月トッププレイヤーに授与されます。"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:103
-#: src/components/pages/LeaguePlayerPage.re.mjs:160
-#~ msgid "Player Profile Page"
-#~ msgstr "プレイヤープロフィールページ"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:212
-#: src/components/pages/LeaguePlayerPage.re.mjs:220
-#~ msgid "Rating"
-#~ msgstr "評価"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:73
-#~ msgid "Recreational Doubles"
-#~ msgstr "レクリエーショナルダブルス"
-
-#: src/components/organisms/MatchList.re.mjs:292
-#~ msgid "Score:"
-#~ msgstr "スコア:"

@@ -1,0 +1,84 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-10-03 16:56+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: zh-CN\n"
+
+#: src/components/organisms/MessageThread.re.mjs:768
+msgid "Invitation thread"
+msgstr ""
+
+#: src/components/organisms/MessageThread.re.mjs:646
+msgid "Invited you"
+msgstr ""
+
+#: src/components/organisms/MessageThread.re.mjs:663
+msgid "Message"
+msgstr ""
+
+#: src/components/organisms/MessageThread.re.mjs:768
+msgid "Message thread"
+msgstr ""
+
+#: src/components/organisms/MessageThread.re.mjs:725
+msgid "Messages with {name}"
+msgstr ""
+
+#: src/components/organisms/MessageThread.re.mjs:756
+msgid "No recent messages with this person."
+msgstr ""
+
+#: src/components/organisms/MessageThread.re.mjs:188
+msgid "Reply to {name}"
+msgstr ""
+
+#: src/components/organisms/MessageThread.re.mjs:220
+msgid "Send"
+msgstr ""
+
+#: src/components/organisms/MessageThread.re.mjs:220
+msgid "Sending"
+msgstr ""
+
+#: src/components/organisms/MessageThread.re.mjs:53
+msgid "Sign in to reply."
+msgstr ""
+
+#: src/components/organisms/MessageThread.re.mjs:49
+msgid "That message is no longer available, so it can't be answered."
+msgstr ""
+
+#: src/components/organisms/MessageThread.re.mjs:51
+msgid "That message is too long."
+msgstr ""
+
+#: src/components/organisms/MessageThread.re.mjs:433
+msgid "View"
+msgstr ""
+
+#: src/components/organisms/MessageThread.re.mjs:575
+msgid "View event"
+msgstr ""
+
+#: src/components/organisms/MessageThread.re.mjs:47
+msgid "Write a message first."
+msgstr ""
+
+#: src/components/organisms/MessageThread.re.mjs:196
+msgid "Write a reply"
+msgstr ""
+
+#: src/components/organisms/MessageThread.re.mjs:733
+msgid "You can reply once {firstName} writes back."
+msgstr ""
+
+#: src/components/organisms/MessageThread.re.mjs:654
+msgid "You invited them"
+msgstr ""
+
+#: src/components/organisms/MessageThread.re.mjs:55
+msgid "Your reply couldn't be sent. Please try again."
+msgstr ""

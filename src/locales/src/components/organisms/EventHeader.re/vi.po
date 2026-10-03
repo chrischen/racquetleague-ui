@@ -21,6 +21,10 @@ msgstr "{0} giờ"
 msgid "{0} hours"
 msgstr "{0} giờ"
 
+#: src/components/organisms/EventHeader.re.mjs:56
+#~ msgid "{0} hours and {1} minutes"
+#~ msgstr "{0} giờ {1} phút"
+
 #: src/components/organisms/EventHeader.re.mjs:58
 msgid "{0} minute"
 msgstr "{0} phút"
@@ -100,8 +104,7 @@ msgid "Recreational"
 msgstr "Giải trí"
 
 #: src/components/atoms/EventTag.re.mjs:52
-msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "Chơi giải trí, không tính vào xếp hạng thi đấu hay DUPR."
 
 #: src/components/atoms/EventTag.re.mjs:46
@@ -117,12 +120,8 @@ msgid "sync calendar"
 msgstr "đồng bộ lịch"
 
 #: src/components/atoms/EventTag.re.mjs:54
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
-msgstr ""
-"Sự kiện này là riêng tư. Vui lòng không chia sẻ mà không có sự cho phép của "
-"ban tổ chức."
+msgid "This event is private. Please do not share this event without permission from the organizer."
+msgstr "Sự kiện này là riêng tư. Vui lòng không chia sẻ mà không có sự cho phép của ban tổ chức."
 
 #: src/components/organisms/EventHeader.re.mjs:221
 msgid "Time TBD"
@@ -139,7 +138,3 @@ msgstr "Địa điểm không xác định"
 #: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
 msgstr "Trung cấp cao trở lên"
-
-#: src/components/organisms/EventHeader.re.mjs:56
-#~ msgid "{0} hours and {1} minutes"
-#~ msgstr "{0} giờ {1} phút"

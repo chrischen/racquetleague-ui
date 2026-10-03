@@ -26,6 +26,14 @@ msgstr "{0}件の連続空き枠"
 msgid "{0} continuous openings"
 msgstr "{0}件の連続空き枠"
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
+#~ msgid "{0} continuous span"
+#~ msgstr "{0} 連続時間帯"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:59
+#~ msgid "{0} continuous spans"
+#~ msgstr "{0} 連続時間帯"
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 #: src/components/molecules/CourtOpeningCard.re.mjs:58
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:98
@@ -38,6 +46,14 @@ msgstr "{0}コート"
 msgid "{0} courts"
 msgstr "{0}コート"
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:62
+#~ msgid "{0} exact option"
+#~ msgstr "{0} 完全一致オプション"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:63
+#~ msgid "{0} exact options"
+#~ msgstr "{0} 完全一致オプション"
+
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:106
 msgid "{0} location"
 msgstr "{0}施設"
@@ -45,6 +61,30 @@ msgstr "{0}施設"
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:107
 msgid "{0} locations"
 msgstr "{0}施設"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
+#~ msgid "{0} segment"
+#~ msgstr "{0} セグメント"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:138
+#~ msgid "{0} segments"
+#~ msgstr "{0} セグメント"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
+#~ msgid "{0} time option"
+#~ msgstr "{0}つの時間帯"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
+#~ msgid "{0} time options"
+#~ msgstr "{0}つの時間帯"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:151
+#~ msgid "{groupCourtsPhrase} at {groupLocationsPhrase}"
+#~ msgstr "{groupLocationsPhrase}の{groupCourtsPhrase}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:135
+#~ msgid "{groupLocations, plural, one {{0}} other {{1}}}"
+#~ msgstr "{groupLocations, plural, one {{0}} other {{1}}}"
 
 #: src/components/molecules/CourtOpeningCard.re.mjs:52
 msgid "{hs}h"
@@ -76,9 +116,21 @@ msgstr "アウトドア{n}面"
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:174
+#~ msgid "{segLocations, plural, one {{0}} other {{1}}}"
+#~ msgstr "{segLocations, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:61
+#~ msgid "{segmentCount, plural, one {{0}} other {{1}}}"
+#~ msgstr "{segmentCount, plural, one {{0}} other {{1}}}"
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
+#~ msgid "{totalCourts, plural, one {{0}} other {{1}}}"
+#~ msgstr "{totalCourts, plural, one {{0}} other {{1}}}"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:842
 msgid "Add time windows above"
@@ -126,11 +178,12 @@ msgid "Complete your player profile"
 msgstr "プレイヤープロフィールを完成させる"
 
 #: src/components/organisms/ProfileModal.re.mjs:329
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
-msgstr ""
-"プレイヤーやホストと空き時間を共有する前に、プロフィールを完成させてくださ"
-"い。"
+msgid "Complete your profile before sharing availability with players and hosts."
+msgstr "プレイヤーやホストと空き時間を共有する前に、プロフィールを完成させてください。"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:149
+#~ msgid "Continuous availability"
+#~ msgstr "連続空き状況"
 
 #: src/components/organisms/ProfileModal.re.mjs:263
 #: src/components/organisms/ProfileModal.re.mjs:272
@@ -143,9 +196,21 @@ msgstr "プロフィールを保存できませんでした。もう一度お試
 msgid "Court"
 msgstr "コート"
 
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:779
+#~ msgid "Court openings are shown only when they overlap your time."
+#~ msgstr "コートの空き状況は、あなたの時間と重なる場合のみ表示されます。"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:625
+#~ msgid "Courts"
+#~ msgstr "コート"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
 msgid "Courts · thickness = count"
 msgstr "コート · 太さ＝回数"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+#~ msgid "Courts Â· thickness = count"
+#~ msgstr "コート・厚さ＝数"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:885
 msgid "Courts and openings covering your full window"
@@ -154,6 +219,10 @@ msgstr "全時間帯をカバーするコートと空き状況"
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:827
 msgid "Courts are listed individually with their largest continuous openings."
 msgstr "コートごとに、最大連続空き時間とともに表示されます。"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:837
+#~ msgid "Courts available during your time"
+#~ msgstr "あなたの時間帯で利用可能なコート"
 
 #: src/components/molecules/CourtOpeningCard.re.mjs:141
 msgid "Create event"
@@ -184,12 +253,8 @@ msgid "Email address"
 msgstr "メールアドレス"
 
 #: src/components/organisms/ProfileModal.re.mjs:304
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使"
-"用しようとしているメールアドレスでログインしてください。"
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使用しようとしているメールアドレスでログインしてください。"
 
 #: src/components/organisms/ProfileModal.re.mjs:115
 msgid "Email is required"
@@ -207,9 +272,16 @@ msgstr "イベント"
 msgid "Female"
 msgstr "女性"
 
+#: src/components/molecules/LocationFilter.re.mjs:110
+#~ msgid "Filter by location"
+#~ msgstr "場所で絞り込む"
+
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "イベントの更新と通知用"
+
 #: src/components/organisms/ProfileModal.re.mjs:380
-msgid ""
-"For event updates and notifications. We'll email you a link to confirm it."
+msgid "For event updates and notifications. We'll email you a link to confirm it."
 msgstr "イベントの更新と通知用です。確認用のリンクをメールでお送りします。"
 
 #: src/components/organisms/ProfileModal.re.mjs:514
@@ -250,17 +322,24 @@ msgstr "場所"
 
 #: src/components/molecules/LocationFilterControl.re.mjs:104
 msgid "Location access was denied. Allow access or choose a venue."
-msgstr ""
-"位置情報へのアクセスが拒否されました。アクセスを許可するか、会場を選択してく"
-"ださい。"
+msgstr "位置情報へのアクセスが拒否されました。アクセスを許可するか、会場を選択してください。"
 
 #: src/components/molecules/LocationFilter.re.mjs:46
 msgid "Location:"
 msgstr "場所:"
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
+#~ msgid "Long opening"
+#~ msgstr "長時間空き"
+
 #: src/components/organisms/ProfileModal.re.mjs:520
 msgid "Male"
 msgstr "男性"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "自分の時間に合わせる"
 
 #: src/components/molecules/EventFiltersToolbar.re.mjs:36
 msgid "Minimum event level"
@@ -282,9 +361,17 @@ msgstr "後で"
 msgid "NR"
 msgstr "NR"
 
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "空き"
+
 #: src/components/molecules/EventFiltersToolbar.re.mjs:24
 msgid "Open spots"
 msgstr "空きスポット"
+
+#: src/components/molecules/LocationFilter.re.mjs:36
+#~ msgid "Pick a location or use your current location."
+#~ msgstr "場所を選択するか、現在地を使用してください。"
 
 #: src/components/molecules/RatingSourceChip.re.mjs:25
 msgid "pkuru"
@@ -323,6 +410,10 @@ msgstr "プロフィールを保存"
 msgid "Saving…"
 msgstr "保存中…"
 
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
+#~ msgid "Savingâ¦"
+#~ msgstr "保存中…"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
 msgid "Schedule"
 msgstr "スケジュール"
@@ -331,21 +422,21 @@ msgstr "スケジュール"
 msgid "Self-rated"
 msgstr "自己評価"
 
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
+#~ msgid "Set your availability for the next 2 weeks. Tap a day to add a time window, drag to move, grab the edges to resize."
+#~ msgstr "今後2週間の空き時間を設定してください。日付をタップして時間帯を追加、ドラッグで移動、端をつかんでサイズ変更できます。"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:589
+#~ msgid "Set your availability for the next 2 weeks. Your events and available windows share a footprint; cyan cell borders show courts."
+#~ msgstr "今後2週間の空き時間を設定してください。イベントと空き時間帯は同じ枠を共有し、シアン色の枠線はコートを示します。"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:624
-msgid ""
-"Set your availability for the next 2 weeks. Your events and available "
-"windows share a footprint; thicker cyan lines mean more courts."
-msgstr ""
-"今後2週間の空き状況を設定してください。イベントと空き時間帯は同じ枠を共有し、"
-"シアンの線が太いほど多くのコートが利用可能です。"
+msgid "Set your availability for the next 2 weeks. Your events and available windows share a footprint; thicker cyan lines mean more courts."
+msgstr "今後2週間の空き状況を設定してください。イベントと空き時間帯は同じ枠を共有し、シアンの線が太いほど多くのコートが利用可能です。"
 
 #: src/components/organisms/ProfileModal.re.mjs:553
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
-msgstr ""
-"主催者や他のプレイヤーがあなたを招待すべき理由がわかるよう、自己紹介を書いて"
-"ください。"
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
+msgstr "主催者や他のプレイヤーがあなたを招待すべき理由がわかるよう、自己紹介を書いてください。"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:914
 msgid "Share with your club"
@@ -354,6 +445,14 @@ msgstr "クラブと共有"
 #: src/components/molecules/DuprRatingBadge.re.mjs:69
 msgid "singles"
 msgstr "シングルス"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:692
+#~ msgid "Tap an empty area of a day to add a window · drag to move · grab the edges to resize"
+#~ msgstr "空いているエリアをタップして時間帯を追加 · ドラッグで移動 · 端をつかんでサイズ変更"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:765
+#~ msgid "Tap an empty area to add time · select a cyan court opening up to 4h to match it · drag to move · grab the edges to resize"
+#~ msgstr "空きエリアをタップして時間を追加・シアン色のコート空き（最大4時間）を選択して一致させる・ドラッグで移動・端をつかんでサイズ変更"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:813
 msgid "Tap empty time to add · drag to move · grab edges to resize"
@@ -375,6 +474,18 @@ msgstr "現在地付近を使用"
 msgid "Use option"
 msgstr "オプションを使用"
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
+#~ msgid "Use this time"
+#~ msgstr "この時間を使用する"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
+#~ msgid "View {groupCourtsPhrase} & reserve"
+#~ msgstr "{groupCourtsPhrase}を見て予約する"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:217
+#~ msgid "View {segCourtsPhrase} & reserve"
+#~ msgstr "{segCourtsPhrase} を表示して予約する"
+
 #: src/components/organisms/ProfileModal.re.mjs:326
 msgid "We need a few details before you can join this event"
 msgstr "イベント参加に必要な情報を入力してください"
@@ -391,6 +502,10 @@ msgstr "週末の朝"
 msgid "When can you play?"
 msgstr "いつプレーできますか？"
 
+#: src/components/molecules/LocationFilter.re.mjs:28
+#~ msgid "Within {0} km · {1}, {2}"
+#~ msgstr "{0} km以内・{1}、{2}"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:823
 msgid "Your availability"
 msgstr "あなたの空き時間"
@@ -398,152 +513,3 @@ msgstr "あなたの空き時間"
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:675
 msgid "Your time"
 msgstr "あなたの時間"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
-#~ msgid "{0} continuous span"
-#~ msgstr "{0} 連続時間帯"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:59
-#~ msgid "{0} continuous spans"
-#~ msgstr "{0} 連続時間帯"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:62
-#~ msgid "{0} exact option"
-#~ msgstr "{0} 完全一致オプション"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:63
-#~ msgid "{0} exact options"
-#~ msgstr "{0} 完全一致オプション"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
-#~ msgid "{0} segment"
-#~ msgstr "{0} セグメント"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:138
-#~ msgid "{0} segments"
-#~ msgstr "{0} セグメント"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
-#~ msgid "{0} time option"
-#~ msgstr "{0}つの時間帯"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
-#~ msgid "{0} time options"
-#~ msgstr "{0}つの時間帯"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:151
-#~ msgid "{groupCourtsPhrase} at {groupLocationsPhrase}"
-#~ msgstr "{groupLocationsPhrase}の{groupCourtsPhrase}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:135
-#~ msgid "{groupLocations, plural, one {{0}} other {{1}}}"
-#~ msgstr "{groupLocations, plural, one {{0}} other {{1}}}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:174
-#~ msgid "{segLocations, plural, one {{0}} other {{1}}}"
-#~ msgstr "{segLocations, plural, one {{0}} other {{1}}}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:61
-#~ msgid "{segmentCount, plural, one {{0}} other {{1}}}"
-#~ msgstr "{segmentCount, plural, one {{0}} other {{1}}}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
-#~ msgid "{totalCourts, plural, one {{0}} other {{1}}}"
-#~ msgstr "{totalCourts, plural, one {{0}} other {{1}}}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:149
-#~ msgid "Continuous availability"
-#~ msgstr "連続空き状況"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:779
-#~ msgid "Court openings are shown only when they overlap your time."
-#~ msgstr "コートの空き状況は、あなたの時間と重なる場合のみ表示されます。"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:625
-#~ msgid "Courts"
-#~ msgstr "コート"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
-#~ msgid "Courts Â· thickness = count"
-#~ msgstr "コート・厚さ＝数"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:837
-#~ msgid "Courts available during your time"
-#~ msgstr "あなたの時間帯で利用可能なコート"
-
-#: src/components/molecules/LocationFilter.re.mjs:110
-#~ msgid "Filter by location"
-#~ msgstr "場所で絞り込む"
-
-#: src/components/organisms/ProfileModal.re.mjs:363
-#~ msgid "For event updates and notifications"
-#~ msgstr "イベントの更新と通知用"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
-#~ msgid "Long opening"
-#~ msgstr "長時間空き"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-#~ msgid "Match my time"
-#~ msgstr "自分の時間に合わせる"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-#~ msgid "open"
-#~ msgstr "空き"
-
-#: src/components/molecules/LocationFilter.re.mjs:36
-#~ msgid "Pick a location or use your current location."
-#~ msgstr "場所を選択するか、現在地を使用してください。"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
-#~ msgid "Savingâ¦"
-#~ msgstr "保存中…"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
-#~ msgid ""
-#~ "Set your availability for the next 2 weeks. Tap a day to add a time "
-#~ "window, drag to move, grab the edges to resize."
-#~ msgstr ""
-#~ "今後2週間の空き時間を設定してください。日付をタップして時間帯を追加、ド"
-#~ "ラッグで移動、端をつかんでサイズ変更できます。"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:589
-#~ msgid ""
-#~ "Set your availability for the next 2 weeks. Your events and available "
-#~ "windows share a footprint; cyan cell borders show courts."
-#~ msgstr ""
-#~ "今後2週間の空き時間を設定してください。イベントと空き時間帯は同じ枠を共有"
-#~ "し、シアン色の枠線はコートを示します。"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:692
-#~ msgid ""
-#~ "Tap an empty area of a day to add a window · drag to move · grab the "
-#~ "edges to resize"
-#~ msgstr ""
-#~ "空いているエリアをタップして時間帯を追加 · ドラッグで移動 · 端をつかんでサ"
-#~ "イズ変更"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:765
-#~ msgid ""
-#~ "Tap an empty area to add time · select a cyan court opening up to 4h to "
-#~ "match it · drag to move · grab the edges to resize"
-#~ msgstr ""
-#~ "空きエリアをタップして時間を追加・シアン色のコート空き（最大4時間）を選択"
-#~ "して一致させる・ドラッグで移動・端をつかんでサイズ変更"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
-#~ msgid "Use this time"
-#~ msgstr "この時間を使用する"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
-#~ msgid "View {groupCourtsPhrase} & reserve"
-#~ msgstr "{groupCourtsPhrase}を見て予約する"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:217
-#~ msgid "View {segCourtsPhrase} & reserve"
-#~ msgstr "{segCourtsPhrase} を表示して予約する"
-
-#: src/components/molecules/LocationFilter.re.mjs:28
-#~ msgid "Within {0} km · {1}, {2}"
-#~ msgstr "{0} km以内・{1}、{2}"

@@ -600,6 +600,20 @@ and input_RemoveUserFromClubInput_nullable = {
 }
 
 @live
+and input_SendDirectMessageInput = {
+  body: string,
+  recipientId?: string,
+  replyToMessageId?: string,
+}
+
+@live
+and input_SendDirectMessageInput_nullable = {
+  body: string,
+  recipientId?: Js.Null.t<string>,
+  replyToMessageId?: Js.Null.t<string>,
+}
+
+@live
 and input_SetAvailabilityDayInput = {
   activityId: string,
   intervals: array<input_IntervalInput>,

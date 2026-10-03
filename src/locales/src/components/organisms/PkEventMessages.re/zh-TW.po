@@ -21,6 +21,10 @@ msgstr "{messageCountStr} 則訊息 · {totalCountStr} 則更新"
 msgid "Activity"
 msgstr "活動"
 
+#: src/components/organisms/PkEventMessages.re.mjs:467
+#~ msgid "Add a message..."
+#~ msgstr "新增訊息..."
+
 #: src/components/organisms/PkEventMessages.re.mjs:328
 #: src/components/organisms/PkEventMessages.re.mjs:465
 msgid "Event chat"
@@ -67,6 +71,10 @@ msgstr "尚無訊息"
 msgid "Send message"
 msgstr "傳送訊息"
 
+#: src/components/organisms/PkEventMessages.re.mjs:455
+#~ msgid "Show all {0} items"
+#~ msgstr "顯示全部 {0} 條"
+
 #: src/components/organisms/PkEventMessages.re.mjs:355
 msgid "Show less"
 msgstr "顯示更少"
@@ -82,11 +90,3 @@ msgstr "已被管理員新增至活動"
 #: src/components/organisms/PkEventMessages.re.mjs:199
 msgid "was invited to the event"
 msgstr "已受邀參加活動"
-
-#: src/components/organisms/PkEventMessages.re.mjs:467
-#~ msgid "Add a message..."
-#~ msgstr "新增訊息..."
-
-#: src/components/organisms/PkEventMessages.re.mjs:455
-#~ msgid "Show all {0} items"
-#~ msgstr "顯示全部 {0} 條"

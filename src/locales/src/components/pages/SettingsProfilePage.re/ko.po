@@ -42,24 +42,12 @@ msgid "Advanced"
 msgstr "고급"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:376
-msgid ""
-"Attendees of your paid events save a card when they RSVP; nothing is charged "
-"up front. From an event's RSVP list you can charge one attendee or everyone, "
-"and the money goes to this account."
-msgstr ""
-"유료 행사 참가자는 RSVP 시 카드를 저장하며, 사전에 청구되지 않습니다. 행사의 "
-"RSVP 목록에서 참가자 한 명 또는 전원에게 청구할 수 있고, 금액은 이 계정으로 "
-"입금됩니다."
+msgid "Attendees of your paid events save a card when they RSVP; nothing is charged up front. From an event's RSVP list you can charge one attendee or everyone, and the money goes to this account."
+msgstr "유료 행사 참가자는 RSVP 시 카드를 저장하며, 사전에 청구되지 않습니다. 행사의 RSVP 목록에서 참가자 한 명 또는 전원에게 청구할 수 있고, 금액은 이 계정으로 입금됩니다."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:370
-msgid ""
-"Attendees of your paid events still save a card when they RSVP, but it can't "
-"be charged, so you collect the fee at the event. Connect a Stripe account to "
-"charge saved cards from the RSVP list and receive the money here."
-msgstr ""
-"유료 행사 참가자는 RSVP 시 카드를 저장하지만 청구할 수 없으므로, 참가비는 행"
-"사 현장에서 받아야 합니다. RSVP 목록에서 저장된 카드에 청구하고 여기로 금액"
-"을 받으려면 Stripe 계정을 연결하세요."
+msgid "Attendees of your paid events still save a card when they RSVP, but it can't be charged, so you collect the fee at the event. Connect a Stripe account to charge saved cards from the RSVP list and receive the money here."
+msgstr "유료 행사 참가자는 RSVP 시 카드를 저장하지만 청구할 수 없으므로, 참가비는 행사 현장에서 받아야 합니다. RSVP 목록에서 저장된 카드에 청구하고 여기로 금액을 받으려면 Stripe 계정을 연결하세요."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:430
 msgid "Australia"
@@ -73,30 +61,29 @@ msgstr "확인 대기 중"
 msgid "Beginner"
 msgstr "초급"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:289
+#~ msgid "biography"
+#~ msgstr "자기소개"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:568
 msgid "Biography"
 msgstr "자기소개"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:557
-msgid ""
-"Bookings forwarded from it will no longer be added to your account. You can "
-"add it again later."
-msgstr ""
-"이 주소에서 전달된 예약은 더 이상 계정에 추가되지 않습니다. 나중에 다시 추가"
-"할 수 있습니다."
+msgid "Bookings forwarded from it will no longer be added to your account. You can add it again later."
+msgstr "이 주소에서 전달된 예약은 더 이상 계정에 추가되지 않습니다. 나중에 다시 추가할 수 있습니다."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:376
-msgid ""
-"Bookings you forward to chris@pkuru.com are added to your account when they "
-"come from one of these addresses. Add the other addresses you receive "
-"booking confirmations at."
-msgstr ""
-"이 주소들에서 chris@pkuru.com으로 전달한 예약은 계정에 추가됩니다. 예약 확인 "
-"메일을 받는 다른 주소를 추가하세요."
+msgid "Bookings you forward to chris@pkuru.com are added to your account when they come from one of these addresses. Add the other addresses you receive booking confirmations at."
+msgstr "이 주소들에서 chris@pkuru.com으로 전달한 예약은 계정에 추가됩니다. 예약 확인 메일을 받는 다른 주소를 추가하세요."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:434
 msgid "Canada"
 msgstr "캐나다"
+
+#: src/components/molecules/forms/Form.re.mjs:304
+#~ msgid "cancel"
+#~ msgstr "취소"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/DuprConnectCard.re.mjs:440
@@ -120,6 +107,10 @@ msgstr "확인"
 msgid "Confirmed"
 msgstr "확인됨"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:347
+#~ msgid "Connect a Stripe account to receive payments from events you organize."
+#~ msgstr "주최하는 이벤트의 결제를 받으려면 Stripe 계정을 연결하세요."
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:399
 msgid "Connect Stripe account"
 msgstr "Stripe 계정 연결"
@@ -141,6 +132,10 @@ msgstr "국가"
 #: src/components/organisms/DuprConnectCard.re.mjs:507
 msgid "Create one at mydupr.com or in the DUPR app"
 msgstr "mydupr.com 또는 DUPR 앱에서 계정을 만드세요"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:214
+#~ msgid "details about yourself"
+#~ msgstr "자신에 대한 세부 정보"
 
 #: src/components/shared/PushNotifications.re.mjs:402
 msgid "Disable notifications"
@@ -192,12 +187,12 @@ msgid "DUPR login"
 msgstr "DUPR 로그인"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:168
-msgid ""
-"DUPR needs you to finish setting up your account before it can be linked. "
-"Follow the steps in the DUPR panel, then sign in again."
-msgstr ""
-"계정을 연결하려면 먼저 DUPR에서 계정 설정을 완료해야 합니다. DUPR 패널의 단계"
-"를 따른 후 다시 로그인하세요."
+msgid "DUPR needs you to finish setting up your account before it can be linked. Follow the steps in the DUPR panel, then sign in again."
+msgstr "계정을 연결하려면 먼저 DUPR에서 계정 설정을 완료해야 합니다. DUPR 패널의 단계를 따른 후 다시 로그인하세요."
+
+#: src/components/organisms/DuprConnectCard.re.mjs:187
+#~ msgid "DUPR sent something we couldn't read. Please try again."
+#~ msgstr "DUPR의 응답을 읽을 수 없습니다. 다시 시도해 주세요."
 
 #: src/components/shared/PushNotifications.re.mjs:414
 msgid "Enable notifications"
@@ -211,9 +206,17 @@ msgstr "예상 DUPR"
 msgid "Female"
 msgstr "여성"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:222
+#~ msgid "full name"
+#~ msgstr "성명"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:516
 msgid "Full name"
 msgstr "본명"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:246
+#~ msgid "gender"
+#~ msgstr "성별"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:531
 msgid "Gender"
@@ -252,12 +255,8 @@ msgid "Level"
 msgstr "레벨"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:357
-msgid ""
-"Link your DUPR account to use your verified DUPR rating here. While it's "
-"linked, it replaces your self-rating."
-msgstr ""
-"DUPR 계정을 연결하면 인증된 DUPR 레이팅을 여기서 사용할 수 있습니다. 연결된 "
-"동안에는 자가 평가를 대체합니다."
+msgid "Link your DUPR account to use your verified DUPR rating here. While it's linked, it replaces your self-rating."
+msgstr "DUPR 계정을 연결하면 인증된 DUPR 레이팅을 여기서 사용할 수 있습니다. 연결된 동안에는 자가 평가를 대체합니다."
 
 #: src/components/organisms/DuprConnectCard.re.mjs:289
 msgid "Linked"
@@ -315,12 +314,8 @@ msgid "Notifications"
 msgstr "알림"
 
 #: src/components/shared/PushNotifications.re.mjs:431
-msgid ""
-"Notifications are blocked. To enable them, go to your device or browser "
-"settings and allow notifications for this site."
-msgstr ""
-"알림이 차단되어 있습니다. 활성화하려면 기기 또는 브라우저 설정에서 이 사이트"
-"의 알림을 허용해 주세요."
+msgid "Notifications are blocked. To enable them, go to your device or browser settings and allow notifications for this site."
+msgstr "알림이 차단되어 있습니다. 활성화하려면 기기 또는 브라우저 설정에서 이 사이트의 알림을 허용해 주세요."
 
 #: src/components/molecules/DuprRatingBadge.re.mjs:26
 msgid "NR"
@@ -328,8 +323,7 @@ msgstr "NR"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:348
 msgid "Open it to make it your account email. Until then, nothing changes."
-msgstr ""
-"링크를 열면 계정 이메일로 설정됩니다. 그 전까지는 아무것도 바뀌지 않습니다."
+msgstr "링크를 열면 계정 이메일로 설정됩니다. 그 전까지는 아무것도 바뀌지 않습니다."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:339
 msgid "Open it while signed in to pkuru to finish adding the address."
@@ -347,9 +341,17 @@ msgstr "대기 중"
 msgid "pkuru"
 msgstr "pkuru"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:507
+#~ msgid "Prefer not to say"
+#~ msgstr "밝히지 않음"
+
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "프로"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:213
+#~ msgid "profile"
+#~ msgstr "프로필"
 
 #: src/components/molecules/DuprRatingBadge.re.mjs:37
 #: src/components/molecules/RatingSourceChip.re.mjs:50
@@ -357,12 +359,8 @@ msgid "provisional"
 msgstr "잠정"
 
 #: src/components/shared/PushNotifications.re.mjs:302
-msgid ""
-"Push notifications are blocked. Check your browser or device notification "
-"settings for this site, then try again."
-msgstr ""
-"푸시 알림이 차단되어 있습니다. 이 사이트의 브라우저 또는 기기 알림 설정을 확"
-"인한 후 다시 시도해 주세요."
+msgid "Push notifications are blocked. Check your browser or device notification settings for this site, then try again."
+msgstr "푸시 알림이 차단되어 있습니다. 이 사이트의 브라우저 또는 기기 알림 설정을 확인한 후 다시 시도해 주세요."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:664
 msgid "Receive push notifications for event reminders and updates."
@@ -388,6 +386,10 @@ msgstr "다시 보내기"
 msgid "Resume onboarding"
 msgstr "등록 재개"
 
+#: src/components/molecules/forms/Form.re.mjs:311
+#~ msgid "save"
+#~ msgstr "저장"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:642
 msgid "Save profile"
 msgstr "프로필 저장"
@@ -409,18 +411,12 @@ msgid "Send link"
 msgstr "링크 보내기"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
-msgid ""
-"shows a badge next to your name in RSVP lists to tell people you are looking "
-"for a partner"
+msgid "shows a badge next to your name in RSVP lists to tell people you are looking for a partner"
 msgstr "RSVP 목록에서 이름 옆에 배지를 표시하여 파트너를 찾고 있음을 알립니다"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:404
-msgid ""
-"Sign in to DUPR to link your account. We store your DUPR ID and ratings — "
-"never your DUPR password."
-msgstr ""
-"DUPR에 로그인하여 계정을 연결하세요. DUPR ID와 레이팅만 저장하며, DUPR 비밀번"
-"호는 저장하지 않습니다."
+msgid "Sign in to DUPR to link your account. We store your DUPR ID and ratings — never your DUPR password."
+msgstr "DUPR에 로그인하여 계정을 연결하세요. DUPR ID와 레이팅만 저장하며, DUPR 비밀번호는 저장하지 않습니다."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:442
 msgid "Singapore"
@@ -433,6 +429,11 @@ msgstr "단식"
 #: src/components/organisms/SettingsProfileForm.re.mjs:523
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "일부 이벤트에서는 신분증에 표시된 법적 이름이 필요합니다."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:270
+#, fuzzy
+#~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
+#~ msgstr "일부 이벤트에서는 신분증에 표시된 법적 이름이 필요합니다."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:164
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:171
@@ -496,19 +497,16 @@ msgid "United States"
 msgstr "미국"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:373
-msgid ""
-"Until onboarding is complete, your paid events run on the platform account: "
-"attendees save a card when they RSVP, but you can't charge it. Collect the "
-"fee at the event."
-msgstr ""
-"온보딩이 완료될 때까지 유료 행사는 플랫폼 계정으로 운영됩니다. 참가자는 RSVP "
-"시 카드를 저장하지만 청구할 수 없습니다. 참가비는 행사 현장에서 받으세요."
+msgid "Until onboarding is complete, your paid events run on the platform account: attendees save a card when they RSVP, but you can't charge it. Collect the fee at the event."
+msgstr "온보딩이 완료될 때까지 유료 행사는 플랫폼 계정으로 운영됩니다. 참가자는 RSVP 시 카드를 저장하지만 청구할 수 없습니다. 참가비는 행사 현장에서 받으세요."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:
+#~ msgid "We couldn't send the email. Try \"Resend\" in a moment."
+#~ msgstr "이메일을 보낼 수 없습니다. 잠시 후 \"다시 보내기\"를 눌러 주세요."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:160
 msgid "We couldn't send the email. Try \\\"Resend\\\" in a moment."
-msgstr ""
-"이메일을 보내지 못했습니다. 잠시 후 \\\\\\\"다시 보내기\\\\\\\"를 눌러 주세"
-"요."
+msgstr "이메일을 보내지 못했습니다. 잠시 후 \\\\\\\"다시 보내기\\\\\\\"를 눌러 주세요."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:338
 msgid "We sent a confirmation link to"
@@ -519,114 +517,36 @@ msgid "We sent a link to"
 msgstr "링크를 보냈습니다:"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:471
-msgid ""
-"We'll email a link to the new address. Your current address stays on as a "
-"receiving email."
+msgid "We'll email a link to the new address. Your current address stays on as a receiving email."
 msgstr "새 주소로 링크를 보내 드립니다. 현재 주소는 수신 이메일로 유지됩니다."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:162
 msgid "You can add up to 5 receiving emails. Remove one to add another."
-msgstr ""
-"수신 이메일은 최대 5개까지 추가할 수 있습니다. 추가하려면 하나를 삭제하세요."
+msgstr "수신 이메일은 최대 5개까지 추가할 수 있습니다. 추가하려면 하나를 삭제하세요."
 
 #: src/components/organisms/DuprConnectCard.re.mjs:170
-msgid ""
-"You declined to share your DUPR data, so nothing was linked. Sign in again "
-"and choose Authorize to link."
-msgstr ""
-"DUPR 데이터 공유를 거부하여 아무것도 연결되지 않았습니다. 다시 로그인한 후 "
-"'승인'을 선택하여 연결하세요."
+msgid "You declined to share your DUPR data, so nothing was linked. Sign in again and choose Authorize to link."
+msgstr "DUPR 데이터 공유를 거부하여 아무것도 연결되지 않았습니다. 다시 로그인한 후 '승인'을 선택하여 연결하세요."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:150
 msgid "You've already added that address."
 msgstr "이미 추가한 주소입니다."
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:380
-msgid ""
-"Your account has no email yet. The first address you confirm here becomes "
-"your account email."
-msgstr ""
-"계정에 아직 이메일이 없습니다. 여기서 처음 확인한 주소가 계정 이메일이 됩니"
-"다."
+msgid "Your account has no email yet. The first address you confirm here becomes your account email."
+msgstr "계정에 아직 이메일이 없습니다. 여기서 처음 확인한 주소가 계정 이메일이 됩니다."
 
 #: src/components/organisms/DuprConnectCard.re.mjs:528
-msgid ""
-"Your DUPR rating will stop being used here and your self-rating picker comes "
-"back."
-msgstr ""
-"DUPR 레이팅이 더 이상 사용되지 않으며 자가 평가 선택이 다시 표시됩니다."
+msgid "Your DUPR rating will stop being used here and your self-rating picker comes back."
+msgstr "DUPR 레이팅이 더 이상 사용되지 않으며 자가 평가 선택이 다시 표시됩니다."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:605
-msgid ""
-"Your rating comes from DUPR. Disconnect DUPR below to set your own level "
-"again."
-msgstr ""
-"회원님의 등급은 DUPR에서 가져옵니다. 직접 실력을 설정하려면 아래에서 DUPR 연"
-"결을 해제하세요."
+msgid "Your rating comes from DUPR. Disconnect DUPR below to set your own level again."
+msgstr "회원님의 등급은 DUPR에서 가져옵니다. 직접 실력을 설정하려면 아래에서 DUPR 연결을 해제하세요."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:620
 msgid "Your self-reported skill level"
 msgstr "자가 신고 실력 수준"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:360
-msgid "Your Stripe account is connected, but onboarding isn't complete yet."
-msgstr "Stripe 계정이 연결되었지만 온보딩이 아직 완료되지 않았습니다."
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:363
-msgid "Your Stripe account is connected."
-msgstr "Stripe 계정이 연결되었습니다."
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:289
-#~ msgid "biography"
-#~ msgstr "자기소개"
-
-#: src/components/molecules/forms/Form.re.mjs:304
-#~ msgid "cancel"
-#~ msgstr "취소"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:347
-#~ msgid ""
-#~ "Connect a Stripe account to receive payments from events you organize."
-#~ msgstr "주최하는 이벤트의 결제를 받으려면 Stripe 계정을 연결하세요."
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:214
-#~ msgid "details about yourself"
-#~ msgstr "자신에 대한 세부 정보"
-
-#: src/components/organisms/DuprConnectCard.re.mjs:187
-#~ msgid "DUPR sent something we couldn't read. Please try again."
-#~ msgstr "DUPR의 응답을 읽을 수 없습니다. 다시 시도해 주세요."
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:222
-#~ msgid "full name"
-#~ msgstr "성명"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:246
-#~ msgid "gender"
-#~ msgstr "성별"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:507
-#~ msgid "Prefer not to say"
-#~ msgstr "밝히지 않음"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:213
-#~ msgid "profile"
-#~ msgstr "프로필"
-
-#: src/components/molecules/forms/Form.re.mjs:311
-#~ msgid "save"
-#~ msgstr "저장"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:270
-#, fuzzy
-#~ msgid ""
-#~ "Some events require your legal name as shown on an ID "
-#~ "card.omeventsequoegashownour passporta"
-#~ msgstr "일부 이벤트에서는 신분증에 표시된 법적 이름이 필요합니다."
-
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:
-#~ msgid "We couldn't send the email. Try \"Resend\" in a moment."
-#~ msgstr "이메일을 보낼 수 없습니다. 잠시 후 \"다시 보내기\"를 눌러 주세요."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:353
 #~ msgid "Your Stripe account is connected and ready to accept payments."
@@ -635,3 +555,11 @@ msgstr "Stripe 계정이 연결되었습니다."
 #: src/components/organisms/SettingsProfileForm.re.mjs:350
 #~ msgid "Your Stripe account is connected but onboarding is not yet complete."
 #~ msgstr "Stripe 계정이 연결되었지만 등록이 아직 완료되지 않았습니다."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:360
+msgid "Your Stripe account is connected, but onboarding isn't complete yet."
+msgstr "Stripe 계정이 연결되었지만 온보딩이 아직 완료되지 않았습니다."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:363
+msgid "Your Stripe account is connected."
+msgstr "Stripe 계정이 연결되었습니다."

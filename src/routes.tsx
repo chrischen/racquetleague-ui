@@ -21,6 +21,12 @@ const mainRoutes: RouteObject[] =
       handle: "src/components/routes/NotificationsRoute.gen.tsx",
     },
     {
+      // The viewer's conversation with one person; :userId is their node id.
+      path: "messages/:userId",
+      lazy: () => import("./components/routes/MessageThreadRoute.gen"),
+      handle: "src/components/routes/MessageThreadRoute.gen.tsx",
+    },
+    {
       path: "availability",
       lazy: () => import("./components/routes/AvailabilityRoute.gen"),
       handle: "src/components/routes/AvailabilityRoute.gen.tsx",

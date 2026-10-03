@@ -17,6 +17,10 @@ msgstr ""
 msgid "{0} open"
 msgstr "{0} mở"
 
+#: src/components/pages/ClubPage.re.mjs:94
+#~ msgid "Active members"
+#~ msgstr "Thành viên đang hoạt động"
+
 #: src/components/pages/ClubPage.re.mjs:107
 msgid "Active players"
 msgstr "Người chơi tích cực"
@@ -61,21 +65,17 @@ msgstr "Đã sao chép!"
 msgid "Copy"
 msgstr "Sao chép"
 
+#: src/components/pages/ClubPage.re.mjs:868
+#~ msgid "Create event"
+#~ msgstr "Tạo sự kiện"
+
 #: src/components/pages/ClubPage.re.mjs:897
 msgid "Exempt club members from event fees"
 msgstr "Miễn phí sự kiện cho thành viên câu lạc bộ"
 
 #: src/components/pages/ClubPage.re.mjs:819
-msgid ""
-"Forward court booking confirmations to this address, or give it to a booking "
-"site in place of an email, and each booking becomes an event in this club. "
-"Members who forward from their own email are listed as the booker; anything "
-"else is credited to the club owner."
-msgstr ""
-"Chuyển tiếp xác nhận đặt sân đến địa chỉ này, hoặc cung cấp địa chỉ này cho "
-"trang đặt sân thay cho email, và mỗi lượt đặt sẽ trở thành một sự kiện trong "
-"câu lạc bộ này. Thành viên chuyển tiếp từ email của chính họ sẽ được ghi "
-"nhận là người đặt; các trường hợp khác được ghi cho chủ câu lạc bộ."
+msgid "Forward court booking confirmations to this address, or give it to a booking site in place of an email, and each booking becomes an event in this club. Members who forward from their own email are listed as the booker; anything else is credited to the club owner."
+msgstr "Chuyển tiếp xác nhận đặt sân đến địa chỉ này, hoặc cung cấp địa chỉ này cho trang đặt sân thay cho email, và mỗi lượt đặt sẽ trở thành một sự kiện trong câu lạc bộ này. Thành viên chuyển tiếp từ email của chính họ sẽ được ghi nhận là người đặt; các trường hợp khác được ghi cho chủ câu lạc bộ."
 
 #: src/components/pages/ClubPage.re.mjs:173
 #: src/components/pages/ClubPage.re.mjs:174
@@ -116,12 +116,8 @@ msgid "Member"
 msgstr "Thành viên"
 
 #: src/components/pages/ClubPage.re.mjs:901
-msgid ""
-"Members join priced events without saving a card. Everyone else pays to your "
-"Stripe account as usual."
-msgstr ""
-"Thành viên tham gia các sự kiện có phí mà không cần lưu thẻ. Những người "
-"khác vẫn thanh toán vào tài khoản Stripe của bạn như bình thường."
+msgid "Members join priced events without saving a card. Everyone else pays to your Stripe account as usual."
+msgstr "Thành viên tham gia các sự kiện có phí mà không cần lưu thẻ. Những người khác vẫn thanh toán vào tài khoản Stripe của bạn như bình thường."
 
 #: src/components/pages/ClubPage.re.mjs:314
 msgid "Monday"
@@ -204,19 +200,5 @@ msgid "Yesterday"
 msgstr "Hôm qua"
 
 #: src/components/pages/ClubPage.re.mjs:901
-msgid ""
-"Your club has no connected Stripe account, so members always join without "
-"paying and other players' cards are only kept on file. Connect Stripe in "
-"your profile settings to charge event fees."
-msgstr ""
-"Câu lạc bộ của bạn chưa liên kết tài khoản Stripe, nên thành viên luôn tham "
-"gia mà không phải trả phí và thẻ của những người chơi khác chỉ được lưu lại. "
-"Hãy liên kết Stripe trong cài đặt trang cá nhân để thu phí sự kiện."
-
-#: src/components/pages/ClubPage.re.mjs:94
-#~ msgid "Active members"
-#~ msgstr "Thành viên đang hoạt động"
-
-#: src/components/pages/ClubPage.re.mjs:868
-#~ msgid "Create event"
-#~ msgstr "Tạo sự kiện"
+msgid "Your club has no connected Stripe account, so members always join without paying and other players' cards are only kept on file. Connect Stripe in your profile settings to charge event fees."
+msgstr "Câu lạc bộ của bạn chưa liên kết tài khoản Stripe, nên thành viên luôn tham gia mà không phải trả phí và thẻ của những người chơi khác chỉ được lưu lại. Hãy liên kết Stripe trong cài đặt trang cá nhân để thu phí sự kiện."

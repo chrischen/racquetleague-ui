@@ -325,6 +325,8 @@ let make = (
           computedSigma: n.rating->Option.flatMap(r => r.sigma),
           note: n.message,
         }),
+        // Invite-mode only; a pending request is not judged on availability.
+        availability: None,
       }
     })
   )
@@ -967,7 +969,7 @@ let make = (
           players=pendingReviewPlayers
           eventTitle={eventData.title->Option.getOr("")}
           mode=PlayerInviteSwipeDeck.Approve
-          onAccept=handleApprove
+          onAccept={(rsvpId, _message) => handleApprove(rsvpId)}
           onClose={() => setPendingSwipeOpen(_ => false)}
         />
       : React.null}
@@ -990,8 +992,9 @@ let make = (
         viewerUser->Option.map(v => [v.id])->Option.getOr([]),
       )}
       invitedCount={invitedRsvps->Array.length}
-      invitedChips={invitedRsvps
-      ->Array.map(edge =>
+      invitedChips={threadUserIds =>
+        invitedRsvps
+        ->Array.map(edge =>
         <li key=edge.id className="relative">
           <PkEventRsvp
             eventId=eventData.id
@@ -1001,6 +1004,11 @@ let make = (
             isAdmin=eventData.viewerIsAdmin
                 chargesEnabled=eventData.chargesEnabled
             isInvited=true
+            threadPath=?{edge.user->Option.flatMap(user =>
+              threadUserIds->Belt.Set.String.has(user.id)
+                ? Some(DirectMessage.threadPath(user.id))
+                : None
+            )}
             showRating=isCompetitive
             connectionKey="PkRSVPSection_event_rsvps"
           />

@@ -46,40 +46,25 @@ msgid "Save your card"
 msgstr "บันทึกบัตรของคุณ"
 
 #: src/components/organisms/StripePaymentEmbed.re.mjs:112
-msgid ""
-"The card form could not be loaded. Check your connection or turn off any "
-"content blocker, then try again."
-msgstr ""
-"ไม่สามารถโหลดแบบฟอร์มบัตรได้ ตรวจสอบการเชื่อมต่อหรือปิดตัวบล็อกเนื้อหา แล้วลองใหม่อีกครั้ง"
+msgid "The card form could not be loaded. Check your connection or turn off any content blocker, then try again."
+msgstr "ไม่สามารถโหลดแบบฟอร์มบัตรได้ ตรวจสอบการเชื่อมต่อหรือปิดตัวบล็อกเนื้อหา แล้วลองใหม่อีกครั้ง"
 
 #: src/components/organisms/StripePaymentEmbed.re.mjs:117
 msgid "The card form could not be loaded. Close this and try again."
 msgstr "ไม่สามารถโหลดแบบฟอร์มบัตรได้ ปิดหน้านี้แล้วลองใหม่อีกครั้ง"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:200
-msgid ""
-"Your card is saved now, not charged. The organizer will charge {amountLabel} "
-"later."
-msgstr ""
-"บัตรของคุณถูกบันทึกไว้แล้ว ยังไม่มีการเรียกเก็บเงิน ผู้จัดจะเรียกเก็บ {amountLabel} ในภายหลัง"
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+#~ msgid "Your card is saved now, not charged. The organizer will charge {amountLabel} after the event."
+#~ msgstr "บัตรของคุณถูกบันทึกไว้แล้ว ยังไม่มีการเรียกเก็บเงิน ผู้จัดจะเรียกเก็บ {amountLabel}หลังจบกิจกรรม"
 
 #: src/components/organisms/StripePaymentEmbed.re.mjs:200
-msgid ""
-"Your card is saved now, not charged. The organizer will charge the "
-"participation fee later."
+msgid "Your card is saved now, not charged. The organizer will charge {amountLabel} later."
+msgstr "บัตรของคุณถูกบันทึกไว้แล้ว ยังไม่มีการเรียกเก็บเงิน ผู้จัดจะเรียกเก็บ {amountLabel} ในภายหลัง"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+#~ msgid "Your card is saved now, not charged. The organizer will charge the participation fee after the event."
+#~ msgstr "บัตรของคุณถูกบันทึกไว้แล้ว ยังไม่มีการเรียกเก็บเงิน ผู้จัดจะเรียกเก็บค่าเข้าร่วมหลังจบกิจกรรม"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:200
+msgid "Your card is saved now, not charged. The organizer will charge the participation fee later."
 msgstr "บัตรของคุณถูกบันทึกไว้แล้ว ยังไม่มีการเรียกเก็บเงิน ผู้จัดจะเรียกเก็บค่าเข้าร่วมในภายหลัง"
-
-#: src/components/organisms/StripePaymentEmbed.re.mjs:151
-#~ msgid ""
-#~ "Your card is saved now, not charged. The organizer will charge "
-#~ "{amountLabel} after the event."
-#~ msgstr ""
-#~ "บัตรของคุณถูกบันทึกไว้แล้ว ยังไม่มีการเรียกเก็บเงิน ผู้จัดจะเรียกเก็บ {amountLabel}"
-#~ "หลังจบกิจกรรม"
-
-#: src/components/organisms/StripePaymentEmbed.re.mjs:151
-#~ msgid ""
-#~ "Your card is saved now, not charged. The organizer will charge the "
-#~ "participation fee after the event."
-#~ msgstr ""
-#~ "บัตรของคุณถูกบันทึกไว้แล้ว ยังไม่มีการเรียกเก็บเงิน ผู้จัดจะเรียกเก็บค่าเข้าร่วมหลังจบกิจกรรม"

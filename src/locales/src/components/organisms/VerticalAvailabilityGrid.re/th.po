@@ -26,6 +26,14 @@ msgstr "{0} ช่วงเวลาต่อเนื่อง"
 msgid "{0} continuous openings"
 msgstr "{0} ช่วงเวลาต่อเนื่อง"
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
+#~ msgid "{0} continuous span"
+#~ msgstr "{0} ช่วงต่อเนื่อง"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:59
+#~ msgid "{0} continuous spans"
+#~ msgstr "{0} ช่วงต่อเนื่อง"
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 #: src/components/molecules/CourtOpeningCard.re.mjs:58
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:98
@@ -38,6 +46,14 @@ msgstr "สนาม {0}"
 msgid "{0} courts"
 msgstr "{0} สนาม"
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:62
+#~ msgid "{0} exact option"
+#~ msgstr "{0} ตัวเลือกที่ตรงกัน"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:63
+#~ msgid "{0} exact options"
+#~ msgstr "{0} ตัวเลือกที่ตรงกัน"
+
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:106
 msgid "{0} location"
 msgstr "{0} สถานที่"
@@ -45,6 +61,30 @@ msgstr "{0} สถานที่"
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:107
 msgid "{0} locations"
 msgstr "{0} สถานที่"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
+#~ msgid "{0} segment"
+#~ msgstr "{0} ช่วง"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:138
+#~ msgid "{0} segments"
+#~ msgstr "{0} ช่วง"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
+#~ msgid "{0} time option"
+#~ msgstr "{0} ตัวเลือกเวลา"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
+#~ msgid "{0} time options"
+#~ msgstr "{0} ตัวเลือกเวลา"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:151
+#~ msgid "{groupCourtsPhrase} at {groupLocationsPhrase}"
+#~ msgstr "{groupCourtsPhrase} ที่ {groupLocationsPhrase}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:135
+#~ msgid "{groupLocations, plural, one {{0}} other {{1}}}"
+#~ msgstr "{groupLocations, plural, one {{0}} other {{1}}}"
 
 #: src/components/molecules/CourtOpeningCard.re.mjs:52
 msgid "{hs}h"
@@ -76,9 +116,21 @@ msgstr "กลางแจ้ง {n} แห่ง"
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:174
+#~ msgid "{segLocations, plural, one {{0}} other {{1}}}"
+#~ msgstr "{segLocations, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:61
+#~ msgid "{segmentCount, plural, one {{0}} other {{1}}}"
+#~ msgstr "{segmentCount, plural, one {{0}} other {{1}}}"
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
+#~ msgid "{totalCourts, plural, one {{0}} other {{1}}}"
+#~ msgstr "{totalCourts, plural, one {{0}} other {{1}}}"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:842
 msgid "Add time windows above"
@@ -88,9 +140,25 @@ msgstr "เพิ่มช่วงเวลาด้านบน"
 msgid "Clear"
 msgstr "ล้าง"
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:149
+#~ msgid "Continuous availability"
+#~ msgstr "ความพร้อมแบบต่อเนื่อง"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:779
+#~ msgid "Court openings are shown only when they overlap your time."
+#~ msgstr "ช่วงเวลาว่างของสนามจะแสดงเฉพาะเมื่อตรงกับช่วงเวลาของคุณเท่านั้น"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:625
+#~ msgid "Courts"
+#~ msgstr "สนาม"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
 msgid "Courts · thickness = count"
 msgstr "คอร์ต · ความหนา = จำนวน"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+#~ msgid "Courts Â· thickness = count"
+#~ msgstr "คอร์ท · ความหนา = จำนวน"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:885
 msgid "Courts and openings covering your full window"
@@ -99,6 +167,10 @@ msgstr "คอร์ตและช่วงเวลาว่างที่ค
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:827
 msgid "Courts are listed individually with their largest continuous openings."
 msgstr "คอร์ตแต่ละแห่งแสดงพร้อมช่วงเวลาว่างต่อเนื่องที่ยาวที่สุด"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:837
+#~ msgid "Courts available during your time"
+#~ msgstr "สนามที่ว่างในช่วงเวลาของคุณ"
 
 #: src/components/molecules/CourtOpeningCard.re.mjs:141
 msgid "Create event"
@@ -111,6 +183,19 @@ msgstr "กิจกรรม"
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:918
 msgid "Let hosts schedule events when most of you are free"
 msgstr "ให้เจ้าภาพจัดตารางอีเวนต์เมื่อส่วนใหญ่ว่าง"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
+#~ msgid "Long opening"
+#~ msgstr "ช่วงเวลาว่างยาว"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "ตรงกับเวลาของฉัน"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "เปิด"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:368
 msgid "Player availability heatmap"
@@ -132,21 +217,37 @@ msgstr "บันทึก"
 msgid "Saving…"
 msgstr "กำลังบันทึก…"
 
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
+#~ msgid "Savingâ¦"
+#~ msgstr "กำลังบันทึก…"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
 msgid "Schedule"
 msgstr "ตารางเวลา"
 
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
+#~ msgid "Set your availability for the next 2 weeks. Tap a day to add a time window, drag to move, grab the edges to resize."
+#~ msgstr "ตั้งเวลาว่างของคุณสำหรับ 2 สัปดาห์ข้างหน้า แตะวันเพื่อเพิ่มช่วงเวลา ลากเพื่อย้าย จับขอบเพื่อปรับขนาด"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:589
+#~ msgid "Set your availability for the next 2 weeks. Your events and available windows share a footprint; cyan cell borders show courts."
+#~ msgstr "ตั้งค่าความพร้อมของคุณสำหรับ 2 สัปดาห์ข้างหน้า กิจกรรมและช่วงเวลาว่างของคุณแสดงร่วมกัน โดยกรอบเซลล์สีฟ้าแสดงคอร์ต"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:624
-msgid ""
-"Set your availability for the next 2 weeks. Your events and available "
-"windows share a footprint; thicker cyan lines mean more courts."
-msgstr ""
-"ตั้งค่าความพร้อมของคุณสำหรับ 2 สัปดาห์ข้างหน้า กิจกรรมและช่วงเวลาว่างของคุณแสดงร่วมกัน "
-"เส้นสีฟ้าที่หนากว่าหมายถึงจำนวนคอร์ทที่มากกว่า"
+msgid "Set your availability for the next 2 weeks. Your events and available windows share a footprint; thicker cyan lines mean more courts."
+msgstr "ตั้งค่าความพร้อมของคุณสำหรับ 2 สัปดาห์ข้างหน้า กิจกรรมและช่วงเวลาว่างของคุณแสดงร่วมกัน เส้นสีฟ้าที่หนากว่าหมายถึงจำนวนคอร์ทที่มากกว่า"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:914
 msgid "Share with your club"
 msgstr "แชร์กับชมรมของคุณ"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:692
+#~ msgid "Tap an empty area of a day to add a window · drag to move · grab the edges to resize"
+#~ msgstr "แตะพื้นที่ว่างในวันเพื่อเพิ่มช่วงเวลา · ลากเพื่อย้าย · จับขอบเพื่อปรับขนาด"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:765
+#~ msgid "Tap an empty area to add time · select a cyan court opening up to 4h to match it · drag to move · grab the edges to resize"
+#~ msgstr "แตะพื้นที่ว่างเพื่อเพิ่มเวลา · เลือกช่วงว่างสีฟ้าสูงสุด 4 ชม. เพื่อจับคู่ · ลากเพื่อย้าย · จับขอบเพื่อปรับขนาด"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:813
 msgid "Tap empty time to add · drag to move · grab edges to resize"
@@ -155,6 +256,18 @@ msgstr "แตะช่องว่างเพื่อเพิ่ม · ล�
 #: src/components/molecules/CourtOpeningCard.re.mjs:146
 msgid "Use option"
 msgstr "ใช้ตัวเลือกนี้"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
+#~ msgid "Use this time"
+#~ msgstr "ใช้เวลานี้"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
+#~ msgid "View {groupCourtsPhrase} & reserve"
+#~ msgstr "ดู {groupCourtsPhrase} และจอง"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:217
+#~ msgid "View {segCourtsPhrase} & reserve"
+#~ msgstr "ดู {segCourtsPhrase} และจอง"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:689
 msgid "Weekday eves"
@@ -175,134 +288,3 @@ msgstr "เวลาว่างของคุณ"
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:675
 msgid "Your time"
 msgstr "เวลาของคุณ"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
-#~ msgid "{0} continuous span"
-#~ msgstr "{0} ช่วงต่อเนื่อง"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:59
-#~ msgid "{0} continuous spans"
-#~ msgstr "{0} ช่วงต่อเนื่อง"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:62
-#~ msgid "{0} exact option"
-#~ msgstr "{0} ตัวเลือกที่ตรงกัน"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:63
-#~ msgid "{0} exact options"
-#~ msgstr "{0} ตัวเลือกที่ตรงกัน"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
-#~ msgid "{0} segment"
-#~ msgstr "{0} ช่วง"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:138
-#~ msgid "{0} segments"
-#~ msgstr "{0} ช่วง"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
-#~ msgid "{0} time option"
-#~ msgstr "{0} ตัวเลือกเวลา"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
-#~ msgid "{0} time options"
-#~ msgstr "{0} ตัวเลือกเวลา"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:151
-#~ msgid "{groupCourtsPhrase} at {groupLocationsPhrase}"
-#~ msgstr "{groupCourtsPhrase} ที่ {groupLocationsPhrase}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:135
-#~ msgid "{groupLocations, plural, one {{0}} other {{1}}}"
-#~ msgstr "{groupLocations, plural, one {{0}} other {{1}}}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:174
-#~ msgid "{segLocations, plural, one {{0}} other {{1}}}"
-#~ msgstr "{segLocations, plural, one {{0}} other {{1}}}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:61
-#~ msgid "{segmentCount, plural, one {{0}} other {{1}}}"
-#~ msgstr "{segmentCount, plural, one {{0}} other {{1}}}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
-#~ msgid "{totalCourts, plural, one {{0}} other {{1}}}"
-#~ msgstr "{totalCourts, plural, one {{0}} other {{1}}}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:149
-#~ msgid "Continuous availability"
-#~ msgstr "ความพร้อมแบบต่อเนื่อง"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:779
-#~ msgid "Court openings are shown only when they overlap your time."
-#~ msgstr "ช่วงเวลาว่างของสนามจะแสดงเฉพาะเมื่อตรงกับช่วงเวลาของคุณเท่านั้น"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:625
-#~ msgid "Courts"
-#~ msgstr "สนาม"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
-#~ msgid "Courts Â· thickness = count"
-#~ msgstr "คอร์ท · ความหนา = จำนวน"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:837
-#~ msgid "Courts available during your time"
-#~ msgstr "สนามที่ว่างในช่วงเวลาของคุณ"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
-#~ msgid "Long opening"
-#~ msgstr "ช่วงเวลาว่างยาว"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-#~ msgid "Match my time"
-#~ msgstr "ตรงกับเวลาของฉัน"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-#~ msgid "open"
-#~ msgstr "เปิด"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
-#~ msgid "Savingâ¦"
-#~ msgstr "กำลังบันทึก…"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
-#~ msgid ""
-#~ "Set your availability for the next 2 weeks. Tap a day to add a time "
-#~ "window, drag to move, grab the edges to resize."
-#~ msgstr ""
-#~ "ตั้งเวลาว่างของคุณสำหรับ 2 สัปดาห์ข้างหน้า แตะวันเพื่อเพิ่มช่วงเวลา ลากเพื่อย้าย "
-#~ "จับขอบเพื่อปรับขนาด"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:589
-#~ msgid ""
-#~ "Set your availability for the next 2 weeks. Your events and available "
-#~ "windows share a footprint; cyan cell borders show courts."
-#~ msgstr ""
-#~ "ตั้งค่าความพร้อมของคุณสำหรับ 2 สัปดาห์ข้างหน้า กิจกรรมและช่วงเวลาว่างของคุณแสดงร่วมกัน "
-#~ "โดยกรอบเซลล์สีฟ้าแสดงคอร์ต"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:692
-#~ msgid ""
-#~ "Tap an empty area of a day to add a window · drag to move · grab the "
-#~ "edges to resize"
-#~ msgstr "แตะพื้นที่ว่างในวันเพื่อเพิ่มช่วงเวลา · ลากเพื่อย้าย · จับขอบเพื่อปรับขนาด"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:765
-#~ msgid ""
-#~ "Tap an empty area to add time · select a cyan court opening up to 4h to "
-#~ "match it · drag to move · grab the edges to resize"
-#~ msgstr ""
-#~ "แตะพื้นที่ว่างเพื่อเพิ่มเวลา · เลือกช่วงว่างสีฟ้าสูงสุด 4 ชม. เพื่อจับคู่ · ลากเพื่อย้าย · "
-#~ "จับขอบเพื่อปรับขนาด"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
-#~ msgid "Use this time"
-#~ msgstr "ใช้เวลานี้"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
-#~ msgid "View {groupCourtsPhrase} & reserve"
-#~ msgstr "ดู {groupCourtsPhrase} และจอง"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:217
-#~ msgid "View {segCourtsPhrase} & reserve"
-#~ msgstr "ดู {segCourtsPhrase} และจอง"

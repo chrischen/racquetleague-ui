@@ -21,6 +21,10 @@ msgstr "{messageCountStr}件のメッセージ · {totalCountStr}件の更新"
 msgid "Activity"
 msgstr "アクティビティ"
 
+#: src/components/organisms/PkEventMessages.re.mjs:467
+#~ msgid "Add a message..."
+#~ msgstr "メッセージを追加..."
+
 #: src/components/organisms/PkEventMessages.re.mjs:328
 #: src/components/organisms/PkEventMessages.re.mjs:465
 msgid "Event chat"
@@ -67,6 +71,10 @@ msgstr "メッセージはまだありません"
 msgid "Send message"
 msgstr "メッセージを送信"
 
+#: src/components/organisms/PkEventMessages.re.mjs:455
+#~ msgid "Show all {0} items"
+#~ msgstr "{0} 件すべて表示"
+
 #: src/components/organisms/PkEventMessages.re.mjs:355
 msgid "Show less"
 msgstr "折りたたむ"
@@ -82,11 +90,3 @@ msgstr "管理者によってイベントに追加されました"
 #: src/components/organisms/PkEventMessages.re.mjs:199
 msgid "was invited to the event"
 msgstr "イベントに招待されました"
-
-#: src/components/organisms/PkEventMessages.re.mjs:467
-#~ msgid "Add a message..."
-#~ msgstr "メッセージを追加..."
-
-#: src/components/organisms/PkEventMessages.re.mjs:455
-#~ msgid "Show all {0} items"
-#~ msgstr "{0} 件すべて表示"

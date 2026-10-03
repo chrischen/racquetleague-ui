@@ -288,7 +288,7 @@ function EventMessages(props) {
                                       mainMessageText = Core__Option.getOr(detailsOpt, t`left the event`);
                                       break;
                                   case "rsvp_invited" :
-                                      mainMessageText = Core__Option.getOr(detailsOpt, t`was invited to the event`);
+                                      mainMessageText = t`was invited to the event`;
                                       break;
                                   case "rsvp_promoted" :
                                       mainMessageText = Core__Option.getOr(detailsOpt, t`joined from waitlist`);

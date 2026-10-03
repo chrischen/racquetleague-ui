@@ -11,9 +11,11 @@ import * as PkEventRsvp from "./PkEventRsvp.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as EventInvites from "./EventInvites.re.mjs";
 import * as LucideReact from "lucide-react";
+import * as DirectMessage from "../../lib/DirectMessage.re.mjs";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 import * as FramerMotion from "framer-motion";
 import * as RelayRuntime from "relay-runtime";
+import * as Belt_SetString from "rescript/lib/es6/belt_SetString.js";
 import * as CombinedRating from "../../lib/CombinedRating.re.mjs";
 import * as AutocompleteUser from "./AutocompleteUser.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -390,7 +392,8 @@ function PkRSVPSection(props) {
                                           })),
                                     note: n.message
                                   }
-                                }
+                                },
+                                availability: undefined
                               };
                       }));
         }));
@@ -433,14 +436,6 @@ function PkRSVPSection(props) {
           }), undefined, undefined);
   };
   var smartRsvpBusy = isEvaluateSmartRsvpsInFlight || isPreviewingSmartRsvps || isSmartWaitlistInFlight;
-  var handleApprove = function (rsvpId) {
-    commitUpdateListType({
-          input: {
-            listType: 0,
-            rsvpId: rsvpId
-          }
-        }, undefined, undefined, undefined, undefined, undefined, undefined);
-  };
   var mus = Core__Array.filterMap(confirmedRsvps, seedMu);
   var maxRating = Core__Array.reduce(mus, 0, (function (acc, mu) {
           if (mu > acc) {
@@ -1205,7 +1200,14 @@ function PkRSVPSection(props) {
                         players: pendingReviewPlayers,
                         eventTitle: Core__Option.getOr(eventData.title, ""),
                         mode: "Approve",
-                        onAccept: handleApprove,
+                        onAccept: (function (rsvpId, _message) {
+                            commitUpdateListType({
+                                  input: {
+                                    listType: 0,
+                                    rsvpId: rsvpId
+                                  }
+                                }, undefined, undefined, undefined, undefined, undefined, undefined);
+                          }),
                         onClose: (function () {
                             setPendingSwipeOpen(function (param) {
                                   return false;
@@ -1237,22 +1239,30 @@ function PkRSVPSection(props) {
                                       return [v.id];
                                     })), [])),
                       invitedCount: invitedRsvps.length,
-                      invitedChips: invitedRsvps.map(function (edge) {
-                            return JsxRuntime.jsx("li", {
-                                        children: JsxRuntime.jsx(PkEventRsvp.make, {
-                                              rsvp: edge.fragmentRefs,
-                                              activitySlug: activitySlug,
-                                              maxRating: maxRating$1,
-                                              eventId: eventData.id,
-                                              isAdmin: eventData.viewerIsAdmin,
-                                              chargesEnabled: eventData.chargesEnabled,
-                                              isInvited: true,
-                                              showRating: isCompetitive,
-                                              connectionKey: "PkRSVPSection_event_rsvps"
-                                            }),
-                                        className: "relative"
-                                      }, edge.id);
-                          })
+                      invitedChips: (function (threadUserIds) {
+                          return invitedRsvps.map(function (edge) {
+                                      return JsxRuntime.jsx("li", {
+                                                  children: JsxRuntime.jsx(PkEventRsvp.make, {
+                                                        rsvp: edge.fragmentRefs,
+                                                        activitySlug: activitySlug,
+                                                        maxRating: maxRating$1,
+                                                        eventId: eventData.id,
+                                                        isAdmin: eventData.viewerIsAdmin,
+                                                        chargesEnabled: eventData.chargesEnabled,
+                                                        isInvited: true,
+                                                        threadPath: Core__Option.flatMap(edge.user, (function (user) {
+                                                                if (Belt_SetString.has(threadUserIds, user.id)) {
+                                                                  return DirectMessage.threadPath(user.id);
+                                                                }
+                                                                
+                                                              })),
+                                                        showRating: isCompetitive,
+                                                        connectionKey: "PkRSVPSection_event_rsvps"
+                                                      }),
+                                                  className: "relative"
+                                                }, edge.id);
+                                    });
+                        })
                     })
               ],
               className: "mx-3 mt-3 rounded-xl border border-gray-200 bg-white px-4 py-4 dark:border-[#2a2b30] dark:bg-[#1e1f23]"

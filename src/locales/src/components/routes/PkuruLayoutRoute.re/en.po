@@ -218,7 +218,7 @@ msgstr ""
 msgid "activity is required"
 msgstr ""
 
-#: src/components/molecules/NotificationRow.re.mjs:140
+#: src/components/molecules/NotificationRow.re.mjs:145
 msgid "Added to Event"
 msgstr ""
 
@@ -756,7 +756,7 @@ msgstr ""
 #~ msgid "Evening"
 #~ msgstr ""
 
-#: src/components/molecules/NotificationRow.re.mjs:130
+#: src/components/molecules/NotificationRow.re.mjs:135
 msgid "Event Canceled"
 msgstr ""
 
@@ -788,8 +788,8 @@ msgstr ""
 msgid "Event type"
 msgstr ""
 
-#: src/components/molecules/NotificationRow.re.mjs:132
-#: src/components/molecules/NotificationRow.re.mjs:135
+#: src/components/molecules/NotificationRow.re.mjs:137
+#: src/components/molecules/NotificationRow.re.mjs:140
 msgid "Event Uncanceled"
 msgstr ""
 
@@ -917,7 +917,7 @@ msgstr ""
 #~ msgid "Host an event"
 #~ msgstr ""
 
-#: src/components/molecules/NotificationRow.re.mjs:138
+#: src/components/molecules/NotificationRow.re.mjs:143
 msgid "Host Message"
 msgstr ""
 
@@ -967,7 +967,11 @@ msgstr ""
 #~ msgid "Intermediate+"
 #~ msgstr ""
 
-#: src/components/molecules/NotificationRow.re.mjs:146
+#: src/components/molecules/NotificationRow.re.mjs:131
+msgid "Invitation"
+msgstr ""
+
+#: src/components/molecules/NotificationRow.re.mjs:151
 msgid "Invited to Event"
 msgstr ""
 
@@ -975,11 +979,11 @@ msgstr ""
 msgid "Japan Time"
 msgstr ""
 
-#: src/components/molecules/NotificationRow.re.mjs:142
+#: src/components/molecules/NotificationRow.re.mjs:147
 msgid "Joined"
 msgstr ""
 
-#: src/components/molecules/NotificationRow.re.mjs:152
+#: src/components/molecules/NotificationRow.re.mjs:157
 msgid "Joined Club"
 msgstr ""
 
@@ -999,7 +1003,7 @@ msgstr ""
 msgid "Leaderboard"
 msgstr ""
 
-#: src/components/molecules/NotificationRow.re.mjs:144
+#: src/components/molecules/NotificationRow.re.mjs:149
 msgid "Left Event"
 msgstr ""
 
@@ -1126,12 +1130,16 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#: src/components/molecules/NotificationRow.re.mjs:126
+#: src/components/molecules/NotificationRow.re.mjs:127
 msgid "New Comment"
 msgstr ""
 
 #: src/components/pages/PkuruLayout.re.mjs:495
 msgid "New event"
+msgstr ""
+
+#: src/components/molecules/NotificationRow.re.mjs:129
+msgid "New message"
 msgstr ""
 
 #: src/components/organisms/CreateEventModal.re.mjs:80
@@ -1179,7 +1187,7 @@ msgstr ""
 #~ msgid "Not now"
 #~ msgstr ""
 
-#: src/components/molecules/NotificationRow.re.mjs:154
+#: src/components/molecules/NotificationRow.re.mjs:159
 msgid "Notification"
 msgstr ""
 
@@ -1193,7 +1201,7 @@ msgstr ""
 #~ msgid "NR"
 #~ msgstr ""
 
-#: src/components/molecules/NotificationRow.re.mjs:148
+#: src/components/molecules/NotificationRow.re.mjs:153
 msgid "Off Waitlist"
 msgstr ""
 
@@ -1284,7 +1292,7 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: src/components/molecules/NotificationRow.re.mjs:150
+#: src/components/molecules/NotificationRow.re.mjs:155
 msgid "Removed from Event"
 msgstr ""
 

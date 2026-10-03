@@ -21,6 +21,11 @@ msgstr "管理者"
 msgid "Approve"
 msgstr "承認"
 
+#: src/components/pages/ClubMembersPage.re.mjs:179
+#, fuzzy
+#~ msgid "Are you sure you want to remove"
+#~ msgstr "本当に{0}をサークルから削除しますか？"
+
 #: src/components/pages/ClubMembersPage.re.mjs:232
 #: src/components/pages/ClubMembersPage.re.mjs:269
 msgid "Are you sure you want to remove {0} from the club?"
@@ -37,6 +42,10 @@ msgstr "サークルが見つかりません"
 #: src/components/molecules/ConfirmDialog.re.mjs:41
 msgid "Confirm"
 msgstr "確認"
+
+#: src/components/pages/ClubMembersPage.re.mjs:183
+#~ msgid "from the club?"
+#~ msgstr "をクラブから削除しますか？"
 
 #: src/components/pages/ClubMembersPage.re.mjs:529
 msgid "Loading members..."
@@ -76,12 +85,3 @@ msgstr "管理者を解除"
 #: src/components/pages/ClubMembersPage.re.mjs:268
 msgid "Remove member?"
 msgstr "メンバーを削除しますか？"
-
-#: src/components/pages/ClubMembersPage.re.mjs:179
-#, fuzzy
-#~ msgid "Are you sure you want to remove"
-#~ msgstr "本当に{0}をサークルから削除しますか？"
-
-#: src/components/pages/ClubMembersPage.re.mjs:183
-#~ msgid "from the club?"
-#~ msgstr "をクラブから削除しますか？"

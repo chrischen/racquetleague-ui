@@ -54,15 +54,11 @@ msgid "Enter the event details yourself or ask the assistant to fill them in."
 msgstr "自行填寫活動細節，或請助理協助填寫。"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:351
-msgid ""
-"Events are added privately to {myEvents}. Make an event public whenever you "
-"need to find players."
+msgid "Events are added privately to {myEvents}. Make an event public whenever you need to find players."
 msgstr "活動會以私人方式加入{myEvents}。需要找球員時，隨時可以將活動設為公開。"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:183
-msgid ""
-"Forward your booking confirmation to {forwardingAddress} from your email "
-"{yourEmail}."
+msgid "Forward your booking confirmation to {forwardingAddress} from your email {yourEmail}."
 msgstr "從你的電子郵件 {yourEmail} 將預訂確認信轉寄至 {forwardingAddress}。"
 
 #: src/components/molecules/AddToCalendar.re.mjs:27
@@ -78,25 +74,17 @@ msgid "New plan"
 msgstr "新計劃"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:208
-msgid ""
-"Or use this email {bookingAddress} when booking. We’ll forward the "
-"confirmation to {yourEmail}."
-msgstr ""
-"或在預訂時使用這個電子郵件 {bookingAddress}，我們會將確認信轉寄到 "
-"{yourEmail}。"
+msgid "Or use this email {bookingAddress} when booking. We’ll forward the confirmation to {yourEmail}."
+msgstr "或在預訂時使用這個電子郵件 {bookingAddress}，我們會將確認信轉寄到 {yourEmail}。"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:262
 msgid "Sync calendar"
 msgstr "同步日曆"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:250
-msgid ""
-"Sync your Pkuru calendar so new events appear automatically in your calendar "
-"app."
+msgid "Sync your Pkuru calendar so new events appear automatically in your calendar app."
 msgstr "同步你的 Pkuru 日曆，新活動會自動顯示在你的日曆 App 中。"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:225
-msgid ""
-"You can include any additional event details like the level, max players, "
-"price, etc. in the email that you forward."
+msgid "You can include any additional event details like the level, max players, price, etc. in the email that you forward."
 msgstr "你可以在轉寄的郵件中附上其他活動細節，例如等級、人數上限、價格等。"

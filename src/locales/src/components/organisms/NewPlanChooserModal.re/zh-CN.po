@@ -54,16 +54,11 @@ msgid "Enter the event details yourself or ask the assistant to fill them in."
 msgstr "自行填写活动详情，或让助手帮你填写。"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:351
-msgid ""
-"Events are added privately to {myEvents}. Make an event public whenever you "
-"need to find players."
-msgstr ""
-"活动会以私密方式添加到{myEvents}。需要找球员时，随时可以将活动设为公开。"
+msgid "Events are added privately to {myEvents}. Make an event public whenever you need to find players."
+msgstr "活动会以私密方式添加到{myEvents}。需要找球员时，随时可以将活动设为公开。"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:183
-msgid ""
-"Forward your booking confirmation to {forwardingAddress} from your email "
-"{yourEmail}."
+msgid "Forward your booking confirmation to {forwardingAddress} from your email {yourEmail}."
 msgstr "从你的邮箱 {yourEmail} 将预订确认邮件转发至 {forwardingAddress}。"
 
 #: src/components/molecules/AddToCalendar.re.mjs:27
@@ -79,24 +74,17 @@ msgid "New plan"
 msgstr "新计划"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:208
-msgid ""
-"Or use this email {bookingAddress} when booking. We’ll forward the "
-"confirmation to {yourEmail}."
-msgstr ""
-"或者在预订时使用此邮箱 {bookingAddress}，我们会将确认邮件转发到 {yourEmail}。"
+msgid "Or use this email {bookingAddress} when booking. We’ll forward the confirmation to {yourEmail}."
+msgstr "或者在预订时使用此邮箱 {bookingAddress}，我们会将确认邮件转发到 {yourEmail}。"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:262
 msgid "Sync calendar"
 msgstr "同步日历"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:250
-msgid ""
-"Sync your Pkuru calendar so new events appear automatically in your calendar "
-"app."
+msgid "Sync your Pkuru calendar so new events appear automatically in your calendar app."
 msgstr "同步你的 Pkuru 日历，新活动会自动显示在你的日历应用中。"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:225
-msgid ""
-"You can include any additional event details like the level, max players, "
-"price, etc. in the email that you forward."
+msgid "You can include any additional event details like the level, max players, price, etc. in the email that you forward."
 msgstr "你可以在转发的邮件中附上其他活动详情，例如级别、最大人数、价格等。"

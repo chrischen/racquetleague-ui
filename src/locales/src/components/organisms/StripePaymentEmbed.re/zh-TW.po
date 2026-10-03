@@ -46,36 +46,25 @@ msgid "Save your card"
 msgstr "儲存你的卡片"
 
 #: src/components/organisms/StripePaymentEmbed.re.mjs:112
-msgid ""
-"The card form could not be loaded. Check your connection or turn off any "
-"content blocker, then try again."
+msgid "The card form could not be loaded. Check your connection or turn off any content blocker, then try again."
 msgstr "無法載入卡片表單。請檢查網路連線或關閉內容封鎖程式，然後再試一次。"
 
 #: src/components/organisms/StripePaymentEmbed.re.mjs:117
 msgid "The card form could not be loaded. Close this and try again."
 msgstr "無法載入卡片表單。請關閉後再試一次。"
 
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+#~ msgid "Your card is saved now, not charged. The organizer will charge {amountLabel} after the event."
+#~ msgstr "目前只是儲存卡片，尚未扣款。主辦人會在活動結束後收取 {amountLabel}。"
+
 #: src/components/organisms/StripePaymentEmbed.re.mjs:200
-msgid ""
-"Your card is saved now, not charged. The organizer will charge {amountLabel} "
-"later."
+msgid "Your card is saved now, not charged. The organizer will charge {amountLabel} later."
 msgstr "您的卡片現已儲存，尚未扣款。主辦人稍後將收取 {amountLabel}。"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:200
-msgid ""
-"Your card is saved now, not charged. The organizer will charge the "
-"participation fee later."
-msgstr "您的卡片現已儲存，尚未扣款。主辦人稍後將收取參加費用。"
-
 #: src/components/organisms/StripePaymentEmbed.re.mjs:151
-#~ msgid ""
-#~ "Your card is saved now, not charged. The organizer will charge "
-#~ "{amountLabel} after the event."
-#~ msgstr ""
-#~ "目前只是儲存卡片，尚未扣款。主辦人會在活動結束後收取 {amountLabel}。"
-
-#: src/components/organisms/StripePaymentEmbed.re.mjs:151
-#~ msgid ""
-#~ "Your card is saved now, not charged. The organizer will charge the "
-#~ "participation fee after the event."
+#~ msgid "Your card is saved now, not charged. The organizer will charge the participation fee after the event."
 #~ msgstr "目前只是儲存卡片，尚未扣款。主辦人會在活動結束後收取參加費。"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:200
+msgid "Your card is saved now, not charged. The organizer will charge the participation fee later."
+msgstr "您的卡片現已儲存，尚未扣款。主辦人稍後將收取參加費用。"

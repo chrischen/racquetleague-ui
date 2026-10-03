@@ -88,6 +88,9 @@ let make = (
   ~chargesEnabled=false,
   ~connectionKey="RSVPSection_event_rsvps",
   ~triggerClassName="w-full text-left",
+  // The viewer's conversation with this person, when they have one about the
+  // event (an invite's note): offered as a menu item.
+  ~threadPath: option<string>=?,
   ~children,
 ) => {
   let (commitMutationDeleteRsvp, _isMutationInFlight) = RsvpOptionsDeleteMutation.use()
@@ -172,6 +175,11 @@ let make = (
           </DropdownItem>
         )
         ->Option.getOr(React.null)}
+        {switch threadPath {
+        | Some(path) =>
+          <DropdownItem onClick={_ => nav(path, None)}> {t`View message thread`} </DropdownItem>
+        | None => React.null
+        }}
         {isAdmin
           ? <>
               {switch rsvp.listType {

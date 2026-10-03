@@ -17,6 +17,10 @@ msgstr ""
 msgid "(logout)"
 msgstr "（登出）"
 
+#: src/components/pages/DefaultLayoutMap.re.mjs:97
+#~ msgid "All"
+#~ msgstr "全部"
+
 #: src/components/pages/DefaultLayoutMap.re.mjs:99
 #: src/components/pages/DefaultLayoutMap.re.mjs:152
 msgid "Badminton"
@@ -41,6 +45,14 @@ msgstr "尋找比賽"
 msgid "login with Line"
 msgstr "使用 Line 登入"
 
+#: src/components/organisms/NavViewer.re.mjs:65
+#~ msgid "My Clubs"
+#~ msgstr "我的俱樂部"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+#~ msgid "My Events"
+#~ msgstr "我的活動"
+
 #: src/components/pages/DefaultLayoutMap.re.mjs:94
 #: src/components/pages/DefaultLayoutMap.re.mjs:147
 msgid "Pickleball"
@@ -55,18 +67,6 @@ msgstr "pkuru"
 #: src/components/pages/DefaultLayoutMap.re.mjs:308
 msgid "Rankings"
 msgstr "排名"
-
-#: src/components/pages/DefaultLayoutMap.re.mjs:97
-#~ msgid "All"
-#~ msgstr "全部"
-
-#: src/components/organisms/NavViewer.re.mjs:65
-#~ msgid "My Clubs"
-#~ msgstr "我的俱樂部"
-
-#: src/components/organisms/NavViewer.re.mjs:65
-#~ msgid "My Events"
-#~ msgstr "我的活動"
 
 #: src/components/organisms/NavViewer.re.mjs:77
 #~ msgid "Settings"

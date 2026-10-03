@@ -26,6 +26,14 @@ msgstr "{0} khoảng trống liên tiếp"
 msgid "{0} continuous openings"
 msgstr "{0} khoảng trống liên tiếp"
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
+#~ msgid "{0} continuous span"
+#~ msgstr "{0} khoảng liên tục"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:59
+#~ msgid "{0} continuous spans"
+#~ msgstr "{0} khoảng liên tục"
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 #: src/components/molecules/CourtOpeningCard.re.mjs:58
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:98
@@ -38,6 +46,14 @@ msgstr "{0} sân"
 msgid "{0} courts"
 msgstr "{0} sân"
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:62
+#~ msgid "{0} exact option"
+#~ msgstr "{0} lựa chọn chính xác"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:63
+#~ msgid "{0} exact options"
+#~ msgstr "{0} lựa chọn chính xác"
+
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:106
 msgid "{0} location"
 msgstr "{0} địa điểm"
@@ -45,6 +61,30 @@ msgstr "{0} địa điểm"
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:107
 msgid "{0} locations"
 msgstr "{0} địa điểm"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
+#~ msgid "{0} segment"
+#~ msgstr "{0} phân đoạn"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:138
+#~ msgid "{0} segments"
+#~ msgstr "{0} phân đoạn"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
+#~ msgid "{0} time option"
+#~ msgstr "{0} tùy chọn giờ"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
+#~ msgid "{0} time options"
+#~ msgstr "{0} tùy chọn giờ"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:151
+#~ msgid "{groupCourtsPhrase} at {groupLocationsPhrase}"
+#~ msgstr "{groupCourtsPhrase} tại {groupLocationsPhrase}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:135
+#~ msgid "{groupLocations, plural, one {{0}} other {{1}}}"
+#~ msgstr "{groupLocations, plural, one {{0}} other {{1}}}"
 
 #: src/components/molecules/CourtOpeningCard.re.mjs:52
 msgid "{hs}h"
@@ -76,9 +116,21 @@ msgstr "{n} ngoài trời"
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:174
+#~ msgid "{segLocations, plural, one {{0}} other {{1}}}"
+#~ msgstr "{segLocations, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:61
+#~ msgid "{segmentCount, plural, one {{0}} other {{1}}}"
+#~ msgstr "{segmentCount, plural, one {{0}} other {{1}}}"
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
+#~ msgid "{totalCourts, plural, one {{0}} other {{1}}}"
+#~ msgstr "{totalCourts, plural, one {{0}} other {{1}}}"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:842
 msgid "Add time windows above"
@@ -126,11 +178,12 @@ msgid "Complete your player profile"
 msgstr "Hoàn thiện hồ sơ cầu thủ của bạn"
 
 #: src/components/organisms/ProfileModal.re.mjs:329
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
-msgstr ""
-"Hoàn thiện hồ sơ của bạn trước khi chia sẻ lịch rảnh với người chơi và người "
-"tổ chức."
+msgid "Complete your profile before sharing availability with players and hosts."
+msgstr "Hoàn thiện hồ sơ của bạn trước khi chia sẻ lịch rảnh với người chơi và người tổ chức."
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:149
+#~ msgid "Continuous availability"
+#~ msgstr "Khả dụng liên tục"
 
 #: src/components/organisms/ProfileModal.re.mjs:263
 #: src/components/organisms/ProfileModal.re.mjs:272
@@ -143,9 +196,21 @@ msgstr "Không thể lưu hồ sơ của bạn. Vui lòng thử lại."
 msgid "Court"
 msgstr "Sân"
 
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:779
+#~ msgid "Court openings are shown only when they overlap your time."
+#~ msgstr "Các khung giờ trống chỉ hiển thị khi trùng với giờ của bạn."
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:625
+#~ msgid "Courts"
+#~ msgstr "Sân"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
 msgid "Courts · thickness = count"
 msgstr "Sân · độ dày = số lượng"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+#~ msgid "Courts Â· thickness = count"
+#~ msgstr "Sân · độ dày = số lượng"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:885
 msgid "Courts and openings covering your full window"
@@ -153,8 +218,11 @@ msgstr "Sân và khung giờ trống trong toàn bộ khoảng thời gian của
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:827
 msgid "Courts are listed individually with their largest continuous openings."
-msgstr ""
-"Các sân được liệt kê riêng lẻ cùng với khung giờ trống liên tục dài nhất."
+msgstr "Các sân được liệt kê riêng lẻ cùng với khung giờ trống liên tục dài nhất."
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:837
+#~ msgid "Courts available during your time"
+#~ msgstr "Sân trống trong giờ của bạn"
 
 #: src/components/molecules/CourtOpeningCard.re.mjs:141
 msgid "Create event"
@@ -185,12 +253,8 @@ msgid "Email address"
 msgstr "Địa chỉ email"
 
 #: src/components/organisms/ProfileModal.re.mjs:304
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"Địa chỉ email không khả dụng. Vui lòng sử dụng email khác hoặc đăng nhập "
-"bằng email bạn đang cố dùng ở đây."
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "Địa chỉ email không khả dụng. Vui lòng sử dụng email khác hoặc đăng nhập bằng email bạn đang cố dùng ở đây."
 
 #: src/components/organisms/ProfileModal.re.mjs:115
 msgid "Email is required"
@@ -208,12 +272,17 @@ msgstr "Các sự kiện"
 msgid "Female"
 msgstr "Nữ"
 
+#: src/components/molecules/LocationFilter.re.mjs:110
+#~ msgid "Filter by location"
+#~ msgstr "Lọc theo địa điểm"
+
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "Để nhận cập nhật và thông báo về sự kiện"
+
 #: src/components/organisms/ProfileModal.re.mjs:380
-msgid ""
-"For event updates and notifications. We'll email you a link to confirm it."
-msgstr ""
-"Dùng cho cập nhật sự kiện và thông báo. Chúng tôi sẽ gửi email liên kết để "
-"xác nhận."
+msgid "For event updates and notifications. We'll email you a link to confirm it."
+msgstr "Dùng cho cập nhật sự kiện và thông báo. Chúng tôi sẽ gửi email liên kết để xác nhận."
 
 #: src/components/organisms/ProfileModal.re.mjs:514
 msgid "Gender"
@@ -253,17 +322,24 @@ msgstr "Địa điểm"
 
 #: src/components/molecules/LocationFilterControl.re.mjs:104
 msgid "Location access was denied. Allow access or choose a venue."
-msgstr ""
-"Quyền truy cập vị trí bị từ chối. Hãy cho phép truy cập hoặc chọn một địa "
-"điểm."
+msgstr "Quyền truy cập vị trí bị từ chối. Hãy cho phép truy cập hoặc chọn một địa điểm."
 
 #: src/components/molecules/LocationFilter.re.mjs:46
 msgid "Location:"
 msgstr "Địa điểm:"
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
+#~ msgid "Long opening"
+#~ msgstr "Khung giờ dài"
+
 #: src/components/organisms/ProfileModal.re.mjs:520
 msgid "Male"
 msgstr "Nam"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "Khớp giờ của tôi"
 
 #: src/components/molecules/EventFiltersToolbar.re.mjs:36
 msgid "Minimum event level"
@@ -285,9 +361,17 @@ msgstr "Không phải bây giờ"
 msgid "NR"
 msgstr "NR"
 
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "mở"
+
 #: src/components/molecules/EventFiltersToolbar.re.mjs:24
 msgid "Open spots"
 msgstr "Còn chỗ trống"
+
+#: src/components/molecules/LocationFilter.re.mjs:36
+#~ msgid "Pick a location or use your current location."
+#~ msgstr "Chọn một địa điểm hoặc sử dụng vị trí hiện tại của bạn."
 
 #: src/components/molecules/RatingSourceChip.re.mjs:25
 msgid "pkuru"
@@ -326,6 +410,10 @@ msgstr "Lưu hồ sơ"
 msgid "Saving…"
 msgstr "Đang lưu…"
 
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
+#~ msgid "Savingâ¦"
+#~ msgstr "Đang lưu…"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
 msgid "Schedule"
 msgstr "Lịch"
@@ -334,21 +422,21 @@ msgstr "Lịch"
 msgid "Self-rated"
 msgstr "Tự đánh giá"
 
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
+#~ msgid "Set your availability for the next 2 weeks. Tap a day to add a time window, drag to move, grab the edges to resize."
+#~ msgstr "Đặt lịch rảnh cho 2 tuần tới. Nhấn vào một ngày để thêm khung giờ, kéo để di chuyển, kéo các cạnh để thay đổi kích thước."
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:589
+#~ msgid "Set your availability for the next 2 weeks. Your events and available windows share a footprint; cyan cell borders show courts."
+#~ msgstr "Đặt lịch trống của bạn cho 2 tuần tới. Sự kiện và khung giờ trống dùng chung diện tích hiển thị; viền ô màu lục lam biểu thị sân."
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:624
-msgid ""
-"Set your availability for the next 2 weeks. Your events and available "
-"windows share a footprint; thicker cyan lines mean more courts."
-msgstr ""
-"Đặt lịch rảnh của bạn cho 2 tuần tới. Sự kiện và khung giờ rảnh được hiển "
-"thị chung; đường cyan càng dày nghĩa là càng nhiều sân."
+msgid "Set your availability for the next 2 weeks. Your events and available windows share a footprint; thicker cyan lines mean more courts."
+msgstr "Đặt lịch rảnh của bạn cho 2 tuần tới. Sự kiện và khung giờ rảnh được hiển thị chung; đường cyan càng dày nghĩa là càng nhiều sân."
 
 #: src/components/organisms/ProfileModal.re.mjs:553
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
-msgstr ""
-"Chia sẻ một chút về bản thân để ban tổ chức hoặc người chơi khác biết lý do "
-"họ nên mời bạn."
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
+msgstr "Chia sẻ một chút về bản thân để ban tổ chức hoặc người chơi khác biết lý do họ nên mời bạn."
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:914
 msgid "Share with your club"
@@ -358,10 +446,17 @@ msgstr "Chia sẻ với câu lạc bộ của bạn"
 msgid "singles"
 msgstr "đơn"
 
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:692
+#~ msgid "Tap an empty area of a day to add a window · drag to move · grab the edges to resize"
+#~ msgstr "Nhấn vào vùng trống trong ngày để thêm khung giờ · kéo để di chuyển · kéo các cạnh để thay đổi kích thước"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:765
+#~ msgid "Tap an empty area to add time · select a cyan court opening up to 4h to match it · drag to move · grab the edges to resize"
+#~ msgstr "Nhấn vùng trống để thêm giờ · chọn khung giờ màu xanh lam tối đa 4 giờ để khớp · kéo để di chuyển · kéo cạnh để thay đổi kích thước"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:813
 msgid "Tap empty time to add · drag to move · grab edges to resize"
-msgstr ""
-"Nhấn vào ô trống để thêm · kéo để di chuyển · kéo cạnh để thay đổi kích thước"
+msgstr "Nhấn vào ô trống để thêm · kéo để di chuyển · kéo cạnh để thay đổi kích thước"
 
 #: src/components/organisms/ProfileModal.re.mjs:308
 msgid "That doesn't look like an email address."
@@ -379,10 +474,21 @@ msgstr "Dùng vị trí gần tôi"
 msgid "Use option"
 msgstr "Dùng tùy chọn này"
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
+#~ msgid "Use this time"
+#~ msgstr "Dùng giờ này"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
+#~ msgid "View {groupCourtsPhrase} & reserve"
+#~ msgstr "Xem {groupCourtsPhrase} & đặt sân"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:217
+#~ msgid "View {segCourtsPhrase} & reserve"
+#~ msgstr "Xem {segCourtsPhrase} & đặt sân"
+
 #: src/components/organisms/ProfileModal.re.mjs:326
 msgid "We need a few details before you can join this event"
-msgstr ""
-"Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
+msgstr "Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:689
 msgid "Weekday eves"
@@ -396,6 +502,10 @@ msgstr "Sáng cuối tuần"
 msgid "When can you play?"
 msgstr "Bạn có thể chơi lúc nào?"
 
+#: src/components/molecules/LocationFilter.re.mjs:28
+#~ msgid "Within {0} km · {1}, {2}"
+#~ msgstr "Trong vòng {0} km · {1}, {2}"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:823
 msgid "Your availability"
 msgstr "Lịch rảnh của bạn"
@@ -403,152 +513,3 @@ msgstr "Lịch rảnh của bạn"
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:675
 msgid "Your time"
 msgstr "Giờ của bạn"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
-#~ msgid "{0} continuous span"
-#~ msgstr "{0} khoảng liên tục"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:59
-#~ msgid "{0} continuous spans"
-#~ msgstr "{0} khoảng liên tục"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:62
-#~ msgid "{0} exact option"
-#~ msgstr "{0} lựa chọn chính xác"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:63
-#~ msgid "{0} exact options"
-#~ msgstr "{0} lựa chọn chính xác"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
-#~ msgid "{0} segment"
-#~ msgstr "{0} phân đoạn"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:138
-#~ msgid "{0} segments"
-#~ msgstr "{0} phân đoạn"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
-#~ msgid "{0} time option"
-#~ msgstr "{0} tùy chọn giờ"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
-#~ msgid "{0} time options"
-#~ msgstr "{0} tùy chọn giờ"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:151
-#~ msgid "{groupCourtsPhrase} at {groupLocationsPhrase}"
-#~ msgstr "{groupCourtsPhrase} tại {groupLocationsPhrase}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:135
-#~ msgid "{groupLocations, plural, one {{0}} other {{1}}}"
-#~ msgstr "{groupLocations, plural, one {{0}} other {{1}}}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:174
-#~ msgid "{segLocations, plural, one {{0}} other {{1}}}"
-#~ msgstr "{segLocations, plural, one {{0}} other {{1}}}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:61
-#~ msgid "{segmentCount, plural, one {{0}} other {{1}}}"
-#~ msgstr "{segmentCount, plural, one {{0}} other {{1}}}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
-#~ msgid "{totalCourts, plural, one {{0}} other {{1}}}"
-#~ msgstr "{totalCourts, plural, one {{0}} other {{1}}}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:149
-#~ msgid "Continuous availability"
-#~ msgstr "Khả dụng liên tục"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:779
-#~ msgid "Court openings are shown only when they overlap your time."
-#~ msgstr "Các khung giờ trống chỉ hiển thị khi trùng với giờ của bạn."
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:625
-#~ msgid "Courts"
-#~ msgstr "Sân"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
-#~ msgid "Courts Â· thickness = count"
-#~ msgstr "Sân · độ dày = số lượng"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:837
-#~ msgid "Courts available during your time"
-#~ msgstr "Sân trống trong giờ của bạn"
-
-#: src/components/molecules/LocationFilter.re.mjs:110
-#~ msgid "Filter by location"
-#~ msgstr "Lọc theo địa điểm"
-
-#: src/components/organisms/ProfileModal.re.mjs:363
-#~ msgid "For event updates and notifications"
-#~ msgstr "Để nhận cập nhật và thông báo về sự kiện"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
-#~ msgid "Long opening"
-#~ msgstr "Khung giờ dài"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-#~ msgid "Match my time"
-#~ msgstr "Khớp giờ của tôi"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-#~ msgid "open"
-#~ msgstr "mở"
-
-#: src/components/molecules/LocationFilter.re.mjs:36
-#~ msgid "Pick a location or use your current location."
-#~ msgstr "Chọn một địa điểm hoặc sử dụng vị trí hiện tại của bạn."
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
-#~ msgid "Savingâ¦"
-#~ msgstr "Đang lưu…"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
-#~ msgid ""
-#~ "Set your availability for the next 2 weeks. Tap a day to add a time "
-#~ "window, drag to move, grab the edges to resize."
-#~ msgstr ""
-#~ "Đặt lịch rảnh cho 2 tuần tới. Nhấn vào một ngày để thêm khung giờ, kéo để "
-#~ "di chuyển, kéo các cạnh để thay đổi kích thước."
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:589
-#~ msgid ""
-#~ "Set your availability for the next 2 weeks. Your events and available "
-#~ "windows share a footprint; cyan cell borders show courts."
-#~ msgstr ""
-#~ "Đặt lịch trống của bạn cho 2 tuần tới. Sự kiện và khung giờ trống dùng "
-#~ "chung diện tích hiển thị; viền ô màu lục lam biểu thị sân."
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:692
-#~ msgid ""
-#~ "Tap an empty area of a day to add a window · drag to move · grab the "
-#~ "edges to resize"
-#~ msgstr ""
-#~ "Nhấn vào vùng trống trong ngày để thêm khung giờ · kéo để di chuyển · kéo "
-#~ "các cạnh để thay đổi kích thước"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:765
-#~ msgid ""
-#~ "Tap an empty area to add time · select a cyan court opening up to 4h to "
-#~ "match it · drag to move · grab the edges to resize"
-#~ msgstr ""
-#~ "Nhấn vùng trống để thêm giờ · chọn khung giờ màu xanh lam tối đa 4 giờ để "
-#~ "khớp · kéo để di chuyển · kéo cạnh để thay đổi kích thước"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
-#~ msgid "Use this time"
-#~ msgstr "Dùng giờ này"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
-#~ msgid "View {groupCourtsPhrase} & reserve"
-#~ msgstr "Xem {groupCourtsPhrase} & đặt sân"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:217
-#~ msgid "View {segCourtsPhrase} & reserve"
-#~ msgstr "Xem {segCourtsPhrase} & đặt sân"
-
-#: src/components/molecules/LocationFilter.re.mjs:28
-#~ msgid "Within {0} km · {1}, {2}"
-#~ msgstr "Trong vòng {0} km · {1}, {2}"

@@ -42,22 +42,12 @@ msgid "Advanced"
 msgstr "進階"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:376
-msgid ""
-"Attendees of your paid events save a card when they RSVP; nothing is charged "
-"up front. From an event's RSVP list you can charge one attendee or everyone, "
-"and the money goes to this account."
-msgstr ""
-"你的付費活動參加者報名時會儲存卡片，事前不會扣款。你可從活動的報名名單向單一"
-"參加者或所有人收費，款項會進入此帳戶。"
+msgid "Attendees of your paid events save a card when they RSVP; nothing is charged up front. From an event's RSVP list you can charge one attendee or everyone, and the money goes to this account."
+msgstr "你的付費活動參加者報名時會儲存卡片，事前不會扣款。你可從活動的報名名單向單一參加者或所有人收費，款項會進入此帳戶。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:370
-msgid ""
-"Attendees of your paid events still save a card when they RSVP, but it can't "
-"be charged, so you collect the fee at the event. Connect a Stripe account to "
-"charge saved cards from the RSVP list and receive the money here."
-msgstr ""
-"你的付費活動參加者報名時仍會儲存卡片，但無法扣款，因此需於活動現場收費。連結 "
-"Stripe 帳戶即可從報名名單向已儲存的卡片收費，並在此收款。"
+msgid "Attendees of your paid events still save a card when they RSVP, but it can't be charged, so you collect the fee at the event. Connect a Stripe account to charge saved cards from the RSVP list and receive the money here."
+msgstr "你的付費活動參加者報名時仍會儲存卡片，但無法扣款，因此需於活動現場收費。連結 Stripe 帳戶即可從報名名單向已儲存的卡片收費，並在此收款。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:430
 msgid "Australia"
@@ -71,28 +61,29 @@ msgstr "等待確認"
 msgid "Beginner"
 msgstr "初學者"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:289
+#~ msgid "biography"
+#~ msgstr "個人簡介"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:568
 msgid "Biography"
 msgstr "個人簡介"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:557
-msgid ""
-"Bookings forwarded from it will no longer be added to your account. You can "
-"add it again later."
+msgid "Bookings forwarded from it will no longer be added to your account. You can add it again later."
 msgstr "從此地址轉寄的預訂將不再加入您的帳戶。您可以稍後再新增。"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:376
-msgid ""
-"Bookings you forward to chris@pkuru.com are added to your account when they "
-"come from one of these addresses. Add the other addresses you receive "
-"booking confirmations at."
-msgstr ""
-"當您從這些地址轉寄預訂到 chris@pkuru.com 時，預訂會加入您的帳戶。請新增您接收"
-"預訂確認郵件的其他地址。"
+msgid "Bookings you forward to chris@pkuru.com are added to your account when they come from one of these addresses. Add the other addresses you receive booking confirmations at."
+msgstr "當您從這些地址轉寄預訂到 chris@pkuru.com 時，預訂會加入您的帳戶。請新增您接收預訂確認郵件的其他地址。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:434
 msgid "Canada"
 msgstr "加拿大"
+
+#: src/components/molecules/forms/Form.re.mjs:304
+#~ msgid "cancel"
+#~ msgstr "取消"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/DuprConnectCard.re.mjs:440
@@ -116,6 +107,10 @@ msgstr "確認"
 msgid "Confirmed"
 msgstr "已確認"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:347
+#~ msgid "Connect a Stripe account to receive payments from events you organize."
+#~ msgstr "連接 Stripe 帳戶以接收您舉辦活動的款項。"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:399
 msgid "Connect Stripe account"
 msgstr "連接 Stripe 帳戶"
@@ -137,6 +132,10 @@ msgstr "國家"
 #: src/components/organisms/DuprConnectCard.re.mjs:507
 msgid "Create one at mydupr.com or in the DUPR app"
 msgstr "可至 mydupr.com 或 DUPR App 建立帳號"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:214
+#~ msgid "details about yourself"
+#~ msgstr "關於您自己的詳細資料"
 
 #: src/components/shared/PushNotifications.re.mjs:402
 msgid "Disable notifications"
@@ -188,12 +187,12 @@ msgid "DUPR login"
 msgstr "DUPR 登入"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:168
-msgid ""
-"DUPR needs you to finish setting up your account before it can be linked. "
-"Follow the steps in the DUPR panel, then sign in again."
-msgstr ""
-"DUPR 需要您先完成帳號設定才能連結。請依照 DUPR 面板中的步驟操作，然後重新登"
-"入。"
+msgid "DUPR needs you to finish setting up your account before it can be linked. Follow the steps in the DUPR panel, then sign in again."
+msgstr "DUPR 需要您先完成帳號設定才能連結。請依照 DUPR 面板中的步驟操作，然後重新登入。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:187
+#~ msgid "DUPR sent something we couldn't read. Please try again."
+#~ msgstr "DUPR 回傳的資料無法解讀，請再試一次。"
 
 #: src/components/shared/PushNotifications.re.mjs:414
 msgid "Enable notifications"
@@ -207,9 +206,17 @@ msgstr "預估 DUPR"
 msgid "Female"
 msgstr "女性"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:222
+#~ msgid "full name"
+#~ msgstr "全名"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:516
 msgid "Full name"
 msgstr "全名"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:246
+#~ msgid "gender"
+#~ msgstr "性別"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:531
 msgid "Gender"
@@ -248,12 +255,8 @@ msgid "Level"
 msgstr "等級"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:357
-msgid ""
-"Link your DUPR account to use your verified DUPR rating here. While it's "
-"linked, it replaces your self-rating."
-msgstr ""
-"連結你的 DUPR 帳號，即可在此使用已驗證的 DUPR 評分。連結期間將取代你的自評分"
-"數。"
+msgid "Link your DUPR account to use your verified DUPR rating here. While it's linked, it replaces your self-rating."
+msgstr "連結你的 DUPR 帳號，即可在此使用已驗證的 DUPR 評分。連結期間將取代你的自評分數。"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:289
 msgid "Linked"
@@ -311,9 +314,7 @@ msgid "Notifications"
 msgstr "通知"
 
 #: src/components/shared/PushNotifications.re.mjs:431
-msgid ""
-"Notifications are blocked. To enable them, go to your device or browser "
-"settings and allow notifications for this site."
+msgid "Notifications are blocked. To enable them, go to your device or browser settings and allow notifications for this site."
 msgstr "通知已被封鎖。如需啟用，請前往裝置或瀏覽器設定，並允許此網站發送通知。"
 
 #: src/components/molecules/DuprRatingBadge.re.mjs:26
@@ -340,9 +341,17 @@ msgstr "待審核"
 msgid "pkuru"
 msgstr "pkuru"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:507
+#~ msgid "Prefer not to say"
+#~ msgstr "不願透露"
+
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "專業"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:213
+#~ msgid "profile"
+#~ msgstr "個人資料"
 
 #: src/components/molecules/DuprRatingBadge.re.mjs:37
 #: src/components/molecules/RatingSourceChip.re.mjs:50
@@ -350,9 +359,7 @@ msgid "provisional"
 msgstr "暫定"
 
 #: src/components/shared/PushNotifications.re.mjs:302
-msgid ""
-"Push notifications are blocked. Check your browser or device notification "
-"settings for this site, then try again."
+msgid "Push notifications are blocked. Check your browser or device notification settings for this site, then try again."
 msgstr "推播通知已被封鎖。請檢查此網站的瀏覽器或裝置通知設定，然後再試一次。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:664
@@ -379,6 +386,10 @@ msgstr "重新傳送"
 msgid "Resume onboarding"
 msgstr "繼續設定"
 
+#: src/components/molecules/forms/Form.re.mjs:311
+#~ msgid "save"
+#~ msgstr "儲存"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:642
 msgid "Save profile"
 msgstr "儲存個人資料"
@@ -400,18 +411,12 @@ msgid "Send link"
 msgstr "傳送連結"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
-msgid ""
-"shows a badge next to your name in RSVP lists to tell people you are looking "
-"for a partner"
+msgid "shows a badge next to your name in RSVP lists to tell people you are looking for a partner"
 msgstr "在 RSVP 名單中在您的名字旁顯示徽章，告訴大家您正在尋找搭檔"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:404
-msgid ""
-"Sign in to DUPR to link your account. We store your DUPR ID and ratings — "
-"never your DUPR password."
-msgstr ""
-"登入 DUPR 以連結帳號。我們只會儲存你的 DUPR ID 與評分，絕不會儲存你的 DUPR 密"
-"碼。"
+msgid "Sign in to DUPR to link your account. We store your DUPR ID and ratings — never your DUPR password."
+msgstr "登入 DUPR 以連結帳號。我們只會儲存你的 DUPR ID 與評分，絕不會儲存你的 DUPR 密碼。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:442
 msgid "Singapore"
@@ -424,6 +429,11 @@ msgstr "單打"
 #: src/components/organisms/SettingsProfileForm.re.mjs:523
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "某些活動需要您在證件上顯示的法定姓名。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:270
+#, fuzzy
+#~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
+#~ msgstr "某些活動需要您在證件上顯示的法定姓名。"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:164
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:171
@@ -487,13 +497,12 @@ msgid "United States"
 msgstr "美國"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:373
-msgid ""
-"Until onboarding is complete, your paid events run on the platform account: "
-"attendees save a card when they RSVP, but you can't charge it. Collect the "
-"fee at the event."
-msgstr ""
-"在完成設定之前，你的付費活動會使用平台帳戶：參加者報名時會儲存卡片，但你無法"
-"扣款。請於活動現場收費。"
+msgid "Until onboarding is complete, your paid events run on the platform account: attendees save a card when they RSVP, but you can't charge it. Collect the fee at the event."
+msgstr "在完成設定之前，你的付費活動會使用平台帳戶：參加者報名時會儲存卡片，但你無法扣款。請於活動現場收費。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:
+#~ msgid "We couldn't send the email. Try \"Resend\" in a moment."
+#~ msgstr "無法傳送郵件。請稍後再試「重新傳送」。"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:160
 msgid "We couldn't send the email. Try \\\"Resend\\\" in a moment."
@@ -508,9 +517,7 @@ msgid "We sent a link to"
 msgstr "我們已將連結傳送至"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:471
-msgid ""
-"We'll email a link to the new address. Your current address stays on as a "
-"receiving email."
+msgid "We'll email a link to the new address. Your current address stays on as a receiving email."
 msgstr "我們會寄送連結到新地址。您目前的地址會保留為收件信箱。"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:162
@@ -518,97 +525,28 @@ msgid "You can add up to 5 receiving emails. Remove one to add another."
 msgstr "最多可新增 5 個收件信箱。請先移除一個再新增。"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:170
-msgid ""
-"You declined to share your DUPR data, so nothing was linked. Sign in again "
-"and choose Authorize to link."
-msgstr ""
-"您拒絕分享 DUPR 資料，因此未建立連結。請重新登入並選擇「授權」以進行連結。"
+msgid "You declined to share your DUPR data, so nothing was linked. Sign in again and choose Authorize to link."
+msgstr "您拒絕分享 DUPR 資料，因此未建立連結。請重新登入並選擇「授權」以進行連結。"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:150
 msgid "You've already added that address."
 msgstr "您已新增過此地址。"
 
 #: src/components/organisms/ReceivingEmailsCard.re.mjs:380
-msgid ""
-"Your account has no email yet. The first address you confirm here becomes "
-"your account email."
+msgid "Your account has no email yet. The first address you confirm here becomes your account email."
 msgstr "您的帳戶尚未設定電子郵件。您在此確認的第一個地址將成為帳戶電子郵件。"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:528
-msgid ""
-"Your DUPR rating will stop being used here and your self-rating picker comes "
-"back."
+msgid "Your DUPR rating will stop being used here and your self-rating picker comes back."
 msgstr "此處將不再使用你的 DUPR 評分，並恢復自評分數選擇。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:605
-msgid ""
-"Your rating comes from DUPR. Disconnect DUPR below to set your own level "
-"again."
+msgid "Your rating comes from DUPR. Disconnect DUPR below to set your own level again."
 msgstr "您的評分來自 DUPR。若要重新自訂等級，請在下方中斷 DUPR 連結。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:620
 msgid "Your self-reported skill level"
 msgstr "您自行申報的技術等級"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:360
-msgid "Your Stripe account is connected, but onboarding isn't complete yet."
-msgstr "你的 Stripe 帳戶已連結，但尚未完成設定。"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:363
-msgid "Your Stripe account is connected."
-msgstr "你的 Stripe 帳戶已連結。"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:289
-#~ msgid "biography"
-#~ msgstr "個人簡介"
-
-#: src/components/molecules/forms/Form.re.mjs:304
-#~ msgid "cancel"
-#~ msgstr "取消"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:347
-#~ msgid ""
-#~ "Connect a Stripe account to receive payments from events you organize."
-#~ msgstr "連接 Stripe 帳戶以接收您舉辦活動的款項。"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:214
-#~ msgid "details about yourself"
-#~ msgstr "關於您自己的詳細資料"
-
-#: src/components/organisms/DuprConnectCard.re.mjs:187
-#~ msgid "DUPR sent something we couldn't read. Please try again."
-#~ msgstr "DUPR 回傳的資料無法解讀，請再試一次。"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:222
-#~ msgid "full name"
-#~ msgstr "全名"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:246
-#~ msgid "gender"
-#~ msgstr "性別"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:507
-#~ msgid "Prefer not to say"
-#~ msgstr "不願透露"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:213
-#~ msgid "profile"
-#~ msgstr "個人資料"
-
-#: src/components/molecules/forms/Form.re.mjs:311
-#~ msgid "save"
-#~ msgstr "儲存"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:270
-#, fuzzy
-#~ msgid ""
-#~ "Some events require your legal name as shown on an ID "
-#~ "card.omeventsequoegashownour passporta"
-#~ msgstr "某些活動需要您在證件上顯示的法定姓名。"
-
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:
-#~ msgid "We couldn't send the email. Try \"Resend\" in a moment."
-#~ msgstr "無法傳送郵件。請稍後再試「重新傳送」。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:353
 #~ msgid "Your Stripe account is connected and ready to accept payments."
@@ -617,3 +555,11 @@ msgstr "你的 Stripe 帳戶已連結。"
 #: src/components/organisms/SettingsProfileForm.re.mjs:350
 #~ msgid "Your Stripe account is connected but onboarding is not yet complete."
 #~ msgstr "您的 Stripe 帳戶已連接，但尚未完成設定。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:360
+msgid "Your Stripe account is connected, but onboarding isn't complete yet."
+msgstr "你的 Stripe 帳戶已連結，但尚未完成設定。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:363
+msgid "Your Stripe account is connected."
+msgstr "你的 Stripe 帳戶已連結。"

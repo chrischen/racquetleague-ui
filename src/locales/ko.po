@@ -8552,6 +8552,199 @@ msgstr "다른 계정으로 로그인되어 있습니다. 로그아웃한 후 �
 msgid "Your account now uses the new address. Your previous address is kept as a receiving email, which you can remove in your profile settings."
 msgstr "이제 계정에서 새 주소를 사용합니다. 이전 주소는 수신 이메일로 유지되며, 프로필 설정에서 삭제할 수 있습니다."
 
+#: src/components/organisms/InviteMessageComposer.re.mjs:80
+msgid "{0} characters left"
+msgstr "{0}자 남음"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:79
+msgid "{0} more characters needed"
+msgstr "{0}자 더 필요"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:78
+msgid "A message is required"
+msgstr "메시지를 입력해야 합니다"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:129
+msgid "Add a personal note — they'll see this in their invite."
+msgstr "개인 메시지를 남겨보세요 — 초대장에 표시됩니다."
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:220
+msgid "Availability not shared for this day"
+msgstr "이 날짜의 가능 시간은 공유되지 않았습니다"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:228
+msgid "Available at other hours that day"
+msgstr "그날 다른 시간대에 가능"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:115
+msgid "Cancel invite"
+msgstr "초대 취소"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:39
+msgid "Come play with us!"
+msgstr "같이 경기해요!"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:78
+msgid "Same as your last invite. Write this one for them."
+msgstr "지난 초대와 동일합니다. 이번엔 새로 작성해 보세요."
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:174
+msgid "Sending…"
+msgstr "전송 중…"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:38
+msgid "Thought you'd be a good fit for this one."
+msgstr "이 경기에 잘 맞으실 것 같아요."
+
+#: src/components/organisms/RsvpOptions.re.mjs:321
+msgid "View message thread"
+msgstr "메시지 스레드 보기"
+
+#: src/components/organisms/PkEventRsvp.re.mjs:202
+msgid "View message thread with {name}"
+msgstr "{name}님과의 메시지 스레드 보기"
+
+#: src/components/organisms/InviteMessageComposer.re.mjs:37
+msgid "We're short a player — can you make it?"
+msgstr "한 명이 부족해요 — 와주실 수 있나요?"
+
+#: src/components/organisms/Kiosk.re.mjs:2104
+msgid "AUTO CLIPS"
+msgstr "자동 클립"
+
+#: src/components/organisms/Kiosk.re.mjs:2090
+msgid "AUTO-CLIP OFF"
+msgstr "자동 클립 끔"
+
+#: src/components/organisms/Kiosk.re.mjs:2090
+msgid "AUTO-CLIP ON"
+msgstr "자동 클립 켬"
+
+#: src/components/organisms/Kiosk.re.mjs:1632
+msgid "Connect reader"
+msgstr "리더 연결"
+
+#: src/components/organisms/Kiosk.re.mjs:502
+msgid "Download debug JSON"
+msgstr "디버그 JSON 다운로드"
+
+#: src/components/organisms/Kiosk.re.mjs:1542
+msgid "FELICA CARD · TEST"
+msgstr "FELICA 카드 · 테스트"
+
+#: src/components/organisms/Kiosk.re.mjs:1896
+msgid "FELICA READER (TEST)"
+msgstr "FELICA 리더 (테스트)"
+
+#: src/components/organisms/Kiosk.re.mjs:498
+msgid "HEAT DEBUG"
+msgstr "열기 디버그"
+
+#: src/components/organisms/Kiosk.re.mjs:3777
+msgid "Heated rally auto-clipped"
+msgstr "치열한 랠리가 자동 클립됨"
+
+#: src/components/organisms/Kiosk.re.mjs:1900
+msgid "Sony RC-S300 over USB. Tapping a transit IC card (Suica, PASMO, ICOCA, …) or a phone with one set as its Express Transit card pops up the card ID."
+msgstr "USB로 연결된 Sony RC-S300. 교통 IC 카드(Suica, PASMO, ICOCA 등) 또는 익스프레스 교통 카드로 설정된 휴대폰을 태그하면 카드 ID가 표시됩니다."
+
+#: src/components/organisms/Kiosk.re.mjs:2009
+msgid "STARTING…"
+msgstr "시작 중…"
+
+#: src/components/organisms/Kiosk.re.mjs:1665
+msgid "This browser has no WebUSB — use Chrome or Edge on this computer."
+msgstr "이 브라우저는 WebUSB를 지원하지 않습니다 — 이 컴퓨터에서 Chrome 또는 Edge를 사용하세요."
+
+#: src/components/organisms/Kiosk.re.mjs:1646
+#: src/components/organisms/Kiosk.re.mjs:1655
+msgid "Turn off"
+msgstr "끄기"
+
+#: src/components/organisms/Kiosk.re.mjs:1642
+msgid "waiting for a card"
+msgstr "카드 대기 중"
+
+#: src/components/organisms/MessageThread.re.mjs:768
+msgid "Invitation thread"
+msgstr "초대 스레드"
+
+#: src/components/organisms/MessageThread.re.mjs:646
+msgid "Invited you"
+msgstr "나를 초대함"
+
+#: src/components/organisms/MessageThread.re.mjs:663
+msgid "Message"
+msgstr "메시지"
+
+#: src/components/organisms/MessageThread.re.mjs:768
+msgid "Message thread"
+msgstr "메시지 스레드"
+
+#: src/components/organisms/MessageThread.re.mjs:725
+msgid "Messages with {name}"
+msgstr "{name}님과의 메시지"
+
+#: src/components/organisms/MessageThread.re.mjs:756
+msgid "No recent messages with this person."
+msgstr "이 사람과 주고받은 최근 메시지가 없습니다."
+
+#: src/components/organisms/MessageThread.re.mjs:188
+msgid "Reply to {name}"
+msgstr "{name}님에게 답장"
+
+#: src/components/organisms/MessageThread.re.mjs:220
+msgid "Sending"
+msgstr "보내는 중"
+
+#: src/components/organisms/MessageThread.re.mjs:53
+msgid "Sign in to reply."
+msgstr "답장하려면 로그인하세요."
+
+#: src/components/organisms/MessageThread.re.mjs:49
+msgid "That message is no longer available, so it can't be answered."
+msgstr "이 메시지는 더 이상 사용할 수 없어 답장할 수 없습니다."
+
+#: src/components/organisms/MessageThread.re.mjs:51
+msgid "That message is too long."
+msgstr "메시지가 너무 깁니다."
+
+#: src/components/organisms/MessageThread.re.mjs:433
+msgid "View"
+msgstr "보기"
+
+#: src/components/organisms/MessageThread.re.mjs:575
+msgid "View event"
+msgstr "이벤트 보기"
+
+#: src/components/organisms/MessageThread.re.mjs:47
+msgid "Write a message first."
+msgstr "먼저 메시지를 입력하세요."
+
+#: src/components/organisms/MessageThread.re.mjs:196
+msgid "Write a reply"
+msgstr "답장 작성"
+
+#: src/components/organisms/MessageThread.re.mjs:733
+msgid "You can reply once {firstName} writes back."
+msgstr "{firstName}님이 답장하면 답장할 수 있습니다."
+
+#: src/components/organisms/MessageThread.re.mjs:654
+msgid "You invited them"
+msgstr "내가 초대함"
+
+#: src/components/organisms/MessageThread.re.mjs:55
+msgid "Your reply couldn't be sent. Please try again."
+msgstr "답장을 보내지 못했습니다. 다시 시도해 주세요."
+
+#: src/components/molecules/NotificationRow.re.mjs:131
+msgid "Invitation"
+msgstr "초대"
+
+#: src/components/molecules/NotificationRow.re.mjs:129
+msgid "New message"
+msgstr "새 메시지"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

@@ -18,9 +18,5 @@ msgid "seeking a doubles partner"
 msgstr "ダブルスパートナーを探しています"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
-msgid ""
-"shows a badge next to your name in RSVP lists to tell people you are looking "
-"for a partner"
-msgstr ""
-"RSVPリストのあなたの名前の横にバッジを表示し、あなたが探していることを伝えま"
-"す。"
+msgid "shows a badge next to your name in RSVP lists to tell people you are looking for a partner"
+msgstr "RSVPリストのあなたの名前の横にバッジを表示し、あなたが探していることを伝えます。"

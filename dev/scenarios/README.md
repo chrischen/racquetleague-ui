@@ -62,6 +62,34 @@ until it has an effect.
 | `signed-out` | mock | No session. |
 | `me-incomplete-profile` | overlay | Your real session and data, but your own profile reads as empty everywhere: name, email, bio, gender and rating. Sign in first. Saving a profile writes to your dev account. |
 | `me-no-saved-card` | overlay | Your real session and data, but no card on file: joining a priced event opens the Stripe card form, and a joined-but-unpaid spot offers "Save card" instead of "Join with saved card". Saving uses Stripe test mode (card 4242 4242 4242 4242) on your dev account. |
+| `invited` | mock | Aki has invited you to Thursday Night Doubles. His note is unread in the bell and on `/notifications`; clicking it opens your conversation at `/messages/User_aki`, with a reply box. On `/events/Event_thursday-doubles` you're listed under Invites, and Claim spot accepts. |
+| `invite-host` | mock | You host Saturday Morning Drills with three seats open and Ken and Yui invited. `/events/Event_saturday-drills` shows the invite tools: available and recommended players, the note composer and Swipe invites. |
+| `messages` | mock | A conversation in each state: unread replies, a long multi-line message, one waiting for the other person to write back, one too old to answer. `/notifications` lists their rows and an event notification; each row opens `/messages/<person>`. |
+
+#### Invites and private messages
+
+`invited`, `invite-host` and `messages` share one world, defined in
+`_invites-world.mjs`. You are Mika Sato. Aki hosts Thursday Night Doubles in
+two days; you host Saturday Morning Drills in four. Dates are relative to
+today in Tokyo, so both events stay in the future. Both event pages load in
+all three scenarios; only your RSVP on Thursday's game and the inbox differ.
+
+| To check | Scenario | Open |
+| --- | --- | --- |
+| Receiving an invite note | `invited` | `/__dev/scenario/invited?to=/notifications` |
+| Replying to it | `invited` | `/__dev/scenario/invited?to=/messages/User_aki` |
+| Accepting an invite | `invited` | `/__dev/scenario/invited?to=/events/Event_thursday-doubles` |
+| Inviting with a note, the swipe deck | `invite-host` | `/__dev/scenario/invite-host?to=/events/Event_saturday-drills` |
+| Message notifications among event notifications | `messages` | `/__dev/scenario/messages?to=/notifications` |
+| Conversation states: replied (Aki), long message (Yui), waiting on them (Ken), expired (Daniel) | `messages` | `/__dev/scenario/messages?to=/messages/User_aki` (or `User_yui`, `User_ken`, `User_daniel`) |
+
+The mocks answer the way the server does: `viewer.inbox` lists notifications
+but not your own sent messages, `viewer.directMessages` returns one
+conversation, inviting adds an invited RSVP, Claim spot turns your invite
+into a going RSVP, a reply appears in its conversation, and replying to
+Daniel's 29-day-old message returns `MESSAGE_NOT_FOUND`. Nothing is stored,
+so a reply is gone once you leave the conversation, and a reload starts over. Editing
+`_invites-world.mjs` needs a dev server restart, like `_shared.mjs`.
 
 ### Writing one
 

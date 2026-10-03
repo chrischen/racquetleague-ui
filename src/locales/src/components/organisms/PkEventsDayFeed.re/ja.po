@@ -67,6 +67,18 @@ msgstr "{0}人のプレイヤー"
 msgid "{0} players"
 msgstr "{0}人のプレイヤー"
 
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:84
+#~ msgid "{0} segment"
+#~ msgstr "{0} セグメント"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:85
+#~ msgid "{0} segments"
+#~ msgstr "{0} セグメント"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:82
+#~ msgid "{0}–{1} courts"
+#~ msgstr "{0}–{1} コート"
+
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:200
 msgid "{first} + {0} more"
 msgstr "{first} + {0}人"
@@ -85,6 +97,10 @@ msgstr "{hs}時間{ms}分"
 #: src/components/organisms/CourtPseudoEventGroup.re.mjs:65
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:79
+#~ msgid "{minCourts, plural, one {{0}} other {{1}}}"
+#~ msgstr "{minCourts, plural, one {{0}} other {{1}}}"
 
 #: src/components/molecules/CourtOpeningCard.re.mjs:50
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:283
@@ -114,6 +130,14 @@ msgstr "参加可能"
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:434
 msgid "Cancel editing availability"
 msgstr "空き時間の編集をキャンセル"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
+#~ msgid "Choose a segment up to four hours to plan this time."
+#~ msgstr "この時間を計画するには、4時間以内のセグメントを選択してください。"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:128
+#~ msgid "Continuous court availability"
+#~ msgstr "連続コート空き状況"
 
 #: src/components/organisms/PkEventsDayFeed.re.mjs:27
 msgid "Court"
@@ -150,6 +174,18 @@ msgstr "スロットを非表示"
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:376
 msgid "Mark available"
 msgstr "参加可能にする"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
+#~ msgid "Match your availability to the selected segment, then invite players."
+#~ msgstr "選択したセグメントに合わせて空き時間を設定し、プレイヤーを招待してください。"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:132
+#~ msgid "Open span"
+#~ msgstr "空き時間帯"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:297
+#~ msgid "Plan this time"
+#~ msgstr "この時間を計画する"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
@@ -198,42 +234,3 @@ msgstr "あなた："
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:421
 msgid "Your availability in this slot"
 msgstr "このスロットでのあなたの空き時間"
-
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:84
-#~ msgid "{0} segment"
-#~ msgstr "{0} セグメント"
-
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:85
-#~ msgid "{0} segments"
-#~ msgstr "{0} セグメント"
-
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:82
-#~ msgid "{0}–{1} courts"
-#~ msgstr "{0}–{1} コート"
-
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:79
-#~ msgid "{minCourts, plural, one {{0}} other {{1}}}"
-#~ msgstr "{minCourts, plural, one {{0}} other {{1}}}"
-
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
-#~ msgid "Choose a segment up to four hours to plan this time."
-#~ msgstr "この時間を計画するには、4時間以内のセグメントを選択してください。"
-
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:128
-#~ msgid "Continuous court availability"
-#~ msgstr "連続コート空き状況"
-
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
-#~ msgid ""
-#~ "Match your availability to the selected segment, then invite players."
-#~ msgstr ""
-#~ "選択したセグメントに合わせて空き時間を設定し、プレイヤーを招待してくださ"
-#~ "い。"
-
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:132
-#~ msgid "Open span"
-#~ msgstr "空き時間帯"
-
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:297
-#~ msgid "Plan this time"
-#~ msgstr "この時間を計画する"

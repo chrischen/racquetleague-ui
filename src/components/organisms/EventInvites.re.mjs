@@ -3,6 +3,7 @@
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
+import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as TimeWindow from "../molecules/TimeWindow.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
@@ -10,15 +11,20 @@ import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as LucideReact from "lucide-react";
+import * as DirectMessage from "../../lib/DirectMessage.re.mjs";
 import * as RelayRuntime from "relay-runtime";
 import * as Belt_SetString from "rescript/lib/es6/belt_SetString.js";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as AvatarWithProgress from "../molecules/AvatarWithProgress.re.mjs";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
+import * as Belt_MutableSetString from "rescript/lib/es6/belt_MutableSetString.js";
+import * as InviteMessageComposer from "./InviteMessageComposer.re.mjs";
 import * as PlayerInviteSwipeDeck from "./PlayerInviteSwipeDeck.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
 import * as EventInvitesMutation_graphql from "../../__generated__/EventInvitesMutation_graphql.re.mjs";
+import * as EventInvitesThreadsQuery_graphql from "../../__generated__/EventInvitesThreadsQuery_graphql.re.mjs";
 import * as EventInvitesCandidatesQuery_graphql from "../../__generated__/EventInvitesCandidatesQuery_graphql.re.mjs";
+import * as EventInvitesRecommendationsQuery_graphql from "../../__generated__/EventInvitesRecommendationsQuery_graphql.re.mjs";
 
 import { t } from '@lingui/macro'
 ;
@@ -85,6 +91,54 @@ var CandidatesQuery = {
   retain: retain
 };
 
+var convertVariables$2 = EventInvitesRecommendationsQuery_graphql.Internal.convertVariables;
+
+var convertResponse$2 = EventInvitesRecommendationsQuery_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$2 = EventInvitesRecommendationsQuery_graphql.Internal.convertWrapRawResponse;
+
+var use$2 = RescriptRelay_Query.useQuery(convertVariables$2, EventInvitesRecommendationsQuery_graphql.node, convertResponse$2);
+
+var useLoader$1 = RescriptRelay_Query.useLoader(convertVariables$2, EventInvitesRecommendationsQuery_graphql.node, (function (prim) {
+        return prim;
+      }));
+
+var usePreloaded$1 = RescriptRelay_Query.usePreloaded(EventInvitesRecommendationsQuery_graphql.node, convertResponse$2, (function (prim) {
+        return prim;
+      }));
+
+var $$fetch$1 = RescriptRelay_Query.$$fetch(EventInvitesRecommendationsQuery_graphql.node, convertResponse$2, convertVariables$2);
+
+var fetchPromised$1 = RescriptRelay_Query.fetchPromised(EventInvitesRecommendationsQuery_graphql.node, convertResponse$2, convertVariables$2);
+
+var retain$1 = RescriptRelay_Query.retain(EventInvitesRecommendationsQuery_graphql.node, convertVariables$2);
+
+var RecommendationsQuery_inviteAvailability_decode = EventInvitesRecommendationsQuery_graphql.Utils.inviteAvailability_decode;
+
+var RecommendationsQuery_inviteAvailability_fromString = EventInvitesRecommendationsQuery_graphql.Utils.inviteAvailability_fromString;
+
+var RecommendationsQuery_inviteFit_decode = EventInvitesRecommendationsQuery_graphql.Utils.inviteFit_decode;
+
+var RecommendationsQuery_inviteFit_fromString = EventInvitesRecommendationsQuery_graphql.Utils.inviteFit_fromString;
+
+var RecommendationsQuery = {
+  inviteAvailability_decode: RecommendationsQuery_inviteAvailability_decode,
+  inviteAvailability_fromString: RecommendationsQuery_inviteAvailability_fromString,
+  inviteFit_decode: RecommendationsQuery_inviteFit_decode,
+  inviteFit_fromString: RecommendationsQuery_inviteFit_fromString,
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$2,
+  convertResponse: convertResponse$2,
+  convertWrapRawResponse: convertWrapRawResponse$2,
+  use: use$2,
+  useLoader: useLoader$1,
+  usePreloaded: usePreloaded$1,
+  $$fetch: $$fetch$1,
+  fetchPromised: fetchPromised$1,
+  retain: retain$1
+};
+
 function EventInvites$CandidatesLoader(props) {
   var onLoaded = props.onLoaded;
   var evEnd = props.evEnd;
@@ -110,7 +164,11 @@ function EventInvites$CandidatesLoader(props) {
                                         id: u.id,
                                         name: Core__Option.getOr(u.lineUsername, "?"),
                                         picture: u.picture,
-                                        user: u.fragmentRefs
+                                        user: u.fragmentRefs,
+                                        recommended: false,
+                                        availability: "AvailabilityCovers",
+                                        dupr: undefined,
+                                        duprProvisional: false
                                       };
                               }));
                 }));
@@ -123,13 +181,127 @@ var CandidatesLoader = {
   make: EventInvites$CandidatesLoader
 };
 
+var convertVariables$3 = EventInvitesThreadsQuery_graphql.Internal.convertVariables;
+
+var convertResponse$3 = EventInvitesThreadsQuery_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$3 = EventInvitesThreadsQuery_graphql.Internal.convertWrapRawResponse;
+
+var use$3 = RescriptRelay_Query.useQuery(convertVariables$3, EventInvitesThreadsQuery_graphql.node, convertResponse$3);
+
+var useLoader$2 = RescriptRelay_Query.useLoader(convertVariables$3, EventInvitesThreadsQuery_graphql.node, (function (prim) {
+        return prim;
+      }));
+
+var usePreloaded$2 = RescriptRelay_Query.usePreloaded(EventInvitesThreadsQuery_graphql.node, convertResponse$3, (function (prim) {
+        return prim;
+      }));
+
+var $$fetch$2 = RescriptRelay_Query.$$fetch(EventInvitesThreadsQuery_graphql.node, convertResponse$3, convertVariables$3);
+
+var fetchPromised$2 = RescriptRelay_Query.fetchPromised(EventInvitesThreadsQuery_graphql.node, convertResponse$3, convertVariables$3);
+
+var retain$2 = RescriptRelay_Query.retain(EventInvitesThreadsQuery_graphql.node, convertVariables$3);
+
+var Query = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$3,
+  convertResponse: convertResponse$3,
+  convertWrapRawResponse: convertWrapRawResponse$3,
+  use: use$3,
+  useLoader: useLoader$2,
+  usePreloaded: usePreloaded$2,
+  $$fetch: $$fetch$2,
+  fetchPromised: fetchPromised$2,
+  retain: retain$2
+};
+
+function EventInvites$ThreadsLoader(props) {
+  var onLoaded = props.onLoaded;
+  var eventId = props.eventId;
+  var data = use$3(undefined, "store-and-network", undefined, undefined);
+  React.useEffect((function () {
+          onLoaded(Belt_SetString.fromArray(Core__Array.filterMap(Core__Array.filterMap(Core__Option.getOr(Core__Option.flatMap(Core__Option.flatMap(data.viewer, (function (v) {
+                                              return v.directMessages;
+                                            })), (function (c) {
+                                          return c.edges;
+                                        })), []), (function (edge) {
+                                  return Core__Option.flatMap(edge, (function (e) {
+                                                return e.node;
+                                              }));
+                                })), (function (n) {
+                              return DirectMessage.decode(n.id, n.topic, n.payload, n.createdAt);
+                            })).filter(function (m) {
+                          return Caml_obj.equal(m.eventId, eventId);
+                        }).map(function (m) {
+                        return DirectMessage.counterpart(m)[0];
+                      })));
+        }), [data]);
+  return null;
+}
+
+var ThreadsLoader = {
+  Query: Query,
+  make: EventInvites$ThreadsLoader
+};
+
+function EventInvites$RecommendationsLoader(props) {
+  var onLoaded = props.onLoaded;
+  var data = use$2({
+        eventId: props.eventId,
+        first: props.first
+      }, "store-or-network", undefined, undefined);
+  React.useEffect((function () {
+          var recommended = Core__Option.getOr(data.inviteRecommendations.recommendations, []).map(function (r) {
+                var match = r.availability;
+                var tmp;
+                if (match === "unavailable" || match === "available" || match === "unknown") {
+                  switch (match) {
+                    case "available" :
+                        tmp = "AvailabilityCovers";
+                        break;
+                    case "unavailable" :
+                        tmp = "AvailabilityConflicts";
+                        break;
+                    case "unknown" :
+                        tmp = "AvailabilityUnknown";
+                        break;
+                    
+                  }
+                } else {
+                  tmp = "AvailabilityUnknown";
+                }
+                return {
+                        id: r.user.id,
+                        name: Core__Option.getOr(r.user.lineUsername, "?"),
+                        picture: r.user.picture,
+                        user: r.user.fragmentRefs,
+                        recommended: true,
+                        availability: tmp,
+                        dupr: r.rating.dupr,
+                        duprProvisional: !r.rating.established
+                      };
+              });
+          onLoaded(recommended);
+        }), [data]);
+  return null;
+}
+
+var RecommendationsLoader = {
+  make: EventInvites$RecommendationsLoader
+};
+
 function EventInvites(props) {
+  var invitedCount = props.invitedCount;
   var participantUserIds = props.participantUserIds;
   var timezone = props.timezone;
   var endDate = props.endDate;
   var startDate = props.startDate;
+  var eventTitle = props.eventTitle;
   var activitySlug = props.activitySlug;
   var activityId = props.activityId;
+  var canInvite = props.canInvite;
   var eventId = props.eventId;
   var intl = ReactIntl.useIntl();
   var nav = LangProvider.Router.useNavigate();
@@ -140,23 +312,43 @@ function EventInvites(props) {
       });
   var setCandidates = match$1[1];
   var match$2 = React.useState(function () {
-        
+        return [];
       });
-  var setSentIds = match$2[1];
-  var sentIds = match$2[0];
+  var setRecommendations = match$2[1];
   var match$3 = React.useState(function () {
         
       });
-  var setActiveMenuId = match$3[1];
-  var activeMenuId = match$3[0];
+  var setSentIds = match$3[1];
+  var sentIds = match$3[0];
   var match$4 = React.useState(function () {
-        return false;
+        
       });
-  var setSwipeOpen = match$4[1];
+  var setLoadedThreadIds = match$4[1];
+  var threadUserIds = Belt_SetString.union(match$4[0], sentIds);
   var match$5 = React.useState(function () {
+        
+      });
+  var setLastMessage = match$5[1];
+  var lastMessage = match$5[0];
+  var match$6 = React.useState(function () {
+        
+      });
+  var setActiveMenuId = match$6[1];
+  var activeMenuId = match$6[0];
+  var match$7 = React.useState(function () {
+        
+      });
+  var setComposeFor = match$7[1];
+  var composeFor = match$7[0];
+  var match$8 = React.useState(function () {
         return false;
       });
-  var setMounted = match$5[1];
+  var setSwipeOpen = match$8[1];
+  var match$9 = React.useState(function () {
+        return false;
+      });
+  var setMounted = match$9[1];
+  var mounted = match$9[0];
   React.useEffect((function () {
           setMounted(function (param) {
                 return true;
@@ -198,45 +390,287 @@ function EventInvites(props) {
   } else {
     $$window = undefined;
   }
-  var visibleCandidates = match$1[0].filter(function (c) {
-        if (participantUserIds.includes(c.id)) {
+  var seen = Belt_MutableSetString.make();
+  var visibleCandidates = Belt_Array.concat(match$2[0], match$1[0]).filter(function (c) {
+        if (participantUserIds.includes(c.id) || Belt_SetString.has(sentIds, c.id) || Belt_MutableSetString.has(seen, c.id)) {
           return false;
         } else {
-          return !Belt_SetString.has(sentIds, c.id);
+          Belt_MutableSetString.add(seen, c.id);
+          return true;
         }
       });
-  var handleInvite = function (userId) {
+  var handleInvite = function (userId, message) {
     var alreadyInvited = participantUserIds.includes(userId) || Belt_SetString.has(sentIds, userId);
-    if (alreadyInvited) {
+    var note = message.trim();
+    if (!(!alreadyInvited && note !== "")) {
       return ;
     }
     setSentIds(function (s) {
           return Belt_SetString.add(s, userId);
         });
+    setLastMessage(function (param) {
+          return note;
+        });
+    var restoreLastMessage = function () {
+      setLastMessage(function (current) {
+            if (Caml_obj.equal(current, note)) {
+              return lastMessage;
+            } else {
+              return current;
+            }
+          });
+    };
     var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(eventId, "PkRSVPSection_event_rsvps", undefined);
     commitInvite({
           connections: [connectionId],
           eventId: eventId,
+          message: note,
           userId: userId
         }, undefined, undefined, undefined, (function (response, param) {
             var errors = response.inviteToEvent.errors;
             if (errors !== undefined && errors.length > 0) {
-              return setSentIds(function (s) {
-                          return Belt_SetString.remove(s, userId);
-                        });
+              setSentIds(function (s) {
+                    return Belt_SetString.remove(s, userId);
+                  });
+              return restoreLastMessage();
             }
             
           }), (function (param) {
             setSentIds(function (s) {
                   return Belt_SetString.remove(s, userId);
                 });
+            restoreLastMessage();
           }), undefined);
   };
   var inviteableCount = visibleCandidates.length;
-  var totalCount = props.invitedCount + inviteableCount | 0;
+  var totalCount = invitedCount + inviteableCount | 0;
+  var tmp;
+  if (totalCount === 0) {
+    tmp = null;
+  } else {
+    var tmp$1;
+    if (composeFor !== undefined) {
+      var userId = composeFor[0];
+      tmp$1 = JsxRuntime.jsx(InviteMessageComposer.make, {
+            playerName: composeFor[1],
+            eventTitle: eventTitle,
+            previousMessage: lastMessage,
+            onSubmit: (function (message) {
+                handleInvite(userId, message);
+                setComposeFor(function (param) {
+                      
+                    });
+              }),
+            onCancel: (function () {
+                setComposeFor(function (param) {
+                      
+                    });
+              })
+          });
+    } else {
+      tmp$1 = null;
+    }
+    tmp = JsxRuntime.jsxs("section", {
+          children: [
+            JsxRuntime.jsxs("div", {
+                  children: [
+                    JsxRuntime.jsx("div", {
+                          className: "h-px flex-1 bg-violet-200 dark:bg-violet-800/50"
+                        }),
+                    JsxRuntime.jsxs("span", {
+                          children: [
+                            JsxRuntime.jsx(LucideReact.Mail, {
+                                  size: 10,
+                                  "aria-hidden": "true"
+                                }),
+                            t`Invites · ${totalCount.toString()}`
+                          ],
+                          className: "font-mono text-[11px] tracking-wider text-violet-600 dark:text-violet-400 uppercase inline-flex items-center gap-1",
+                          id: "invites-heading"
+                        }),
+                    JsxRuntime.jsx("div", {
+                          className: "h-px flex-1 bg-violet-200 dark:bg-violet-800/50"
+                        }),
+                    inviteableCount > 0 ? JsxRuntime.jsxs("button", {
+                            children: [
+                              JsxRuntime.jsx(LucideReact.Layers, {
+                                    size: 10,
+                                    strokeWidth: 2.5,
+                                    "aria-hidden": "true"
+                                  }),
+                              t`Swipe invites`
+                            ],
+                            "aria-label": t`Review ${inviteableCount.toString()} potential players with swipe cards`,
+                            className: "absolute right-0 top-1/2 inline-flex -translate-y-1/2 items-center gap-1 rounded-md bg-violet-600 px-2 py-1 text-[9px] font-semibold text-white transition-colors hover:bg-violet-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:bg-violet-500 dark:hover:bg-violet-400 dark:hover:text-violet-950",
+                            type: "button",
+                            onClick: (function (param) {
+                                setSwipeOpen(function (param) {
+                                      return true;
+                                    });
+                              })
+                          }) : null
+                  ],
+                  className: "relative flex items-center gap-2 mb-2"
+                }),
+            JsxRuntime.jsxs("ul", {
+                  children: [
+                    props.invitedChips(threadUserIds),
+                    visibleCandidates.map(function (c) {
+                          var menuOpen = Caml_obj.equal(activeMenuId, c.id);
+                          var dupr = c.dupr;
+                          return JsxRuntime.jsxs("li", {
+                                      children: [
+                                        JsxRuntime.jsxs("button", {
+                                              children: [
+                                                JsxRuntime.jsx(AvatarWithProgress.make, {
+                                                      src: Core__Option.getOr(c.picture, ""),
+                                                      alt: c.name,
+                                                      progress: 0,
+                                                      size: 22,
+                                                      strokeWidth: 1.5
+                                                    }),
+                                                c.recommended ? JsxRuntime.jsx(LucideReact.Sparkles, {
+                                                        size: 10,
+                                                        className: "text-violet-500 dark:text-violet-400 flex-shrink-0",
+                                                        "aria-hidden": "true"
+                                                      }) : null,
+                                                JsxRuntime.jsx("span", {
+                                                      children: c.name,
+                                                      className: "text-[11px] leading-none text-violet-900 dark:text-violet-200"
+                                                    }),
+                                                dupr !== undefined ? JsxRuntime.jsx("span", {
+                                                        children: (
+                                                          c.duprProvisional ? "~" : ""
+                                                        ) + dupr.toFixed(2),
+                                                        className: "font-mono text-[9px] leading-none text-violet-500 dark:text-violet-400"
+                                                      }) : JsxRuntime.jsx("span", {
+                                                        children: t`invite`,
+                                                        className: "font-mono text-[9px] leading-none text-violet-500 dark:text-violet-400"
+                                                      })
+                                              ],
+                                              "aria-label": t`Open invite actions for ${c.name}`,
+                                              "aria-expanded": menuOpen,
+                                              "aria-haspopup": "menu",
+                                              className: "relative inline-flex items-center gap-1.5 rounded-full border border-violet-200 dark:border-violet-800/60 bg-violet-50 dark:bg-violet-950/20 py-0.5 pl-0.5 pr-2 opacity-50 transition-[opacity,background-color] hover:bg-violet-100 dark:hover:bg-violet-900/30 hover:opacity-100 focus:outline-none focus-visible:opacity-100 focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2",
+                                              type: "button",
+                                              onClick: (function (param) {
+                                                  setActiveMenuId(function (cur) {
+                                                        if (Caml_obj.equal(cur, c.id)) {
+                                                          return ;
+                                                        } else {
+                                                          return c.id;
+                                                        }
+                                                      });
+                                                })
+                                            }),
+                                        menuOpen ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                children: [
+                                                  JsxRuntime.jsx("div", {
+                                                        className: "fixed inset-0 z-40",
+                                                        onClick: (function (param) {
+                                                            setActiveMenuId(function (param) {
+                                                                  
+                                                                });
+                                                          })
+                                                      }),
+                                                  JsxRuntime.jsxs("div", {
+                                                        children: [
+                                                          JsxRuntime.jsxs("button", {
+                                                                children: [
+                                                                  JsxRuntime.jsx(LucideReact.User, {
+                                                                        className: "w-3 h-3"
+                                                                      }),
+                                                                  t`View Profile`
+                                                                ],
+                                                                className: "flex w-full items-center gap-2 px-3 py-2 text-left text-xs text-gray-700 dark:text-gray-300 transition-colors hover:bg-gray-50 dark:hover:bg-[#353640] focus:bg-gray-50 dark:focus:bg-[#353640] focus:outline-none",
+                                                                role: "menuitem",
+                                                                type: "button",
+                                                                onClick: (function (param) {
+                                                                    setActiveMenuId(function (param) {
+                                                                          
+                                                                        });
+                                                                    nav("/league/" + Core__Option.getOr(activitySlug, "pickleball") + "/p/" + c.id, undefined);
+                                                                  })
+                                                              }),
+                                                          JsxRuntime.jsxs("button", {
+                                                                children: [
+                                                                  JsxRuntime.jsx(LucideReact.Send, {
+                                                                        className: "w-3 h-3"
+                                                                      }),
+                                                                  t`Send invite`
+                                                                ],
+                                                                className: "flex w-full items-center gap-2 px-3 py-2 text-left text-xs font-medium text-violet-700 dark:text-violet-300 transition-colors hover:bg-violet-50 dark:hover:bg-violet-950/30 focus:bg-violet-50 dark:focus:bg-violet-950/30 focus:outline-none",
+                                                                role: "menuitem",
+                                                                type: "button",
+                                                                onClick: (function (param) {
+                                                                    setActiveMenuId(function (param) {
+                                                                          
+                                                                        });
+                                                                    setComposeFor(function (param) {
+                                                                          return [
+                                                                                  c.id,
+                                                                                  c.name
+                                                                                ];
+                                                                        });
+                                                                  })
+                                                              })
+                                                        ],
+                                                        className: "absolute left-0 top-full z-50 mt-1 w-36 overflow-hidden rounded-lg border border-gray-200 dark:border-[#3a3b40] bg-white dark:bg-[#2a2b30] py-1 shadow-lg",
+                                                        role: "menu"
+                                                      })
+                                                ]
+                                              }) : null
+                                      ],
+                                      className: "relative",
+                                      onKeyDown: (function (e) {
+                                          if (e.key === "Escape") {
+                                            return setActiveMenuId(function (param) {
+                                                        
+                                                      });
+                                          }
+                                          
+                                        })
+                                    }, c.id);
+                        })
+                  ],
+                  "aria-label": t`Invited and potential players`,
+                  className: "flex flex-wrap gap-1.5 list-none p-0 m-0"
+                }),
+            match$8[0] && $$window !== undefined ? JsxRuntime.jsx(PlayerInviteSwipeDeck.make, {
+                    players: visibleCandidates.map(function (c) {
+                          return {
+                                  id: c.id,
+                                  name: c.name,
+                                  source: {
+                                    TAG: "FromFragment",
+                                    _0: c.user
+                                  },
+                                  availability: c.availability
+                                };
+                        }),
+                    eventTitle: eventTitle,
+                    eventVenue: props.venueName,
+                    eventTimeLabel: $$window[3],
+                    mode: "Invite",
+                    onAccept: (function (userId, message) {
+                        handleInvite(userId, Core__Option.getOr(message, ""));
+                      }),
+                    onClose: (function () {
+                        setSwipeOpen(function (param) {
+                              return false;
+                            });
+                      }),
+                    previousMessage: lastMessage
+                  }) : null,
+            tmp$1
+          ],
+          "aria-labelledby": "invites-heading",
+          className: "mt-2.5"
+        });
+  }
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
-                props.canInvite && match$5[0] && $$window !== undefined && activityId !== undefined ? JsxRuntime.jsx(React.Suspense, {
+                canInvite && mounted && $$window !== undefined && activityId !== undefined ? JsxRuntime.jsx(React.Suspense, {
                         children: Caml_option.some(JsxRuntime.jsx(EventInvites$CandidatesLoader, {
                                   localDate: $$window[0],
                                   activityId: activityId,
@@ -252,182 +686,30 @@ function EventInvites(props) {
                                 })),
                         fallback: Caml_option.some(null)
                       }) : null,
-                totalCount === 0 ? null : JsxRuntime.jsxs("section", {
-                        children: [
-                          JsxRuntime.jsxs("div", {
-                                children: [
-                                  JsxRuntime.jsx("div", {
-                                        className: "h-px flex-1 bg-violet-200 dark:bg-violet-800/50"
-                                      }),
-                                  JsxRuntime.jsxs("span", {
-                                        children: [
-                                          JsxRuntime.jsx(LucideReact.Mail, {
-                                                size: 10,
-                                                "aria-hidden": "true"
-                                              }),
-                                          t`Invites · ${totalCount.toString()}`
-                                        ],
-                                        className: "font-mono text-[11px] tracking-wider text-violet-600 dark:text-violet-400 uppercase inline-flex items-center gap-1",
-                                        id: "invites-heading"
-                                      }),
-                                  JsxRuntime.jsx("div", {
-                                        className: "h-px flex-1 bg-violet-200 dark:bg-violet-800/50"
-                                      }),
-                                  inviteableCount > 0 ? JsxRuntime.jsxs("button", {
-                                          children: [
-                                            JsxRuntime.jsx(LucideReact.Layers, {
-                                                  size: 10,
-                                                  strokeWidth: 2.5,
-                                                  "aria-hidden": "true"
-                                                }),
-                                            t`Swipe invites`
-                                          ],
-                                          "aria-label": t`Review ${inviteableCount.toString()} potential players with swipe cards`,
-                                          className: "absolute right-0 top-1/2 inline-flex -translate-y-1/2 items-center gap-1 rounded-md bg-violet-600 px-2 py-1 text-[9px] font-semibold text-white transition-colors hover:bg-violet-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:bg-violet-500 dark:hover:bg-violet-400 dark:hover:text-violet-950",
-                                          type: "button",
-                                          onClick: (function (param) {
-                                              setSwipeOpen(function (param) {
-                                                    return true;
-                                                  });
-                                            })
-                                        }) : null
-                                ],
-                                className: "relative flex items-center gap-2 mb-2"
-                              }),
-                          JsxRuntime.jsxs("ul", {
-                                children: [
-                                  props.invitedChips,
-                                  visibleCandidates.map(function (c) {
-                                        var menuOpen = Caml_obj.equal(activeMenuId, c.id);
-                                        return JsxRuntime.jsxs("li", {
-                                                    children: [
-                                                      JsxRuntime.jsxs("button", {
-                                                            children: [
-                                                              JsxRuntime.jsx(AvatarWithProgress.make, {
-                                                                    src: Core__Option.getOr(c.picture, ""),
-                                                                    alt: c.name,
-                                                                    progress: 0,
-                                                                    size: 22,
-                                                                    strokeWidth: 1.5
-                                                                  }),
-                                                              JsxRuntime.jsx("span", {
-                                                                    children: c.name,
-                                                                    className: "text-[11px] leading-none text-violet-900 dark:text-violet-200"
-                                                                  }),
-                                                              JsxRuntime.jsx("span", {
-                                                                    children: t`invite`,
-                                                                    className: "font-mono text-[9px] leading-none text-violet-500 dark:text-violet-400"
-                                                                  })
-                                                            ],
-                                                            "aria-label": t`Open invite actions for ${c.name}`,
-                                                            "aria-expanded": menuOpen,
-                                                            "aria-haspopup": "menu",
-                                                            className: "relative inline-flex items-center gap-1.5 rounded-full border border-violet-200 dark:border-violet-800/60 bg-violet-50 dark:bg-violet-950/20 py-0.5 pl-0.5 pr-2 opacity-50 transition-[opacity,background-color] hover:bg-violet-100 dark:hover:bg-violet-900/30 hover:opacity-100 focus:outline-none focus-visible:opacity-100 focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2",
-                                                            type: "button",
-                                                            onClick: (function (param) {
-                                                                setActiveMenuId(function (cur) {
-                                                                      if (Caml_obj.equal(cur, c.id)) {
-                                                                        return ;
-                                                                      } else {
-                                                                        return c.id;
-                                                                      }
-                                                                    });
-                                                              })
-                                                          }),
-                                                      menuOpen ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                              children: [
-                                                                JsxRuntime.jsx("div", {
-                                                                      className: "fixed inset-0 z-40",
-                                                                      onClick: (function (param) {
-                                                                          setActiveMenuId(function (param) {
-                                                                                
-                                                                              });
-                                                                        })
-                                                                    }),
-                                                                JsxRuntime.jsxs("div", {
-                                                                      children: [
-                                                                        JsxRuntime.jsxs("button", {
-                                                                              children: [
-                                                                                JsxRuntime.jsx(LucideReact.User, {
-                                                                                      className: "w-3 h-3"
-                                                                                    }),
-                                                                                t`View Profile`
-                                                                              ],
-                                                                              className: "flex w-full items-center gap-2 px-3 py-2 text-left text-xs text-gray-700 dark:text-gray-300 transition-colors hover:bg-gray-50 dark:hover:bg-[#353640] focus:bg-gray-50 dark:focus:bg-[#353640] focus:outline-none",
-                                                                              role: "menuitem",
-                                                                              type: "button",
-                                                                              onClick: (function (param) {
-                                                                                  setActiveMenuId(function (param) {
-                                                                                        
-                                                                                      });
-                                                                                  nav("/league/" + Core__Option.getOr(activitySlug, "pickleball") + "/p/" + c.id, undefined);
-                                                                                })
-                                                                            }),
-                                                                        JsxRuntime.jsxs("button", {
-                                                                              children: [
-                                                                                JsxRuntime.jsx(LucideReact.Send, {
-                                                                                      className: "w-3 h-3"
-                                                                                    }),
-                                                                                t`Send invite`
-                                                                              ],
-                                                                              className: "flex w-full items-center gap-2 px-3 py-2 text-left text-xs font-medium text-violet-700 dark:text-violet-300 transition-colors hover:bg-violet-50 dark:hover:bg-violet-950/30 focus:bg-violet-50 dark:focus:bg-violet-950/30 focus:outline-none",
-                                                                              role: "menuitem",
-                                                                              type: "button",
-                                                                              onClick: (function (param) {
-                                                                                  setActiveMenuId(function (param) {
-                                                                                        
-                                                                                      });
-                                                                                  handleInvite(c.id);
-                                                                                })
-                                                                            })
-                                                                      ],
-                                                                      className: "absolute left-0 top-full z-50 mt-1 w-36 overflow-hidden rounded-lg border border-gray-200 dark:border-[#3a3b40] bg-white dark:bg-[#2a2b30] py-1 shadow-lg",
-                                                                      role: "menu"
-                                                                    })
-                                                              ]
-                                                            }) : null
-                                                    ],
-                                                    className: "relative",
-                                                    onKeyDown: (function (e) {
-                                                        if (e.key === "Escape") {
-                                                          return setActiveMenuId(function (param) {
-                                                                      
-                                                                    });
-                                                        }
-                                                        
-                                                      })
-                                                  }, c.id);
-                                      })
-                                ],
-                                "aria-label": t`Invited and potential players`,
-                                className: "flex flex-wrap gap-1.5 list-none p-0 m-0"
-                              }),
-                          match$4[0] && $$window !== undefined ? JsxRuntime.jsx(PlayerInviteSwipeDeck.make, {
-                                  players: visibleCandidates.map(function (c) {
-                                        return {
-                                                id: c.id,
-                                                name: c.name,
-                                                source: {
-                                                  TAG: "FromFragment",
-                                                  _0: c.user
-                                                }
-                                              };
-                                      }),
-                                  eventTitle: props.eventTitle,
-                                  eventVenue: props.venueName,
-                                  eventTimeLabel: $$window[3],
-                                  mode: "Invite",
-                                  onAccept: handleInvite,
-                                  onClose: (function () {
-                                      setSwipeOpen(function (param) {
-                                            return false;
+                mounted && invitedCount > 0 ? JsxRuntime.jsx(React.Suspense, {
+                        children: Caml_option.some(JsxRuntime.jsx(EventInvites$ThreadsLoader, {
+                                  eventId: eventId,
+                                  onLoaded: (function (ids) {
+                                      setLoadedThreadIds(function (param) {
+                                            return ids;
                                           });
                                     })
-                                }) : null
-                        ],
-                        "aria-labelledby": "invites-heading",
-                        className: "mt-2.5"
-                      })
+                                })),
+                        fallback: Caml_option.some(null)
+                      }) : null,
+                canInvite && mounted ? JsxRuntime.jsx(React.Suspense, {
+                        children: Caml_option.some(JsxRuntime.jsx(EventInvites$RecommendationsLoader, {
+                                  eventId: eventId,
+                                  first: 12,
+                                  onLoaded: (function (r) {
+                                      setRecommendations(function (param) {
+                                            return r;
+                                          });
+                                    })
+                                })),
+                        fallback: Caml_option.some(null)
+                      }) : null,
+                tmp
               ]
             });
 }
@@ -437,7 +719,10 @@ var make = EventInvites;
 export {
   InviteMutation ,
   CandidatesQuery ,
+  RecommendationsQuery ,
   CandidatesLoader ,
+  ThreadsLoader ,
+  RecommendationsLoader ,
   make ,
 }
 /*  Not a pure module */

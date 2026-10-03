@@ -22,11 +22,11 @@ msgstr "+{0}명 더"
 msgid "Add Member"
 msgstr "멤버 추가"
 
-#: src/components/organisms/RsvpOptions.re.mjs:187
+#: src/components/organisms/RsvpOptions.re.mjs:188
 msgid "Approve RSVP"
 msgstr "참가 승인"
 
-#: src/components/organisms/RsvpOptions.re.mjs:331
+#: src/components/organisms/RsvpOptions.re.mjs:338
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "이 사람을 이벤트에서 제거하시겠습니까?"
 
@@ -34,11 +34,11 @@ msgstr "이 사람을 이벤트에서 제거하시겠습니까?"
 msgid "Cancel"
 msgstr "취소"
 
-#: src/components/organisms/RsvpOptions.re.mjs:219
+#: src/components/organisms/RsvpOptions.re.mjs:220
 msgid "Capture payment"
 msgstr "결제 승인"
 
-#: src/components/organisms/RsvpOptions.re.mjs:240
+#: src/components/organisms/RsvpOptions.re.mjs:241
 msgid "Charge payment"
 msgstr "결제 청구"
 
@@ -82,8 +82,8 @@ msgstr "로딩 중..."
 msgid "Login to Join"
 msgstr "로그인하여 참가"
 
-#: src/components/organisms/RsvpOptions.re.mjs:197
-#: src/components/organisms/RsvpOptions.re.mjs:346
+#: src/components/organisms/RsvpOptions.re.mjs:198
+#: src/components/organisms/RsvpOptions.re.mjs:353
 msgid "Move to Pending List"
 msgstr "대기 목록으로 이동"
 
@@ -120,15 +120,15 @@ msgstr "스마트 RSVP 미리보기"
 msgid "Previewing…"
 msgstr "미리보는 중…"
 
-#: src/components/organisms/RsvpOptions.re.mjs:258
+#: src/components/organisms/RsvpOptions.re.mjs:259
 msgid "Refund payment"
 msgstr "결제 환불"
 
-#: src/components/organisms/RsvpOptions.re.mjs:286
+#: src/components/organisms/RsvpOptions.re.mjs:287
 msgid "Remove from event"
 msgstr "이벤트에서 제거"
 
-#: src/components/organisms/RsvpOptions.re.mjs:330
+#: src/components/organisms/RsvpOptions.re.mjs:337
 msgid "Remove this RSVP"
 msgstr "이 RSVP 제거"
 
@@ -136,7 +136,7 @@ msgstr "이 RSVP 제거"
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "필요 레이팅: {0} (DUPR {1})"
 
-#: src/components/organisms/RsvpOptions.re.mjs:227
+#: src/components/organisms/RsvpOptions.re.mjs:228
 msgid "Retry charge"
 msgstr "결제 재시도"
 
@@ -150,6 +150,10 @@ msgstr "RSVP"
 msgid "RSVP Pending..."
 msgstr "RSVP 처리 중..."
 
+#: src/components/organisms/RSVPSection.re.mjs:310
+#~ msgid "Run Smart RSVP (best-fit, test)"
+#~ msgstr "스마트 RSVP 실행(최적 매칭, 테스트)"
+
 #: src/components/organisms/RSVPSection.re.mjs:277
 msgid "Run Smart RSVP now"
 msgstr "지금 스마트 RSVP 실행"
@@ -158,53 +162,44 @@ msgstr "지금 스마트 RSVP 실행"
 msgid "Save"
 msgstr "저장"
 
+#: src/components/organisms/GoingRsvps.re.mjs:123
+#~ msgid "See all"
+#~ msgstr "전체 보기"
+
 #: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "Show less"
 msgstr "간략히 보기"
 
 #: src/components/organisms/RSVPSection.re.mjs:307
-msgid ""
-"Smart RSVP would admit {0} of {1} pending requests: they are marked above."
-msgstr ""
-"스마트 RSVP가 대기 중인 요청 {1}건 중 {0}건을 수락합니다. 위에 표시되어 있습"
-"니다."
+msgid "Smart RSVP would admit {0} of {1} pending requests: they are marked above."
+msgstr "스마트 RSVP가 대기 중인 요청 {1}건 중 {0}건을 수락합니다. 위에 표시되어 있습니다."
 
 #: src/components/organisms/RSVPSection.re.mjs:294
 msgid "Smart Waitlist"
 msgstr "스마트 대기자 명단"
 
 #: src/components/organisms/RSVPSection.re.mjs:653
-msgid ""
-"This event admits players automatically. Your request will be reviewed and "
-"you will be notified once a spot is confirmed."
-msgstr ""
-"이 이벤트는 참가자를 자동으로 승인합니다. 요청이 검토되며 자리가 확정되면 알"
-"려드립니다."
+msgid "This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed."
+msgstr "이 이벤트는 참가자를 자동으로 승인합니다. 요청이 검토되며 자리가 확정되면 알려드립니다."
 
 #: src/components/atoms/EventSignupButton.re.mjs:91
-msgid ""
-"This event is full, so leaving the event will give your spot to someone on "
-"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
-"want to leave this event?"
-msgstr ""
-"이벤트가 꽉 찼습니다. 나가면 대기자에게 자리가 넘어갑니다. 다시 참가하면 대기"
-"자 명단에 들어갑니다. 정말 나가시겠습니까?"
+msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
+msgstr "이벤트가 꽉 찼습니다. 나가면 대기자에게 자리가 넘어갑니다. 다시 참가하면 대기자 명단에 들어갑니다. 정말 나가시겠습니까?"
 
-#: src/components/organisms/RsvpOptions.re.mjs:347
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니"
-"다. RSVP를 제한하시겠습니까?"
+#: src/components/organisms/RsvpOptions.re.mjs:354
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니다. RSVP를 제한하시겠습니까?"
 
 #: src/components/organisms/RSVPSection.re.mjs:433
 #: src/components/organisms/RSVPSection.re.mjs:434
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "상태 메시지를 입력하세요... 예: '19:00에 도착할 예정입니다.'"
 
-#: src/components/organisms/RsvpOptions.re.mjs:313
+#: src/components/organisms/RsvpOptions.re.mjs:321
+msgid "View message thread"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:314
 msgid "View Profile"
 msgstr "프로필 보기"
 
@@ -229,19 +224,5 @@ msgid "You're Waitlisted"
 msgstr "대기 중"
 
 #: src/components/organisms/RSVPSection.re.mjs:667
-msgid ""
-"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
-"pending list until the rating limit is lowered. Please join another JPL "
-"rated event to boost your rating."
-msgstr ""
-"레이팅 {0} ~ {1} (DUPR {2} ~ {3})이(가) 너무 낮습니다. 레이팅 제한이 낮아질 "
-"때까지 대기 목록에 배치됩니다. JPL 레이팅 이벤트에 참가하여 레이팅을 높이세"
-"요."
-
-#: src/components/organisms/RSVPSection.re.mjs:310
-#~ msgid "Run Smart RSVP (best-fit, test)"
-#~ msgstr "스마트 RSVP 실행(최적 매칭, 테스트)"
-
-#: src/components/organisms/GoingRsvps.re.mjs:123
-#~ msgid "See all"
-#~ msgstr "전체 보기"
+msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
+msgstr "레이팅 {0} ~ {1} (DUPR {2} ~ {3})이(가) 너무 낮습니다. 레이팅 제한이 낮아질 때까지 대기 목록에 배치됩니다. JPL 레이팅 이벤트에 참가하여 레이팅을 높이세요."

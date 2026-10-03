@@ -13,6 +13,7 @@ import * as CombinedRating from "../../lib/CombinedRating.re.mjs";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as RatingSourceChip from "../molecules/RatingSourceChip.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as InviteMessageComposer from "./InviteMessageComposer.re.mjs";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as PlayerInviteSwipeDeck_user_graphql from "../../__generated__/PlayerInviteSwipeDeck_user_graphql.re.mjs";
 
@@ -200,18 +201,47 @@ function PlayerInviteSwipeDeck$ProfileCard(props) {
   var bio = profile.biography;
   var tmp$5;
   if (mode === "Invite") {
+    var match$1 = Core__Option.getOr(props.availability, "AvailabilityCovers");
+    var match$2;
+    switch (match$1) {
+      case "AvailabilityCovers" :
+          match$2 = [
+            "border-violet-100 bg-violet-50/70 dark:border-violet-900/50 dark:bg-violet-950/20",
+            "text-violet-900 dark:text-violet-200",
+            "text-violet-700 dark:text-violet-400",
+            t`Available for the full event`
+          ];
+          break;
+      case "AvailabilityUnknown" :
+          match$2 = [
+            "border-gray-200 bg-gray-50 dark:border-[#3a3b40] dark:bg-[#222326]",
+            "text-gray-700 dark:text-gray-200",
+            "text-gray-500 dark:text-gray-400",
+            t`Availability not shared for this day`
+          ];
+          break;
+      case "AvailabilityConflicts" :
+          match$2 = [
+            "border-amber-100 bg-amber-50/70 dark:border-amber-900/50 dark:bg-amber-950/20",
+            "text-amber-900 dark:text-amber-200",
+            "text-amber-700 dark:text-amber-400",
+            t`Available at other hours that day`
+          ];
+          break;
+      
+    }
     tmp$5 = JsxRuntime.jsxs("div", {
           children: [
             JsxRuntime.jsx("p", {
-                  children: t`Available for the full event`,
-                  className: "text-xs font-semibold text-violet-900 dark:text-violet-200"
+                  children: match$2[3],
+                  className: "text-xs font-semibold " + match$2[1]
                 }),
             eventTimeLabel !== undefined && eventVenue !== undefined ? JsxRuntime.jsx("p", {
                     children: eventTimeLabel + " · " + eventVenue,
-                    className: "mt-1 font-mono text-[10px] leading-relaxed text-violet-700 dark:text-violet-400"
+                    className: "mt-1 font-mono text-[10px] leading-relaxed " + match$2[2]
                   }) : null
           ],
-          className: "mt-4 w-full rounded-xl border border-violet-100 bg-violet-50/70 p-3 dark:border-violet-900/50 dark:bg-violet-950/20"
+          className: "mt-4 w-full rounded-xl border p-3 " + match$2[0]
         });
   } else {
     var note = Core__Option.filter(profile.note, (function (n) {
@@ -431,6 +461,7 @@ function PlayerInviteSwipeDeck$FragmentCard(props) {
   return JsxRuntime.jsx(PlayerInviteSwipeDeck$ProfileCard, {
               profile: profile,
               mode: props.mode,
+              availability: props.availability,
               eventTitle: props.eventTitle,
               eventVenue: props.eventVenue,
               eventTimeLabel: props.eventTimeLabel,
@@ -466,6 +497,11 @@ function PlayerInviteSwipeDeck(props) {
       });
   var setExitDirection = match$2[1];
   var exitDirection = match$2[0];
+  var match$3 = React.useState(function () {
+        
+      });
+  var setComposeFor = match$3[1];
+  var composeFor = match$3[0];
   var closeButtonRef = React.useRef(null);
   var currentPlayer = reviewQueue[currentIndex];
   React.useEffect((function () {
@@ -484,9 +520,11 @@ function PlayerInviteSwipeDeck(props) {
         }), []);
   var onCloseRef = React.useRef(onClose);
   onCloseRef.current = onClose;
+  var composingRef = React.useRef(false);
+  composingRef.current = Core__Option.isSome(composeFor);
   React.useEffect((function () {
           var onKey = function (e) {
-            if (e.key === "Escape") {
+            if (e.key === "Escape" && !composingRef.current) {
               return onCloseRef.current();
             }
             
@@ -496,19 +534,28 @@ function PlayerInviteSwipeDeck(props) {
                     window.removeEventListener("keydown", onKey);
                   });
         }), []);
+  var advance = function (direction) {
+    setExitDirection(function (param) {
+          return direction;
+        });
+    setCurrentIndex(function (index) {
+          return index + 1 | 0;
+        });
+  };
   var handleSwipe = function (direction) {
     if (currentPlayer === undefined) {
       return ;
     }
-    setExitDirection(function (param) {
-          return direction;
-        });
-    if (direction !== "Left") {
-      onAccept(currentPlayer.id);
+    if (direction === "Left") {
+      return advance("Left");
     }
-    setCurrentIndex(function (index) {
-          return index + 1 | 0;
-        });
+    if (mode === "Invite") {
+      return setComposeFor(function (param) {
+                  return currentPlayer;
+                });
+    }
+    onAccept(currentPlayer.id, undefined);
+    advance("Right");
   };
   var total = reviewQueue.length.toString();
   var counter = currentPlayer !== undefined ? (currentIndex + 1 | 0).toString() + "/" + total : total + "/" + total;
@@ -524,6 +571,7 @@ function PlayerInviteSwipeDeck(props) {
             userRef: userRef._0,
             fallbackName: currentPlayer.name,
             mode: mode,
+            availability: currentPlayer.availability,
             eventTitle: eventTitle,
             eventVenue: eventVenue,
             eventTimeLabel: eventTimeLabel,
@@ -532,6 +580,7 @@ function PlayerInviteSwipeDeck(props) {
           }, id) : JsxRuntime.jsx(PlayerInviteSwipeDeck$ProfileCard, {
             profile: userRef._0,
             mode: mode,
+            availability: currentPlayer.availability,
             eventTitle: eventTitle,
             eventVenue: eventVenue,
             eventTimeLabel: eventTimeLabel,
@@ -710,7 +759,24 @@ function PlayerInviteSwipeDeck(props) {
                                 className: "flex w-full max-w-[380px] flex-col items-center"
                               }),
                           className: "flex flex-1 flex-col items-center justify-center overflow-hidden p-5"
-                        })
+                        }),
+                    composeFor !== undefined ? JsxRuntime.jsx(InviteMessageComposer.make, {
+                            playerName: composeFor.name,
+                            eventTitle: eventTitle,
+                            previousMessage: props.previousMessage,
+                            onSubmit: (function (message) {
+                                onAccept(composeFor.id, message);
+                                setComposeFor(function (param) {
+                                      
+                                    });
+                                advance("Right");
+                              }),
+                            onCancel: (function () {
+                                setComposeFor(function (param) {
+                                      
+                                    });
+                              })
+                          }) : null
                   ]
                 }), window.document.body);
 }

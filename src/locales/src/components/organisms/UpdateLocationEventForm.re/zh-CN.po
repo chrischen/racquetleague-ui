@@ -95,6 +95,18 @@ msgstr "{0} 个活动"
 msgid "{0} events"
 msgstr "{0} 个活动"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:536
+#~ msgid "{0} hours"
+#~ msgstr "{0} 小时"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:536
+#~ msgid "{0} hours and {1} minutes"
+#~ msgstr "{0} 小时 {1} 分钟"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:538
+#~ msgid "{0} minutes"
+#~ msgstr "{0} 分钟"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1019
 msgid "{0} without a venue"
 msgstr "{0} 未设置场地"
@@ -147,6 +159,18 @@ msgstr "6小时前"
 msgid "72 hours before"
 msgstr "72小时前"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:827
+#~ msgid "A deposit authorization is collected when someone joins. No money is actually charged and the authorization is removed automatically after your event. You should collect any participation fees manually in person. You can also manually approve attendees by clicking their name in the RSVP list."
+#~ msgstr "当有人报名时会收集一笔预授权押金，实际不会产生任何扣款，授权将在活动结束后自动解除。参与费用请自行当面收取。您也可以在报名列表中点击参与者姓名来手动审批。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:762
+#~ msgid "A deposit authorization is made. This is not a charge and it automatically disappears from the person's account. You can manually approve attendees who do not authorize payment by clicking their name in the RSVP list."
+#~ msgstr "系统将发起一笔预授权，这不是实际扣款，会自动从用户账户消失。对于未完成支付授权的参与者，您可以在 RSVP 列表中点击其姓名手动批准。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:851
+#~ msgid "A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list."
+#~ msgstr "当有人加入时将收取可退还的押金。您可以通过点击RSVP列表中的姓名来手动批准参与者。"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1159
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1181
 msgid "Active"
@@ -159,6 +183,10 @@ msgstr "活动"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:75
 msgid "activity is required"
 msgstr "必须填写活动"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:817
+#~ msgid "Add any additional information about the event..."
+#~ msgstr "添加有关活动的任何额外信息..."
 
 #: src/components/molecules/TimeZoneField.re.mjs:70
 msgid "Alaska Time"
@@ -173,9 +201,7 @@ msgid "American Samoa Time"
 msgstr "美属萨摩亚时间"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1210
-msgid ""
-"Anyone held as pending can be moved into the event from the RSVP list, which "
-"bypasses the payment requirement for them."
+msgid "Anyone held as pending can be moved into the event from the RSVP list, which bypasses the payment requirement for them."
 msgstr "处于待定状态的人可以从报名名单中直接移入活动，这将跳过他们的付款要求。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1104
@@ -186,33 +212,37 @@ msgstr "球友在报名或到场前需要了解的事项。"
 msgid "Arizona Time"
 msgstr "亚利桑那时间"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:460
+#~ msgid "at"
+#~ msgstr "于"
+
 #: src/components/molecules/TimeZoneField.re.mjs:76
 msgid "Atlantic Time"
 msgstr "大西洋时间"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:798
+#~ msgid "Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event."
+#~ msgstr "参与者报名时会被要求保存银行卡，但不会进行授权或扣款，您也无法在此扣款。请在活动现场收取费用。"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1166
-msgid ""
-"Attendees are asked to save a card when they RSVP, but nothing is authorized "
-"or charged, and you can't charge it from here. Collect the fee at the event. "
-"Club members are exempted from this."
-msgstr ""
-"参与者报名时需绑定银行卡，但不会预授权或扣款，你也无法在此扣款。请在活动现场"
-"收费。俱乐部会员可免此项。"
+msgid "Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event. Club members are exempted from this."
+msgstr "参与者报名时需绑定银行卡，但不会预授权或扣款，你也无法在此扣款。请在活动现场收费。俱乐部会员可免此项。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:805
+#~ msgid "Attendees cannot cancel their RSVP after this deadline"
+#~ msgstr "参与者在此截止时间后无法取消报名"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1498
 msgid "Attendees cannot cancel their RSVP after this deadline."
 msgstr "此截止时间后，参与者将无法取消报名。"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:821
+#~ msgid "Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account."
+#~ msgstr "参与者报名时会保存银行卡，事先不会扣款或预授权。您可以随时在报名名单中向某位参与者或全部参与者收款，款项将进入您的 Stripe 账户。"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1189
-msgid ""
-"Attendees save a card when they RSVP and nothing is charged or held up "
-"front. From the RSVP list you can charge one attendee or everyone whenever "
-"you choose, and the money goes to your Stripe account. Club members can be "
-"exempted or not, which you can toggle from the Club home page."
-msgstr ""
-"参与者报名时绑定银行卡，事先不扣款也不冻结。你可以在报名名单中随时向某位参与"
-"者或所有人收费，款项将进入你的 Stripe 账户。俱乐部会员可设为豁免与否，可在俱"
-"乐部主页切换。"
+msgid "Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account. Club members can be exempted or not, which you can toggle from the Club home page."
+msgstr "参与者报名时绑定银行卡，事先不扣款也不冻结。你可以在报名名单中随时向某位参与者或所有人收费，款项将进入你的 Stripe 账户。俱乐部会员可设为豁免与否，可在俱乐部主页切换。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1774
 msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
@@ -229,6 +259,14 @@ msgstr "取消"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1456
 msgid "Cancel deadline"
 msgstr "取消截止时间"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:762
+#~ msgid "Cancel deadline (optional)"
+#~ msgstr "取消截止时间（可选）"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1309
+#~ msgid "Casual play focused on fun and social interaction. Perfect for all skill levels."
+#~ msgstr "以乐趣和社交为主的休闲游戏。适合所有技能水平。"
 
 #: src/components/molecules/TimeZoneField.re.mjs:96
 msgid "Central Australia Time"
@@ -292,6 +330,14 @@ msgstr "俱乐部名称"
 msgid "Competitive"
 msgstr "竞技模式"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:879
+#~ msgid "Connect a Stripe account"
+#~ msgstr "连接 Stripe 账户"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:790
+#~ msgid "Connect a Stripe account to activate"
+#~ msgstr "连接 Stripe 账户以激活"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1194
 msgid "Connect a Stripe account to enable this"
 msgstr "关联 Stripe 账户以启用此功能"
@@ -326,6 +372,10 @@ msgstr "创建俱乐部"
 msgid "Create event"
 msgstr "创建赛事"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1453
+#~ msgid "Create Event"
+#~ msgstr "创建活动"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:832
 msgid "Created"
 msgstr "已创建"
@@ -337,6 +387,10 @@ msgstr "正在创建活动…"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1650
 msgid "Date"
 msgstr "日期"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+#~ msgid "daytime"
+#~ msgstr "白天"
 
 #: src/components/organisms/CreateClubForm.re.mjs:225
 msgid "Default club activity"
@@ -359,6 +413,18 @@ msgstr "完成"
 msgid "Draft filled in. Review the details before creating the event."
 msgstr "草稿已填好。创建活动前请检查详情。"
 
+#: src/components/molecules/ClockRangePicker.re.mjs:524
+#~ msgid "Drag around the clock · Arrow keys move 15 minutes"
+#~ msgstr "沿时钟拖动 · 方向键调整15分钟"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+#~ msgid "Drag end time"
+#~ msgstr "拖动结束时间"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+#~ msgid "Drag start time"
+#~ msgstr "拖动开始时间"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1705
 msgid "Drag the window to move it, or drag either edge to resize."
 msgstr "拖动时间段可移动，拖动任一边缘可调整长度。"
@@ -372,6 +438,10 @@ msgstr "训练课程"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1277
 msgid "DUPR rated"
 msgstr "DUPR评级"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:397
+#~ msgid "duration"
+#~ msgstr "时长"
 
 #: src/components/organisms/CreateClubForm.re.mjs:164
 msgid "e.g., City Ballers Club"
@@ -393,9 +463,21 @@ msgstr "东部时间"
 msgid "Edit"
 msgstr "编辑"
 
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+#~ msgid "Editing end"
+#~ msgstr "正在编辑结束时间"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+#~ msgid "Editing start"
+#~ msgstr "编辑开始时间"
+
 #: src/components/molecules/EventTimeRangeInputs.re.mjs:128
 msgid "End"
 msgstr "结束"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:447
+#~ msgid "end time"
+#~ msgstr "结束时间"
 
 #: src/components/molecules/EventTimeRangeInputs.re.mjs:129
 msgid "End time"
@@ -417,9 +499,25 @@ msgstr "必须填写活动日期"
 msgid "Event details"
 msgstr "活动详情"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1121
+#~ msgid "Event Details"
+#~ msgstr "活动详情"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:813
+#~ msgid "Event details (optional)"
+#~ msgstr "活动详情（可选）"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1095
 msgid "Event notes"
 msgstr "活动备注"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:607
+#~ msgid "Event schedule"
+#~ msgstr "活动日程"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:299
+#~ msgid "Event time range"
+#~ msgstr "活动时间范围"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1081
 msgid "Event title"
@@ -445,6 +543,10 @@ msgstr "活动时长至少为 15 分钟。"
 msgid "Failed"
 msgstr "失败"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1414
+#~ msgid "Find Players"
+#~ msgstr "寻找球员"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1349
 msgid "Find players for your event?"
 msgstr "为您的活动寻找球员？"
@@ -469,18 +571,21 @@ msgstr "格式选项"
 msgid "Friday night pickleball"
 msgstr "周五晚匹克球"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:741
+#~ msgid "Friday Night Pickleball"
+#~ msgstr "周五晚上的匡克球"
+
 #: src/components/molecules/TimeZoneField.re.mjs:116
 msgid "Hawaii Time"
 msgstr "夏威夷时间"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1424
-msgid ""
-"Hold new joins  in the pending list and admit players either manually or "
-"automatically with the Smart RSVPs algorithm that maximizes skill level and "
-"session quality."
-msgstr ""
-"将新报名保留在待定名单中，手动录取球员，或使用 Smart RSVPs 算法自动录取，最大"
-"化水平匹配与场次质量。"
+msgid "Hold new joins  in the pending list and admit players either manually or automatically with the Smart RSVPs algorithm that maximizes skill level and session quality."
+msgstr "将新报名保留在待定名单中，手动录取球员，或使用 Smart RSVPs 算法自动录取，最大化水平匹配与场次质量。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1100
+#~ msgid "Hold new joins and admit players automatically based on match quality."
+#~ msgstr "暂缓新的加入申请，并根据匹配质量自动准入球员。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1420
 msgid "Hold RSVPs"
@@ -505,6 +610,10 @@ msgstr "韩国时间"
 #: src/components/molecules/TimeZoneField.re.mjs:118
 msgid "Line Islands Time"
 msgstr "莱恩群岛时间"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1026
+#~ msgid "List your event publicly to help fill open spots"
+#~ msgstr "公开列出您的活动以填补空位"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1353
 msgid "List your event publicly to help fill open spots."
@@ -531,13 +640,33 @@ msgstr "位置搜索暂时不可用"
 msgid "Max players"
 msgstr "最大人数"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:749
+#~ msgid "Max RSVPs (optional)"
+#~ msgstr "最大RSVP数（可选）"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1387
 msgid "Minimum rating"
 msgstr "最低评级"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:990
+#~ msgid "Minimum rating (optional)"
+#~ msgstr "最低评级（可选）"
+
 #: src/components/molecules/TimeZoneField.re.mjs:74
 msgid "Mountain Time"
 msgstr "山区时间"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+#~ msgid "Move start and end to daytime hours"
+#~ msgstr "将开始和结束时间调整到白天时段"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+#~ msgid "Move start and end to nighttime hours"
+#~ msgstr "将开始和结束时间调整到夜间时段"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1060
+#~ msgid "New joins are held and admitted automatically based on match quality"
+#~ msgstr "新加入的申请将暂时保留，并根据匹配度自动录取"
 
 #: src/components/molecules/TimeZoneField.re.mjs:112
 msgid "New Zealand Time"
@@ -546,6 +675,10 @@ msgstr "新西兰时间"
 #: src/components/molecules/TimeZoneField.re.mjs:84
 msgid "Newfoundland Time"
 msgstr "纽芬兰时间"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+#~ msgid "nighttime"
+#~ msgstr "夜间"
 
 #: src/components/organisms/ClubActivitySelector.re.mjs:336
 msgid "No club"
@@ -567,6 +700,11 @@ msgstr "无限制"
 msgid "No minimum"
 msgstr "无最低限制"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:465
+#: src/components/organisms/CreateLocationEventForm.re.mjs:484
+#~ msgid "Not set"
+#~ msgstr "未设置"
+
 #: src/components/molecules/TimeZoneField.re.mjs:78
 msgid "Pacific Time"
 msgstr "太平洋时间"
@@ -587,6 +725,10 @@ msgstr "球员可用时间热力图"
 msgid "Players"
 msgstr "寻找球员"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:834
+#~ msgid "Price"
+#~ msgstr "价格"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1042
 msgid "Private event"
 msgstr "私人活动"
@@ -598,6 +740,10 @@ msgstr "公开"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1041
 msgid "Public · Up to {maxRsvpsStr} players"
 msgstr "公开 · 最多 {maxRsvpsStr} 名球员"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:505
+#~ msgid "Public event"
+#~ msgstr "公开活动"
 
 #: src/components/molecules/TimeZoneField.re.mjs:98
 msgid "Queensland Time"
@@ -616,6 +762,10 @@ msgstr "休闲"
 msgid "Remove"
 msgstr "移除"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1391
+#~ msgid "Require payment from attendees"
+#~ msgstr "要求参与者付款"
+
 #: src/components/molecules/TimeZoneField.re.mjs:110
 msgid "Samoa Time"
 msgstr "萨摩亚时间"
@@ -623,6 +773,10 @@ msgstr "萨摩亚时间"
 #: src/components/organisms/AutocompleteLocation.re.mjs:361
 msgid "Search for a venue or address"
 msgstr "搜索场馆或地址"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1309
+#~ msgid "Serious play with rankings and ratings. Games may affect your player rating."
+#~ msgstr "严肃的比赛，带有排名和评级。比赛可能影响您的球员评级。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1624
 msgid "Show less"
@@ -635,6 +789,10 @@ msgstr "新加坡时间"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1381
 msgid "Skill level"
 msgstr "技能水平"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
+#~ msgid "Smart RSVP"
+#~ msgstr "智能报名"
 
 #: src/components/molecules/TimeZoneField.re.mjs:114
 msgid "Solomon Islands Time"
@@ -652,6 +810,14 @@ msgstr "开始"
 msgid "Start and end time"
 msgstr "开始和结束时间"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:703
+#~ msgid "Start date and time"
+#~ msgstr "开始日期和时间"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:447
+#~ msgid "start time"
+#~ msgstr "开始时间"
+
 #: src/components/molecules/EventTimeRangeInputs.re.mjs:123
 msgid "Start time"
 msgstr "开始时间"
@@ -661,21 +827,28 @@ msgid "Tap to add your time"
 msgstr "点击添加您的时间"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1518
-msgid ""
-"The assistant proposed {0}. Each keeps its own venue, date and time; the "
-"rest of this form applies to all of them."
-msgstr ""
-"助手建议了 {0}。每个活动保留各自的场地、日期和时间；本表单的其余设置将应用于"
-"全部活动。"
+msgid "The assistant proposed {0}. Each keeps its own venue, date and time; the rest of this form applies to all of them."
+msgstr "助手建议了 {0}。每个活动保留各自的场地、日期和时间；本表单的其余设置将应用于全部活动。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1684
 msgid "The date and times on this form are in this zone."
 msgstr "此表单中的日期和时间均使用该时区。"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:785
+#~ msgid "The participation fee is charged automatically and transferred to your Stripe account."
+#~ msgstr "参与费将自动收取并转入您的Stripe账户。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:850
+#~ msgid "The participation fee is charged immediately and transferred to your Stripe account."
+#~ msgstr "参与费用将立即扣款并转入您的 Stripe 账户。"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:863
-msgid ""
-"The times below are shown in this zone, and every event is created in it."
+msgid "The times below are shown in this zone, and every event is created in it."
 msgstr "以下时间以此时区显示，所有活动也均按此时区创建。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1030
+#~ msgid "This event is private"
+#~ msgstr "此活动为私密活动"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1369
 msgid "This event is public"
@@ -702,6 +875,10 @@ msgstr "英国时间"
 msgid "Update event"
 msgstr "更新活动"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1453
+#~ msgid "Update Event"
+#~ msgstr "更新活动"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1029
 msgid "Venue, date, start and end time"
 msgstr "场地、日期、开始和结束时间"
@@ -718,251 +895,13 @@ msgstr "西澳大利亚时间"
 msgid "With a Stripe account"
 msgstr "已有 Stripe 账户"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1155
-msgid "Without a Stripe account"
-msgstr "没有 Stripe 账户"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:536
-#~ msgid "{0} hours"
-#~ msgstr "{0} 小时"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:536
-#~ msgid "{0} hours and {1} minutes"
-#~ msgstr "{0} 小时 {1} 分钟"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:538
-#~ msgid "{0} minutes"
-#~ msgstr "{0} 分钟"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:827
-#~ msgid ""
-#~ "A deposit authorization is collected when someone joins. No money is "
-#~ "actually charged and the authorization is removed automatically after "
-#~ "your event. You should collect any participation fees manually in person. "
-#~ "You can also manually approve attendees by clicking their name in the "
-#~ "RSVP list."
-#~ msgstr ""
-#~ "当有人报名时会收集一笔预授权押金，实际不会产生任何扣款，授权将在活动结束后"
-#~ "自动解除。参与费用请自行当面收取。您也可以在报名列表中点击参与者姓名来手动"
-#~ "审批。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:762
-#~ msgid ""
-#~ "A deposit authorization is made. This is not a charge and it "
-#~ "automatically disappears from the person's account. You can manually "
-#~ "approve attendees who do not authorize payment by clicking their name in "
-#~ "the RSVP list."
-#~ msgstr ""
-#~ "系统将发起一笔预授权，这不是实际扣款，会自动从用户账户消失。对于未完成支付"
-#~ "授权的参与者，您可以在 RSVP 列表中点击其姓名手动批准。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:851
-#~ msgid ""
-#~ "A refundable deposit is collected when someone joins. You can manually "
-#~ "approve attendees by clicking their name in the RSVP list."
-#~ msgstr ""
-#~ "当有人加入时将收取可退还的押金。您可以通过点击RSVP列表中的姓名来手动批准参"
-#~ "与者。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:817
-#~ msgid "Add any additional information about the event..."
-#~ msgstr "添加有关活动的任何额外信息..."
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:460
-#~ msgid "at"
-#~ msgstr "于"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:798
-#~ msgid ""
-#~ "Attendees are asked to save a card when they RSVP, but nothing is "
-#~ "authorized or charged, and you can't charge it from here. Collect the fee "
-#~ "at the event."
-#~ msgstr ""
-#~ "参与者报名时会被要求保存银行卡，但不会进行授权或扣款，您也无法在此扣款。请"
-#~ "在活动现场收取费用。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:805
-#~ msgid "Attendees cannot cancel their RSVP after this deadline"
-#~ msgstr "参与者在此截止时间后无法取消报名"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:821
-#~ msgid ""
-#~ "Attendees save a card when they RSVP and nothing is charged or held up "
-#~ "front. From the RSVP list you can charge one attendee or everyone "
-#~ "whenever you choose, and the money goes to your Stripe account."
-#~ msgstr ""
-#~ "参与者报名时会保存银行卡，事先不会扣款或预授权。您可以随时在报名名单中向某"
-#~ "位参与者或全部参与者收款，款项将进入您的 Stripe 账户。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:762
-#~ msgid "Cancel deadline (optional)"
-#~ msgstr "取消截止时间（可选）"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1309
-#~ msgid ""
-#~ "Casual play focused on fun and social interaction. Perfect for all skill "
-#~ "levels."
-#~ msgstr "以乐趣和社交为主的休闲游戏。适合所有技能水平。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:879
-#~ msgid "Connect a Stripe account"
-#~ msgstr "连接 Stripe 账户"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:790
-#~ msgid "Connect a Stripe account to activate"
-#~ msgstr "连接 Stripe 账户以激活"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1453
-#~ msgid "Create Event"
-#~ msgstr "创建活动"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:452
-#~ msgid "daytime"
-#~ msgstr "白天"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:524
-#~ msgid "Drag around the clock · Arrow keys move 15 minutes"
-#~ msgstr "沿时钟拖动 · 方向键调整15分钟"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:130
-#~ msgid "Drag end time"
-#~ msgstr "拖动结束时间"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:130
-#~ msgid "Drag start time"
-#~ msgstr "拖动开始时间"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:397
-#~ msgid "duration"
-#~ msgstr "时长"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:486
-#~ msgid "Editing end"
-#~ msgstr "正在编辑结束时间"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:486
-#~ msgid "Editing start"
-#~ msgstr "编辑开始时间"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:447
-#~ msgid "end time"
-#~ msgstr "结束时间"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1121
-#~ msgid "Event Details"
-#~ msgstr "活动详情"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:813
-#~ msgid "Event details (optional)"
-#~ msgstr "活动详情（可选）"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:607
-#~ msgid "Event schedule"
-#~ msgstr "活动日程"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:299
-#~ msgid "Event time range"
-#~ msgstr "活动时间范围"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1414
-#~ msgid "Find Players"
-#~ msgstr "寻找球员"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:741
-#~ msgid "Friday Night Pickleball"
-#~ msgstr "周五晚上的匡克球"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1100
-#~ msgid ""
-#~ "Hold new joins and admit players automatically based on match quality."
-#~ msgstr "暂缓新的加入申请，并根据匹配质量自动准入球员。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1026
-#~ msgid "List your event publicly to help fill open spots"
-#~ msgstr "公开列出您的活动以填补空位"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:749
-#~ msgid "Max RSVPs (optional)"
-#~ msgstr "最大RSVP数（可选）"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:990
-#~ msgid "Minimum rating (optional)"
-#~ msgstr "最低评级（可选）"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:503
-#~ msgid "Move start and end to daytime hours"
-#~ msgstr "将开始和结束时间调整到白天时段"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:503
-#~ msgid "Move start and end to nighttime hours"
-#~ msgstr "将开始和结束时间调整到夜间时段"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1060
-#~ msgid "New joins are held and admitted automatically based on match quality"
-#~ msgstr "新加入的申请将暂时保留，并根据匹配度自动录取"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:452
-#~ msgid "nighttime"
-#~ msgstr "夜间"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:465
-#: src/components/organisms/CreateLocationEventForm.re.mjs:484
-#~ msgid "Not set"
-#~ msgstr "未设置"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:834
-#~ msgid "Price"
-#~ msgstr "价格"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:505
-#~ msgid "Public event"
-#~ msgstr "公开活动"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1391
-#~ msgid "Require payment from attendees"
-#~ msgstr "要求参与者付款"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1309
-#~ msgid ""
-#~ "Serious play with rankings and ratings. Games may affect your player "
-#~ "rating."
-#~ msgstr "严肃的比赛，带有排名和评级。比赛可能影响您的球员评级。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
-#~ msgid "Smart RSVP"
-#~ msgstr "智能报名"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:703
-#~ msgid "Start date and time"
-#~ msgstr "开始日期和时间"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:447
-#~ msgid "start time"
-#~ msgstr "开始时间"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:785
-#~ msgid ""
-#~ "The participation fee is charged automatically and transferred to your "
-#~ "Stripe account."
-#~ msgstr "参与费将自动收取并转入您的Stripe账户。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:850
-#~ msgid ""
-#~ "The participation fee is charged immediately and transferred to your "
-#~ "Stripe account."
-#~ msgstr "参与费用将立即扣款并转入您的 Stripe 账户。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1030
-#~ msgid "This event is private"
-#~ msgstr "此活动为私密活动"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1453
-#~ msgid "Update Event"
-#~ msgstr "更新活动"
-
 #: src/components/organisms/CreateLocationEventForm.re.mjs:773
 #~ msgid "With Stripe"
 #~ msgstr "通过 Stripe"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1155
+msgid "Without a Stripe account"
+msgstr "没有 Stripe 账户"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:751
 #~ msgid "Without Stripe"

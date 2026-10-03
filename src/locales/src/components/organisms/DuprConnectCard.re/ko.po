@@ -70,24 +70,20 @@ msgid "DUPR login"
 msgstr "DUPR 로그인"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:168
-msgid ""
-"DUPR needs you to finish setting up your account before it can be linked. "
-"Follow the steps in the DUPR panel, then sign in again."
-msgstr ""
-"계정을 연결하려면 먼저 DUPR에서 계정 설정을 완료해야 합니다. DUPR 패널의 단계"
-"를 따른 후 다시 로그인하세요."
+msgid "DUPR needs you to finish setting up your account before it can be linked. Follow the steps in the DUPR panel, then sign in again."
+msgstr "계정을 연결하려면 먼저 DUPR에서 계정 설정을 완료해야 합니다. DUPR 패널의 단계를 따른 후 다시 로그인하세요."
+
+#: src/components/organisms/DuprConnectCard.re.mjs:187
+#~ msgid "DUPR sent something we couldn't read. Please try again."
+#~ msgstr "DUPR의 응답을 읽을 수 없습니다. 다시 시도해 주세요."
 
 #: src/components/organisms/DuprConnectCard.re.mjs:320
 msgid "Last synced"
 msgstr "마지막 동기화"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:357
-msgid ""
-"Link your DUPR account to use your verified DUPR rating here. While it's "
-"linked, it replaces your self-rating."
-msgstr ""
-"DUPR 계정을 연결하면 인증된 DUPR 레이팅을 여기서 사용할 수 있습니다. 연결된 "
-"동안에는 자가 평가를 대체합니다."
+msgid "Link your DUPR account to use your verified DUPR rating here. While it's linked, it replaces your self-rating."
+msgstr "DUPR 계정을 연결하면 인증된 DUPR 레이팅을 여기서 사용할 수 있습니다. 연결된 동안에는 자가 평가를 대체합니다."
 
 #: src/components/organisms/DuprConnectCard.re.mjs:289
 msgid "Linked"
@@ -124,12 +120,8 @@ msgid "provisional"
 msgstr "잠정"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:404
-msgid ""
-"Sign in to DUPR to link your account. We store your DUPR ID and ratings — "
-"never your DUPR password."
-msgstr ""
-"DUPR에 로그인하여 계정을 연결하세요. DUPR ID와 레이팅만 저장하며, DUPR 비밀번"
-"호는 저장하지 않습니다."
+msgid "Sign in to DUPR to link your account. We store your DUPR ID and ratings — never your DUPR password."
+msgstr "DUPR에 로그인하여 계정을 연결하세요. DUPR ID와 레이팅만 저장하며, DUPR 비밀번호는 저장하지 않습니다."
 
 #: src/components/molecules/DuprRatingBadge.re.mjs:69
 msgid "singles"
@@ -144,20 +136,9 @@ msgid "That DUPR sign-in has expired. Please try again."
 msgstr "DUPR 로그인이 만료되었습니다. 다시 시도해 주세요."
 
 #: src/components/organisms/DuprConnectCard.re.mjs:170
-msgid ""
-"You declined to share your DUPR data, so nothing was linked. Sign in again "
-"and choose Authorize to link."
-msgstr ""
-"DUPR 데이터 공유를 거부하여 아무것도 연결되지 않았습니다. 다시 로그인한 후 "
-"'승인'을 선택하여 연결하세요."
+msgid "You declined to share your DUPR data, so nothing was linked. Sign in again and choose Authorize to link."
+msgstr "DUPR 데이터 공유를 거부하여 아무것도 연결되지 않았습니다. 다시 로그인한 후 '승인'을 선택하여 연결하세요."
 
 #: src/components/organisms/DuprConnectCard.re.mjs:528
-msgid ""
-"Your DUPR rating will stop being used here and your self-rating picker comes "
-"back."
-msgstr ""
-"DUPR 레이팅이 더 이상 사용되지 않으며 자가 평가 선택이 다시 표시됩니다."
-
-#: src/components/organisms/DuprConnectCard.re.mjs:187
-#~ msgid "DUPR sent something we couldn't read. Please try again."
-#~ msgstr "DUPR의 응답을 읽을 수 없습니다. 다시 시도해 주세요."
+msgid "Your DUPR rating will stop being used here and your self-rating picker comes back."
+msgstr "DUPR 레이팅이 더 이상 사용되지 않으며 자가 평가 선택이 다시 표시됩니다."

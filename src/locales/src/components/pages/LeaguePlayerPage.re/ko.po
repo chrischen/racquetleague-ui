@@ -86,6 +86,14 @@ msgstr "체육관"
 msgid "Hard Court"
 msgstr "하드 코트"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:1115
+#~ msgid "Indoor Court (Indoor Ball)"
+#~ msgstr "실내 코트 (실내 공)"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1100
+#~ msgid "Indoor Court (Outdoor Ball)"
+#~ msgstr "실내 코트 (실외 공)"
+
 #: src/components/organisms/MatchHistoryList.re.mjs:755
 msgid "Load more matches..."
 msgstr "경기 더 불러오기..."
@@ -165,11 +173,8 @@ msgid "Strong Against"
 msgstr "강점 상대"
 
 #: src/components/organisms/RatingGraphWrapper.re.mjs:180
-msgid ""
-"The shaded area represents rating uncertainty. Narrower bands indicate "
-"higher confidence."
-msgstr ""
-"음영 영역은 레이팅 불확실성을 나타냅니다. 좁은 띠일수록 신뢰도가 높습니다."
+msgid "The shaded area represents rating uncertainty. Narrower bands indicate higher confidence."
+msgstr "음영 영역은 레이팅 불확실성을 나타냅니다. 좁은 띠일수록 신뢰도가 높습니다."
 
 #: src/components/organisms/MatchHistoryList.re.mjs:671
 msgid "Upset"
@@ -194,11 +199,3 @@ msgstr "여자 등급"
 #: src/components/pages/LeaguePlayerPage.re.mjs:556
 msgid "Worst Doubles Partners"
 msgstr "최악의 복식 파트너"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:1115
-#~ msgid "Indoor Court (Indoor Ball)"
-#~ msgstr "실내 코트 (실내 공)"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:1100
-#~ msgid "Indoor Court (Outdoor Ball)"
-#~ msgstr "실내 코트 (실외 공)"

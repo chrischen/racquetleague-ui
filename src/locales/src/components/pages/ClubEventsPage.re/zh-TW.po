@@ -13,30 +13,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/ClubEventsPage.re.mjs:137
-msgid "Club not found"
-msgstr "找不到俱樂部"
-
-#: src/components/pages/ClubEventsPage.re.mjs:92
-msgid "Copied!"
-msgstr "已複製！"
-
-#: src/components/pages/ClubEventsPage.re.mjs:117
-msgid "Create event"
-msgstr "建立賽事"
-
-#: src/components/pages/ClubEventsPage.re.mjs:130
-msgid "Loading events..."
-msgstr "載入活動中..."
-
-#: src/components/shared/LocationClub.re.mjs:27
-msgid "Open Play"
-msgstr "自由對打"
-
-#: src/components/pages/ClubEventsPage.re.mjs:92
-msgid "Share link"
-msgstr "分享連結"
-
 #: src/components/organisms/EventItem.re.mjs:423
 #: src/components/organisms/ClubEventsList.re.mjs:209
 #~ msgid "[location missing]"
@@ -182,6 +158,10 @@ msgstr "分享連結"
 #~ msgid "club not found"
 #~ msgstr "找不到俱樂部"
 
+#: src/components/pages/ClubEventsPage.re.mjs:137
+msgid "Club not found"
+msgstr "找不到俱樂部"
+
 #: src/components/molecules/LevelPicker.re.mjs:22
 #~ msgid "Complete Beginner"
 #~ msgstr "完全初學者"
@@ -191,13 +171,16 @@ msgstr "分享連結"
 #~ msgstr "完善您的球員個人資料"
 
 #: src/components/organisms/ProfileModal.re.mjs:306
-#~ msgid ""
-#~ "Complete your profile before sharing availability with players and hosts."
+#~ msgid "Complete your profile before sharing availability with players and hosts."
 #~ msgstr "在與球員和主辦方分享時間之前，請先完善您的個人資料。"
 
 #: src/components/organisms/NewPlanModal.re.mjs:404
 #~ msgid "Continue"
 #~ msgstr "繼續"
+
+#: src/components/pages/ClubEventsPage.re.mjs:92
+msgid "Copied!"
+msgstr "已複製！"
 
 #: src/components/organisms/ProfileModal.re.mjs:257
 #: src/components/organisms/ProfileModal.re.mjs:266
@@ -207,14 +190,16 @@ msgstr "分享連結"
 #~ msgstr "無法儲存您的個人資料，請再試一次。"
 
 #: src/components/organisms/NewPlanModal.re.mjs:399
-#~ msgid ""
-#~ "Create a hosted event at this time. Others can join, you pick venue and "
-#~ "rules."
+#~ msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
 #~ msgstr "在此時間建立一個主辦活動，其他人可以加入，由你選擇場地和規則。"
 
 #: src/components/organisms/CreateEventsButton.re.mjs:42
 #~ msgid "Create All Events"
 #~ msgstr "建立所有活動"
+
+#: src/components/pages/ClubEventsPage.re.mjs:117
+msgid "Create event"
+msgstr "建立賽事"
 
 #: src/components/organisms/CreateEventsButton.re.mjs:42
 #~ msgid "Create This Event"
@@ -242,12 +227,8 @@ msgstr "分享連結"
 #~ msgstr "電子郵件地址"
 
 #: src/components/organisms/ProfileModal.re.mjs:281
-#~ msgid ""
-#~ "Email address is unavailable. Please use a different email or login with "
-#~ "the email you are trying to use here."
-#~ msgstr ""
-#~ "此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子"
-#~ "郵件地址登入。"
+#~ msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+#~ msgstr "此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵件地址登入。"
 
 #: src/components/organisms/ProfileModal.re.mjs:112
 #~ msgid "Email is required"
@@ -278,8 +259,7 @@ msgstr "分享連結"
 #~ msgstr "用於活動更新和通知"
 
 #: src/components/organisms/ProfileModal.re.mjs:
-#~ msgid ""
-#~ "For event updates and notifications. We'll email you a link to confirm it."
+#~ msgid "For event updates and notifications. We'll email you a link to confirm it."
 #~ msgstr "用於活動更新和通知。我們會寄送確認連結給您。"
 
 #: src/components/organisms/ProfileModal.re.mjs:491
@@ -334,6 +314,10 @@ msgstr "分享連結"
 #~ msgid "Level"
 #~ msgstr "等級"
 
+#: src/components/pages/ClubEventsPage.re.mjs:130
+msgid "Loading events..."
+msgstr "載入活動中..."
+
 #: src/components/molecules/AIResponseCard.re.mjs:90
 #: src/components/molecules/AIResponseCard.re.mjs:194
 #~ msgid "Location:"
@@ -379,6 +363,10 @@ msgstr "分享連結"
 #~ msgid "open"
 #~ msgstr "開放"
 
+#: src/components/shared/LocationClub.re.mjs:27
+msgid "Open Play"
+msgstr "自由對打"
+
 #: src/components/organisms/EventItem.re.mjs:272
 #~ msgid "pending"
 #~ msgstr "待審核"
@@ -420,14 +408,16 @@ msgstr "分享連結"
 #~ msgstr "請選擇恰好一個時間段來主辦活動"
 
 #: src/components/organisms/ProfileModal.re.mjs:530
-#~ msgid ""
-#~ "Share a little about yourself so organizers or other players can see why "
-#~ "they should invite you."
+#~ msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 #~ msgstr "分享一些關於您自己的資訊，讓主辦人或其他球員了解為何應該邀請您。"
 
 #: src/components/organisms/ClubEventsList.re.mjs:399
 #~ msgid "share as text"
 #~ msgstr "分享為文字"
+
+#: src/components/pages/ClubEventsPage.re.mjs:92
+msgid "Share link"
+msgstr "分享連結"
 
 #: src/components/pages/ClubEventsPage.re.mjs:72
 #~ msgid "Shareable Link"
@@ -450,18 +440,11 @@ msgstr "分享連結"
 #~ msgstr "點擊新增您的時間"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:230
-#~ msgid ""
-#~ "Tell me the time and place of your event, or any other details. You can "
-#~ "also let me know the details to include and I can even add the "
-#~ "translations."
-#~ msgstr ""
-#~ "告訴我您活動的時間和地點，或其他任何詳細資訊。您還可以告訴我需要包含的詳細"
-#~ "資訊，我甚至可以新增翻譯。"
+#~ msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
+#~ msgstr "告訴我您活動的時間和地點，或其他任何詳細資訊。您還可以告訴我需要包含的詳細資訊，我甚至可以新增翻譯。"
 
 #: src/components/organisms/NewPlanModal.re.mjs:361
-#~ msgid ""
-#~ "Tell others you're down to play. Players with overlapping times can "
-#~ "invite you."
+#~ msgid "Tell others you're down to play. Players with overlapping times can invite you."
 #~ msgstr "告訴其他人你有意願打球，時間重疊的球員可以邀請你。"
 
 #: src/components/organisms/ProfileModal.re.mjs:

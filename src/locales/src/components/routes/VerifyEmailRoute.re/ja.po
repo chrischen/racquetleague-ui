@@ -38,12 +38,8 @@ msgid "Go to profile settings"
 msgstr "プロフィール設定へ"
 
 #: src/components/pages/VerifyEmailPage.re.mjs:218
-msgid ""
-"is now one of your receiving emails. Bookings you forward from it to "
-"chris@pkuru.com will be added to your events."
-msgstr ""
-"が受信用メールアドレスになりました。このアドレスから chris@pkuru.com に転送し"
-"た予約は、あなたのイベントに追加されます。"
+msgid "is now one of your receiving emails. Bookings you forward from it to chris@pkuru.com will be added to your events."
+msgstr "が受信用メールアドレスになりました。このアドレスから chris@pkuru.com に転送した予約は、あなたのイベントに追加されます。"
 
 #: src/components/pages/VerifyEmailPage.re.mjs:247
 msgid "is now your account email."
@@ -60,58 +56,33 @@ msgid "This address is already used by another pkuru account."
 msgstr "このアドレスは別のpkuruアカウントで使われています。"
 
 #: src/components/pages/VerifyEmailPage.re.mjs:63
-msgid ""
-"This link doesn't work for this account. Make sure you're signed in to the "
-"account that added the address, or send a new link from your profile "
-"settings."
-msgstr ""
-"このリンクはこのアカウントでは使えません。アドレスを追加したアカウントでログ"
-"インしているか確認するか、プロフィール設定から新しいリンクを送信してくださ"
-"い。"
+msgid "This link doesn't work for this account. Make sure you're signed in to the account that added the address, or send a new link from your profile settings."
+msgstr "このリンクはこのアカウントでは使えません。アドレスを追加したアカウントでログインしているか確認するか、プロフィール設定から新しいリンクを送信してください。"
 
 #: src/components/pages/VerifyEmailPage.re.mjs:75
-msgid ""
-"This link doesn't work. Open it from the email again, or ask for a new one "
-"from your profile settings."
-msgstr ""
-"このリンクは使えません。メールからもう一度開くか、プロフィール設定から新しい"
-"リンクをリクエストしてください。"
+msgid "This link doesn't work. Open it from the email again, or ask for a new one from your profile settings."
+msgstr "このリンクは使えません。メールからもう一度開くか、プロフィール設定から新しいリンクをリクエストしてください。"
 
 #: src/components/pages/VerifyEmailPage.re.mjs:81
-msgid ""
-"This link has already been used, or your account email has changed since it "
-"was sent."
-msgstr ""
-"このリンクはすでに使用済みか、送信後にアカウントのメールアドレスが変更されて"
-"います。"
+msgid "This link has already been used, or your account email has changed since it was sent."
+msgstr "このリンクはすでに使用済みか、送信後にアカウントのメールアドレスが変更されています。"
 
 #: src/components/pages/VerifyEmailPage.re.mjs:79
 msgid "This link has expired. Ask for a new one from your profile settings."
-msgstr ""
-"このリンクは有効期限が切れています。プロフィール設定から新しいリンクをリクエ"
-"ストしてください。"
+msgstr "このリンクは有効期限が切れています。プロフィール設定から新しいリンクをリクエストしてください。"
 
 #: src/components/pages/VerifyEmailPage.re.mjs:61
 msgid "This link has expired. Send a new one from your profile settings."
-msgstr ""
-"このリンクは有効期限が切れています。プロフィール設定から新しいリンクを送信し"
-"てください。"
+msgstr "このリンクは有効期限が切れています。プロフィール設定から新しいリンクを送信してください。"
 
 #: src/components/pages/VerifyEmailPage.re.mjs:65
 msgid "This link is incomplete. Open it from the email again."
 msgstr "リンクが不完全です。メールからもう一度開いてください。"
 
 #: src/components/pages/VerifyEmailPage.re.mjs:77
-msgid ""
-"You're signed in to a different account. Sign out, then open the link again."
-msgstr ""
-"別のアカウントでログインしています。ログアウトしてから、もう一度リンクを開い"
-"てください。"
+msgid "You're signed in to a different account. Sign out, then open the link again."
+msgstr "別のアカウントでログインしています。ログアウトしてから、もう一度リンクを開いてください。"
 
 #: src/components/pages/VerifyEmailPage.re.mjs:189
-msgid ""
-"Your account now uses the new address. Your previous address is kept as a "
-"receiving email, which you can remove in your profile settings."
-msgstr ""
-"アカウントは新しいメールアドレスを使うようになりました。以前のアドレスは受信"
-"用メールアドレスとして残り、プロフィール設定から削除できます。"
+msgid "Your account now uses the new address. Your previous address is kept as a receiving email, which you can remove in your profile settings."
+msgstr "アカウントは新しいメールアドレスを使うようになりました。以前のアドレスは受信用メールアドレスとして残り、プロフィール設定から削除できます。"

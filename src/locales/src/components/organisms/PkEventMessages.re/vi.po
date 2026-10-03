@@ -21,6 +21,10 @@ msgstr "{messageCountStr} tin nhắn · {totalCountStr} cập nhật"
 msgid "Activity"
 msgstr "Môn thể thao"
 
+#: src/components/organisms/PkEventMessages.re.mjs:467
+#~ msgid "Add a message..."
+#~ msgstr "Thêm tin nhắn..."
+
 #: src/components/organisms/PkEventMessages.re.mjs:328
 #: src/components/organisms/PkEventMessages.re.mjs:465
 msgid "Event chat"
@@ -67,6 +71,10 @@ msgstr "Chưa có tin nhắn"
 msgid "Send message"
 msgstr "Gửi tin nhắn"
 
+#: src/components/organisms/PkEventMessages.re.mjs:455
+#~ msgid "Show all {0} items"
+#~ msgstr "Hiển thị tất cả {0} mục"
+
 #: src/components/organisms/PkEventMessages.re.mjs:355
 msgid "Show less"
 msgstr "Thu gọn"
@@ -82,11 +90,3 @@ msgstr "đã được admin thêm vào sự kiện"
 #: src/components/organisms/PkEventMessages.re.mjs:199
 msgid "was invited to the event"
 msgstr "đã được mời tham gia sự kiện"
-
-#: src/components/organisms/PkEventMessages.re.mjs:467
-#~ msgid "Add a message..."
-#~ msgstr "Thêm tin nhắn..."
-
-#: src/components/organisms/PkEventMessages.re.mjs:455
-#~ msgid "Show all {0} items"
-#~ msgstr "Hiển thị tất cả {0} mục"

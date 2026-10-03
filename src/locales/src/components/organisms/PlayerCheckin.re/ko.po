@@ -53,6 +53,10 @@ msgstr "셀프 체크인 화면 닫기"
 msgid "Drag players in order of strongest to weakest."
 msgstr "강한 순서대로 플레이어를 드래그하세요."
 
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "플레이어를 드래그하여 초기 시드를 재정렬하세요"
+
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:34
 msgid "Event check-in"
 msgstr "이벤트 체크인"
@@ -102,14 +106,8 @@ msgid "Player settings"
 msgstr "선수 설정"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
-msgid ""
-"Players start on the rating they earned inside this club; those with none "
-"start from the default rating. Changes during the event are measured from "
-"there."
-msgstr ""
-"플레이어는 이 클럽 내에서 획득한 평점으로 시작하며, 평점이 없는 플레이어는 기"
-"본 평점으로 시작합니다. 이벤트 중 변경 사항은 해당 시점을 기준으로 측정됩니"
-"다."
+msgid "Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there."
+msgstr "플레이어는 이 클럽 내에서 획득한 평점으로 시작하며, 평점이 없는 플레이어는 기본 평점으로 시작합니다. 이벤트 중 변경 사항은 해당 시점을 기준으로 측정됩니다."
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
 msgid "Players start on their global rating across all clubs."
@@ -123,20 +121,6 @@ msgstr "시드 조정 저장"
 msgid "Scan to check in"
 msgstr "스캔하여 체크인"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:271
-msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
-msgstr ""
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:276
-msgid ""
-"Uses ratings earned inside this club. Players with none are reset to the "
-"default seed."
-msgstr ""
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:133
-#~ msgid "Drag players to reorder their initial seeding"
-#~ msgstr "플레이어를 드래그하여 초기 시드를 재정렬하세요"
-
 #: src/components/organisms/SeedAdjustModal.re.mjs:289
 #, fuzzy
 #~ msgid "Seed from {0} ratings"
@@ -146,3 +130,11 @@ msgstr ""
 #, fuzzy
 #~ msgid "Seeded {0} players"
 #~ msgstr "{0}명"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#~ msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
+#~ msgstr ""
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:276
+#~ msgid "Uses ratings earned inside this club. Players with none are reset to the default seed."
+#~ msgstr ""

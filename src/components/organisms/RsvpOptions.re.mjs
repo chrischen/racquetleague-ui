@@ -119,6 +119,7 @@ var RsvpOptionsRefundPaymentMutation = {
 };
 
 function RsvpOptions(props) {
+  var threadPath = props.threadPath;
   var __triggerClassName = props.triggerClassName;
   var __connectionKey = props.connectionKey;
   var __chargesEnabled = props.chargesEnabled;
@@ -316,6 +317,12 @@ function RsvpOptions(props) {
                                                           })
                                                       });
                                           })), null),
+                                threadPath !== undefined ? JsxRuntime.jsx(Dropdown.DropdownItem.make, {
+                                        children: t`View message thread`,
+                                        onClick: (function (param) {
+                                            nav(threadPath, undefined);
+                                          })
+                                      }) : null,
                                 tmp
                               ]
                             })

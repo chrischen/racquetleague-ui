@@ -102,7 +102,12 @@ function NotificationsPage$InboxList(props) {
           return false;
         }
       });
-  if (visibleEdges.length === 0) {
+  var nodes = Core__Array.filterMap(visibleEdges, (function (edge) {
+          return Core__Option.flatMap(edge, (function (e) {
+                        return e.node;
+                      }));
+        }));
+  if (nodes.length === 0) {
     return JsxRuntime.jsxs("div", {
                 children: [
                   JsxRuntime.jsx("div", {
@@ -124,23 +129,19 @@ function NotificationsPage$InboxList(props) {
               });
   } else {
     return JsxRuntime.jsx("div", {
-                children: Core__Array.filterMap(visibleEdges, (function (edge) {
-                        return Core__Option.map(Core__Option.flatMap(edge, (function (e) {
-                                          return e.node;
-                                        })), (function (n) {
-                                      return JsxRuntime.jsx(NotificationRow.make, {
-                                                  topic: n.topic,
-                                                  payload: n.payload,
-                                                  createdAt: n.createdAt,
-                                                  onDismiss: (function () {
-                                                      var id = n.id;
-                                                      setDismissed(function (prev) {
-                                                            return prev.concat([id]);
-                                                          });
-                                                    })
-                                                }, n.id);
-                                    }));
-                      })),
+                children: nodes.map(function (n) {
+                      return JsxRuntime.jsx(NotificationRow.make, {
+                                  topic: n.topic,
+                                  payload: n.payload,
+                                  createdAt: n.createdAt,
+                                  onDismiss: (function () {
+                                      var id = n.id;
+                                      setDismissed(function (prev) {
+                                            return prev.concat([id]);
+                                          });
+                                    })
+                                }, n.id);
+                    }),
                 className: "border border-gray-200 dark:border-[#2a2b30] rounded-lg overflow-hidden divide-y divide-gray-100 dark:divide-[#2a2b30] bg-white dark:bg-[#1e1f23]"
               });
   }

@@ -201,7 +201,8 @@ let make = (
             | Some("host_message") | Some("user_message") => detailsOpt->Option.getOr("")
             | Some("rsvp_created") => detailsOpt->Option.getOr(ts`joined the event`)
             | Some("rsvp_added") => detailsOpt->Option.getOr(ts`was added to the event by admin`)
-            | Some("rsvp_invited") => detailsOpt->Option.getOr(ts`was invited to the event`)
+            // The inviter's note is a private message, never shown here.
+            | Some("rsvp_invited") => ts`was invited to the event`
             | Some("rsvp_promoted") => detailsOpt->Option.getOr(ts`joined from waitlist`)
             | Some("rsvp_deleted") => detailsOpt->Option.getOr(ts`left the event`)
             | Some("rsvp_removed") =>

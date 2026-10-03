@@ -109,9 +109,17 @@ msgstr "{0} 場"
 msgid "{0} event"
 msgstr "{0} 個活動"
 
+#: src/components/organisms/CreateEventsButton.re.mjs:367
+#~ msgid "{0} event(s) couldn't be created (they may already exist)."
+#~ msgstr "{0} 個賽事無法建立（可能已存在）。"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:983
 msgid "{0} events"
 msgstr "{0} 個活動"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:363
+#~ msgid "{0} events created!"
+#~ msgstr "已建立 {0} 個活動！"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1019
 msgid "{0} without a venue"
@@ -137,6 +145,14 @@ msgstr "\\\"加入主畫面\\\""
 msgid "+ Add new club..."
 msgstr "+ 新增俱樂部..."
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:746
+#~ msgid "⌘+Enter to send"
+#~ msgstr "⌘+Enter 傳送"
+
+#: src/components/organisms/NewPlanModal.re.mjs:232
+#~ msgid "1 · Day"
+#~ msgstr "1 · 日期"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1465
 msgid "1 hour before"
 msgstr "1 小時前"
@@ -149,6 +165,10 @@ msgstr "1 週前"
 msgid "12 hours before"
 msgstr "12 小時前"
 
+#: src/components/organisms/NewPlanModal.re.mjs:271
+#~ msgid "2 · Time"
+#~ msgstr "2 · 時間"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1469
 msgid "2 hours before"
 msgstr "2 小時前"
@@ -156,6 +176,10 @@ msgstr "2 小時前"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1481
 msgid "24 hours before"
 msgstr "24 小時前"
+
+#: src/components/organisms/NewPlanModal.re.mjs:336
+#~ msgid "3 · What kind?"
+#~ msgstr "3 · 類型？"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1485
 msgid "48 hours before"
@@ -168,6 +192,10 @@ msgstr "6 小時前"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1489
 msgid "72 hours before"
 msgstr "72小時前"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:762
+#~ msgid "A deposit authorization is made. This is not a charge and it automatically disappears from the person's account. You can manually approve attendees who do not authorize payment by clicking their name in the RSVP list."
+#~ msgstr "系統將進行押金授權。此操作不會實際扣款，且會自動從該用戶帳戶消失。您可以在 RSVP 名單中點擊姓名，手動批准未完成付款授權的參加者。"
 
 #: src/components/molecules/AIResponseCard.re.mjs:36
 msgid "Accept {0} events"
@@ -190,9 +218,17 @@ msgstr "活動"
 msgid "activity is required"
 msgstr "活動是必填項目"
 
-#: src/components/molecules/NotificationRow.re.mjs:140
+#: src/components/molecules/NotificationRow.re.mjs:145
 msgid "Added to Event"
 msgstr "已加入活動"
+
+#: src/components/molecules/LevelPicker.re.mjs:42
+#~ msgid "Advanced"
+#~ msgstr "進階"
+
+#: src/components/organisms/NewPlanModal.re.mjs:92
+#~ msgid "Afternoon"
+#~ msgstr "下午"
 
 #: src/components/pages/CreateEventPage.re.mjs:367
 msgid "AI-assisted event form"
@@ -214,15 +250,25 @@ msgstr "美屬薩摩亞時間"
 msgid "An error occurred. Please try again."
 msgstr "發生錯誤，請重試。"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:776
+#~ msgid "Answer the questions or add details to refine the draft."
+#~ msgstr "回答問題或補充細節，以完善草稿。"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:719
+#~ msgid "Answer the questions or provide more details..."
+#~ msgstr "回答問題或提供更多詳細資料..."
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1210
-msgid ""
-"Anyone held as pending can be moved into the event from the RSVP list, which "
-"bypasses the payment requirement for them."
+msgid "Anyone held as pending can be moved into the event from the RSVP list, which bypasses the payment requirement for them."
 msgstr "任何處於待處理狀態的人，都可從報名名單移入活動，這樣就不需要付款。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1104
 msgid "Anything players should know before joining or arriving."
 msgstr "球友報名或到場前需要知道的事項。"
+
+#: src/components/organisms/NewPlanModal.re.mjs:80
+#~ msgid "Anytime"
+#~ msgstr "任何時間"
 
 #: src/components/molecules/AddToCalendar.re.mjs:22
 msgid "Apple iCal"
@@ -231,6 +277,10 @@ msgstr "Apple iCal"
 #: src/components/organisms/AIAssistantEmbed.re.mjs:519
 msgid "Approve"
 msgstr "批准"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:424
+#~ msgid "Approve or deny the pending action to continue"
+#~ msgstr "請核准或拒絕待處理的動作以繼續"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:706
 msgid "Approve or deny the pending action to continue."
@@ -245,38 +295,32 @@ msgid "Arizona Time"
 msgstr "亞利桑那時間"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:435
-msgid ""
-"Ask the assistant to fill in event details. Your conversation will appear "
-"here."
+msgid "Ask the assistant to fill in event details. Your conversation will appear here."
 msgstr "請助理協助填寫活動細節，你們的對話將顯示在此。"
 
 #: src/components/molecules/TimeZoneField.re.mjs:76
 msgid "Atlantic Time"
 msgstr "大西洋時間"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:798
+#~ msgid "Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event."
+#~ msgstr "參加者報名時會被要求儲存卡片，但不會預先授權或扣款，你也無法在此扣款。請於活動現場收費。"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1166
-msgid ""
-"Attendees are asked to save a card when they RSVP, but nothing is authorized "
-"or charged, and you can't charge it from here. Collect the fee at the event. "
-"Club members are exempted from this."
-msgstr ""
-"參加者報名時需儲存信用卡，但不會授權或扣款，你也無法從這裡扣款。請於活動現場"
-"收費。俱樂部會員不受此限。"
+msgid "Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event. Club members are exempted from this."
+msgstr "參加者報名時需儲存信用卡，但不會授權或扣款，你也無法從這裡扣款。請於活動現場收費。俱樂部會員不受此限。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1498
 msgid "Attendees cannot cancel their RSVP after this deadline."
 msgstr "此期限後參加者將無法取消報名。"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:821
+#~ msgid "Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account."
+#~ msgstr "參加者報名時會儲存卡片，事前不會扣款或預授權。你可以隨時從報名名單向單一參加者或所有人收費，款項會進入你的 Stripe 帳戶。"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1189
-msgid ""
-"Attendees save a card when they RSVP and nothing is charged or held up "
-"front. From the RSVP list you can charge one attendee or everyone whenever "
-"you choose, and the money goes to your Stripe account. Club members can be "
-"exempted or not, which you can toggle from the Club home page."
-msgstr ""
-"參加者報名時會儲存信用卡，事前不會扣款或預授權。你可以隨時從報名名單向單一參"
-"加者或所有人收費，款項將匯入你的 Stripe 帳戶。俱樂部會員可設定是否豁免，可於"
-"俱樂部首頁切換。"
+msgid "Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account. Club members can be exempted or not, which you can toggle from the Club home page."
+msgstr "參加者報名時會儲存信用卡，事前不會扣款或預授權。你可以隨時從報名名單向單一參加者或所有人收費，款項將匯入你的 Stripe 帳戶。俱樂部會員可設定是否豁免，可於俱樂部首頁切換。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1774
 msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
@@ -294,9 +338,25 @@ msgstr "等待批准"
 msgid "Back"
 msgstr "返回"
 
+#: src/components/molecules/LevelPicker.re.mjs:27
+#~ msgid "Beginner"
+#~ msgstr "初學者"
+
+#: src/components/organisms/ProfileModal.re.mjs:532
+#~ msgid "Biography"
+#~ msgstr "個人簡介"
+
+#: src/components/organisms/ProfileModal.re.mjs:119
+#~ msgid "Biography is required"
+#~ msgstr "簡介為必填項目"
+
 #: src/components/organisms/CreateClubForm.re.mjs:205
 msgid "Brief description of the club..."
 msgstr "俱樂部的簡要描述..."
+
+#: src/components/pages/PkuruLayout.re.mjs:103
+#~ msgid "Browse"
+#~ msgstr "瀏覽"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:262
 msgid "Calendar synced"
@@ -351,6 +411,10 @@ msgstr "選擇活動時間"
 msgid "Close"
 msgstr "關閉"
 
+#: src/components/organisms/ProfileModal.re.mjs:465
+#~ msgid "Close profile form"
+#~ msgstr "關閉個人資料表單"
+
 #: src/components/organisms/ClubActivitySelector.re.mjs:186
 msgid "Club"
 msgstr "俱樂部"
@@ -381,9 +445,33 @@ msgstr "俱樂部"
 msgid "Competitive"
 msgstr "競技模式"
 
+#: src/components/molecules/LevelPicker.re.mjs:22
+#~ msgid "Complete Beginner"
+#~ msgstr "完全初學者"
+
+#: src/components/organisms/ProfileModal.re.mjs:449
+#~ msgid "Complete your player profile"
+#~ msgstr "完善您的球員個人資料"
+
+#: src/components/organisms/ProfileModal.re.mjs:311
+#~ msgid "Complete your profile before sharing availability with players and hosts."
+#~ msgstr "在與球員和主辦方分享時間之前，請先完善您的個人資料。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:790
+#~ msgid "Connect a Stripe account to activate"
+#~ msgstr "連結 Stripe 帳戶以啟用"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1194
 msgid "Connect a Stripe account to enable this"
 msgstr "連結 Stripe 帳戶以啟用此功能"
+
+#: src/components/organisms/NewPlanModal.re.mjs:406
+#~ msgid "Continue"
+#~ msgstr "繼續"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:425
+#~ msgid "Continue the conversation"
+#~ msgstr "繼續對話"
 
 #: src/components/molecules/TimeZoneField.re.mjs:122
 msgid "Coordinated Universal Time"
@@ -403,13 +491,40 @@ msgstr "無法載入該地點"
 msgid "Could not save that location"
 msgstr "無法儲存該位置"
 
+#: src/components/organisms/ProfileModal.re.mjs:262
+#: src/components/organisms/ProfileModal.re.mjs:271
+#: src/components/organisms/ProfileModal.re.mjs:291
+#: src/components/organisms/ProfileModal.re.mjs:301
+#~ msgid "Could not save your profile. Please try again."
+#~ msgstr "無法儲存您的個人資料，請再試一次。"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:417
+#~ msgid "Couldn't create that event. Please try again."
+#~ msgstr "無法建立該賽事，請重試。"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:376
+#~ msgid "Couldn't determine the activity. Please try again."
+#~ msgstr "無法確定活動類型，請重試。"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:904
 msgid "Couldn't find \\\"{address}\\\". Choose the venue:"
 msgstr "找不到 \\\"{address}\\\"。請選擇場地："
 
+#: src/components/organisms/CreateEventsButton.re.mjs:393
+#~ msgid "Couldn't find this location — pick it:"
+#~ msgstr "找不到此地點，請選擇："
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1816
 msgid "Create {0}"
 msgstr "建立 {0}"
+
+#: src/components/organisms/NewPlanModal.re.mjs:401
+#~ msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
+#~ msgstr "在此時間建立一個主辦活動，其他人可以加入，由你選擇場地和規則。"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:133
+#~ msgid "Create All Events"
+#~ msgstr "建立所有活動"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:365
 msgid "Create an event"
@@ -436,6 +551,14 @@ msgstr "手動建立活動"
 msgid "Create events by email"
 msgstr "透過電子郵件建立活動"
 
+#: src/components/pages/CreateEventPage.re.mjs:280
+#~ msgid "Create multiple events instead"
+#~ msgstr "改為建立多場活動"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:133
+#~ msgid "Create This Event"
+#~ msgstr "建立此活動"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:832
 msgid "Created"
 msgstr "已建立"
@@ -443,6 +566,10 @@ msgstr "已建立"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1816
 msgid "Creating events…"
 msgstr "正在建立活動…"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:381
+#~ msgid "Creating..."
+#~ msgstr "建立中..."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1650
 msgid "Date"
@@ -452,6 +579,10 @@ msgstr "日期"
 #: src/components/molecules/AIResponseCard.re.mjs:201
 msgid "Date:"
 msgstr "日期："
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+#~ msgid "daytime"
+#~ msgstr "日間"
 
 #: src/components/organisms/CreateClubForm.re.mjs:225
 msgid "Default club activity"
@@ -473,9 +604,17 @@ msgstr "描述活動"
 msgid "Describe the event to draft it, or fill in the details."
 msgstr "描述活動以產生草稿，或自行填寫細節。"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:425
+#~ msgid "Describe the event to generate a draft"
+#~ msgstr "描述活動以產生草稿"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:706
 msgid "Describe your event and I’ll fill out the form…"
 msgstr "描述你的活動，我會幫你填寫表單…"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:720
+#~ msgid "Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 more players around 3.5, ¥800 each."
+#~ msgstr "描述你的活動……例如：明天晚上 7 點在中央公園，還需要 3 位 3.5 左右的球友，每人 800 元。"
 
 #: src/components/organisms/CreateClubForm.re.mjs:198
 msgid "Description"
@@ -494,14 +633,38 @@ msgstr "捨棄"
 msgid "Discover"
 msgstr "探索"
 
+#: src/components/organisms/ProfileModal.re.mjs:482
+#~ msgid "Display name"
+#~ msgstr "顯示名稱"
+
+#: src/components/organisms/ProfileModal.re.mjs:111
+#~ msgid "Display name is required"
+#~ msgstr "請輸入顯示名稱"
+
 #: src/components/organisms/ClubActivitySelector.re.mjs:288
 #: src/components/molecules/TimeZoneField.re.mjs:203
 msgid "Done"
 msgstr "完成"
 
+#: src/components/molecules/DuprRatingBadge.re.mjs:55
+#~ msgid "doubles"
+#~ msgstr "雙打"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1536
 msgid "Draft filled in. Review the details before creating the event."
 msgstr "草稿已填好。建立活動前請先確認細節。"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:524
+#~ msgid "Drag around the clock · Arrow keys move 15 minutes"
+#~ msgstr "沿時鐘拖曳．方向鍵每次調整 15 分鐘"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+#~ msgid "Drag end time"
+#~ msgstr "拖曳結束時間"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+#~ msgid "Drag start time"
+#~ msgstr "拖曳開始時間"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1705
 msgid "Drag the window to move it, or drag either edge to resize."
@@ -516,6 +679,10 @@ msgstr "練習課程"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1277
 msgid "DUPR rated"
 msgstr "DUPR評級"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:397
+#~ msgid "duration"
+#~ msgstr "時長"
 
 #: src/components/organisms/CreateClubForm.re.mjs:164
 msgid "e.g., City Ballers Club"
@@ -537,6 +704,26 @@ msgstr "東部時間"
 msgid "Edit"
 msgstr "編輯"
 
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+#~ msgid "Editing end"
+#~ msgstr "編輯結束時間"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+#~ msgid "Editing start"
+#~ msgstr "編輯開始時間"
+
+#: src/components/organisms/ProfileModal.re.mjs:369
+#~ msgid "Email address"
+#~ msgstr "電子郵件地址"
+
+#: src/components/organisms/ProfileModal.re.mjs:286
+#~ msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+#~ msgstr "此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵件地址登入。"
+
+#: src/components/organisms/ProfileModal.re.mjs:114
+#~ msgid "Email is required"
+#~ msgstr "請輸入電子郵件"
+
 #: src/components/shared/InstallPwa.re.mjs:389
 msgid "Enable now"
 msgstr "立即啟用"
@@ -544,6 +731,10 @@ msgstr "立即啟用"
 #: src/components/molecules/EventTimeRangeInputs.re.mjs:128
 msgid "End"
 msgstr "結束"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:447
+#~ msgid "end time"
+#~ msgstr "結束時間"
 
 #: src/components/molecules/EventTimeRangeInputs.re.mjs:129
 msgid "End time"
@@ -561,7 +752,11 @@ msgstr "輸入價格"
 msgid "Enter the event details yourself or ask the assistant to fill them in."
 msgstr "自行填寫活動細節，或請助理協助填寫。"
 
-#: src/components/molecules/NotificationRow.re.mjs:130
+#: src/components/organisms/NewPlanModal.re.mjs:98
+#~ msgid "Evening"
+#~ msgstr "傍晚"
+
+#: src/components/molecules/NotificationRow.re.mjs:135
 msgid "Event Canceled"
 msgstr "活動已取消"
 
@@ -581,6 +776,10 @@ msgstr "活動詳情"
 msgid "Event notes"
 msgstr "活動備註"
 
+#: src/components/molecules/ClockRangePicker.re.mjs:299
+#~ msgid "Event time range"
+#~ msgstr "活動時間範圍"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1081
 msgid "Event title"
 msgstr "活動標題"
@@ -589,19 +788,21 @@ msgstr "活動標題"
 msgid "Event type"
 msgstr "活動類型"
 
-#: src/components/molecules/NotificationRow.re.mjs:132
-#: src/components/molecules/NotificationRow.re.mjs:135
+#: src/components/molecules/NotificationRow.re.mjs:137
+#: src/components/molecules/NotificationRow.re.mjs:140
 msgid "Event Uncanceled"
 msgstr "活動已恢復"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:329
+#~ msgid "Event Update"
+#~ msgstr "活動更新"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:872
 msgid "Events"
 msgstr "活動"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:351
-msgid ""
-"Events are added privately to {myEvents}. Make an event public whenever you "
-"need to find players."
+msgid "Events are added privately to {myEvents}. Make an event public whenever you need to find players."
 msgstr "活動會以私人方式加入{myEvents}。需要找球員時，隨時可以將活動設為公開。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1716
@@ -624,6 +825,10 @@ msgstr "執行失敗"
 msgid "Failed"
 msgstr "失敗"
 
+#: src/components/organisms/ProfileModal.re.mjs:506
+#~ msgid "Female"
+#~ msgstr "女性"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:742
 msgid "Fill event form from description"
 msgstr "依描述填寫活動表單"
@@ -644,6 +849,14 @@ msgstr "正在尋找 {address}…"
 msgid "Finding the venue…"
 msgstr "正在尋找場地…"
 
+#: src/components/organisms/ProfileModal.re.mjs:362
+#~ msgid "For event updates and notifications"
+#~ msgstr "用於活動更新和通知"
+
+#: src/components/organisms/ProfileModal.re.mjs:
+#~ msgid "For event updates and notifications. We'll email you a link to confirm it."
+#~ msgstr "用於活動更新和通知。我們會寄送確認連結給您。"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1793
 msgid "Format"
 msgstr "格式"
@@ -653,14 +866,16 @@ msgid "Format options"
 msgstr "格式選項"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:183
-msgid ""
-"Forward your booking confirmation to {forwardingAddress} from your email "
-"{yourEmail}."
+msgid "Forward your booking confirmation to {forwardingAddress} from your email {yourEmail}."
 msgstr "從你的電子郵件 {yourEmail} 將預訂確認信轉寄至 {forwardingAddress}。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1084
 msgid "Friday night pickleball"
 msgstr "週五夜間匹克球"
+
+#: src/components/organisms/ProfileModal.re.mjs:496
+#~ msgid "Gender"
+#~ msgstr "性別"
 
 #: src/components/molecules/AddToCalendar.re.mjs:27
 msgid "Google Calendar"
@@ -669,6 +884,10 @@ msgstr "Google 日曆"
 #: src/components/molecules/TimeZoneField.re.mjs:116
 msgid "Hawaii Time"
 msgstr "夏威夷時間"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:420
+#~ msgid "Help me fill this out"
+#~ msgstr "幫我填寫"
 
 #: src/components/shared/InstallPwa.re.mjs:431
 msgid "Hide"
@@ -679,21 +898,36 @@ msgid "Hide AI chat history"
 msgstr "隱藏 AI 對話記錄"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1424
-msgid ""
-"Hold new joins  in the pending list and admit players either manually or "
-"automatically with the Smart RSVPs algorithm that maximizes skill level and "
-"session quality."
-msgstr ""
-"將新報名者保留在待審名單中，並可手動錄取，或使用 Smart RSVPs 演算法自動錄取，"
-"以提升程度均衡與場次品質。"
+msgid "Hold new joins  in the pending list and admit players either manually or automatically with the Smart RSVPs algorithm that maximizes skill level and session quality."
+msgstr "將新報名者保留在待審名單中，並可手動錄取，或使用 Smart RSVPs 演算法自動錄取，以提升程度均衡與場次品質。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1100
+#~ msgid "Hold new joins and admit players automatically based on match quality."
+#~ msgstr "暫緩新加入者，並依據比賽實力自動接受球員。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1420
 msgid "Hold RSVPs"
 msgstr "保留報名"
 
-#: src/components/molecules/NotificationRow.re.mjs:138
+#: src/components/pages/PkuruLayout.re.mjs:265
+#~ msgid "Host"
+#~ msgstr "主持人"
+
+#: src/components/organisms/NewPlanModal.re.mjs:394
+#~ msgid "Host an event"
+#~ msgstr "主辦活動"
+
+#: src/components/molecules/NotificationRow.re.mjs:143
 msgid "Host Message"
 msgstr "主辦人訊息"
+
+#: src/components/organisms/NewPlanModal.re.mjs:424
+#~ msgid "Hosting an event needs exactly one time window — pick one."
+#~ msgstr "主辦活動需要恰好一個時間段——請選擇一個。"
+
+#: src/components/organisms/ProfileModal.re.mjs:485
+#~ msgid "How other players will see you"
+#~ msgstr "其他球員看到您的方式"
 
 #: src/components/shared/InstallPwa.re.mjs:431
 msgid "How to install"
@@ -702,6 +936,10 @@ msgstr "安裝說明"
 #: src/components/shared/InstallPwa.re.mjs:463
 msgid "in Safari's toolbar"
 msgstr "在 Safari 的工具列中"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:746
+#~ msgid "Include whatever details you know"
+#~ msgstr "知道多少就填多少"
 
 #: src/components/molecules/TimeZoneField.re.mjs:86
 msgid "India Time"
@@ -716,7 +954,24 @@ msgstr "安裝"
 msgid "Install Pkuru.com App"
 msgstr "安裝 Pkuru.com 應用程式"
 
-#: src/components/molecules/NotificationRow.re.mjs:146
+#: src/components/shared/InstallPwa.re.mjs:395
+#: src/components/shared/InstallPwa.re.mjs:467
+#~ msgid "Install Racquet League"
+#~ msgstr "安裝 Racquet League"
+
+#: src/components/molecules/LevelPicker.re.mjs:32
+#~ msgid "Intermediate"
+#~ msgstr "中級"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+#~ msgid "Intermediate+"
+#~ msgstr "中級+"
+
+#: src/components/molecules/NotificationRow.re.mjs:131
+msgid "Invitation"
+msgstr "邀請"
+
+#: src/components/molecules/NotificationRow.re.mjs:151
 msgid "Invited to Event"
 msgstr "受邀參加活動"
 
@@ -724,17 +979,21 @@ msgstr "受邀參加活動"
 msgid "Japan Time"
 msgstr "日本時間"
 
-#: src/components/molecules/NotificationRow.re.mjs:142
+#: src/components/molecules/NotificationRow.re.mjs:147
 msgid "Joined"
 msgstr "已加入"
 
-#: src/components/molecules/NotificationRow.re.mjs:152
+#: src/components/molecules/NotificationRow.re.mjs:157
 msgid "Joined Club"
 msgstr "已加入俱樂部"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1577
 msgid "Keep current location"
 msgstr "保留目前地點"
+
+#: src/components/organisms/ProfileModal.re.mjs:314
+#~ msgid "Keep your player profile accurate and useful to the community."
+#~ msgstr "保持您的球員個人資料準確且對社群有用。"
 
 #: src/components/molecules/TimeZoneField.re.mjs:88
 msgid "Korea Time"
@@ -744,9 +1003,13 @@ msgstr "韓國時間"
 msgid "Leaderboard"
 msgstr "排行榜"
 
-#: src/components/molecules/NotificationRow.re.mjs:144
+#: src/components/molecules/NotificationRow.re.mjs:149
 msgid "Left Event"
 msgstr "已離開活動"
+
+#: src/components/organisms/ProfileModal.re.mjs:547
+#~ msgid "Level"
+#~ msgstr "等級"
 
 #: src/components/molecules/TimeZoneField.re.mjs:118
 msgid "Line Islands Time"
@@ -798,6 +1061,14 @@ msgstr "地點："
 msgid "login with Line"
 msgstr "使用 Line 登入"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#~ msgid "Long opening"
+#~ msgstr "長時間開放"
+
+#: src/components/organisms/ProfileModal.re.mjs:502
+#~ msgid "Male"
+#~ msgstr "男性"
+
 #: src/components/pages/PkuruLayout.re.mjs:665
 msgid "Map"
 msgstr "地圖"
@@ -805,6 +1076,14 @@ msgstr "地圖"
 #: src/components/pages/PkuruLayout.re.mjs:321
 msgid "Map view"
 msgstr "地圖檢視"
+
+#: src/components/organisms/NewPlanModal.re.mjs:356
+#~ msgid "Mark available"
+#~ msgstr "標記為有空"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "配合我的時間"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1436
 msgid "Max players"
@@ -814,13 +1093,29 @@ msgstr "人數上限"
 msgid "Minimum rating"
 msgstr "最低評級"
 
+#: src/components/organisms/NewPlanModal.re.mjs:86
+#~ msgid "Morning"
+#~ msgstr "上午"
+
 #: src/components/molecules/TimeZoneField.re.mjs:74
 msgid "Mountain Time"
 msgstr "山區時間"
 
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+#~ msgid "Move start and end to daytime hours"
+#~ msgstr "將開始與結束時間移至日間時段"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+#~ msgid "Move start and end to nighttime hours"
+#~ msgstr "將開始與結束時間移至夜間時段"
+
 #: src/components/pages/PkuruSidebarClubs.re.mjs:187
 msgid "My clubs"
 msgstr "我的俱樂部"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+#~ msgid "My Clubs"
+#~ msgstr "我的俱樂部"
 
 #: src/components/pages/PkuruLayout.re.mjs:181
 msgid "My events"
@@ -835,13 +1130,17 @@ msgstr "我的活動"
 msgid "New"
 msgstr "新建"
 
-#: src/components/molecules/NotificationRow.re.mjs:126
+#: src/components/molecules/NotificationRow.re.mjs:127
 msgid "New Comment"
 msgstr "新留言"
 
 #: src/components/pages/PkuruLayout.re.mjs:495
 msgid "New event"
 msgstr "新增活動"
+
+#: src/components/molecules/NotificationRow.re.mjs:129
+msgid "New message"
+msgstr "新訊息"
 
 #: src/components/organisms/CreateEventModal.re.mjs:80
 #: src/components/organisms/NewPlanChooserModal.re.mjs:366
@@ -855,6 +1154,10 @@ msgstr "紐西蘭時間"
 #: src/components/molecules/TimeZoneField.re.mjs:84
 msgid "Newfoundland Time"
 msgstr "紐芬蘭時間"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+#~ msgid "nighttime"
+#~ msgstr "夜間"
 
 #: src/components/organisms/ClubActivitySelector.re.mjs:336
 msgid "No club"
@@ -880,7 +1183,11 @@ msgstr "無最低限制"
 msgid "No notifications"
 msgstr "沒有通知"
 
-#: src/components/molecules/NotificationRow.re.mjs:154
+#: src/components/organisms/ProfileModal.re.mjs:583
+#~ msgid "Not now"
+#~ msgstr "暫不設定"
+
+#: src/components/molecules/NotificationRow.re.mjs:159
 msgid "Notification"
 msgstr "通知"
 
@@ -890,21 +1197,25 @@ msgstr "通知"
 msgid "Notifications"
 msgstr "通知"
 
-#: src/components/molecules/NotificationRow.re.mjs:148
+#: src/components/molecules/DuprRatingBadge.re.mjs:26
+#~ msgid "NR"
+#~ msgstr "NR"
+
+#: src/components/molecules/NotificationRow.re.mjs:153
 msgid "Off Waitlist"
 msgstr "已離開候補"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "開放"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:627
 msgid "Operation:"
 msgstr "操作："
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:208
-msgid ""
-"Or use this email {bookingAddress} when booking. We’ll forward the "
-"confirmation to {yourEmail}."
-msgstr ""
-"或在預訂時使用這個電子郵件 {bookingAddress}，我們會將確認信轉寄到 "
-"{yourEmail}。"
+msgid "Or use this email {bookingAddress} when booking. We’ll forward the confirmation to {yourEmail}."
+msgstr "或在預訂時使用這個電子郵件 {bookingAddress}，我們會將確認信轉寄到 {yourEmail}。"
 
 #: src/components/molecules/TimeZoneField.re.mjs:78
 msgid "Pacific Time"
@@ -922,6 +1233,10 @@ msgstr "參加費用"
 msgid "Personal"
 msgstr "個人"
 
+#: src/components/molecules/RatingSourceChip.re.mjs:25
+#~ msgid "pkuru"
+#~ msgstr "pkuru"
+
 #: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "球員可用性熱力圖"
@@ -934,10 +1249,19 @@ msgstr "尋找球員"
 msgid "Private event"
 msgstr "私人活動"
 
+#: src/components/molecules/LevelPicker.re.mjs:47
+#~ msgid "Pro"
+#~ msgstr "專業"
+
 #: src/components/pages/PkuruLayout.re.mjs:203
 #: src/components/pages/PkuruLayout.re.mjs:704
 msgid "Profile"
 msgstr "個人資料"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:37
+#: src/components/molecules/RatingSourceChip.re.mjs:50
+#~ msgid "provisional"
+#~ msgstr "暫定"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1041
 msgid "Public"
@@ -950,6 +1274,10 @@ msgstr "公開 · 最多 {maxRsvpsStr} 位球員"
 #: src/components/molecules/TimeZoneField.re.mjs:98
 msgid "Queensland Time"
 msgstr "昆士蘭時間"
+
+#: src/components/pages/PkuruLayout.re.mjs:190
+#~ msgid "Rankings"
+#~ msgstr "排名"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1624
 msgid "Read more..."
@@ -964,21 +1292,61 @@ msgstr "休閒"
 msgid "Remove"
 msgstr "移除"
 
-#: src/components/molecules/NotificationRow.re.mjs:150
+#: src/components/molecules/NotificationRow.re.mjs:155
 msgid "Removed from Event"
 msgstr "已從活動中移除"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1391
+#~ msgid "Require payment from attendees"
+#~ msgstr "要求參與者付款"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:780
+#~ msgid "Reset"
+#~ msgstr "重置"
 
 #: src/components/molecules/TimeZoneField.re.mjs:110
 msgid "Samoa Time"
 msgstr "薩摩亞時間"
 
+#: src/components/organisms/NewPlanModal.re.mjs:372
+#~ msgid "Save"
+#~ msgstr "儲存"
+
+#: src/components/organisms/ProfileModal.re.mjs:597
+#~ msgid "Save profile"
+#~ msgstr "儲存個人資料"
+
 #: src/components/shared/InstallPwa.re.mjs:469
 msgid "Scroll down and tap"
 msgstr "向下捲動並點按"
 
+#: src/components/pages/PkuruLayout.re.mjs:250
+#~ msgid "Search events, venues, hosts..."
+#~ msgstr "搜尋活動、場館、主持人..."
+
 #: src/components/organisms/AutocompleteLocation.re.mjs:361
 msgid "Search for a venue or address"
 msgstr "搜尋場地或地址"
+
+#: src/components/organisms/NewPlanModal.re.mjs:416
+#~ msgid "Select exactly one time window to host an event"
+#~ msgstr "請選擇恰好一個時間段來主辦活動"
+
+#: src/components/molecules/RatingSourceChip.re.mjs:37
+#~ msgid "Self-rated"
+#~ msgstr "自評"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:758
+#~ msgid "Send"
+#~ msgstr "傳送"
+
+#: src/components/organisms/NavViewer.re.mjs:77
+#~ msgid "Settings"
+#~ msgstr "設定"
+
+#: src/components/organisms/ProfileModal.re.mjs:535
+#~ msgid "Share a little about yourself so organizers or other players can see why they should invite you."
+#~ msgstr "分享一些關於您自己的資訊，讓主辦人或其他球員了解為何應該邀請您。"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:777
 msgid "Show AI chat history"
@@ -992,9 +1360,17 @@ msgstr "顯示更少"
 msgid "Singapore Time"
 msgstr "新加坡時間"
 
+#: src/components/molecules/DuprRatingBadge.re.mjs:69
+#~ msgid "singles"
+#~ msgstr "單打"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1381
 msgid "Skill level"
 msgstr "技能水平"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
+#~ msgid "Smart RSVP"
+#~ msgstr "智慧報名"
 
 #: src/components/molecules/TimeZoneField.re.mjs:114
 msgid "Solomon Islands Time"
@@ -1016,9 +1392,17 @@ msgstr "開始"
 msgid "Start and end time"
 msgstr "開始與結束時間"
 
+#: src/components/molecules/ClockRangePicker.re.mjs:447
+#~ msgid "start time"
+#~ msgstr "開始時間"
+
 #: src/components/molecules/EventTimeRangeInputs.re.mjs:123
 msgid "Start time"
 msgstr "開始時間"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:332
+#~ msgid "Status Update"
+#~ msgstr "狀態更新"
 
 #: src/components/shared/InstallPwa.re.mjs:375
 msgid "Stay in the loop"
@@ -1033,10 +1417,12 @@ msgid "Sync calendar"
 msgstr "同步日曆"
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:250
-msgid ""
-"Sync your Pkuru calendar so new events appear automatically in your calendar "
-"app."
+msgid "Sync your Pkuru calendar so new events appear automatically in your calendar app."
 msgstr "同步你的 Pkuru 日曆，新活動會自動顯示在你的日曆 App 中。"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "點擊任意處以新增時間段"
 
 #: src/components/shared/InstallPwa.re.mjs:461
 msgid "Tap the Share button"
@@ -1046,25 +1432,32 @@ msgstr "點按分享按鈕"
 msgid "Tap to add your time"
 msgstr "點擊新增您的時間"
 
+#: src/components/organisms/NewPlanModal.re.mjs:363
+#~ msgid "Tell others you're down to play. Players with overlapping times can invite you."
+#~ msgstr "告訴其他人你有意願打球，時間重疊的球員可以邀請你。"
+
+#: src/components/organisms/ProfileModal.re.mjs:
+#~ msgid "That doesn't look like an email address."
+#~ msgstr "這看起來不像電子郵件地址。"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:547
 msgid "The action completed with GraphQL errors."
 msgstr "該動作已完成，但包含 GraphQL 錯誤。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1518
-msgid ""
-"The assistant proposed {0}. Each keeps its own venue, date and time; the "
-"rest of this form applies to all of them."
-msgstr ""
-"助理建議了 {0}。每個活動各自保有其場地、日期與時間；此表單的其餘設定會套用至"
-"全部活動。"
+msgid "The assistant proposed {0}. Each keeps its own venue, date and time; the rest of this form applies to all of them."
+msgstr "助理建議了 {0}。每個活動各自保有其場地、日期與時間；此表單的其餘設定會套用至全部活動。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1684
 msgid "The date and times on this form are in this zone."
 msgstr "此表單上的日期與時間皆以此時區為準。"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:785
+#~ msgid "The participation fee is charged automatically and transferred to your Stripe account."
+#~ msgstr "參與費用將自動收取並轉入您的 Stripe 帳戶。"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:863
-msgid ""
-"The times below are shown in this zone, and every event is created in it."
+msgid "The times below are shown in this zone, and every event is created in it."
 msgstr "以下時間以此時區顯示，所有活動也都以此時區建立。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1369
@@ -1088,6 +1481,14 @@ msgstr "標題是必填項目"
 msgid "Title:"
 msgstr "標題："
 
+#: src/components/organisms/NewPlanModal.re.mjs:55
+#~ msgid "Today"
+#~ msgstr "今天"
+
+#: src/components/organisms/NewPlanModal.re.mjs:51
+#~ msgid "Tomorrow"
+#~ msgstr "明天"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:298
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "自動步驟請求過多，請手動繼續。"
@@ -1108,492 +1509,6 @@ msgstr "場地、日期、開始與結束時間"
 msgid "View all notifications"
 msgstr "查看所有通知"
 
-#: src/components/molecules/TimeZoneField.re.mjs:68
-msgid "West Africa Time"
-msgstr "西非時間"
-
-#: src/components/molecules/TimeZoneField.re.mjs:100
-msgid "Western Australia Time"
-msgstr "西澳時間"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1177
-msgid "With a Stripe account"
-msgstr "有 Stripe 帳戶"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1155
-msgid "Without a Stripe account"
-msgstr "沒有 Stripe 帳戶"
-
-#: src/components/organisms/NewPlanChooserModal.re.mjs:225
-msgid ""
-"You can include any additional event details like the level, max players, "
-"price, etc. in the email that you forward."
-msgstr "你可以在轉寄的郵件中附上其他活動細節，例如等級、人數上限、價格等。"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:367
-#~ msgid "{0} event(s) couldn't be created (they may already exist)."
-#~ msgstr "{0} 個賽事無法建立（可能已存在）。"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:363
-#~ msgid "{0} events created!"
-#~ msgstr "已建立 {0} 個活動！"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:746
-#~ msgid "⌘+Enter to send"
-#~ msgstr "⌘+Enter 傳送"
-
-#: src/components/organisms/NewPlanModal.re.mjs:232
-#~ msgid "1 · Day"
-#~ msgstr "1 · 日期"
-
-#: src/components/organisms/NewPlanModal.re.mjs:271
-#~ msgid "2 · Time"
-#~ msgstr "2 · 時間"
-
-#: src/components/organisms/NewPlanModal.re.mjs:336
-#~ msgid "3 · What kind?"
-#~ msgstr "3 · 類型？"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:762
-#~ msgid ""
-#~ "A deposit authorization is made. This is not a charge and it "
-#~ "automatically disappears from the person's account. You can manually "
-#~ "approve attendees who do not authorize payment by clicking their name in "
-#~ "the RSVP list."
-#~ msgstr ""
-#~ "系統將進行押金授權。此操作不會實際扣款，且會自動從該用戶帳戶消失。您可以"
-#~ "在 RSVP 名單中點擊姓名，手動批准未完成付款授權的參加者。"
-
-#: src/components/molecules/LevelPicker.re.mjs:42
-#~ msgid "Advanced"
-#~ msgstr "進階"
-
-#: src/components/organisms/NewPlanModal.re.mjs:92
-#~ msgid "Afternoon"
-#~ msgstr "下午"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:776
-#~ msgid "Answer the questions or add details to refine the draft."
-#~ msgstr "回答問題或補充細節，以完善草稿。"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:719
-#~ msgid "Answer the questions or provide more details..."
-#~ msgstr "回答問題或提供更多詳細資料..."
-
-#: src/components/organisms/NewPlanModal.re.mjs:80
-#~ msgid "Anytime"
-#~ msgstr "任何時間"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:424
-#~ msgid "Approve or deny the pending action to continue"
-#~ msgstr "請核准或拒絕待處理的動作以繼續"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:798
-#~ msgid ""
-#~ "Attendees are asked to save a card when they RSVP, but nothing is "
-#~ "authorized or charged, and you can't charge it from here. Collect the fee "
-#~ "at the event."
-#~ msgstr ""
-#~ "參加者報名時會被要求儲存卡片，但不會預先授權或扣款，你也無法在此扣款。請於"
-#~ "活動現場收費。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:821
-#~ msgid ""
-#~ "Attendees save a card when they RSVP and nothing is charged or held up "
-#~ "front. From the RSVP list you can charge one attendee or everyone "
-#~ "whenever you choose, and the money goes to your Stripe account."
-#~ msgstr ""
-#~ "參加者報名時會儲存卡片，事前不會扣款或預授權。你可以隨時從報名名單向單一參"
-#~ "加者或所有人收費，款項會進入你的 Stripe 帳戶。"
-
-#: src/components/molecules/LevelPicker.re.mjs:27
-#~ msgid "Beginner"
-#~ msgstr "初學者"
-
-#: src/components/organisms/ProfileModal.re.mjs:532
-#~ msgid "Biography"
-#~ msgstr "個人簡介"
-
-#: src/components/organisms/ProfileModal.re.mjs:119
-#~ msgid "Biography is required"
-#~ msgstr "簡介為必填項目"
-
-#: src/components/pages/PkuruLayout.re.mjs:103
-#~ msgid "Browse"
-#~ msgstr "瀏覽"
-
-#: src/components/organisms/ProfileModal.re.mjs:465
-#~ msgid "Close profile form"
-#~ msgstr "關閉個人資料表單"
-
-#: src/components/molecules/LevelPicker.re.mjs:22
-#~ msgid "Complete Beginner"
-#~ msgstr "完全初學者"
-
-#: src/components/organisms/ProfileModal.re.mjs:449
-#~ msgid "Complete your player profile"
-#~ msgstr "完善您的球員個人資料"
-
-#: src/components/organisms/ProfileModal.re.mjs:311
-#~ msgid ""
-#~ "Complete your profile before sharing availability with players and hosts."
-#~ msgstr "在與球員和主辦方分享時間之前，請先完善您的個人資料。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:790
-#~ msgid "Connect a Stripe account to activate"
-#~ msgstr "連結 Stripe 帳戶以啟用"
-
-#: src/components/organisms/NewPlanModal.re.mjs:406
-#~ msgid "Continue"
-#~ msgstr "繼續"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:425
-#~ msgid "Continue the conversation"
-#~ msgstr "繼續對話"
-
-#: src/components/organisms/ProfileModal.re.mjs:262
-#: src/components/organisms/ProfileModal.re.mjs:271
-#: src/components/organisms/ProfileModal.re.mjs:291
-#: src/components/organisms/ProfileModal.re.mjs:301
-#~ msgid "Could not save your profile. Please try again."
-#~ msgstr "無法儲存您的個人資料，請再試一次。"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:417
-#~ msgid "Couldn't create that event. Please try again."
-#~ msgstr "無法建立該賽事，請重試。"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:376
-#~ msgid "Couldn't determine the activity. Please try again."
-#~ msgstr "無法確定活動類型，請重試。"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:393
-#~ msgid "Couldn't find this location — pick it:"
-#~ msgstr "找不到此地點，請選擇："
-
-#: src/components/organisms/NewPlanModal.re.mjs:401
-#~ msgid ""
-#~ "Create a hosted event at this time. Others can join, you pick venue and "
-#~ "rules."
-#~ msgstr "在此時間建立一個主辦活動，其他人可以加入，由你選擇場地和規則。"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:133
-#~ msgid "Create All Events"
-#~ msgstr "建立所有活動"
-
-#: src/components/pages/CreateEventPage.re.mjs:280
-#~ msgid "Create multiple events instead"
-#~ msgstr "改為建立多場活動"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:133
-#~ msgid "Create This Event"
-#~ msgstr "建立此活動"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:381
-#~ msgid "Creating..."
-#~ msgstr "建立中..."
-
-#: src/components/molecules/ClockRangePicker.re.mjs:452
-#~ msgid "daytime"
-#~ msgstr "日間"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:425
-#~ msgid "Describe the event to generate a draft"
-#~ msgstr "描述活動以產生草稿"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:720
-#~ msgid ""
-#~ "Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 "
-#~ "more players around 3.5, ¥800 each."
-#~ msgstr ""
-#~ "描述你的活動……例如：明天晚上 7 點在中央公園，還需要 3 位 3.5 左右的球友，"
-#~ "每人 800 元。"
-
-#: src/components/organisms/ProfileModal.re.mjs:482
-#~ msgid "Display name"
-#~ msgstr "顯示名稱"
-
-#: src/components/organisms/ProfileModal.re.mjs:111
-#~ msgid "Display name is required"
-#~ msgstr "請輸入顯示名稱"
-
-#: src/components/molecules/DuprRatingBadge.re.mjs:55
-#~ msgid "doubles"
-#~ msgstr "雙打"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:524
-#~ msgid "Drag around the clock · Arrow keys move 15 minutes"
-#~ msgstr "沿時鐘拖曳．方向鍵每次調整 15 分鐘"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:130
-#~ msgid "Drag end time"
-#~ msgstr "拖曳結束時間"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:130
-#~ msgid "Drag start time"
-#~ msgstr "拖曳開始時間"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:397
-#~ msgid "duration"
-#~ msgstr "時長"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:486
-#~ msgid "Editing end"
-#~ msgstr "編輯結束時間"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:486
-#~ msgid "Editing start"
-#~ msgstr "編輯開始時間"
-
-#: src/components/organisms/ProfileModal.re.mjs:369
-#~ msgid "Email address"
-#~ msgstr "電子郵件地址"
-
-#: src/components/organisms/ProfileModal.re.mjs:286
-#~ msgid ""
-#~ "Email address is unavailable. Please use a different email or login with "
-#~ "the email you are trying to use here."
-#~ msgstr ""
-#~ "此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子"
-#~ "郵件地址登入。"
-
-#: src/components/organisms/ProfileModal.re.mjs:114
-#~ msgid "Email is required"
-#~ msgstr "請輸入電子郵件"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:447
-#~ msgid "end time"
-#~ msgstr "結束時間"
-
-#: src/components/organisms/NewPlanModal.re.mjs:98
-#~ msgid "Evening"
-#~ msgstr "傍晚"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:299
-#~ msgid "Event time range"
-#~ msgstr "活動時間範圍"
-
-#: src/components/molecules/NotificationsPreview.re.mjs:329
-#~ msgid "Event Update"
-#~ msgstr "活動更新"
-
-#: src/components/organisms/ProfileModal.re.mjs:506
-#~ msgid "Female"
-#~ msgstr "女性"
-
-#: src/components/organisms/ProfileModal.re.mjs:362
-#~ msgid "For event updates and notifications"
-#~ msgstr "用於活動更新和通知"
-
-#: src/components/organisms/ProfileModal.re.mjs:
-#~ msgid ""
-#~ "For event updates and notifications. We'll email you a link to confirm it."
-#~ msgstr "用於活動更新和通知。我們會寄送確認連結給您。"
-
-#: src/components/organisms/ProfileModal.re.mjs:496
-#~ msgid "Gender"
-#~ msgstr "性別"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:420
-#~ msgid "Help me fill this out"
-#~ msgstr "幫我填寫"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1100
-#~ msgid ""
-#~ "Hold new joins and admit players automatically based on match quality."
-#~ msgstr "暫緩新加入者，並依據比賽實力自動接受球員。"
-
-#: src/components/pages/PkuruLayout.re.mjs:265
-#~ msgid "Host"
-#~ msgstr "主持人"
-
-#: src/components/organisms/NewPlanModal.re.mjs:394
-#~ msgid "Host an event"
-#~ msgstr "主辦活動"
-
-#: src/components/organisms/NewPlanModal.re.mjs:424
-#~ msgid "Hosting an event needs exactly one time window — pick one."
-#~ msgstr "主辦活動需要恰好一個時間段——請選擇一個。"
-
-#: src/components/organisms/ProfileModal.re.mjs:485
-#~ msgid "How other players will see you"
-#~ msgstr "其他球員看到您的方式"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:746
-#~ msgid "Include whatever details you know"
-#~ msgstr "知道多少就填多少"
-
-#: src/components/shared/InstallPwa.re.mjs:395
-#: src/components/shared/InstallPwa.re.mjs:467
-#~ msgid "Install Racquet League"
-#~ msgstr "安裝 Racquet League"
-
-#: src/components/molecules/LevelPicker.re.mjs:32
-#~ msgid "Intermediate"
-#~ msgstr "中級"
-
-#: src/components/molecules/LevelPicker.re.mjs:37
-#~ msgid "Intermediate+"
-#~ msgstr "中級+"
-
-#: src/components/organisms/ProfileModal.re.mjs:314
-#~ msgid "Keep your player profile accurate and useful to the community."
-#~ msgstr "保持您的球員個人資料準確且對社群有用。"
-
-#: src/components/organisms/ProfileModal.re.mjs:547
-#~ msgid "Level"
-#~ msgstr "等級"
-
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
-#~ msgid "Long opening"
-#~ msgstr "長時間開放"
-
-#: src/components/organisms/ProfileModal.re.mjs:502
-#~ msgid "Male"
-#~ msgstr "男性"
-
-#: src/components/organisms/NewPlanModal.re.mjs:356
-#~ msgid "Mark available"
-#~ msgstr "標記為有空"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-#~ msgid "Match my time"
-#~ msgstr "配合我的時間"
-
-#: src/components/organisms/NewPlanModal.re.mjs:86
-#~ msgid "Morning"
-#~ msgstr "上午"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:503
-#~ msgid "Move start and end to daytime hours"
-#~ msgstr "將開始與結束時間移至日間時段"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:503
-#~ msgid "Move start and end to nighttime hours"
-#~ msgstr "將開始與結束時間移至夜間時段"
-
-#: src/components/organisms/NavViewer.re.mjs:65
-#~ msgid "My Clubs"
-#~ msgstr "我的俱樂部"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:452
-#~ msgid "nighttime"
-#~ msgstr "夜間"
-
-#: src/components/organisms/ProfileModal.re.mjs:583
-#~ msgid "Not now"
-#~ msgstr "暫不設定"
-
-#: src/components/molecules/DuprRatingBadge.re.mjs:26
-#~ msgid "NR"
-#~ msgstr "NR"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-#~ msgid "open"
-#~ msgstr "開放"
-
-#: src/components/molecules/RatingSourceChip.re.mjs:25
-#~ msgid "pkuru"
-#~ msgstr "pkuru"
-
-#: src/components/molecules/LevelPicker.re.mjs:47
-#~ msgid "Pro"
-#~ msgstr "專業"
-
-#: src/components/molecules/DuprRatingBadge.re.mjs:37
-#: src/components/molecules/RatingSourceChip.re.mjs:50
-#~ msgid "provisional"
-#~ msgstr "暫定"
-
-#: src/components/pages/PkuruLayout.re.mjs:190
-#~ msgid "Rankings"
-#~ msgstr "排名"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1391
-#~ msgid "Require payment from attendees"
-#~ msgstr "要求參與者付款"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:780
-#~ msgid "Reset"
-#~ msgstr "重置"
-
-#: src/components/organisms/NewPlanModal.re.mjs:372
-#~ msgid "Save"
-#~ msgstr "儲存"
-
-#: src/components/organisms/ProfileModal.re.mjs:597
-#~ msgid "Save profile"
-#~ msgstr "儲存個人資料"
-
-#: src/components/pages/PkuruLayout.re.mjs:250
-#~ msgid "Search events, venues, hosts..."
-#~ msgstr "搜尋活動、場館、主持人..."
-
-#: src/components/organisms/NewPlanModal.re.mjs:416
-#~ msgid "Select exactly one time window to host an event"
-#~ msgstr "請選擇恰好一個時間段來主辦活動"
-
-#: src/components/molecules/RatingSourceChip.re.mjs:37
-#~ msgid "Self-rated"
-#~ msgstr "自評"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:758
-#~ msgid "Send"
-#~ msgstr "傳送"
-
-#: src/components/organisms/NavViewer.re.mjs:77
-#~ msgid "Settings"
-#~ msgstr "設定"
-
-#: src/components/organisms/ProfileModal.re.mjs:535
-#~ msgid ""
-#~ "Share a little about yourself so organizers or other players can see why "
-#~ "they should invite you."
-#~ msgstr "分享一些關於您自己的資訊，讓主辦人或其他球員了解為何應該邀請您。"
-
-#: src/components/molecules/DuprRatingBadge.re.mjs:69
-#~ msgid "singles"
-#~ msgstr "單打"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
-#~ msgid "Smart RSVP"
-#~ msgstr "智慧報名"
-
-#: src/components/molecules/ClockRangePicker.re.mjs:447
-#~ msgid "start time"
-#~ msgstr "開始時間"
-
-#: src/components/molecules/NotificationsPreview.re.mjs:332
-#~ msgid "Status Update"
-#~ msgstr "狀態更新"
-
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-#~ msgid "Tap anywhere to add a time window"
-#~ msgstr "點擊任意處以新增時間段"
-
-#: src/components/organisms/NewPlanModal.re.mjs:363
-#~ msgid ""
-#~ "Tell others you're down to play. Players with overlapping times can "
-#~ "invite you."
-#~ msgstr "告訴其他人你有意願打球，時間重疊的球員可以邀請你。"
-
-#: src/components/organisms/ProfileModal.re.mjs:
-#~ msgid "That doesn't look like an email address."
-#~ msgstr "這看起來不像電子郵件地址。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:785
-#~ msgid ""
-#~ "The participation fee is charged automatically and transferred to your "
-#~ "Stripe account."
-#~ msgstr "參與費用將自動收取並轉入您的 Stripe 帳戶。"
-
-#: src/components/organisms/NewPlanModal.re.mjs:55
-#~ msgid "Today"
-#~ msgstr "今天"
-
-#: src/components/organisms/NewPlanModal.re.mjs:51
-#~ msgid "Tomorrow"
-#~ msgstr "明天"
-
 #: src/components/organisms/ProfileModal.re.mjs:308
 #~ msgid "We need a few details before you can join this event"
 #~ msgstr "在您參加此活動之前，我們需要一些資訊"
@@ -1602,14 +1517,34 @@ msgstr "你可以在轉寄的郵件中附上其他活動細節，例如等級、
 #~ msgid "We’ll turn your description into a draft you can review and edit."
 #~ msgstr "我們會將你的描述轉為草稿，方便你檢視與編輯。"
 
+#: src/components/molecules/TimeZoneField.re.mjs:68
+msgid "West Africa Time"
+msgstr "西非時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:100
+msgid "Western Australia Time"
+msgstr "西澳時間"
+
 #: src/components/organisms/NewPlanModal.re.mjs:207
 #~ msgid "When do you want to play?"
 #~ msgstr "你想什麼時候打球？"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1177
+msgid "With a Stripe account"
+msgstr "有 Stripe 帳戶"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:773
 #~ msgid "With Stripe"
 #~ msgstr "使用 Stripe"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1155
+msgid "Without a Stripe account"
+msgstr "沒有 Stripe 帳戶"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:751
 #~ msgid "Without Stripe"
 #~ msgstr "不使用 Stripe"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:225
+msgid "You can include any additional event details like the level, max players, price, etc. in the email that you forward."
+msgstr "你可以在轉寄的郵件中附上其他活動細節，例如等級、人數上限、價格等。"
